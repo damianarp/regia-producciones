@@ -1,0 +1,293 @@
+:root {
+    --red:#ff2e63;
+    --black:#252a34;
+    --blue:#08d9d6;
+    --white:#eaeaea;
+}
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #fff;
+    overflow-x: hidden;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* Menú de Navegación */
+
+#header {
+    position: relative;
+    width: 100%;
+}
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+}
+.menu .logo-box {
+    margin-left: 20px;
+}
+.menu .logo-box h1 a {
+    text-decoration: none;
+    font-size: 35px;
+    font-weight: 400;
+    color: var(--black);
+}
+
+.menu .list-container {
+    margin-right: 20px;
+}
+
+.menu .list-container .lists {
+    display: flex;
+}
+
+.menu .list-container .lists li {
+    list-style: none;
+}
+
+.menu .list-container .lists li a {
+    text-decoration: none;
+    margin: 0px 20px;
+    padding: 8px;
+    color: var(--black);
+    border-radius: 24px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+.menu .list-container .lists li a.activo {
+    background: var(--red);
+    color: #fff;
+} 
+
+.menu .list-container .lists li a:hover {
+    background: var(--red);
+    color: #fff;
+} 
+
+.btn-menu > .fa-bars {
+    display: none;
+}
+
+
+
+/* IMG Header */
+.img-header {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url(../img/header-2.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.img-header .welcome {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.img-header .welcome h1 {
+    font-size: 50px;
+    color: #fff;
+    font-weight: 200;
+    margin-bottom: 50px;
+}
+
+.img-header .welcome hr {
+    width: 536px;
+    height: 2px;
+    background: #fff;
+    border: none;
+    margin-top: 5px;
+}
+
+.img-header .welcome p {
+    font-size: 30px;
+    text-align: center;
+    color: #fff;
+    margin-top: 50px;
+    width: 536px;
+}
+
+.img-header .welcome > button {
+    width: 170px;
+    height: 40px;
+    background: var(--red);
+    border-radius: 24px;
+    border: none;
+    outline: none;
+    font-size: 22px;
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.img-header .welcome > button:hover {
+    background: var(--blue);
+}
+
+
+/* Acerca de Nosotros */
+.acerca-de {
+    width: 100%;
+    margin-top: 120px;
+}
+
+.acerca-de .info-container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.acerca-de .info-container h1 {
+    font-size: 50px;
+    font-weight: 400;
+    color: var(--black);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.acerca-de .info-container p {
+    text-align: center;
+    font-size: 17px;
+    color: var(--black);
+    line-height: 35px;
+    margin: 10px 0px;
+}
+
+.acerca-de .info-container .about-gallery {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 50px 0px;
+}
+
+.acerca-de .info-container .about-gallery img {
+    width: calc(33.33% - 10px);
+    height: 300px;
+    object-fit: cover;
+    margin: 10px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.acerca-de .info-container .about-more {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.acerca-de .info-container .about-more button {
+    width: 120px;
+    height: 40px;
+    background: var(--red);
+    border-radius: 24px;
+    border: none;
+    outline: none;
+    font-size: 22px;
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.acerca-de .info-container .about-more button:hover {
+    background: var(--blue);
+} 
+
+
+/* Nuestros Proyectos */
+
+.our-projects {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url(../img/img-2.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    margin-top: 100px;
+}
+
+.our-projects .deg-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+}
+
+.our-projects .ejeZproject {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.our-projects .container-project {
+    width: 90%;
+    margin: auto;
+    padding-top: 100px;
+}
+
+.our-projects .container-project .project-title {
+    border: 2px solid #fff;
+    padding: 10px;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+}
+
+.our-projects .container-project .project-title h2 {
+    font-size: 40px;
+    color: #fff;
+    font-weight: normal;
+}
+
+.our-projects .container-project .project-title hr {
+    background: #fff;
+    width: 55%;
+    margin: 10px auto;
+}
+
+.our-projects .container-project .project-img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 80px;
+    padding-bottom: 100px;
+}
+
+.our-projects .container-project .project-img img {
+    width: calc(30% - 10px);
+    margin: 10px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+}
