@@ -309,6 +309,28 @@ body {
     cursor: pointer;
 }
 
+/* Mapa */
+
+.ubicacion {
+    width: 100%;
+    margin-top: 120px;
+}
+
+.ubicacion h2 {
+    width: 50%;
+    font-size: 50px;
+    color: var(--black);
+    font-weight: normal;
+    margin-bottom: 20px;
+    margin: auto;
+    text-align: center;
+}
+
+.mapa {
+    height: 420px;
+    margin-top: 20px;
+}
+
 
 /* Testimonios */
 
