@@ -158,7 +158,7 @@ body {
     text-align: center;
     margin-top: 20px;
     cursor: pointer;
-    transition: 0.5s;
+    transition: all 0.5s ease;
 }
 
 .img-header .welcome > button:hover {
@@ -438,7 +438,6 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
 }
 
 .newsletter .contenido {
@@ -456,8 +455,6 @@ body {
     width: 350px;
     margin: 20px;
     object-fit: cover;
-    
-
 }
 
 .button .transparente {
@@ -478,13 +475,79 @@ body {
     margin-top: 20px;
     padding: 10px;
     cursor: pointer;
-    transition: all 0.5s ease;
-    
-    
-    
+    transition: all 0.5s ease;  
 }
 
 .button:hover {
     background: var(--red);
     border: 2px solid #ff2e63;
+}
+
+
+
+/* Footer */
+
+footer {
+    background-color: var(--black);
+    color: white;
+    overflow: hidden;
+    
+    
+}
+
+footer .footer-container{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+footer .footer-container img {
+    left: 0px;
+    width: 100px;
+    vertical-align: middle;
+    
+    
+}
+
+footer .redes-sociales {
+    margin-top: 20px;
+    text-align: center;
+}
+
+footer .redes-sociales h3 {
+    margin-bottom: 10px;
+}
+
+footer .redes-sociales h3 span {
+    border: 2px solid #08d9d6;
+    background-color: #08d9d6;
+    color: #252a34;
+}
+
+footer .redes-sociales a {
+    color: var(--blue);
+    font-size: 35px;
+    margin: 20px;
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+
+footer .redes-sociales a:hover {
+    color: var(--red);
+}
+
+footer hr {
+    width: 60%;
+    margin: auto;
+    height: 2px;
+    background: var(--white);
+    border: none;
+}
+
+footer p {
+    font-size: 15px;
+    text-align: center;
+    padding: 20px;
 }
