@@ -429,3 +429,62 @@ body {
 .testimonios .box-testimonios .card-testimonio .testimonio-text:hover h4 {
     color: var(--blue);
 }
+
+/* Newsletter */
+.newsletter {
+    position: relative;
+    height: auto;
+    background-image: url(../img/img-14.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.newsletter .contenido {
+    padding: 150px 0;
+    color: white;
+    text-align: center;
+}
+
+.newsletter .contenido p {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.newsletter .contenido img {
+    width: 350px;
+    margin: 20px;
+    object-fit: cover;
+    
+
+}
+
+.button .transparente {
+    background-color: transparent;
+}
+
+.button {
+    width: 170px;
+    height: 50px;
+    border-radius: 24px;
+    border: 2px solid #ffffff;
+    /* outline: none; */
+    font-size: 20px;
+    color: #fff;
+    display: inline-block;
+    justify-content: center;
+    text-decoration: none;
+    margin-top: 20px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    
+    
+    
+}
+
+.button:hover {
+    background: var(--red);
+    border: 2px solid #ff2e63;
+}
