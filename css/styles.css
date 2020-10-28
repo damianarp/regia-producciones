@@ -9,12 +9,51 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
+    
 }
 
 body {
     background: #fff;
     overflow-x: hidden;
     font-family: 'Raleway', sans-serif;
+    background: rgb(255,255,255);
+    background: rgb(236,236,236);
+    background: -moz-linear-gradient(90deg, rgba(236,236,236,1) 0%, rgba(255,255,255,1) 47%, rgba(255,255,255,1) 55%, rgba(236,236,236,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(236,236,236,1) 0%, rgba(255,255,255,1) 47%, rgba(255,255,255,1) 55%, rgba(236,236,236,1) 100%);
+    background: linear-gradient(90deg, rgba(236,236,236,1) 0%, rgba(255,255,255,1) 47%, rgba(255,255,255,1) 55%, rgba(236,236,236,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f7f7f7",endColorstr="#f7f7f7",GradientType=1);
+}
+
+/* Ir arriba */
+
+.ir-arriba {
+    position: fixed;
+    bottom: 100px;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--red);
+    background: #fff;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 400ms ease;
+}
+
+.ir-arriba:hover {
+    border: 2px solid var(--white);
+    background: var(--red);
+}
+
+.ir-arriba > span {
+    font-size: 40px;
+    color: var(--black);
+}
+
+.ir-arriba:hover span {
+    color: var(--white);
 }
 
 /* Menú de Navegación */
@@ -31,18 +70,20 @@ body {
     height: 60px;
     background: #fff;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     z-index: 9999;
+    background: rgb(0,0,0);
+    background: rgb(255,255,255);
+    background: rgb(247,247,247);
+    background: -moz-linear-gradient(180deg, rgba(247,247,247,1) 0%, rgba(255,255,255,1) 47%, rgba(255,255,255,1) 55%, rgba(236,236,236,1) 100%);
+    background: -webkit-linear-gradient(180deg, rgba(247,247,247,1) 0%, rgba(255,255,255,1) 47%, rgba(255,255,255,1) 55%, rgba(236,236,236,1) 100%);
+    background: linear-gradient(180deg, rgba(247,247,247,1) 0%, rgba(255,255,255,1) 47%, rgba(255,255,255,1) 55%, rgba(236,236,236,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f7f7f7",endColorstr="#ececec",GradientType=1);
 }
-.menu .logo-box {
-    margin-left: 20px;
-}
-.menu .logo-box h1 a {
-    text-decoration: none;
-    font-size: 35px;
-    font-weight: 400;
-    color: var(--black);
+
+.menu .logo-box img {
+    width: 100px;
 }
 
 .menu .list-container {
@@ -496,7 +537,7 @@ footer {
 }
 
 footer .footer-container{
-    width: 80%;
+    width: 60%;
     margin: auto;
     display: flex;
     justify-content: space-between;
