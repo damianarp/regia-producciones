@@ -384,6 +384,22 @@ body {
     cursor: pointer;
 }
 
+.acerca-de .info-container .about-us{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 50px 0px;
+}
+
+.acerca-de .info-container .about-us img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    margin: 0 100px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
 .acerca-de .info-container .about-more {
     width: 100%;
     justify-content: center!important;
@@ -652,7 +668,7 @@ footer {
 }
 
 footer .footer-container{
-    width: 60%;
+    width: 100%;
     margin: auto;
     display: flex;
     justify-content: space-between;
@@ -663,6 +679,7 @@ footer .footer-container img {
     left: 0px;
     width: 100px;
     vertical-align: middle;
+    margin: 15px;
     
     
 }
