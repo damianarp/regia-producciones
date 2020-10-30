@@ -875,7 +875,10 @@ footer p {
         margin-bottom: 40px;
     }
 
-    
+    /* Newsletter */
+    .button {
+        font-size: 18px; 
+    }
    
     
 }
