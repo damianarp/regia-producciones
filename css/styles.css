@@ -226,7 +226,7 @@ body {
 
 
 
-/* IMG Header */
+/* Header */
 .img-header {
     position: relative;
     width: 100%;
@@ -327,7 +327,6 @@ body {
     border-radius: 24px;
     border: 2px solid var(--red);
     background-color: var(--red);
-    /* outline: none; */
     font-size: 20px;
     color: #fff;
     display: inline-block;
@@ -376,21 +375,78 @@ body {
     cursor: pointer;
 }
 
-.acerca-de .info-container .about-us{
+/* Página Nosotros */
+.box-nosotros {
+    width: 90%;
+    margin: 80px auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.box-nosotros .about-us{
     width: 100%;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     margin: 50px 0px;
+    
+}
+.box-nosotros .about-us {
+    width: 40%;
+    margin: 30px;
+}
+.box-nosotros .about-us .nosotros-img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box-nosotros .about-us .nosotros-img img { /* Tamaño de imagenes y borde redondeado */
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    margin-bottom: 30px;
+    transition: 200ms;
+}
+.box-nosotros .about-us .nosotros-img img:hover {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 10px;
+} 
+.box-nosotros .about-us .nosotros-text {
+    width: 100%;
+    border: 2px solid var(--red);
+    padding: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 200ms;
+}
+.box-nosotros .about-us .nosotros-text h4 {
+    color: var(--red);
+    font-weight: normal;
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 20px;
+    transition: 200ms;
+}
+.box-nosotros .about-us .nosotros-text:hover {
+    border: 2px solid var(--blue);
 }
 
-.acerca-de .info-container .about-us img {
-    width: 500px;
-    height: 500px;
-    object-fit: cover;
-    margin: 0 100px;
-    border-radius: 10px;
-    cursor: pointer;
+.box-nosotros .about-us .nosotros-text:hover h4 {
+    color: var(--blue);
 }
+.box-nosotros .about-us .nosotros-text p {
+    font-size: 19px;
+    text-align: center;
+    color: var(--black);
+    line-height: 30px;
+    transition: 200ms;
+}
+
 
 .acerca-de .info-container .about-more {
     width: 100%;
@@ -533,7 +589,7 @@ body {
 }
 
 .testimonios .box-testimonios .card-testimonio {
-    width: 45%;
+    width: 40%;
     margin: 30px;
 }
 
@@ -774,37 +830,15 @@ footer p {
 
     /* Header */
     .img-header {
-        position: relative;
-        width: 100%;
         height: 900px;
     }
-    
-    .img-header .video-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        
-    }
+
     .img-header .video-container video {
         padding-bottom: 70%;
     }
     
     .img-header .welcome {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
         height: 80%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
         margin-top: 100px;
     }
     .img-header .welcome img {
@@ -813,8 +847,6 @@ footer p {
     
     .img-header .welcome h1 {
         font-size: 30px;
-        color: #fff;
-        font-weight: 200px;
         margin-bottom: 30px;
     }
     
@@ -875,18 +907,25 @@ footer p {
     .testimonios {
     margin-top: 80px;
     }
-    .testimonios .box-testimonios {
-        margin-top: 20px;
-    }
     .testimonios .box-testimonios .card-testimonio {
         width: 100%;
-        margin-bottom: 40px;
     }
 
     /* Newsletter */
     .button {
         font-size: 18px; 
     }
+     /* Página Nosotros */
+    .acerca-de {
+        margin-top: 70px;
+    }
+
+    .box-nosotros {
+        margin-top: 80px;
+        }
+    .box-nosotros .about-us {
+            width: 100%;
+        }
    
     
 }
