@@ -303,12 +303,12 @@ body {
 
 
 /* Acerca de Nosotros */
-.acerca-de {
+.contenedor {
     width: 100%;
     margin-top: 120px;
 }
 
-.acerca-de .info-container {
+.contenedor .info-container {
     width: 80%;
     margin: auto;
     display: flex;
@@ -316,12 +316,12 @@ body {
     flex-direction: column;
 }
 
-.acerca-de .btn {
+.contenedor .btn {
     color: white;
     text-align: center;
 }
 
-.acerca-de .btn a {
+.contenedor .btn a {
     width: 170px;
     height: 50px;
     border-radius: 24px;
@@ -338,12 +338,12 @@ body {
     transition: all 0.5s ease;
 }
 
-.acerca-de .btn a:hover {
+.contenedor .btn a:hover {
     border: 2px solid var(--blue);
     background-color: var(--blue);
 }
 
-.acerca-de .info-container h1 {
+.contenedor .info-container h1 {
     font-size: 50px;
     font-weight: 400;
     color: var(--black);
@@ -351,7 +351,7 @@ body {
     margin-bottom: 20px;
 }
 
-.acerca-de .info-container p {
+.contenedor .info-container p {
     text-align: center;
     font-size: 17px;
     color: var(--black);
@@ -359,14 +359,14 @@ body {
     margin: 10px 0px;
 }
 
-.acerca-de .info-container .about-gallery {
+.contenedor .info-container .gallery {
     width: 100%;
     display: flex;
     justify-content: center;
     margin: 50px 0px;
 }
 
-.acerca-de .info-container .about-gallery img {
+.contenedor .info-container .gallery img {
     width: calc(33.33% - 10px);
     height: 300px;
     object-fit: cover;
@@ -448,12 +448,12 @@ body {
 }
 
 
-.acerca-de .info-container .about-more {
+.contendeor .info-container .about-more {
     width: 100%;
     justify-content: center!important;
 }
 
-.acerca-de .about-more {
+.contenedor .about-more {
     display: block;
 }
 
@@ -703,6 +703,60 @@ body {
     border: 2px solid #ff2e63;
 }
 
+/* Página Servicios */
+.contenedor .service-container {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 40px;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.contenedor .service-container h1 {
+    font-size: 50px;
+    font-weight: 400;
+    color: var(--black);
+    text-align: center;
+    margin-bottom: 20px;
+}
+.contenedor .service-container .gallery-img .card-servicio {
+    position: relative;
+    display: inline;
+    text-align: center;
+    cursor: pointer;
+}
+
+.contenedor .service-container .gallery-img .card-servicio .texto-encima {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+.contenedor .service-container .gallery-img .card-servicio .texto-encima h2 {
+    color: var(--white);
+    text-shadow: 3px 3px 15px #000;
+    font-size: 40px;
+}
+.contenedor .service-container .gallery-img .card-servicio:hover .texto-encima h2 {
+    color: var(--white);
+    text-shadow: 3px 3px 15px #000;
+    font-size: 45px;
+    transition: 200ms ease;
+}
+
+.contenedor .service-container .gallery-img {
+    margin-top: 30px;
+}
+
+.contenedor .service-container .gallery-img .card-servicio img {
+    width: calc(30% - 20px);
+    height: 300px;
+    object-fit: cover;
+    margin: 10px 10px;
+    border-radius: 10px;
+    filter: brightness(70%);
+}
 
 
 /* Footer */
@@ -711,8 +765,7 @@ footer {
     background-color: var(--black);
     color: white;
     overflow: hidden;
-    
-    
+  
 }
 
 footer .footer-container{
@@ -727,9 +780,7 @@ footer .footer-container img {
     left: 0px;
     width: 100px;
     vertical-align: middle;
-    margin: 15px;
-    
-    
+    margin: 15px; 
 }
 
 footer .redes-sociales {
@@ -774,6 +825,18 @@ footer p {
 }
 
 /* Media Queries */
+@media only screen and (max-width:1450px) {
+    .contenedor .service-container .gallery-img .card-servicio .texto-encima h2 {
+        font-size: 30px;
+    }
+    .contenedor .service-container .gallery-img .card-servicio:hover .texto-encima h2 {
+        font-size: 35px;
+    }
+    .contenedor .service-container .gallery-img .card-servicio img {
+        width: calc(40% - 20px);
+    }
+}
+
 @media only screen and (max-width: 900px) {
 
     /* Navegación */
@@ -860,7 +923,7 @@ footer p {
     }
 
     /* Acerca de */
-    .acerca-de .info-container h1 {
+    .contend .info-container h1 {
         font-size: 40px;
     }
     .acerca-de .info-container .about-gallery {
@@ -918,7 +981,11 @@ footer p {
     .box-nosotros .about-us {
             width: 100%;
         }
-   
+   /* Servicios */
+   .contenedor .service-container .gallery-img .card-servicio img {
+    width: calc(90% - 20px);
+}
+}
     
 }
 
