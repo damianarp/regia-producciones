@@ -774,14 +774,6 @@ footer p {
 }
 
 /* Media Queries */
-@media only screen and (max-width: 600px) {
-    .img-header .video-container video {
-        padding-bottom: 70%;
-    }
-    .acerca-de {
-        margin-top: 250px;
-    }
-}
 @media only screen and (max-width: 900px) {
 
     /* Navegación */
@@ -830,7 +822,7 @@ footer p {
 
     /* Header */
     .img-header {
-        height: 900px;
+        height: 1050px;
     }
 
     .img-header .video-container video {
