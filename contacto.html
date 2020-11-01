@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Creamos contenidos audiovisuales, tanto en fotografía como en video y brindamos servicios digitales como creación de páginas webs. Somos comunicadores audiovisuales">
+    <meta name="keywords" content="comunicacion digital, comunicación audiovisual, cine, creacion de contenido, desarrollo web, creacion de sitios web, agencia audiovisual, gestion de redes sociales, peliculas, videoclips, fotografía de producto">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Regia Producciones</title>
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <!-- Favicon 32x32-->
+	<link rel="icon" type="image/png" href="img/logo-r-negro32.png">
+
+	<!-- Apple -->
+	<link rel="apple-touch-icon-precomposed" href="img/logo-r-negro32.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="logo-r-negro72.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="logo-r-negro114.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="logo-r-negro144.png">
+
+    <link rel="stylesheet" href="css/normalize.css">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/styles.css">
+    <meta name="theme-color" content="#fafafa">
+    <link href="//fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+</head>
+<body>
+    <!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+
+    <!-- Ir arriba -->
+    <div class="ir-arriba">
+        <span><i class="fas fa-angle-up"></i></span>
+    </div>
+
+    <!-- Menú de Navegación -->
+    <header id="header">
+        <nav class="menu">
+            <h1 class="logo-box">
+                <a href="index.html" title="Regia Producciones"><img src="img/logo-regia-negro.png" alt="Logo de Regia Producciones"></a>
+                <span class="btn-menu"><i class="fas fa-bars"></i></span>
+            </h1>
+            <div class="list-container">
+                <ul class="lists">
+                    <li><a href="index.html" class="activo">Inicio</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="#">Proyectos</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+
+        </nav>
+
+    <!-- Contacto -->
+
+    <main>
+        <section class="contenedor">
+            <div class="info-container">
+                <div class="contenedor-img">
+                    <div class="formulario-title">
+                        <h2>Formulario de contacto</h2> 
+                    </div>
+                    <div class="formulario-content">
+                    <form id="formulario">
+                        <label for="user">Nombre: </label>
+                        <input type="text" id="user" name="user" placeholder="Ingresá tu nombre">
+
+                        <label for="apellido">Apellido: </label>
+                        <input type="text" id="apellido" name="apellido" placeholder="Ingresá tu apellido">
+
+                        <label for="email">Correo Electrónico: </label>
+                        <input type="email" id="email" name="email" placeholder="Ingresá tu correo electrónico">
+
+                        <label for="mensaje">Escribí tu mensaje: </label>
+                        <textarea name="mensaje" id="mensaje"></textarea>
+                        <div class="send"><button>Enviar</button></div>
+                        <div class="mensaje-form">
+                            <p>Dejanos tu mensaje! Con gusto te responderemos a la brevedad!</p>
+                        </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+
+    </main>
+
+    <!-- Footer -->
+
+   <footer class="site-footer">
+       <div class="footer-container clearfix">
+            <div class="footer-colaboradores">
+                <img src="img/Logo-Regia-blanco.png" alt="">
+                <img clas="damian" src="img/damianlogo.png" alt="">
+            </div>
+            <div class="redes-sociales">
+                <h3>Seguinos en nuestras <span>Redes Sociales!</span></h3>
+                <a href="https://www.facebook.com/RegiaProducciones/" target="_blank"><i class="fa fa-facebook" aria-hiden="true"></i></a>
+                <a href="https://instagram.com/regiaproducciones" target="_blank"><i class="fa fa-instagram" aria-hiden="true"></i></a>
+                <a href="https://vimeo.com/regiaproducciones" target="_blank"><i class="fa fa-vimeo-square" aria-hiden="true"></i></a>
+            </div>
+       </div>
+       <hr>
+       <p>&copy; Regia Producciones 2020 | Todos los derechos reservados.</p>
+   </footer>
+    
+
+    <!-- Scripts -->
+    <script src="js/vendor/modernizr-3.8.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+    <script src="js/plugins.js"></script>
+    <script src="https://kit.fontawesome.com/83447e3cc1.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+        window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+        ga('create', 'UA-XXXXX-Y', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+</html>
