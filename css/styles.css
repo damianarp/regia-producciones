@@ -759,7 +759,6 @@ body {
     margin: 10px 10px;
 
 }
-
 /* Página Contacto */
 .img-box {
     position: relative;
@@ -939,12 +938,17 @@ footer p {
 @media only screen and (max-width: 900px) {
 
     /* Navegación */
-    .btn-menu > .fa-bars {
+
+    .btn-menu .fa-bars {
         display: block;
         position: absolute;
+        width: 28px;
         top: 20px;
-        right: 30px;
+        right: 10px;
         font-size: 28px;
+        cursor: pointer;
+    }
+    .btn-menu .fa-bars:hover {
         cursor: pointer;
     }
     .menu .list-container {
@@ -1103,7 +1107,7 @@ footer p {
         margin: 50px auto;  
     }
 }
-    
+
 
 
 
