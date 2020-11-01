@@ -182,7 +182,9 @@ body {
     background: linear-gradient(180deg, rgba(247,247,247,1) 0%, rgba(255,255,255,1) 47%, rgba(255,255,255,1) 55%, rgba(236,236,236,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f7f7f7",endColorstr="#ececec",GradientType=1);
 }
-
+.menu .logo-box {
+    letter-spacing: -9999px;
+}
 .menu .logo-box img {
     width: 100px;
     cursor: pointer;
@@ -259,7 +261,7 @@ body {
 
 }
 
-.img-header .welcome h1 {
+.img-header .welcome h2 {
     font-size: 50px;
     color: #fff;
     font-weight: 200;
@@ -344,7 +346,7 @@ body {
     background-color: var(--blue);
 }
 
-.contenedor .info-container h1 {
+.contenedor .info-container h2 {
     font-size: 50px;
     font-weight: 400;
     color: var(--black);
@@ -425,7 +427,7 @@ body {
     cursor: pointer;
     transition: 200ms;
 }
-.box-nosotros .about-us .nosotros-text h4 {
+.box-nosotros .about-us .nosotros-text h3 {
     color: var(--red);
     font-weight: normal;
     font-size: 25px;
@@ -437,7 +439,7 @@ body {
     border: 2px solid var(--blue);
 }
 
-.box-nosotros .about-us .nosotros-text:hover h4 {
+.box-nosotros .about-us .nosotros-text:hover h3 {
     color: var(--blue);
 }
 .box-nosotros .about-us .nosotros-text p {
@@ -537,7 +539,7 @@ body {
     margin-top: 120px;
 }
 
-.ubicacion h1 {
+.ubicacion h2 {
     width: 50%;
     font-size: 50px;
     color: var(--black);
@@ -626,7 +628,7 @@ body {
     transition: 200ms;
 }
 
-.testimonios .box-testimonios .card-testimonio .testimonio-text h4 {
+.testimonios .box-testimonios .card-testimonio .testimonio-text h3 {
     color: var(--red);
     font-weight: normal;
     font-size: 25px;
@@ -647,7 +649,7 @@ body {
     border: 2px solid var(--blue);
 }
 
-.testimonios .box-testimonios .card-testimonio .testimonio-text:hover h4 {
+.testimonios .box-testimonios .card-testimonio .testimonio-text:hover h3 {
     color: var(--blue);
 }
 
@@ -713,7 +715,7 @@ body {
     flex-direction: column;
     text-align: center;
 }
-.contenedor .service-container h1 {
+.contenedor .service-container h2 {
     font-size: 50px;
     font-weight: 400;
     color: var(--black);
@@ -734,12 +736,12 @@ body {
     transform: translate(-50%, -50%);
     
 }
-.contenedor .service-container .gallery-img .card-servicio .texto-encima h2 {
+.contenedor .service-container .gallery-img .card-servicio .texto-encima h3 {
     color: var(--white);
     text-shadow: 3px 3px 15px #000;
     font-size: 40px;
 }
-.contenedor .service-container .gallery-img .card-servicio:hover .texto-encima h2 {
+.contenedor .service-container .gallery-img .card-servicio:hover .texto-encima h3 {
     color: var(--white);
     text-shadow: 3px 3px 15px #000;
     font-size: 45px;
@@ -827,10 +829,11 @@ footer p {
 
 /* Media Queries */
 @media only screen and (max-width:1450px) {
-    .contenedor .service-container .gallery-img .card-servicio .texto-encima h2 {
+    /* Servicios */
+    .contenedor .service-container .gallery-img .card-servicio .texto-encima h3 {
         font-size: 30px;
     }
-    .contenedor .service-container .gallery-img .card-servicio:hover .texto-encima h2 {
+    .contenedor .service-container .gallery-img .card-servicio:hover .texto-encima h3 {
         font-size: 35px;
     }
     .contenedor .service-container .gallery-img .card-servicio img {
@@ -924,7 +927,7 @@ footer p {
     }
 
     /* Acerca de */
-    .contenedor .info-container h1 {
+    .contenedor .info-container h2 {
         font-size: 40px;
     }
     .contenedor .info-container .gallery {
@@ -955,7 +958,7 @@ footer p {
     .ubicacion {
         margin-top: 60px;
     }
-    .ubicacion h1 {
+    .ubicacion h2 {
         font-size: 40px;
     }
 
@@ -985,10 +988,10 @@ footer p {
    /* Servicios */
    .contenedor .service-container .gallery-img .card-servicio img {
     width: calc(90% - 20px);
-}
+    }
 }
     
-}
+
 
 
 
