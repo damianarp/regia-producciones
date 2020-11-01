@@ -311,9 +311,10 @@ body {
 .contenedor .info-container {
     width: 80%;
     margin: auto;
-    display: flex;
+    margin-bottom: 40px;
     justify-content: center;
     flex-direction: column;
+    text-align: center;
 }
 
 .contenedor .btn {
@@ -360,10 +361,10 @@ body {
 }
 
 .contenedor .info-container .gallery {
-    width: 100%;
+    position: relative;
     display: flex;
-    justify-content: center;
-    margin: 50px 0px;
+    text-align: center;
+    cursor: pointer;
 }
 
 .contenedor .info-container .gallery img {
@@ -923,18 +924,18 @@ footer p {
     }
 
     /* Acerca de */
-    .contend .info-container h1 {
+    .contenedor .info-container h1 {
         font-size: 40px;
     }
-    .acerca-de .info-container .about-gallery {
+    .contenedor .info-container .gallery {
         margin: 0px 0px;
         flex-direction: column;
     }
     
-    .acerca-de .info-container .about-gallery img {
+    .contenedor .info-container .gallery img {
         width: calc(100% - 10px);
     }
-    .acerca-de .btn a {
+    .contenedor .btn a {
         font-size: 18px;
     }
 
