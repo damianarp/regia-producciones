@@ -1,6 +1,6 @@
 (function() {
 
-    // "use strict";
+    "use strict";
 
 
     
@@ -22,7 +22,7 @@
         ////////////////////////// Menú Hamburguesa ////////////////////////////////////
         let btnMenu = document.querySelector('.btn-menu');
         let menu = document.querySelector('.list-container');
-        let containerMenu = document.querySelector('.menu');
+        let containerMenu = document.getElementById('menu');
         let activador = true;
 
         btnMenu.addEventListener('click', () => {
@@ -60,19 +60,36 @@
         });  
         
         ///////////////////// Efectos Scroll ////////////////////
-        var ubicacionPrincipal = window.pageYOffset;
+        let ubicacionPrincipal = window.pageYOffset;
+        let goTop = document.querySelector('.ir-arriba'); 
+
         window.onscroll = function() {
-            var desplazamientoActual = window.pageYOffset;
+            let desplazamientoActual = window.pageYOffset;
 
             // Mostrar y ocultar menú
             if(ubicacionPrincipal > desplazamientoActual) {
-                document.getElementById('menu').style.top = '0';
-                document.getElementById('menu').style.transition = "0.5s";
+                containerMenu.style.top = '0';
+                containerMenu.style.transition = "0.4s ease-in-out";
             } else {
-                document.getElementById('menu').style.top = '-60px';
-                document.getElementById('menu').style.transition = "0.5s";
+                containerMenu.style.top = '-60px';
+                containerMenu.style.transition = "0.4s ease-in-out";
             }
             ubicacionPrincipal = desplazamientoActual;
+
+            ////////////// Mostrar y ocultar Scroll Estilos ///////////
+            let arriba = window.pageYOffset;
+            let botonArriba = window.pageYOffset;
+            if(arriba <= 600) {
+                containerMenu.style.borderBottom = "none";
+
+                goTop.style.right = "-100%";
+            } else {
+                containerMenu.style.borderBottom = "3px solid #ff2e63";
+
+                goTop.style.transition = "0.9s ease-in-out";
+                goTop.style.right = "0px";
+               
+            }
         };
     });
      

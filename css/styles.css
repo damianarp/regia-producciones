@@ -137,27 +137,25 @@ p {
 .ir-arriba {
     position: fixed;
     bottom: 100px;
-    right: 0;
+    right: -100%;
     width: 50px;
     height: 50px;
-    border: 2px solid var(--red);
-    background: #fff;
+    background: var(--red);
     z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: all 400ms ease;
+    transition: all 200ms ease;
 }
 
 .ir-arriba:hover {
-    border: 2px solid var(--white);
-    background: var(--red);
+    background: var(--blue);
 }
 
 .ir-arriba > span {
     font-size: 40px;
-    color: var(--black);
+    color: var(--white);
 }
 
 .ir-arriba:hover span {
