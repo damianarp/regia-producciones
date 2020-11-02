@@ -23,6 +23,7 @@
         let btnMenu = document.querySelector('.btn-menu');
         let menu = document.querySelector('.list-container');
         let containerMenu = document.getElementById('menu');
+        let footer = document.querySelector('footer');
         let activador = true;
 
         btnMenu.addEventListener('click', () => {
@@ -62,6 +63,7 @@
         ///////////////////// Efectos Scroll ////////////////////
         let ubicacionPrincipal = window.pageYOffset;
         let goTop = document.querySelector('.ir-arriba'); 
+        let ubicacionFooter = window.pageYOffset;
 
         window.onscroll = function() {
             let desplazamientoActual = window.pageYOffset;
@@ -76,9 +78,23 @@
             }
             ubicacionPrincipal = desplazamientoActual;
 
+            ///////////// Desplazamiento footer Mobile ////////
+            let desplazamientoFooter = window.pageYOffset;
+
+            // Mostrar y ocultar Footer
+            if(ubicacionFooter >= 2200) {
+                footer.style.bottom = '0';
+                footer.style.transition = "0.4s ease-in-out";
+            } else {
+                footer.style.bottom = '-100px';
+                footer.style.transition = "0.4s ease-in-out";
+            }
+            ubicacionFooter = desplazamientoFooter;
+            
+
             ////////////// Mostrar y ocultar Scroll Estilos ///////////
             let arriba = window.pageYOffset;
-            let botonArriba = window.pageYOffset;
+
             if(arriba <= 600) {
                 containerMenu.style.borderBottom = "none";
 
