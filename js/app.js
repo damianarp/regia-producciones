@@ -67,8 +67,10 @@
             // Mostrar y ocultar menú
             if(ubicacionPrincipal > desplazamientoActual) {
                 document.getElementById('menu').style.top = '0';
+                document.getElementById('menu').style.transition = "0.5s";
             } else {
                 document.getElementById('menu').style.top = '-60px';
+                document.getElementById('menu').style.transition = "0.5s";
             }
             ubicacionPrincipal = desplazamientoActual;
         };
