@@ -88,9 +88,15 @@
 
                 goTop.style.transition = "0.9s ease-in-out";
                 goTop.style.right = "0px";
-               
             }
         };
+
+        ////////////// Click en boton Ir Arriba //////////////
+        goTop.addEventListener('click', () => {
+            document.body.scrollTop = 0; // Para Safari
+            document.documentElement.scrollTop = 0; //Para otros navegadores
+
+        });
     });
      
 })();

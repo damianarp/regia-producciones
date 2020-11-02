@@ -15,6 +15,7 @@
     color: #222;
     font-size: 1em;
     line-height: 1.4;
+    scroll-behavior: smooth;
   }
   
   /*
@@ -289,22 +290,24 @@ p {
     width: 60%;
 }
 
-.img-header .welcome > button {
+.img-header .welcome > a {
     width: 170px;
     height: 40px;
+    padding-top: 5px ;
     background: var(--red);
     border-radius: 24px;
     border: none;
     outline: none;
     font-size: 22px;
     color: #fff;
+    text-decoration: none;
     text-align: center;
     margin-top: 50px;
     cursor: pointer;
     transition: all 0.5s ease;
 }
 
-.img-header .welcome > button:hover {
+.img-header .welcome > a:hover {
     background: var(--blue);
 }
 
@@ -312,7 +315,7 @@ p {
 /* Acerca de Nosotros */
 .contenedor {
     width: 100%;
-    margin-top: 120px;
+    padding-top: 100px;
 }
 
 .contenedor .info-container {
