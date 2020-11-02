@@ -949,7 +949,11 @@ footer p {
         cursor: pointer;
     }
     .btn-menu .fa-bars:hover {
-        cursor: pointer;
+        color: var(--red);
+        transition: 0.3s ease-in-out;
+    }
+    .btn-menu .fa-times {
+        color: var(--red);
     }
     .menu .list-container {
         position: absolute;
