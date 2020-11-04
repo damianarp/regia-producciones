@@ -1,19 +1,19 @@
-(function() {
+(function () {
 
     "use strict";
 
 
-    
-    document.addEventListener('DOMContentLoaded', function(){
+
+    document.addEventListener('DOMContentLoaded', function () {
 
         ////////////////// Mapa con LeafletJS ////////////////////////////////////////
-        if(document.querySelector('.mapa')) {
+        if (document.querySelector('.mapa')) {
             var map = L.map('mapa').setView([-34.903569, -57.971621], 14);
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(map);
-    
+
             L.marker([-34.903569, -57.971621]).addTo(map)
                 .bindPopup('Regia Producciones <br> Agencia de Contenidos Audiovisuales')
                 .openPopup();
@@ -29,8 +29,8 @@
         btnMenu.addEventListener('click', () => {
 
             document.querySelector('.btn-menu i').classList.toggle('fa-times');
-            
-            if(activador) {
+
+            if (activador) {
                 menu.style.left = "0";
                 menu.style.transition = "0.5s";
 
@@ -58,44 +58,23 @@
 
                 event.target.classList.add('activo');
             });
-        });  
-        
+        });
+
         ///////////////////// Efectos Scroll ////////////////////
         let ubicacionPrincipal = window.pageYOffset;
-        let goTop = document.querySelector('.ir-arriba'); 
+        let goTop = document.querySelector('.ir-arriba');
         let ubicacionFooter = window.pageYOffset;
 
-        window.onscroll = function() {
-            // let desplazamientoActual = window.pageYOffset;
-
-            // // Mostrar y ocultar menú
-            // if(ubicacionPrincipal > desplazamientoActual) {
-            //     containerMenu.style.top = '0';
-            //     containerMenu.style.transition = "0.4s ease-in-out";
-            // } else {
-            //     containerMenu.style.top = '-60px';
-            //     containerMenu.style.transition = "0.4s ease-in-out";
-            // }
-            // ubicacionPrincipal = desplazamientoActual;
+        window.onscroll = function () {
 
             ///////////// Desplazamiento footer Mobile ////////
             let desplazamientoFooter = window.pageYOffset;
 
-            // Mostrar y ocultar Footer
-            if(ubicacionFooter >= 500) {
-                footer.style.bottom = '0';
-                footer.style.transition = "0.4s ease-in-out";
-            } else {
-                footer.style.bottom = '-100px';
-                footer.style.transition = "0.4s ease-in-out";
-            }
-            ubicacionFooter = desplazamientoFooter;
-            
-
+    
             ////////////// Mostrar y ocultar Scroll Estilos ///////////
             let arriba = window.pageYOffset;
 
-            if(arriba <= 600) {
+            if (arriba <= 600) {
                 containerMenu.style.borderBottom = "none";
 
                 goTop.style.right = "-100%";
@@ -107,12 +86,42 @@
             }
         };
 
-        ////////////// Click en boton Ir Arriba //////////////
-        goTop.addEventListener('click', () => {
-            document.body.scrollTop = 0; // Para Safari
-            document.documentElement.scrollTop = 0; //Para otros navegadores
 
-        });
+        //////////////// Scroll Para iOS /////////////
+        $('a[href*="#"]')
+            // Remove links that don't actually link to anything
+            .not('[href="#"]')
+            .not('[href="#0"]')
+            .click(function (event) {
+                // On-page links
+                if (
+                    location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
+                    location.hostname == this.hostname
+                ) {
+                    // Figure out element to scroll to
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    // Does a scroll target exist?
+                    if (target.length) {
+                        // Only prevent default if animation is actually gonna happen
+                        event.preventDefault();
+                        $('html, body').animate({
+                            scrollTop: target.offset().top
+                        }, 1000, function () {
+                            // Callback after animation
+                            // Must change focus!
+                            var $target = $(target);
+                            $target.focus();
+                            if ($target.is(":focus")) { // Checking if the target was focused
+                                return false;
+                            } else {
+                                $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                                $target.focus(); // Set focus again
+                            };
+                        });
+                    }
+                }
+            });
     });
-     
+
 })();
