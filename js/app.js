@@ -66,23 +66,23 @@
         let ubicacionFooter = window.pageYOffset;
 
         window.onscroll = function() {
-            let desplazamientoActual = window.pageYOffset;
+            // let desplazamientoActual = window.pageYOffset;
 
-            // Mostrar y ocultar menú
-            if(ubicacionPrincipal > desplazamientoActual) {
-                containerMenu.style.top = '0';
-                containerMenu.style.transition = "0.4s ease-in-out";
-            } else {
-                containerMenu.style.top = '-60px';
-                containerMenu.style.transition = "0.4s ease-in-out";
-            }
-            ubicacionPrincipal = desplazamientoActual;
+            // // Mostrar y ocultar menú
+            // if(ubicacionPrincipal > desplazamientoActual) {
+            //     containerMenu.style.top = '0';
+            //     containerMenu.style.transition = "0.4s ease-in-out";
+            // } else {
+            //     containerMenu.style.top = '-60px';
+            //     containerMenu.style.transition = "0.4s ease-in-out";
+            // }
+            // ubicacionPrincipal = desplazamientoActual;
 
             ///////////// Desplazamiento footer Mobile ////////
             let desplazamientoFooter = window.pageYOffset;
 
             // Mostrar y ocultar Footer
-            if(ubicacionFooter >= 2200) {
+            if(ubicacionFooter >= 500) {
                 footer.style.bottom = '0';
                 footer.style.transition = "0.4s ease-in-out";
             } else {
