@@ -181,7 +181,6 @@ p {
 }
 
 /* Menú de Navegación */
-
 #header {
     position: relative;
     width: 100%;
@@ -983,7 +982,7 @@ footer .legales a {
     }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 798px) {
 
     /* Navegación */
     .menu {
@@ -1230,7 +1229,7 @@ footer .legales a {
         width: 28%;
     }
     .newsletter .contenido img {
-        width: 400px%;
+        width: 300px;
         object-fit: cover;
 
     }
@@ -1254,7 +1253,6 @@ footer .legales a {
     }
     .contenedor .info-container {
         width: 100%;
-        padding-bottom: 130px;
     }
     
     .contenedor .info-container p {
@@ -1264,7 +1262,7 @@ footer .legales a {
     }
     .contenedor .info-container .box-nosotros .about-us .nosotros-text p {
         text-align: center;
-        margin: ;
+        
     }
 
    /* Servicios */
