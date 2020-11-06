@@ -119,6 +119,7 @@ body {
     background: #fff;
     overflow-x: hidden;
     font-family: 'Raleway', sans-serif;
+    flex-wrap: wrap;
 }
 h2 {
     font-weight: 500!important;
@@ -280,7 +281,7 @@ p {
     
 }
 .video-container #video{
-    width: 100%;
+    /* width: 100%; */
 }
 
 .img-header .welcome {
@@ -293,7 +294,9 @@ p {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
+}
+.img-header .welcome img {
+    width: 30%;
 }
 
 .img-header .welcome hr {
@@ -305,9 +308,11 @@ p {
 }
 
 .img-header .welcome h2 {
-    font-size: 50px;
+    font-size: 30px;
+    width: 50%;
     color: #fff;
     margin-bottom: 0px;
+    text-align: center;
 }
 
 .img-header .welcome > a {
@@ -338,6 +343,7 @@ p {
 .contenedor {
     width: 100%;
     padding-top: 100px;
+    margin-top: 200px
 }
 
 .contenedor .info-container {
@@ -550,7 +556,7 @@ p {
 }
 
 .our-projects .container-project .project-img img {
-    width: calc(30% - 10px);
+    width: 40%;
     margin: 10px;
     object-fit: cover;
     border-radius: 10px;
@@ -891,14 +897,19 @@ p {
     width: 100%;
     background-color: var(--black);
     color: white;
+    display: flex;
 }
 
 .site-footer .footer-container{
     width: 100%;
     margin: auto;
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
     padding: 30px;
+}
+.site-footer .footer-container .colaboradores {
+    width: 50%;
 }
 
 .site-footer .footer-container img {
@@ -911,6 +922,7 @@ p {
 .site-footer .redes-sociales {
     margin-top: 20px;
     text-align: center;
+    width: 50%;
 }
 
 .site-footer .redes-sociales h3 {
@@ -948,10 +960,12 @@ p {
     text-align: center;
     padding: 20px;
     color: white;
+    width: 100%;
 }
 .site-footer .legales {
     text-align: center;
     margin-bottom: 30px;
+    width: 100%;
 }
 .site-footer .legales a {
     color: white;
@@ -962,6 +976,37 @@ p {
 /**************************************  Media Query 1450  ****************************************/
 
 @media only screen and (max-width:1450px) {
+
+    /*********** Navegacion **********/
+    .menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .menu .logo-box {
+        padding-left: 20px;
+    }
+    
+    .menu .list-container .lists li a {
+        margin: 10px;
+        float: right;
+    }
+
+    /*********** Header *************/
+    .video-container #video{
+        width: 100%;
+    }
+    .img-header .welcome h2 {
+        text-align: center;
+        width: 50%;
+    }
+
+    /*********** Acerca de *************/
+    .contenedor {
+        padding-top: 0px;
+        margin-top: 0px
+    }
+
     /*********** Servicios **********/
     .contenedor .service-container .gallery-img .card-servicio .texto-encima h3 {
         font-size: 30px;
@@ -974,9 +1019,22 @@ p {
     }
 }
 
-/**************************************  Media Query 798  ****************************************/
+/**************************************  Media Query 1070  ****************************************/
 
-@media only screen and (max-width: 798px) {
+.img-header .welcome img {
+    width: 30%;
+}
+.img-header .welcome h2 {
+    
+    width: 50%;
+}
+.img-header .welcome hr {
+    margin-top: 20px;
+}
+
+/**************************************  Media Query 850  ****************************************/
+
+@media only screen and (max-width: 850px) {
 
     /************** Navegación ***************/
     .menu {
@@ -988,7 +1046,7 @@ p {
         margin-left: 10px;
     }
     .menu .logo-box img {
-        width: 20%;
+        width: 10%;
     }
     .btn-menu .fa-bars {
         display: block;
@@ -1067,14 +1125,14 @@ p {
         align-items: center;
     }
     .img-header .welcome img {
-        width: 70%;
+        width: 50%;
 
     }
     
     .img-header .welcome h2 {
         font-size: 20px;
         margin-bottom: 35px;
-        width: 80%;
+        width: 30%;
     }
     
     .img-header .welcome hr {
@@ -1106,6 +1164,9 @@ p {
     }
 
     /************* Acerca de **************/
+    .contenedor {
+        padding-top: 60px;
+    }
     .contenedor .box-nosotros {
         padding-bottom: 50px;
     }
@@ -1334,6 +1395,8 @@ p {
         justify-content: space-between;
         padding: 0 40px;
         margin-top: 10px;
+        margin: auto;
+
     }
     .site-footer .footer-container .redes-sociales h3 {
         display: none;
@@ -1356,6 +1419,40 @@ p {
         margin: 10px;
         font-size: 10px;
         text-decoration: none;
+    }.site-footer .footer-container .redes-sociales {
+        width: 100%;
+        padding: 0 150px;
+    }
+}
+
+/**************************************  Media Query 630  ****************************************/
+
+@media only screen and (max-width: 630px) {
+    .menu .logo-box img {
+        width: 15%;
+    }
+    .img-header .welcome img {
+        width: 50%;
+    }
+    .img-header .welcome h2 {
+        font-size: 15px;
+        margin-bottom: 35px;
+        width: 60%;
+    }
+    .img-header .welcome > a {
+        font-size: 15px;
+        padding-top: 10px
+    }
+    .site-footer .footer-container .redes-sociales {
+        width: 100%;
+        padding: 0px 50px;
+    }
+}
+/**************************************  Media Query 430  ****************************************/
+
+@media only screen and (max-width: 430px) {
+    .menu .logo-box img {
+        width: 20%;
     }
 }
 
