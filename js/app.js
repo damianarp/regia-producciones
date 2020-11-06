@@ -79,7 +79,7 @@
 
                 goTop.style.right = "-100%";
             } else {
-                containerMenu.style.borderBottom = "3px solid #ff2e63";
+                containerMenu.style.borderBottom = "3px solid #000000";
 
                 goTop.style.transition = "0.9s ease-in-out";
                 goTop.style.right = "0px";

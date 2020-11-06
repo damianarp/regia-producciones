@@ -16,6 +16,7 @@
     font-size: 1em;
     line-height: 1.4;
     scroll-behavior: smooth;
+
   }
   
   /*
@@ -101,9 +102,9 @@
   
 
 :root {
-    --red:#ff2e63;
+    --red:#000000;
     --black:#252a34;
-    --blue:#08d9d6;
+    --blue:#eeae00;
     --white:#eaeaea;
 }
 
@@ -118,6 +119,9 @@ body {
     background: #fff;
     overflow-x: hidden;
     font-family: 'Raleway', sans-serif;
+}
+h2 {
+    font-weight: 500!important;
 }
 
 p {
@@ -292,13 +296,6 @@ p {
 
 }
 
-.img-header .welcome h2 {
-    font-size: 50px;
-    color: #fff;
-    font-weight: 400;
-    margin-bottom: 50px;
-}
-
 .img-header .welcome hr {
     width: 33%;
     height: 2px;
@@ -307,25 +304,23 @@ p {
     margin-top: 50px;
 }
 
-.img-header .welcome p {
-    font-size: 30px;
-    text-align: center;
+.img-header .welcome h2 {
+    font-size: 50px;
     color: #fff;
-    margin-top: 10px;
-    width: 60%;
-    font-weight: 400;
+    margin-bottom: 0px;
 }
 
 .img-header .welcome > a {
     width: 170px;
     height: 40px;
     padding-top: 5px ;
-    background: var(--red);
+    background: var(--blue);
+    border: 2px solid var(--red);
     border-radius: 24px;
     border: none;
     outline: none;
     font-size: 22px;
-    color: #fff;
+    color: var(--black);
     text-decoration: none;
     text-align: center;
     margin-top: 50px;
@@ -334,7 +329,8 @@ p {
 }
 
 .img-header .welcome > a:hover {
-    background: var(--blue);
+    background: var(--black);
+    /* border: 2px solid var(--blue); */
 }
 
 
@@ -382,7 +378,6 @@ p {
 
 .contenedor .info-container h2 {
     font-size: 30px!important;
-    font-weight: 400;
     color: var(--black);
     text-align: center;
     margin-bottom: 30px;
@@ -462,7 +457,7 @@ p {
     transition: 200ms;
 }
 .box-nosotros .about-us .nosotros-text h3 {
-    color: var(--red);
+    color: var(--blue);
     font-weight: normal;
     font-size: 25px;
     text-align: center;
@@ -515,7 +510,7 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.);
 }
 
 .our-projects .ejeZproject {
@@ -541,7 +536,6 @@ p {
 .our-projects .container-project .project-title h2 {
     font-size: 40px;
     color: #fff;
-    font-weight: normal;
 }
 
 .our-projects .container-project .project-title hr {
@@ -578,7 +572,6 @@ p {
     width: 50%;
     font-size: 50px;
     color: var(--black);
-    font-weight: normal;
     margin-bottom: 20px;
     margin: auto;
     text-align: center;
@@ -606,7 +599,6 @@ p {
 .testimonios .testimonios-title h2 {
     font-size: 50px;
     color: var(--black);
-    font-weight: normal;
 }
 
 .testimonios .testimonios-title hr {
@@ -739,7 +731,7 @@ p {
 
 .button:hover {
     background: var(--red);
-    border: 2px solid #ff2e63;
+    border: 2px solid var(--blue);
 }
 
 /* Página Servicios */
@@ -753,7 +745,6 @@ p {
 }
 .contenedor .service-container h2 {
     font-size: 50px;
-    font-weight: 400;
     color: var(--black);
     text-align: center;
     margin-bottom: 20px;
@@ -824,7 +815,7 @@ p {
     width: 60%;
     background: #fff;
     border-radius: 24px;
-    border: 2px solid var(--red);
+    border: 2px solid var(--blue);
     padding-top: 30px;
     margin: 50px auto;  
 }
@@ -844,7 +835,7 @@ p {
     width: 80%;
     height: 40px;
     margin: auto;
-    border: 2px solid var(--red);
+    border: 2px solid var(--blue);
     border-radius: 24px;
     outline: none;
     text-align: center;
@@ -855,7 +846,7 @@ p {
     width: 80%;
     height: 200px;
     margin: auto;
-    border: 2px solid var(--red);
+    border: 2px solid var(--blue);
     border-radius: 24px;
     outline: none;
     font-size: 15px;
@@ -896,14 +887,14 @@ p {
 
 /* Footer */
 
-footer {
+.site-footer {
     position: relative;
     width: 100%;
     background-color: var(--black);
     color: white;
 }
 
-footer .footer-container{
+.site-footer .footer-container{
     width: 100%;
     margin: auto;
     display: flex;
@@ -911,29 +902,29 @@ footer .footer-container{
     padding: 30px;
 }
 
-footer .footer-container img {
+.site-footer .footer-container img {
     left: 0px;
     width: 100px;
     vertical-align: middle;
     margin: 15px; 
 }
 
-footer .redes-sociales {
+.site-footer .redes-sociales {
     margin-top: 20px;
     text-align: center;
 }
 
-footer .redes-sociales h3 {
+.site-footer .redes-sociales h3 {
     margin-bottom: 10px;
 }
 
-footer .redes-sociales h3 span {
-    border: 2px solid #08d9d6;
-    background-color: #08d9d6;
+.site-footer .redes-sociales h3 span {
+    border: 2px solid var(--blue);
+    background-color: var(--blue);
     color: #252a34;
 }
 
-footer .redes-sociales a {
+.site-footer .redes-sociales a {
     color: var(--blue);
     font-size: 35px;
     margin: 20px;
@@ -941,11 +932,11 @@ footer .redes-sociales a {
     transition: all 200ms ease;
 }
 
-footer .redes-sociales a:hover {
+.site-footer .redes-sociales a:hover {
     color: var(--red);
 }
 
-footer hr {
+.site-footer hr {
     width: 60%;
     margin: auto;
     height: 2px;
@@ -953,24 +944,26 @@ footer hr {
     border: none;
 }
 
-footer p {
+.site-footer p {
     font-size: 15px;
     text-align: center;
     padding: 20px;
     color: white;
 }
-footer .legales {
+.site-footer .legales {
     text-align: center;
     margin-bottom: 30px;
 }
-footer .legales a {
+.site-footer .legales a {
     color: white;
     margin: 20px;
 }
 
 /* Media Queries */
+/**************************************  Media Query 1450  ****************************************/
+
 @media only screen and (max-width:1450px) {
-    /* Servicios */
+    /*********** Servicios **********/
     .contenedor .service-container .gallery-img .card-servicio .texto-encima h3 {
         font-size: 30px;
     }
@@ -982,9 +975,11 @@ footer .legales a {
     }
 }
 
+/**************************************  Media Query 798  ****************************************/
+
 @media only screen and (max-width: 798px) {
 
-    /* Navegación */
+    /************** Navegación ***************/
     .menu {
         display: flex;
         justify-content: space-between; 
@@ -1010,7 +1005,7 @@ footer .legales a {
         transition: 0.3s ease-in-out;
     }
     .btn-menu .fa-times {
-        color: var(--red);
+        color: var(--blue);
     }
     .menu .list-container {
         position: absolute;
@@ -1047,7 +1042,7 @@ footer .legales a {
         color: var(--red);
     }
 
-    /* Header */
+    /*********** Header *************/
     .img-header {
         width: 100%;
     }
@@ -1079,7 +1074,7 @@ footer .legales a {
     
     .img-header .welcome h2 {
         font-size: 20px;
-        margin-bottom: 15px;
+        margin-bottom: 35px;
         width: 80%;
     }
     
@@ -1111,10 +1106,12 @@ footer .legales a {
         background: var(--blue);
     }
 
-    /* Acerca de */
+    /************* Acerca de **************/
+    .contenedor .box-nosotros {
+        padding-bottom: 50px;
+    }
     .contenedor .info-container h2 {
         font-size: 25px !important;
-        font-weight: 500;
     }
     .contenedor .info-container .gallery {
         margin: 0px 0px;
@@ -1152,7 +1149,7 @@ footer .legales a {
     }
     
 
-    /* Nuestros Proyectos */
+    /*************** Nuestros Proyectos ****************/
     .our-projects {
         background-attachment: initial;
     }
@@ -1164,7 +1161,6 @@ footer .legales a {
     }
     .our-projects .ejeZproject .container-project .project-title h2 {
         font-size: 25px !important;
-        font-weight: 500;
     }
     .our-projects .container-project .project-img {
         flex-direction: column;
@@ -1174,16 +1170,15 @@ footer .legales a {
         width: calc(100% - 10px);
     }
 
-    /* Mapa */
+    /********** Mapa *********/
     .ubicacion {
         margin-top: 60px;
     }
     .ubicacion h2 {
         font-size: 25px !important;
-        font-weight: 500;
     }
 
-    /* Testimonios */
+    /************ Testimonios ***********/
     .testimonios {
     margin-top: 80px;
     }
@@ -1192,7 +1187,6 @@ footer .legales a {
     }
     .testimonios .testimonios-title h2 {
         font-size: 25px !important;
-        font-weight: 500;
     }
     .testimonios .box-testimonios .card-testimonio {
         width: 100%;
@@ -1212,7 +1206,7 @@ footer .legales a {
         font-style: italic;
     }
 
-    /* Newsletter */
+    /*************** Newsletter **************/
     .newsletter {
         background-attachment: initial;
         margin-bottom: 100px;
@@ -1239,7 +1233,7 @@ footer .legales a {
         padding: 8px; 
     }
 
-     /* Página Nosotros */
+     /*************** Página Nosotros **************/
     .acerca-de {
         margin-top: 70px;
     }
@@ -1265,14 +1259,13 @@ footer .legales a {
         
     }
 
-   /* Servicios */
+   /************** Servicios **************/
    .contenedor .service-container {
         width: 100%;
         padding-bottom: 130px;
     }
     .contenedor .service-container h2 {
-        font-size: 25px !important;
-        font-weight: 500; 
+        font-size: 25px !important; 
     }
     .contenedor .service-container p{
         width: 80%;
@@ -1290,7 +1283,7 @@ footer .legales a {
     }
 
 
-    /* Contacto */
+    /************** Contacto *************/
     .img-box {
         height: 100%;
         background: url(../img/img-3.jpg);
@@ -1308,17 +1301,13 @@ footer .legales a {
         padding-bottom: 150px;
     }
     .contenedor .info-container .contenedor-img .formulario-content {
-        width: 80%;
-        background: #fff;
-        border-radius: 24px;
-        border: 2px solid var(--red);
-        margin: 50px auto;  
+        width: 80%;  
     }
     .mensaje-form p{
         text-align: center!important;
     }
 
-    /* Footer */
+    /************ Footer *************/
     .site-footer {
         display: flex;
         flex-direction: column;
@@ -1376,11 +1365,14 @@ footer .legales a {
         text-decoration: none;
     }
 }
+
+/**************************************  Media Query 360  ****************************************/
+
 @media only screen and (max-width: 360px) {
     html {
         width: 360px;
     }
-    /* Header */
+    /************** Header *************/
     .img-header {
         height: 97vh;
     }
@@ -1394,7 +1386,7 @@ footer .legales a {
         padding: 5px 0px;
     }
 
-    /* Acerca de Nosotros */
+    /************ Acerca de Nosotros *************/
     .contenedor .info-container h2 {
         font-size: 20px !important;
     }
@@ -1410,7 +1402,7 @@ footer .legales a {
         padding: 4px 0px 0px 0px; 
     }
 
-    /* Pagina Nosotros */
+    /************ Pagina Nosotros **********/
     .contenedor .info-container .box-nosotros {
     margin-top: 0px;
     width: 100%;
@@ -1430,13 +1422,12 @@ footer .legales a {
         line-height: 20px;
     }
 
-    /* Nuestros Proyectos */
+    /*********** Nuestros Proyectos ***********/
     .our-projects .ejeZproject .container-project .project-title h2 {
         font-size: 20px !important;
-        font-weight: 500;
     }
 
-    /* Testimonios */
+    /************* Testimonios ***********/
     .testimonios .box-testimonios .card-testimonio .testimonio-text h3 {
         font-size: 15px;
     }
@@ -1445,7 +1436,7 @@ footer .legales a {
         line-height: 16px;
     }
 
-    /* Newsletter */
+    /************ Newsletter ***********/
     .newsletter .contenido p {
         font-size: 15px;
     }
@@ -1459,7 +1450,7 @@ footer .legales a {
         width: 200px;
     }
 
-    /* Pagina Servicios */
+    /*********** Pagina Servicios **********/
     .contenedor .service-container {
         width: 100%;
         padding-bottom: 130px;
@@ -1485,7 +1476,7 @@ footer .legales a {
         font-size: 30px;
     }
 
-    /* Footer */
+    /*********** Footer ***********/
 
     .site-footer {
         height: 110px;
