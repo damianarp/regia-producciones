@@ -198,7 +198,7 @@ p {
     top: 0;
     left: 0;
     width: 100%;
-    height: 60px;
+    height: 70px;
     background: #fff;
     display: flex;
     justify-content: space-around;
@@ -221,6 +221,8 @@ p {
 .menu .logo-box img {
     width: 100px;
     cursor: pointer;
+    
+
 }
 
 .menu .list-container {
@@ -387,6 +389,7 @@ p {
     color: var(--black);
     text-align: center;
     margin-bottom: 30px;
+    margin-top: 30px;
 }
 
 .contenedor .info-container p {
@@ -972,6 +975,69 @@ p {
     margin: 20px;
 }
 
+/* Pagina Proyectos */
+.linea {
+    background: #550b51;
+    height: 5px;
+    width: 100%;
+    display: block;
+    
+}
+.galeria-proyectos {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 60%;
+    margin: auto;
+    grid-gap: 20px;
+    padding: 40px 0;
+    overflow: hidden;
+}
+.galeria-proyectos .galeria-item img {
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+    object-fit: cover;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.galeria-proyectos .galeria-item:nth-child(1) {
+    grid-row-start: span 2;
+    grid-column-start: span 3;
+}
+.galeria-proyectos .galeria-item:nth-child(2) {
+    grid-column-start: span 2;
+}
+.galeria-proyectos .galeria-item:nth-child(3) {
+    grid-column-start: span 2;
+}
+.galeria-proyectos .galeria-item:nth-child(5) {
+    grid-column-start: span 2;
+}
+.galeria-proyectos .galeria-item:nth-child(7) {
+    grid-column-start: span 2;
+}
+.galeria-proyectos .galeria-item:nth-child(4) {
+    grid-column-start: span 3;
+}
+.galeria-proyectos .galeria-item:nth-child(8) {
+    grid-column-start: span 2;
+}
+.galeria-proyectos .galeria-item:nth-child(9) {
+    grid-column-start: span 2;
+}
+.galeria-proyectos .galeria-item:nth-child(10) {
+    grid-column-start: span 3;
+}
+.galeria-proyectos .galeria-item:nth-child(11) {
+    grid-column-start: span 2;
+}
+.galeria-proyectos .galeria-item:nth-child(6) {
+    grid-row-start: span 3;
+    grid-column-start: span 3;
+}
+
+
 /* Media Queries */
 /**************************************  Media Query 1450  ****************************************/
 
@@ -987,10 +1053,10 @@ p {
         padding-left: 20px;
     }
     
-    .menu .list-container .lists li a {
+    /* .menu .list-container .lists li a {
         margin: 10px;
         float: right;
-    }
+    } */
 
     /*********** Header *************/
     .video-container #video{
@@ -1032,9 +1098,19 @@ p {
     margin-top: 20px;
 }
 
-/**************************************  Media Query 850  ****************************************/
+/********* Pagina Proyectos **********/
+.galeria-proyectos {
+    width: 100%;
+    grid-gap: 10px;
+    padding: 40px 0 200px 0;
+}
+.galeria-proyectos .galeria-item img {
+    border-radius: 5px;
+}
 
-@media only screen and (max-width: 850px) {
+/**************************************  Media Query 768  ****************************************/
+
+@media only screen and (max-width: 768px) {
 
     /************** Navegación ***************/
     .menu {
@@ -1044,9 +1120,10 @@ p {
      }
     .menu .logo-box {
         margin-left: 10px;
+        margin-top: 0px;
     }
     .menu .logo-box img {
-        width: 10%;
+        width: 10%; 
     }
     .btn-menu .fa-bars {
         display: block;
@@ -1089,6 +1166,7 @@ p {
     }
     .menu .list-container .lists li a{
         font-size: 20px;
+        
     }
     .menu .list-container .lists li a.activo {
         background: none;
@@ -1423,6 +1501,8 @@ p {
         width: 100%;
         padding: 0 150px;
     }
+
+    
 }
 
 /**************************************  Media Query 630  ****************************************/
@@ -1454,6 +1534,7 @@ p {
     .menu .logo-box img {
         width: 20%;
     }
+
 }
 
 /**************************************  Media Query 360  ****************************************/
@@ -1589,6 +1670,10 @@ p {
     .site-footer .footer-container p {
         font-size: 8px;
         margin-top: 2px;
+    }
+    /********* Pagina Proyectos **********/
+    .galeria-proyectos {
+        grid-template-columns: repeat(1, 1fr);
     }
 
 }
