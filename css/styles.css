@@ -504,7 +504,6 @@ p {
 
 .our-projects {
     position: relative;
-    
     height: auto;
     background: url(../img/img-2.jpg);
     background-position: center;
@@ -512,6 +511,59 @@ p {
     background-size: cover;
     background-attachment: fixed;
     margin-top: 100px;
+}
+.proyectos {
+    position: relative;
+    height: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin-top: 100px;
+}
+
+.proyectos .ejeZproject {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.proyectos .container-project {
+    width: 90%;
+    margin: auto;
+    padding-top: 100px;
+}
+
+.proyectos .container-project .project-title {
+    border: 2px solid #fff;
+    padding: 10px;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+}
+
+.proyectos .container-project .project-title h2 {
+    font-size: 40px;
+    color: var(--black);
+}
+
+.proyectos .container-project .project-img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 80px;
+    padding-bottom: 100px;
+    
+}
+
+.proyectos .container-project .project-img img {
+    width: 40%;
+    margin: 10px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    
 }
 
 .our-projects .deg-background {
@@ -975,15 +1027,8 @@ p {
     margin: 20px;
 }
 
-/* Pagina Proyectos */
-.linea {
-    background: #550b51;
-    height: 5px;
-    width: 100%;
-    display: block;
-    
-}
-.galeria-proyectos {
+/* Proyectos */
+.our-projects .ejeZproject .container-project .galeria-proyectos {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     width: 60%;
@@ -999,6 +1044,15 @@ p {
     object-fit: cover;
     border-radius: 25px;
     cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+}
+.galeria-proyectos .galeria-item > a {
+    
+    overflow:hidden;
+    box-shadow: 0 0 6px rgba(0,0,0,0.5);
+}
+.galeria-proyectos .galeria-item a:hover img {
+    filter: brightness(110%);
 }
 
 .galeria-proyectos .galeria-item:nth-child(1) {
@@ -1036,6 +1090,59 @@ p {
     grid-row-start: span 3;
     grid-column-start: span 3;
 }
+
+/* Página Proyectos */
+.proyectos {
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+    
+}
+.proyectos .ejeZproject .container-project .project-title h2 {
+    font-size: 25px!important;
+}
+
+.proyectos .ejeZproject .container-project .galeria-proyectos .proyecto-item {
+    display: flex;
+}
+
+.in-flex {
+    padding: 20px;
+    width: 50%;
+}
+.in-flex:first-child {
+    padding: 20px;
+    width: 50%;
+    object-fit: cover;
+    border-radius: 35px; 
+}
+.proyectos .ejeZproject .container-project .galeria-proyectos .proyecto-item .ficha ul li {
+    list-style: none;
+}
+.in-flex h3 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.in-flex h4 {
+    background: var(--blue);
+    text-align: center;
+    margin-bottom: 10px;
+}
+.galeria-proyectos .proyecto-item .ficha h3 span {
+    font-style: italic;
+    font-size: 25px;
+    font-weight: 300;
+}
+.galeria-proyectos .proyecto-item .ficha ul li span {
+    font-style: italic;
+    font-weight: 700;
+}
+
+
+
+
+    
+
 
 
 /* Media Queries */
@@ -1098,15 +1205,9 @@ p {
     margin-top: 20px;
 }
 
-/********* Pagina Proyectos **********/
-.galeria-proyectos {
-    width: 100%;
-    grid-gap: 10px;
-    padding: 40px 0 200px 0;
-}
-.galeria-proyectos .galeria-item img {
-    border-radius: 5px;
-}
+
+
+
 
 /**************************************  Media Query 768  ****************************************/
 
@@ -1502,6 +1603,15 @@ p {
         padding: 0 150px;
     }
 
+    /************* Pagina Nuestros Proyectos *************/
+    .our-projects .ejeZproject .container-project .galeria-proyectos {
+        width: 100%;
+        grid-gap: 7px;
+    }
+    .our-projects .ejeZproject .container-project .galeria-proyectos .galeria-item img {
+        border-radius: 5px;
+    }
+
     
 }
 
@@ -1534,6 +1644,7 @@ p {
     .menu .logo-box img {
         width: 20%;
     }
+    
 
 }
 
