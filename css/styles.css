@@ -452,7 +452,6 @@ p {
     cursor: pointer;
     margin-bottom: 30px;
     transition: 200ms;
-    box-shadow: 0px 3px 5px black;
 }
 .box-nosotros .about-us .nosotros-img img:hover {
     width: 300px;
@@ -697,7 +696,7 @@ p {
     cursor: pointer;
     margin-bottom: 30px;
     transition: 200ms;
-    box-shadow: 0px 3px 5px black;
+    
 }
 
 .testimonios .box-testimonios .card-testimonio .card-img img:hover {
@@ -847,7 +846,7 @@ p {
     object-fit: cover;
     margin: 10px 10px;
     border-radius: 25px;
-    box-shadow: 0px 3px 5px black;
+    
 
 }
 /* Página Contacto */
