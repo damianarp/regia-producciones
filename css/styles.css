@@ -399,6 +399,9 @@ p {
     line-height: 35px;
     margin: 10px 0px;
 }
+.contenedor .info-container p span {
+    font-weight: 700;
+}
 
 .contenedor .info-container .gallery {
     position: relative;
@@ -406,6 +409,7 @@ p {
     text-align: center;
     cursor: pointer;
     flex-wrap: wrap;
+    margin: 50px 0 0 0;
 }
 
 .contenedor .info-container .gallery img {
@@ -501,7 +505,10 @@ p {
 
 
 /* Nuestros Proyectos */
-
+#proyectos {
+    width: 100%;
+    padding: 20px;
+}
 .our-projects {
     position: relative;
     height: auto;
@@ -1000,7 +1007,8 @@ p {
 }
 
 .site-footer .redes-sociales a:hover {
-    color: var(--red);
+    color: var(--white);
+    border-radius: 50px;
 }
 
 .site-footer hr {
@@ -1189,6 +1197,9 @@ p {
         padding-top: 0px;
         margin-top: 0px
     }
+    .contenedor .info-container .gallery {
+        margin: 50px 0 0 0;
+    }
     .contenedor .info-container .gallery img {
         width: calc(30% - 10px);
         height: 300px;
@@ -1319,6 +1330,9 @@ p {
         margin-top: 20px;
     }
     /********** Acerca de **********/
+    .contenedor .info-container .gallery {
+        margin: 50px 0 0 0;
+    }
     .contenedor .info-container .gallery img {
         width: calc(40% - 10px);
     }
@@ -1482,12 +1496,12 @@ p {
         font-size: 25px !important;
     }
     .contenedor .info-container .gallery {
-        margin: 0px 0px;
         flex-direction: column;
         align-items: center;
         width: 90%;
-        margin: auto;
+        margin: 50px 0 0 0;
     }
+   
     .box-nosotros .about-us{
         margin: 0px;
         margin-top: 60px;
@@ -1503,7 +1517,7 @@ p {
         
     }
     .contenedor .info-container .gallery img {
-        width: 100%;
+        width: 95%;
         height: 35vw;
     }
     .contenedor .info-container .box-nosotros .about-us .nosotros-text p {
@@ -1637,13 +1651,16 @@ p {
     .contenedor .service-container h2 {
         font-size: 25px !important; 
     }
-    .contenedor .service-container p{
+    .contenedor .service-container p {
         width: 80%;
         margin: auto;
         line-height: 25px;
         text-align: left;
     }
-   .contenedor .service-container .gallery-img .card-servicio img {
+    .contenedor .service-container p span {
+        font-weight: 700;
+    }
+    .contenedor .service-container .gallery-img .card-servicio img {
         width: calc(90% - 20px);
         height: 150px;
         border-radius: 15px;
