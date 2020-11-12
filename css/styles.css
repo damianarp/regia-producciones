@@ -46,8 +46,8 @@
   hr {
     display: block;
     height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
+    /* border: 0; */
+    /* border-top: 1px solid #ccc; */
     margin: 1em 0;
     padding: 0;
   }
@@ -222,6 +222,7 @@ p {
     width: 100px;
     cursor: pointer;
     
+    
 
 }
 
@@ -282,9 +283,6 @@ p {
     flex-direction: column;
     
 }
-.video-container #video{
-    /* width: 100%; */
-}
 
 .img-header .welcome {
     position: absolute;
@@ -321,13 +319,13 @@ p {
     width: 170px;
     height: 40px;
     padding-top: 5px ;
-    background: var(--blue);
+    background: var(--red);
     border: 2px solid var(--red);
     border-radius: 24px;
     border: none;
     outline: none;
     font-size: 22px;
-    color: var(--black);
+    color: var(--white);
     text-decoration: none;
     text-align: center;
     margin-top: 50px;
@@ -336,8 +334,9 @@ p {
 }
 
 .img-header .welcome > a:hover {
-    background: var(--black);
-    /* border: 2px solid var(--blue); */
+    background: var(--blue);
+    border: 2px solid var(--blue);
+    color: var(--black);
 }
 
 
@@ -382,6 +381,7 @@ p {
 .contenedor .btn a:hover {
     border: 2px solid var(--blue);
     background-color: var(--blue);
+    color: var(--black);
 }
 
 .contenedor .info-container h2 {
@@ -402,13 +402,14 @@ p {
 
 .contenedor .info-container .gallery {
     position: relative;
-    display: flex;
+    display: inline-block;
     text-align: center;
     cursor: pointer;
+    flex-wrap: wrap;
 }
 
 .contenedor .info-container .gallery img {
-    width: calc(33.33% - 10px);
+    width: calc(30% - 10px);
     height: 300px;
     object-fit: cover;
     margin: 10px 10px;
@@ -579,10 +580,11 @@ p {
     position: relative;
     width: 100%;
     height: 100%;
+    margin: auto;
 }
 
 .our-projects .container-project {
-    width: 90%;
+    width: 100%;
     margin: auto;
     padding-top: 100px;
 }
@@ -1090,6 +1092,9 @@ p {
     grid-row-start: span 3;
     grid-column-start: span 3;
 }
+.galeria-proyectos .galeria-item:nth-child(12) {
+    grid-column-start: span 5;
+}
 
 /* Página Proyectos */
 .proyectos {
@@ -1101,7 +1106,10 @@ p {
 .proyectos .ejeZproject .container-project .project-title h2 {
     font-size: 25px!important;
 }
-
+.proyectos .ejeZproject .container-project .galeria-proyectos {
+    width: 70%;
+    margin: auto;
+}
 .proyectos .ejeZproject .container-project .galeria-proyectos .proyecto-item {
     display: flex;
 }
@@ -1136,6 +1144,9 @@ p {
 .galeria-proyectos .proyecto-item .ficha ul li span {
     font-style: italic;
     font-weight: 700;
+}
+.festivales {
+    font-size: 11px;
 }
 
 
@@ -1179,6 +1190,14 @@ p {
         padding-top: 0px;
         margin-top: 0px
     }
+    .contenedor .info-container .gallery img {
+        width: calc(30% - 10px);
+        height: 300px;
+        object-fit: cover;
+        margin: 10px 10px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
 
     /*********** Servicios **********/
     .contenedor .service-container .gallery-img .card-servicio .texto-encima h3 {
@@ -1190,21 +1209,135 @@ p {
     .contenedor .service-container .gallery-img .card-servicio img {
         width: calc(40% - 20px);
     }
+
+
+    /************* Pagina Nuestros Proyectos *************/
+    .our-projects .ejeZproject {
+        width: 100%;
+    }
+    .our-projects .ejeZproject .container-project .galeria-proyectos {
+        width: 100%;
+        grid-gap: 7px;
+    }
+    .our-projects .ejeZproject .container-project .galeria-proyectos .galeria-item img {
+        border-radius: 5px;
+    }
+    .proyectos .ejeZproject .container-project .galeria-proyectos {
+        width: 100%;
+    }
+    .proyectos .ejeZproject {
+        width: 100%;
+    }
+    .proyectos .ejeZproject .container-project {
+        width: 100%;
+    }
 }
 
 /**************************************  Media Query 1070  ****************************************/
+@media only screen and (max-width: 1070px) {
+    /* Menú de Navegación */
+    #header {
+        position: relative;
+        width: 100%;
+        margin: auto;
+    }
 
-.img-header .welcome img {
-    width: 30%;
-}
-.img-header .welcome h2 {
-    
-    width: 50%;
-}
-.img-header .welcome hr {
-    margin-top: 20px;
-}
 
+    .menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        background: #fff;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        z-index: 9999;
+    }
+    .menu {
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        
+        
+    }
+    .menu .logo-box {
+        letter-spacing: -9999px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .menu .logo-box img {
+        width: 90px;
+        cursor: pointer;
+        
+
+    }
+
+    .menu .list-container {
+        margin-right: 20px;
+    }
+
+    .menu .list-container .lists {
+        display: flex;
+    }
+
+    .menu .list-container .lists li {
+        list-style: none;
+    }
+
+    .menu .list-container .lists li a {
+        text-decoration: none;
+        margin: 0px 10px;
+        padding: 8px;
+        color: var(--black);
+        border-radius: 24px;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    .menu .list-container .lists li a.activo {
+        background: var(--red);
+        color: #fff;
+    } 
+
+    .menu .list-container .lists li a:hover {
+        background: var(--red);
+        color: #fff;
+    } 
+
+    .btn-menu > .fa-bars {
+        display: none;
+    }
+    /********* Header *********/
+    .img-header .welcome img {
+        width: 30%;
+    }
+    .img-header .welcome h2 {
+        width: 50%;
+    }
+    .img-header .welcome hr {
+        margin-top: 20px;
+    }
+    /********** Acerca de **********/
+    .contenedor .info-container .gallery img {
+        width: calc(40% - 10px);
+    }
+
+
+
+    /************* Pagina Nuestros Proyectos *************/
+    .our-projects .ejeZproject .container-project .galeria-proyectos {
+        width: 100%;
+        grid-gap: 7px;
+    }
+    .our-projects .ejeZproject .container-project .galeria-proyectos .galeria-item img {
+        border-radius: 5px;
+    }
+    .proyectos .ejeZproject .container-project .galeria-proyectos {
+        width: 100%;
+    }
+}
 
 
 
@@ -1220,9 +1353,9 @@ p {
         align-items: center;
      }
     .menu .logo-box {
-        margin-left: 10px;
-        margin-top: 0px;
+        margin: 10px 0 10px 10px;
     }
+
     .menu .logo-box img {
         width: 10%; 
     }
@@ -1244,7 +1377,7 @@ p {
     }
     .menu .list-container {
         position: absolute;
-        top: 60px;
+        top: 70px;
         left: -100%;
         width: 100%;
         height: calc(60vh - 100px);
@@ -1338,9 +1471,6 @@ p {
         padding-top: 8px;
         
     }
-    .img-header .welcome > a:hover {
-        background: var(--blue);
-    }
 
     /************* Acerca de **************/
     .contenedor {
@@ -1392,6 +1522,10 @@ p {
     .our-projects {
         background-attachment: initial;
     }
+    .our-projects .ejeZproject {
+        width: 90%;
+    }
+    
     .our-projects .container-project .project-title {
         width: 85%;
     }
@@ -1499,6 +1633,7 @@ p {
    .contenedor .service-container {
         width: 100%;
         padding-bottom: 130px;
+        padding-top: 30px;
     }
     .contenedor .service-container h2 {
         font-size: 25px !important; 
@@ -1531,10 +1666,11 @@ p {
         font-size: 35px;
     }
     .contenedor .info-container .contenedor-img {
+        padding-top: 50px;
         padding-bottom: 150px;
     }
     .contenedor .info-container .contenedor-img .formulario-content {
-        width: 80%;  
+        width: 90%;  
     }
     .mensaje-form p{
         text-align: center!important;
@@ -1608,9 +1744,53 @@ p {
         width: 100%;
         grid-gap: 7px;
     }
-    .our-projects .ejeZproject .container-project .galeria-proyectos .galeria-item img {
+
+    .our-projects .ejeZproject .container-project .galeria-proyectos .proyecto-item img {
         border-radius: 5px;
     }
+    .proyectos .ejeZproject .container-project {
+        width: 100%;
+    }
+    
+    .proyectos .ejeZproject .container-project .galeria-proyectos {
+        width: 100%;
+        margin: auto;
+    }
+    .proyectos .ejeZproject .container-project .project-title {
+        width: 100%;
+    }
+    .proyectos .ejeZproject .container-project .galeria-proyectos .proyecto-item {
+        width: 100%;
+        display: block;
+    }
+
+    .proyectos .ejeZproject .container-project .galeria-proyectos .proyecto-item img {
+        width: 100%;
+        padding: 0px;
+        border-radius: 15px;
+    }
+    .proyectos .ejeZproject .container-project .galeria-proyectos .proyecto-item .ficha {
+        width: 100%;
+        padding: 20px 0 60px 0;
+    }
+    .proyectos .ejeZproject .container-project .galeria-proyectos .proyecto-item .ficha h3 {
+        text-align: center;
+        line-height: 25px;
+    }
+    .proyectos .ejeZproject .container-project .galeria-proyectos .proyecto-item h3 span{
+        font-size: 20px;
+        line-height: normal;
+    }
+    .proyectos .ejeZproject .container-project .galeria-proyectos .hr-fichas {
+        width: 100%;
+        height: 2px;
+        background: var(--black);
+        border: none;
+    }
+    .proyectos .ejeZproject .container-project {
+        padding-bottom: 150px;
+    }
+    
 
     
 }
@@ -1784,8 +1964,47 @@ p {
     }
     /********* Pagina Proyectos **********/
     .galeria-proyectos {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(1, 1fr)!important;
     }
+    .galeria-proyectos .galeria-item:nth-child(1) {
+        grid-row-start: span 1;
+        grid-column-start: span 1;
+    }
+    .galeria-proyectos .galeria-item:nth-child(2) {
+        grid-column-start: span 1;
+    }
+    .galeria-proyectos .galeria-item:nth-child(3) {
+        grid-column-start: span 1;
+    }
+    .galeria-proyectos .galeria-item:nth-child(5) {
+        grid-column-start: span 1;
+    }
+    .galeria-proyectos .galeria-item:nth-child(7) {
+        grid-column-start: span 1;
+    }
+    .galeria-proyectos .galeria-item:nth-child(4) {
+        grid-column-start: span 1;
+    }
+    .galeria-proyectos .galeria-item:nth-child(8) {
+        grid-column-start: span 1;
+    }
+    .galeria-proyectos .galeria-item:nth-child(9) {
+        grid-column-start: span 1;
+    }
+    .galeria-proyectos .galeria-item:nth-child(10) {
+        grid-column-start: span 1;
+    }
+    .galeria-proyectos .galeria-item:nth-child(11) {
+        grid-column-start: span 1;
+    }
+    .galeria-proyectos .galeria-item:nth-child(6) {
+        grid-row-start: span 1;
+        grid-column-start: span 1;
+    }
+    .galeria-proyectos .galeria-item:nth-child(12) {
+        grid-column-start: span 1;
+    }
+    
 
 }
 
