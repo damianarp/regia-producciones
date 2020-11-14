@@ -89,39 +89,75 @@
 
         //////////////// Scroll Para iOS /////////////
         $('a[href*="#"]')
-            // Remove links that don't actually link to anything
-            .not('[href="#"]')
-            .not('[href="#0"]')
-            .click(function (event) {
-                // On-page links
-                if (
-                    location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
-                    location.hostname == this.hostname
-                ) {
-                    // Figure out element to scroll to
-                    var target = $(this.hash);
-                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                    // Does a scroll target exist?
-                    if (target.length) {
-                        // Only prevent default if animation is actually gonna happen
-                        event.preventDefault();
-                        $('html, body').animate({
-                            scrollTop: target.offset().top
-                        }, 1000, function () {
-                            // Callback after animation
-                            // Must change focus!
-                            var $target = $(target);
-                            $target.focus();
-                            if ($target.is(":focus")) { // Checking if the target was focused
-                                return false;
-                            } else {
-                                $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
-                                $target.focus(); // Set focus again
-                            };
-                        });
-                    }
+        // Remove links that don't actually link to anything
+        .not('[href="#"]')
+        .not('[href="#0"]')
+        .click(function (event) {
+            // On-page links
+            if (
+                location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
+                location.hostname == this.hostname
+            ) {
+                // Figure out element to scroll to
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                // Does a scroll target exist?
+                if (target.length) {
+                    // Only prevent default if animation is actually gonna happen
+                    event.preventDefault();
+                    $('html, body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000, function () {
+                        // Callback after animation
+                        // Must change focus!
+                        var $target = $(target);
+                        $target.focus();
+                        if ($target.is(":focus")) { // Checking if the target was focused
+                            return false;
+                        } else {
+                            $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                            $target.focus(); // Set focus again
+                        };
+                    });
                 }
-            });
+            }
+        });
+
+
+        /////////////////////// Filtrado de búsqueda /////////////////////
+
+        //Variables
+        var inputSearch = document.getElementById('inputSearch');
+        var box_search = document.getElementById('box-search');
+
+        document.getElementById('inputSearch').addEventListener("keyup", buscador_interno);
+
+        //Funcion
+        function buscador_interno() {
+            var filter = inputSearch.value.toUpperCase();
+            var li = box_search.getElementsByTagName("li");
+
+            // Recorriendo elementos a filtrar mediante los li
+            for (var i = 0; i < li.length; i++) {
+                var a = li[i].getElementsByTagName("a")[0];
+                var textValue = a.textContent || a.innerText;
+
+                if(textValue.toUpperCase().indexOf(filter) !== -1) {
+
+                    li[i].style.display = "";
+                    box_search.style.display = "block";
+
+                    if(inputSearch.value === "") {
+                        box_search.style.display = "none";
+                    }
+
+                } else {
+                    li[i].style.display = "none";
+                }
+            };
+        };
+
+
     });
 
 })();
