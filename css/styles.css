@@ -1331,6 +1331,36 @@ p {
     font-size: 11px;
 }
 
+/* Página Legales */
+.contenedor-legales {
+    width: 70%;
+    margin: auto;
+    padding-bottom: 100px;
+    outline: none;
+}
+.contenedor-legales .info-container {
+    display: block;
+}
+.contenedor-legales .info-container h4 {
+    text-align: center;
+    font-size: 30px;
+    padding: 100px 0;
+}
+.contenedor-legales .info-container h5 {
+    font-size: 20px;
+}
+.contenedor-legales .info-container h6 {
+    font-size: 15px;
+}
+.contenedor-legales .info-container p {
+    text-align: left;
+}
+.contenedor-legales .info-container ul li {
+    margin-left: 60px;
+}
+
+
+
 
 
 
@@ -2098,6 +2128,11 @@ p {
 
     .proyectos .ejeZproject .container-project {
         padding-bottom: 150px;
+    }
+
+    /********* Página Legales ********/
+    .contenedor-legales {
+        width: 90%;
     }
 
 
