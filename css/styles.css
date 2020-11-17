@@ -1478,12 +1478,18 @@ p {
 
     /************* Pagina Nuestros Proyectos *************/
     .our-projects .ejeZproject {
-        width: 100%;
+        width: 90%;
     }
 
     .our-projects .ejeZproject .container-project .galeria-proyectos {
         width: 100%;
         grid-gap: 7px;
+    }
+    .our-projects .container-project .project-title {
+        width: 80%;
+    }
+    .our-projects .container-project .project-title h2 {
+        width: 100%;
     }
 
     .our-projects .ejeZproject .container-project .galeria-proyectos .galeria-item img {
@@ -1500,6 +1506,15 @@ p {
 
     .proyectos .ejeZproject .container-project {
         width: 100%;
+    }
+    /************* Novedades **************/
+    .contenedor .info-container .novedades img {
+        width: 90%;
+    }
+    
+    .contenedor .info-container .novedades p {
+        text-align: left;
+        width: 80%;
     }
 }
 
@@ -1577,7 +1592,8 @@ p {
 
     .menu .list-container .lists li a:hover {
         background: var(--red);
-        color: #fff;
+        font-weight: 700;
+        color: var(--blue);
     }
 
     .btn-menu>.fa-bars {
@@ -1587,6 +1603,9 @@ p {
     /********* Header *********/
     .img-header .welcome img {
         width: 30%;
+    }
+    .img-header .video-container {
+        height: 100vh;
     }
 
     .img-header .welcome h2 {
@@ -1622,6 +1641,7 @@ p {
     .proyectos .ejeZproject .container-project .galeria-proyectos {
         width: 100%;
     }
+
 }
 
 
@@ -1730,7 +1750,7 @@ p {
 
     .menu .list-container .lists li a:hover {
         background: none;
-        color: var(--red);
+        color: var(--blue);
     }
 
     /*********** Header *************/

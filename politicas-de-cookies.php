@@ -1,57 +1,7 @@
-<!DOCTYPE html>
-<html class="no-js" lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Regia Producciones</title>
-
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="apple-touch-icon" href="icon.png">
-    <!-- Place favicon.ico in the root directory -->
-
-    <link rel="stylesheet" href="css/normalize.css">
-
-    <!-- Estilos -->
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/lightbox.css">
-    <meta name="theme-color" content="#fafafa">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-
-</head>
-<body>
-    <!--[if IE]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-    <![endif]-->
-
-    <!-- Ir arriba -->
-    <div class="ir-arriba">
-        <a href="#cookies"><span><i class="fas fa-angle-up"></i></span></a>
-    </div>
-
-    <!-- Menú de Navegación -->
-    <header id="header">
-        <nav class="menu" id="menu">
-            <h1 class="logo-box">
-                <a href="index.html" title="Regia Producciones"><img src="img/logo-regia-negro.png"
-                        alt="Logo de Regia Producciones"></a>
-                <span class="btn-menu"><i class="fas fa-bars"></i></span>
-            </h1>
-            <div class="list-container">
-                <ul class="lists">
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="nosotros.html">Nosotros</a></li>
-                    <li><a href="proyectos.html">Proyectos</a></li>
-                    <li><a href="servicios.html">Servicios</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                </ul>
-            </div>
-
-        </nav>
+<?php include_once 'includes/templates/header.php'; ?>
     </header>
-    <!-- Página Legales -->
+
+    <!-- Política de Cookies -->
 
     <main>
         <section class="contenedor-legales" id="cookies">
@@ -126,46 +76,4 @@
     </main>
 
 
-    <!-- Footer -->
-
-    <footer class="site-footer">
-        <div class="footer-container clearfix">
-            <div class="footer-colaboradores">
-                <img src="img/Logo-Regia-blanco.png" alt="">
-                <img clas="damian" src="img/damianlogo.png" alt="">
-            </div>
-            <div class="redes-sociales">
-                <h3>Seguinos en nuestras <span>Redes Sociales!</span></h3>
-                <a href="https://www.facebook.com/RegiaProducciones/" target="_blank"><i class="fa fa-facebook" aria-hiden="true"></i></a>
-                <a href="https://instagram.com/regiaproducciones" target="_blank"><i class="fa fa-instagram" aria-hiden="true"></i></a>
-                <a href="https://vimeo.com/regiaproducciones" target="_blank"><i class="fa fa-vimeo-square" aria-hiden="true"></i></a>
-            </div>
-            <div class="legales">
-                <a href="legales.html">Aviso Legal</a>
-                <a href="politicas-de-privacidad.html">Política de privacidad</a>
-                <a href="politicas-de-cookies.html">Cookies</a>
-            </div>
-            <hr>
-            <p>&copy; Regia Producciones 2020 | Todos los derechos reservados.</p>
-        </div>
-    </footer>
-    
-
-    <!-- Scripts -->
-    <script src="js/vendor/modernizr-3.8.0.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
-    <script src="js/plugins.js"></script>
-    <script src="https://kit.fontawesome.com/83447e3cc1.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="js/lightbox.js"></script>
-    <script src="js/app.js"></script>
-
-    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-    <script>
-        window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-        ga('create', 'UA-XXXXX-Y', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
-    </script>
-    <script src="https://www.google-analytics.com/analytics.js" async></script>
-</body>
-</html>
+<?php include_once 'includes/templates/footer.php'; ?>
