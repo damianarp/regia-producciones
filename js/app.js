@@ -3,7 +3,6 @@
         "use strict";
 
 
-
         document.addEventListener('DOMContentLoaded', function () {
 
             ////////////////// Mapa con LeafletJS ////////////////////////////////////////
