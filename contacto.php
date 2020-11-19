@@ -1,4 +1,11 @@
-<?php $page ='contacto'; include_once 'includes/templates/header.php'; ?>
+<?php 
+
+    $page ='contacto'; 
+
+    include_once 'includes/templates/header.php';
+    include("bd_conexion.php"); 
+    
+?>
     </header>
 
 
@@ -11,7 +18,7 @@
                         <h2>Formulario de contacto</h2> 
                     </div>
                     <div class="formulario-content">
-                    <form id="formulario" action="registrar.php" method="post">
+                    <form id="formulario" action="contactar.php" method="post">
                         <label for="nombre">Nombre: </label>
                         <input type="text" id="nombre" name="nombre" placeholder="Ingresá tu nombre">
                         <div id="error_1"></div>
