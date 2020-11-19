@@ -26,7 +26,7 @@
             } catch (\Exception $e) {
                 echo $e->getMessage();
             }
-            endif;
+            endif; 
             
             echo "<script>alert('Correo enviado exitosamente')</script>";
             echo "<script>setTimeout(\"location.href='index.php'\",1000)</script>";
