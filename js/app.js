@@ -169,7 +169,7 @@
                 errorDivNom = document.querySelector('#error_1');
                 errorDivApe = document.querySelector('#error_2');
                 errorDivCor = document.querySelector('#error_3');
-                expresion = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+                expresion = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
                 
 
                 if(nombre) {
@@ -207,14 +207,19 @@
 
                 ////////// Validar Expresion del correo ///////////
                 if(correo) {
-                    correo.addEventListener('blur', validarExpresion);
+                    correo.addEventListener('keyup', validarExpresion);
                 }
 
                 function validarExpresion() {
-                  if(expresion.test(correo) == true) {
-                      alert("correo valido");
+                  if(expresion.test(this.value) == true) {
+                    errorDivCor.style.display = 'none';
+                    this.style.border = '2px solid #eeae00';
                   } else {
-                    alert("correo NO valido");
+                    errorDivCor.style.display = 'block';
+                    errorDivCor.innerHTML = "Escribe un correo válido";
+                    this.style.border = '2px solid red';
+                    errorDivCor.style.color = 'red';
+                    errorDivCor.style.paddingTop = '10px';
                   }
                 }
 
