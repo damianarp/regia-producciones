@@ -211,7 +211,6 @@
                 }
 
                 function validarExpresion() {
-									console.log(this.value);
                   if(expresion.test(this.value) == true) {
                     errorDivCor.style.display = 'none';
                     this.style.border = '2px solid #eeae00';
