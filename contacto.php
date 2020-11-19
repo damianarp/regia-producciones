@@ -27,7 +27,7 @@
                         <label for="mensaje">Escribí tu mensaje: </label>
                         <textarea name="mensaje" id="mensaje"></textarea>
 
-                        <div class="send"><button type="submit" id="enviado">Enviar</button></div>
+                        <input class="send" type="submit" id="enviado" name="submit" value="Enviar">
                         <div class="mensaje-form">
                             <p>Dejanos tu mensaje! Con gusto te responderemos a la brevedad!</p>
                         </div>
@@ -46,5 +46,7 @@
             </div>
         </section>
     </main>
+
+
 
 <?php include_once 'includes/templates/footer.php'; ?>
