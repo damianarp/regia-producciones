@@ -220,7 +220,7 @@
                     this.style.border = '2px solid red';
                     errorDivCor.style.color = 'red';
                     errorDivCor.style.paddingTop = '10px';
-                  }
+                  } 
                 }
 
             
