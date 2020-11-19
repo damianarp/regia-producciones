@@ -126,10 +126,12 @@
             /////////////////////// Filtrado de búsqueda /////////////////////
 
             //Variables
-            var inputSearch = document.getElementById('inputSearch');
-            var box_search = document.getElementById('box-search');
+            var inputSearch = document.querySelector('#inputSearch');
+            var box_search = document.querySelector('#box-search');
 
-            document.getElementById('inputSearch').addEventListener("keyup", buscador_interno);
+            if (inputSearch) {
+                inputSearch.addEventListener("keyup", buscador_interno);
+            }
 
             //Funcion
             function buscador_interno() {
@@ -156,7 +158,66 @@
                 };
             };
 
-            ////////////////// Validar formulario de contacto //////////////
+            ////////////////// Validar formulario de contacto (Campos obligatorios) //////////////
+            
+                var nombre, apellido, correo, mensaje, errorDivNom, errorDivApe, errorDivCor, expresion;
+
+                nombre = document.querySelector('#nombre');
+                apellido = document.querySelector('#apellido');
+                correo = document.querySelector('#correo');
+                mensaje = document.querySelector('#mensaje');
+                errorDivNom = document.querySelector('#error_1');
+                errorDivApe = document.querySelector('#error_2');
+                errorDivCor = document.querySelector('#error_3');
+                expresion = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+                
+
+                if(nombre) {
+                    nombre.addEventListener('blur', validarNombre);
+                }
+                if(apellido) {
+                    apellido.addEventListener('blur', validarApellido);
+                }
+
+                function validarNombre() {
+                    if(this.value == '') {
+                        errorDivNom.style.display = 'block';
+                        errorDivNom.innerHTML = "este campo es obligatorio";
+                        this.style.border = '2px solid red';
+                        errorDivNom.style.color = 'red';
+                        errorDivNom.style.paddingTop = '10px';
+                    } else {
+                        errorDivNom.style.display = 'none';
+                        this.style.border = '2px solid #eeae00';
+                    }
+                }
+
+                function validarApellido() {
+                    if(this.value == '') {
+                        errorDivApe.style.display = 'block';
+                        errorDivApe.innerHTML = "este campo es obligatorio";
+                        this.style.border = '2px solid red';
+                        errorDivApe.style.color = 'red';
+                        errorDivApe.style.paddingTop = '10px';
+                    } else {
+                        errorDivApe.style.display = 'none';
+                        this.style.border = '2px solid #eeae00';
+                    }
+                }
+
+                ////////// Validar Expresion del correo ///////////
+                if(correo) {
+                    correo.addEventListener('blur', validarExpresion);
+                }
+
+                function validarExpresion() {
+                  if(expresion.test(correo) == true) {
+                      alert("correo valido");
+                  } else {
+                    alert("correo NO valido");
+                  }
+                }
+
             
         }); // DOM CONTENT LOADED
-});
+}());

@@ -11,23 +11,27 @@
                         <h2>Formulario de contacto</h2> 
                     </div>
                     <div class="formulario-content">
-                    <form id="formulario">
+                    <form id="formulario" action="registrar.php" method="post">
                         <label for="nombre">Nombre: </label>
                         <input type="text" id="nombre" name="nombre" placeholder="Ingresá tu nombre">
+                        <div id="error_1"></div>
 
                         <label for="apellido">Apellido: </label>
                         <input type="text" id="apellido" name="apellido" placeholder="Ingresá tu apellido">
+                        <div id="error_2"></div>
 
-                        <label for="email">Correo Electrónico: </label>
-                        <input type="email" id="email" name="email" placeholder="Ingresá tu correo electrónico">
+                        <label for="correo">Correo Electrónico: </label>
+                        <input type="email" id="correo" name="correo" placeholder="Ingresá tu correo electrónico">
+                        <div id="error_3"></div>
 
                         <label for="mensaje">Escribí tu mensaje: </label>
                         <textarea name="mensaje" id="mensaje"></textarea>
+
                         <div class="send"><button type="submit" id="enviado">Enviar</button></div>
                         <div class="mensaje-form">
                             <p>Dejanos tu mensaje! Con gusto te responderemos a la brevedad!</p>
                         </div>
-                        <div id="error"></div>
+                        
                     </form>
                     <br>
                     <p class="donacion">Te gustaría ser parte de alguna producción nuestra? Ayudanos a financiar nuestros próximos proyectos con tu donación y estarás colaborando como Productor Asociado!</p>

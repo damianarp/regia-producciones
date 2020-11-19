@@ -135,6 +135,25 @@ p {
     margin: 10px 0px;
 }
 
+#error_1 {
+    clear: both;
+    font-weight: 600;
+    font-style: italic;
+    display: none;
+}
+#error_2 {
+    clear: both;
+    font-weight: 600;
+    font-style: italic;
+    display: none;
+}
+#error_3 {
+    clear: both;
+    font-weight: 600;
+    font-style: italic;
+    display: none;
+}
+
 
 /* Ir arriba */
 
@@ -1066,6 +1085,11 @@ p {
     font-size: 15px;
     padding: 20px;
     color: var(--black);
+}
+
+.contenedor .info-container .contenedor-img .formulario-content #formulario p {
+    width: 80%;
+    margin: auto;
 }
 
 .contenedor .info-container .contenedor-img .formulario-content #formulario .send {

@@ -61,7 +61,7 @@
                     <li><a href="nosotros.php" class="<?php if($page=='nosotros'){echo 'activo';} ?>">Nosotros</a></li>
                     <li><a href="proyectos.php" class="<?php if($page=='proyectos'){echo 'activo';} ?>">Proyectos</a></li>
                     <li><a href="servicios.php" class="<?php if($page=='servicios'){echo 'activo';} ?>">Servicios</a></li>
-                    <li><a href="#">Blog</a></li>
+                    <li><a href="blog/index.php" class="<?php if($page=='blog'){echo 'activo';} ?>">Blog</a></li>
                     <li><a href="contacto.php" class="<?php if($page=='contacto'){echo 'activo';} ?>">Contacto</a></li>
                 </ul>
             </div>

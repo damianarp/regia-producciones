@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="1.7" group="system" method="upgrade">
+	<name>System - Add Custom CSS</name>
+	<creationDate>2013-07-01</creationDate>
+	<author>Impression eStudio</author>
+	<authorEmail>info@impression-estudio.gr</authorEmail>
+	<authorUrl>http://joomla.impression-estudio.gr</authorUrl>
+	<copyright>All rights reserved by Impression eStudio.</copyright>
+	<license>GPL 2.0</license>
+	<version>1.2.1</version>
+	<description><![CDATA[<hr><p class="lead">Load your custom CSS file after all other CSS files and override the styles of the template and the other extensions.</p>]]></description>
+	<files>
+		<filename plugin="addcustomcss">addcustomcss.php</filename>
+		<filename>index.html</filename>
+		<folder>addcustomcss</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.plg_system_addcustomcss.ini</language>
+	</languages>
+	<config>
+		<fields name="params" addfieldpath="plugins/system/addcustomcss/addcustomcss/admin">
+			<fieldset name="basic">
+				<field name="spacer_info" type="spacerinfo" default="" label=" " description="" />
+				<field name="custom_css_file_path_1" type="text" default="" label="ACC_CUSTOM_CSS_FILE_PATH_1_TITLE" description="ACC_CUSTOM_CSS_FILE_PATH_1_DESCRIPTION"/>
+				<field name="custom_css_file_mode_1" type="list" default="front-end" label="ACC_CUSTOM_CSS_FILE_MODE_1_TITLE" description="ACC_CUSTOM_CSS_FILE_MODE_1_DESCRIPTION">
+					<option value="front-end">Front-end</option>
+					<option value="back-end">Back-end</option>
+					<option value="both">Both</option>
+				</field>
+				<field name="custom_css_file_path_2" type="text" default="" label="ACC_CUSTOM_CSS_FILE_PATH_2_TITLE" description="ACC_CUSTOM_CSS_FILE_PATH_2_DESCRIPTION"/>
+				<field name="custom_css_file_mode_2" type="list" default="front-end" label="ACC_CUSTOM_CSS_FILE_MODE_2_TITLE" description="ACC_CUSTOM_CSS_FILE_MODE_2_DESCRIPTION">
+					<option value="front-end">Front-end</option>
+					<option value="back-end">Back-end</option>
+					<option value="both">Both</option>
+				</field>
+				<field name="custom_css_file_path_3" type="text" default="" label="ACC_CUSTOM_CSS_FILE_PATH_3_TITLE" description="ACC_CUSTOM_CSS_FILE_PATH_3_DESCRIPTION"/>
+				<field name="custom_css_file_mode_3" type="list" default="front-end" label="ACC_CUSTOM_CSS_FILE_MODE_3_TITLE" description="ACC_CUSTOM_CSS_FILE_MODE_3_DESCRIPTION">
+					<option value="front-end">Front-end</option>
+					<option value="back-end">Back-end</option>
+					<option value="both">Both</option>
+				</field>
+				<field name="remove_comments" type="radio" default="0" label="Remove Comments" description="ACC_REMOVE_COMMENTS_DESCRIPTION" class="btn-group btn-group-yesno">
+					<option value="0">JOFF</option>
+					<option value="1">JON</option>
+				</field>
+				<field name="minimize" type="radio" default="0" label="Minimize" description="ACC_MINIMIZE_DESCRIPTION" class="btn-group btn-group-yesno">
+					<option value="0">JOFF</option>
+					<option value="1">JON</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+	<updateservers>
+		<server type="extension" priority="1" name="Impression eStudio - Add Custom CSS">http://joomla.impression-estudio.gr/custom/updates/add-custom-css.xml</server>
+	</updateservers>
+</extension>
