@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/normalize_reset.css">
     <!-- Estilos -->
+    <link rel="stylesheet" href="css/sweetalert2.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/lightbox.css">
 

@@ -37,6 +37,7 @@
     <script src="https://kit.fontawesome.com/83447e3cc1.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="js/lightbox.js"></script>
+    <script src="js/sweetalert2.all.min.js"></script>
     <script src="js/app.js"></script>
 
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
