@@ -1,5 +1,5 @@
 <?php $page ='nosotros'; include_once 'includes/templates/header.php'; ?>
-    </header>
+    
 
 
     <!-- Acerca de Nosotros -->

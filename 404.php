@@ -1,5 +1,4 @@
 <?php include_once 'includes/templates/header.php'; ?>
-  </header>
 
   <main>
     <div class="not-found">

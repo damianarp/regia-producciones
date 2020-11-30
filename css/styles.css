@@ -908,6 +908,7 @@ p {
     padding: 150px 0;
     color: white;
     text-align: center;
+    justify-content: center;
 }
 
 .newsletter .contenido p {
@@ -922,29 +923,39 @@ p {
     object-fit: cover;
 }
 
-.button .transparente {
-    background-color: transparent;
+.newsletter .contenido form  {
+    display: block;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+    color: #fff;
 }
 
-.button {
-    width: 170px;
+
+.newsletter .contenido form input {
+    width: 30%;
     height: 50px;
     border-radius: 24px;
     border: 2px solid #ffffff;
-    /* outline: none; */
-    font-size: 20px;
+    outline: none;
+    font-size: 18px;
     color: #fff;
-    display: inline-block;
+    display: block;
     justify-content: center;
     text-decoration: none;
-    margin-top: 20px;
+    margin: auto;
+    margin-bottom: 20px;
     padding: 10px;
     cursor: pointer;
     transition: all 0.5s ease;
 }
+.newsletter .contenido form .transparente {
+    background-color: transparent;
+    width: 170px;
+}
 
-.button:hover {
-    background: var(--red);
+.newsletter .contenido form input.transparente:hover {
+    color: var(--blue);
     border: 2px solid var(--blue);
 }
 
@@ -1982,9 +1993,7 @@ p {
         padding-bottom: 100px;
     }
 
-    .button {
-        font-size: 18px;
-    }
+    
 
     .newsletter .contenido p {
         font-size: 18px;
@@ -2002,10 +2011,8 @@ p {
 
     }
 
-    .button {
-        width: 130px;
-        height: 45px;
-        padding: 8px;
+    .newsletter .contenido form input {
+        width: 50%;
     }
 
     /*************** Página Nosotros **************/
@@ -2258,6 +2265,9 @@ p {
         font-size: 15px;
         padding-top: 10px
     }
+    .newsletter .contenido form input {
+        width: 100%;
+    }
 
     .site-footer .footer-container .redes-sociales {
         width: 100%;
@@ -2271,7 +2281,7 @@ p {
     .menu .logo-box img {
         width: 20%;
     }
-
+    
 
 }
 

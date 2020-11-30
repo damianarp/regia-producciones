@@ -1,5 +1,5 @@
 <?php $page ='proyectos'; include_once 'includes/templates/header.php'; ?>
-    </header>
+    
 
     
         <!-- Proyectos -->

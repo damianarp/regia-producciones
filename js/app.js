@@ -224,21 +224,59 @@
         }
 
         /////////// Sweet Alert 2 ///////
-        $("#enviado").click(function(){
+        // $("#enviado").click(function(){
             
-                Swal.fire({
-                    type: "success",
-                    title: "Correcto",
-                    text: "El mensaje se ha enviado correctamente",
-                    icon: "success",
-                    closeOnClickOutside: false,
-                    showConffirmButton: true
-                });
+        //         Swal.fire({
+        //             type: "success",
+        //             title: "Correcto",
+        //             text: "El mensaje se ha enviado correctamente",
+        //             icon: "success",
+        //             closeOnClickOutside: false,
+        //             showConffirmButton: true
+        //         });
                 
-            })
+        //     })
         
         
-
+        ////// AJAX ////////
+        $(function() {
+            $('#enviado').click(function() { //Si pongo el # del id no inserta en la BBDD
+                var destino = "contactar.php";
+                $.ajax({
+                    type: 'POST',
+                    url: destino,
+                    data: $('#formulario').serialize(),
+                    dataType: 'json',
+                }).done(function(data) {
+                    var resultado = data;
+                    if(resultado.respuesta === 'exito'){
+                        Swal.fire({
+                            title: "Correcto",
+                            text: "El Administrador se creó correctamente",
+                            icon: "success",
+                            closeOnClickOutside: false
+                        });
+                    }else{
+                        Swal.fire({
+                            title: "Error",
+                            text: "Hubo un error, no puede haber usuarios Admins repetidos!",
+                            icon: "error",
+                            closeOnClickOutside: false
+                        });
+                    }   
+                        
+                    }).fail( function(data){
+                        Swal.fire({
+                            title: "Error",
+                            text: "Hubo un error!",
+                            icon: "error",
+                            closeOnClickOutside: false
+                        });
+                    });
+                
+                return false;
+            });
+        });
 
     }); // DOM CONTENT LOADED
 }());

@@ -1,5 +1,5 @@
 
-<?php $page ='inicio'; include_once 'includes/templates/header.php'; ?>
+<?php $page ='inicio'; include_once 'includes/templates/header.php'; ?> 
 
         <!-- Header -->
         <div class="img-header" id="img-header">
@@ -19,7 +19,6 @@
             </div>
 
         </div>
-    </header>
 
     <!-- Acerca de Nosotros -->
 
@@ -185,7 +184,12 @@
             <div class="contenido">
                 <p>Registrate a nuestro Newsletter!</p>
                 <img src="img/Logo-Regia-blanco.png" alt=""><br>
-                <a href="#" class="button transparente">Registro</a>
+                <form method="post">
+                    <input type="text" name="name" placeholder="Nombre completo">
+                    <input type="email" name="email" placeholder="Correo electrónico">
+                    <input class="transparente" type="submit" name="register">
+                </form>
+                <?php include ("/includes/funciones/registrar.php"); ?>
             </div>
         </div>
     </main>

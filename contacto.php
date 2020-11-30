@@ -6,7 +6,7 @@
     include("bd_conexion.php"); 
     
 ?>
-    </header>
+
 
 
     <!-- Contacto -->
@@ -18,7 +18,7 @@
                         <h2>Formulario de contacto</h2> 
                     </div>
                     <div class="formulario-content">
-                    <form id="formulario" action="contactar.php" method="post">
+                    <form id="formulario" action="contactar.php" method="post" name="formulario">
                         <label for="nombre">Nombre: </label>
                         <input type="text" id="nombre" name="nombre" placeholder="Ingresá tu nombre">
                         <div id="error_1"></div>
@@ -40,6 +40,7 @@
                         </div>
                         
                     </form>
+                    <div id="miAreaDeRespuesta"></div>
                     <br>
                     <p class="donacion">Te gustaría ser parte de alguna producción nuestra? Ayudanos a financiar nuestros próximos proyectos con tu donación y estarás colaborando como Productor Asociado!</p>
                     <form action="https://www.paypal.com/donate" method="post" target="_top" class="donacion">

@@ -1,5 +1,5 @@
 <?php include_once 'includes/templates/header.php'; ?>
-    </header>
+   
 
 
     <!-- Políticas de Provacidad -->

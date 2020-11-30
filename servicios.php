@@ -1,5 +1,5 @@
 <?php $page ='servicios'; include_once 'includes/templates/header.php'; ?>
-    </header>
+    
 
 
     <!-- Servicios -->
