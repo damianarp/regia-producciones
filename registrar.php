@@ -8,7 +8,7 @@
 
                 $name = trim($_POST['name']);         // trim elimina los espacios vacios al inicio y al final de lo que se escribe en el input
                 $email = trim($_POST['email']);
-
+                $fechareg = date("d/m/y");
                 try {
                     require_once('includes/funciones/bd_conexion.php');
                     $stmt = $conex->prepare("INSERT INTO suscriptores (nombre, email, fecha_reg) VALUES (?,?,?)");
