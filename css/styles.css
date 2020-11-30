@@ -153,6 +153,20 @@ p {
     font-style: italic;
     display: none;
 }
+.ok {
+	text-align: center;
+	width: 100%;
+	padding: 12px;
+	background-color: #1e6;
+	color: #fff
+}
+.bad {
+	text-align: center;
+	width: 100%;
+	padding: 12px;
+	background-color: #a22;
+	color: #fff
+}
 
 
 /* Ir arriba */

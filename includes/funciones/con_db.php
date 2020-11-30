@@ -1,9 +1,9 @@
 <?php
 
-    $conex = mysqli_connect('localhost', 'root', 'root', 'suscriptores');
-    mysqli_set_charset($conex, "utf8");
+    $conn = mysqli_connect('localhost', 'root', 'root', 'bd_registro_regia');
+    mysqli_set_charset($conn, "utf8");
 
-    if($conex->connect_error) {
-        echo $error -> $conex->connect_error;
+    if($conn->connect_error) {
+        echo $error -> $conn->connect_error;
     }
 ?>
