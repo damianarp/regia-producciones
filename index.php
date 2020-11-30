@@ -189,7 +189,7 @@
                     <input type="email" name="email" placeholder="Correo electrónico">
                     <input class="transparente" type="submit" name="register">
                 </form>
-                <?php include ("registrar.php"); ?>
+                <?php include_once 'registrar.php'; ?>
             </div>
         </div>
     </main>

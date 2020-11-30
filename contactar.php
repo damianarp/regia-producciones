@@ -1,6 +1,6 @@
 <?php 
 
-    include("bd_conexion.php");
+    include_once 'includes/funciones/bd_conexion.php';
 
     $destinatario = 'damianarp@gmail.com';
 

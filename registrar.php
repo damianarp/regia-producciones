@@ -1,6 +1,6 @@
 <?php 
 
-    include("con_db.php");
+    include_once 'includes/funciones/con_db.php';
 
     if(isset($_POST['register'])) { 
         if(strlen($_POST['name']) >= 1 &&       // Valida que los campos NO esten vacios al hacer submit
@@ -10,7 +10,7 @@
                 $email = trim($_POST['email']);
                 $fechareg = date("d/m/y");
                 try {
-                    require_once('includes/funciones/bd_conexion.php');
+                    require_once('includes/funciones/con_db.php');
                     $stmt = $conn->prepare("INSERT INTO suscriptores (nombre, email, fecha_reg) VALUES (?,?,?)");
                     $stmt->bind_param("sss", $name, $email, $fechareg);
                     $stmt->execute();

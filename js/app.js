@@ -252,14 +252,14 @@
                     if(resultado.respuesta === 'exito'){
                         Swal.fire({
                             title: "Correcto",
-                            text: "El Administrador se creó correctamente",
+                            text: "El mensaje se envió correctamente",
                             icon: "success",
                             closeOnClickOutside: false
                         });
                     }else{
                         Swal.fire({
                             title: "Error",
-                            text: "Hubo un error, no puede haber usuarios Admins repetidos!",
+                            text: "Hubo un error, no pudo enviar el mensaje!",
                             icon: "error",
                             closeOnClickOutside: false
                         });
