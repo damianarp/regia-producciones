@@ -238,10 +238,10 @@
         //     })
         
         
-        ////// AJAX ////////
+        ////// AJAX contacto////////
         $(function() {
-            $('#enviado').click(function() { //Si pongo el # del id no inserta en la BBDD
-                var destino = "contactar.php";
+            $('enviado').click(function() { //Si pongo el # del id no inserta en la BBDD
+                let destino = "contactar.php";
                 $.ajax({
                     type: 'POST',
                     url: destino,
@@ -260,6 +260,46 @@
                         Swal.fire({
                             title: "Error",
                             text: "Hubo un error, no pudo enviar el mensaje!",
+                            icon: "error",
+                            closeOnClickOutside: false
+                        });
+                    }   
+                        
+                    }).fail( function(data){
+                        Swal.fire({
+                            title: "Error",
+                            text: "Hubo un error!",
+                            icon: "error",
+                            closeOnClickOutside: false
+                        });
+                    });
+                
+                return false;
+            });
+        });
+
+        ////// AJAX suscripción////////
+        $(function() {
+            $('suscribir').click(function() { //Si pongo el # del id no inserta en la BBDD
+                let destino = "registrar.php";
+                $.ajax({
+                    type: 'POST',
+                    url: destino,
+                    data: $('#suscripcion').serialize(),
+                    dataType: 'json',
+                }).done(function(data) {
+                    var resultado = data;
+                    if(resultado.respuesta === 'exito'){
+                        Swal.fire({
+                            title: "Correcto",
+                            text: "Te has suscripto correctamente",
+                            icon: "success",
+                            closeOnClickOutside: false
+                        });
+                    }else{
+                        Swal.fire({
+                            title: "Error",
+                            text: "Hubo un error, no has podido suscribirte!",
                             icon: "error",
                             closeOnClickOutside: false
                         });

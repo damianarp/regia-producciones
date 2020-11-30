@@ -21,14 +21,14 @@
                             'id' => $id
                         );
                         ?> 
-                            <h3 class="ok">¡Te has inscripto correctamente!</h3>
+                            <!-- <h3 class="ok">¡Te has inscripto correctamente!</h3> -->
                         <?php
                     }else{
                         $respuesta = array(
                             'respuesta' => 'error' 
                         );
                         ?> 
-	    	                <h3 class="bad">¡Ups ha ocurrido un error!</h3>
+	    	                <!-- <h3 class="bad">¡Ups ha ocurrido un error!</h3> -->
                         <?php
                     }
                     $stmt->close();
@@ -41,7 +41,7 @@
                 die(json_encode($respuesta));
            } else {
                ?>
-                    <h3 class="bad">¡Por favor complete los campos!</h3>
+                    <!-- <h3 class="bad">¡Por favor complete los campos!</h3> -->
                <?php
            }
 

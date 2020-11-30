@@ -184,10 +184,10 @@
             <div class="contenido">
                 <p>Registrate a nuestro Newsletter!</p>
                 <img src="img/Logo-Regia-blanco.png" alt=""><br>
-                <form method="post">
+                <form method="post" id="suscrpcion">
                     <input type="text" name="name" placeholder="Nombre completo">
                     <input type="email" name="email" placeholder="Correo electrónico">
-                    <input class="transparente" type="submit" name="register">
+                    <input id="suscribir" class="transparente" type="submit" name="register">
                 </form>
                 <?php include_once 'registrar.php'; ?>
             </div>
