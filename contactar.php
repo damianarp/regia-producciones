@@ -10,8 +10,8 @@
 
 		// {"nombre":"Jorge Gast\\u00f3n","apellido":"Arp","correo":"gaston_arp@hotmail.com","mensaje":"test","submit":"Enviar"}
 
-    // $destinatario = 'damianarp@gmail.com';
-		$destinatario = 'gaston.arp@gmail.com';
+    $destinatario = 'damianarp@gmail.com';
+		// $destinatario = 'gaston.arp@gmail.com';
 		
 		// validamos un poco, pero lo hacemos por el negado
 		if (!isset($_POST['submit']) || !$_POST['submit']) {
@@ -53,14 +53,14 @@
 		$fecha = date('y-m-d H:i:s');
 
 		// guardamos en base de datos
-		$consulta = "INSERT INTO usuario (nombre, apellido, correo, mensaje, fecha) VALUES (:nombre, :apellido, :correo, :mensaje, :fecha)";
-    $resultado = $conexion->prepare($consulta);
-    $resultado->bindParam(':nombre', $nombre, PDO::PARAM_STR, 25);
-    $resultado->bindParam(':apellido', $apellido, PDO::PARAM_STR, 25);
-    $resultado->bindParam(':correo', $correo, PDO::PARAM_STR, 25);
-    $resultado->bindParam(':mensaje', $mensaje, PDO::PARAM_STR, 25);
-    $resultado->bindParam(':fecha', $fecha, PDO::PARAM_STR, 25);
-    $resultado->execute();
+		$consulta = "INSERT INTO usuario (nombre, apellido, correo, mensaje, fecha_mensaje) VALUES (:nombre, :apellido, :correo, :mensaje, :fecha)";
+        $resultado = $conexion->prepare($consulta);
+        $resultado->bindParam(':nombre', $nombre, PDO::PARAM_STR, 25);
+        $resultado->bindParam(':apellido', $apellido, PDO::PARAM_STR, 25);
+        $resultado->bindParam(':correo', $correo, PDO::PARAM_STR, 25);
+        $resultado->bindParam(':mensaje', $mensaje, PDO::PARAM_STR, 25);
+        $resultado->bindParam(':fecha', $fecha, PDO::PARAM_STR, 25);
+        $resultado->execute();
 
 		$id = $conexion->lastInsertId();
 

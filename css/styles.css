@@ -153,6 +153,18 @@ p {
     font-style: italic;
     display: none;
 }
+#error_4 {
+    clear: both;
+    font-weight: 600;
+    font-style: italic;
+    display: none;
+}
+#error_5 {
+    clear: both;
+    font-weight: 600;
+    font-style: italic;
+    display: none;
+}
 .ok {
 	text-align: center;
 	width: 100%;

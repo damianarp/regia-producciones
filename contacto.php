@@ -12,7 +12,7 @@
                     </div>
                     <div class="formulario-content">
                     <form id="formulario" name="formulario">
-												<input type="hidden" name="submit" value="1">
+						<input type="hidden" name="submit" value="1">
                         <label for="nombre">Nombre: </label>
                         <input type="text" id="nombre" name="nombre" placeholder="Ingresá tu nombre">
                         <div id="error_1"></div>
@@ -27,10 +27,10 @@
 
                         <label for="mensaje">Escribí tu mensaje: </label>
                         <textarea name="mensaje" id="mensaje"></textarea>
-												<input class="send" type="button" id="enviado" value="Enviar">
-												<div class="mensaje-form">
-														<p>Dejanos tu mensaje! Con gusto te responderemos a la brevedad!</p>
-												</div>
+                        <input class="send" type="button" id="enviado" value="Enviar">
+                        <div class="mensaje-form">
+                            <p>Dejanos tu mensaje! Con gusto te responderemos a la brevedad!</p>
+                        </div>
                     </form>
                     <div id="miAreaDeRespuesta"></div>
                     <br>
