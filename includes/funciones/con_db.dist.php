@@ -4,9 +4,9 @@
     class Conexion {
         public static function Conectar() {
             define('servidor','localhost');
-            define('nombre_bd','bd_regia');
+            define('nombre_bd','nombre_bd');
             define('usuario','root');
-            define('password','Koala123');
+            define('password','root');
 
             $opciones = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
 
@@ -26,7 +26,7 @@
 
 
     // ANTIGUA CONEXION CON MYSQLI
-    // $conn = mysqli_connect('localhost', 'root', 'root', 'bd_regia');
+    // $conn = mysqli_connect('localhost', 'root', 'root', 'bd_registro_regia');
     // mysqli_set_charset($conn, "utf8");
 
     // if($conn->connect_error) {

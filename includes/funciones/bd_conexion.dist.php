@@ -4,7 +4,7 @@
     class Conexion {
         public static function Conectar() {
             define('servidor','localhost');
-            define('nombre_bd','bd_registro_regia');
+            define('nombre_bd','nombre_bd');
             define('usuario','root');
             define('password','root');
 
@@ -26,7 +26,7 @@
 
 
     // ANTIGUA CONEXION CON MYSQLI
-    // $conn = mysqli_connect('localhost', 'root', 'root', 'bd_registro_regia');
+    // $conn = mysqli_connect('localhost', 'root', 'root', 'bd_regia');
     // mysqli_set_charset($conn, "utf8");
 
     // if($conn->connect_error) {

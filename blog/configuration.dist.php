@@ -15,8 +15,8 @@ class JConfig {
 	public $dbtype = 'pdomysql';
 	public $host = 'localhost';
 	public $user = 'root';
-	public $password = 'root';
-	public $db = 'blog_regia';
+	public $password = '';
+	public $db = 'db_name';
 	public $dbprefix = 'm4xks_';
 	public $live_site = '';
 	public $secret = 'gov5CZGSGfpcVTyF';
