@@ -333,9 +333,9 @@
             if (nombreSusc.value == '') {
                 errorDivNomSusc.style.display = 'block';
                 errorDivNomSusc.innerHTML = "este campo es obligatorio";
-                nombreSusc.style.border = '2px solid red';
-                errorDivNomSusc.style.color = 'red';
-                errorDivNomSusc.style.paddingTop = '10px';
+                nombreSusc.style.border = '2px solid #eeae00';
+                errorDivNomSusc.style.color = '#eeae00';
+                errorDivNomSusc.style.paddingTop = '5px';
                 return false;
             } else {
                 errorDivNomSusc.style.display = 'none';
@@ -357,9 +357,9 @@
             } else {
                 errorDivCorSusc.style.display = 'block';
                 errorDivCorSusc.innerHTML = "Escribe un correo válido";
-                correoSusc.style.border = '2px solid red';
-                errorDivCorSusc.style.color = 'red';
-                errorDivCorSusc.style.paddingTop = '10px';
+                correoSusc.style.border = '2px solid #eeae00';
+                errorDivCorSusc.style.color = '#eeae00';
+                errorDivCorSusc.style.paddingTop = '5px';
                 return false;
             }
         }

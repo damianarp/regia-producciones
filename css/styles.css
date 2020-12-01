@@ -165,20 +165,7 @@ p {
     font-style: italic;
     display: none;
 }
-.ok {
-	text-align: center;
-	width: 100%;
-	padding: 12px;
-	background-color: #1e6;
-	color: #fff
-}
-.bad {
-	text-align: center;
-	width: 100%;
-	padding: 12px;
-	background-color: #a22;
-	color: #fff
-}
+
 
 
 /* Ir arriba */
@@ -970,7 +957,7 @@ p {
     justify-content: center;
     text-decoration: none;
     margin: auto;
-    margin-bottom: 20px;
+    margin-top: 20px;
     padding: 10px;
     transition: all 0.5s ease;
 }
