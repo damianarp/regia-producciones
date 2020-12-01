@@ -4,7 +4,7 @@
     class Conexion {
         public static function Conectar() {
             define('servidor','localhost');
-            define('nombre_bd','bd_regia');
+            define('nombre_bd','nombre_bd');
             define('usuario','root');
             define('password','root');
 
