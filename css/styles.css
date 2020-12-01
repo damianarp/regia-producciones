@@ -953,19 +953,20 @@ p {
     border: 2px solid #ffffff;
     outline: none;
     font-size: 18px;
-    color: #fff;
+    color: var(--black);
     display: block;
     justify-content: center;
     text-decoration: none;
     margin: auto;
     margin-bottom: 20px;
     padding: 10px;
-    cursor: pointer;
     transition: all 0.5s ease;
 }
 .newsletter .contenido form .transparente {
     background-color: transparent;
+    color: #fff;
     width: 170px;
+    cursor: pointer;
 }
 
 .newsletter .contenido form input.transparente:hover {

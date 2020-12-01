@@ -279,44 +279,108 @@
         });
 
         ////// AJAX suscripción////////
-        $(function() {
-            $('suscribir').click(function() { //Si pongo el # del id no inserta en la BBDD
-                let destino = "registrar.php";
-                $.ajax({
-                    type: 'POST',
-                    url: destino,
-                    data: $('#suscripcion').serialize(),
-                    dataType: 'json',
-                }).done(function(data) {
-                    var resultado = data;
-                    if(resultado.respuesta === 'exito'){
-                        Swal.fire({
-                            title: "Correcto",
-                            text: "Te has suscripto correctamente",
-                            icon: "success",
-                            closeOnClickOutside: false
-                        });
-                    }else{
-                        Swal.fire({
-                            title: "Error",
-                            text: "Hubo un error, no has podido suscribirte!",
-                            icon: "error",
-                            closeOnClickOutside: false
-                        });
-                    }   
-                        
-                    }).fail( function(data){
-                        Swal.fire({
-                            title: "Error",
-                            text: "Hubo un error!",
-                            icon: "error",
-                            closeOnClickOutside: false
-                        });
-                    });
-                
+        $('#suscripcion').submit(function(e) {
+            e.preventDefault();
+            let nombre = $.trim($("#name").val());
+            let email = $.trim($("#mail").val());
+            let fechareg = date("d/m/y");
+
+            if(nombre.length == "" || email.length == "") {
+                Swal.fire({
+                    type: 'warning',
+                    title: 'Completá todos los campos',
+                    confirmButtonColor: '#eeae00'
+                });
                 return false;
-            });
+            } else {
+                $.ajax({
+                    url: "includes/funciones/registrar.php",
+                    type: "POST",
+                    datatype: "json",
+                    data: {nombre:name, email:mail, fechareg:fechareg},
+                    success: function(data){
+                        if(data == 'exito') {
+                            Swal.fire({
+                                type: 'success',
+                                title: 'Te has suscripto correctamente!'
+                            });
+                        } else {
+                            Swal.fire({
+                                type: 'error',
+                                title: 'Hubo un error! No se completó la suscripción.'
+                            });
+                        }
+                    }
+                });
+            }
+
         });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // $(function() {
+        //     $('suscribir').click(function() { //Si pongo el # del id no inserta en la BBDD
+        //         let destino = "registrar.php";
+        //         $.ajax({
+        //             type: 'POST',
+        //             url: destino,
+        //             data: $('#suscripcion').serialize(),
+        //             dataType: 'json',
+        //         }).done(function(data) {
+        //             var resultado = data;
+        //             if(resultado.respuesta === 'exito'){
+        //                 Swal.fire({
+        //                     title: "Correcto",
+        //                     text: "Te has suscripto correctamente",
+        //                     icon: "success",
+        //                     closeOnClickOutside: false
+        //                 });
+        //             }else{
+        //                 Swal.fire({
+        //                     title: "Error",
+        //                     text: "Hubo un error, no has podido suscribirte!",
+        //                     icon: "error",
+        //                     closeOnClickOutside: false
+        //                 });
+        //             }   
+                        
+        //             }).fail( function(data){
+        //                 Swal.fire({
+        //                     title: "Error",
+        //                     text: "Hubo un error!",
+        //                     icon: "error",
+        //                     closeOnClickOutside: false
+        //                 });
+        //             });
+                
+        //         return false;
+        //     });
+        // });
 
     }); // DOM CONTENT LOADED
 }());
