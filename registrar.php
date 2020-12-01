@@ -1,6 +1,6 @@
 <?php 
 
-    include_once 'includes/funciones/db_regia.php';
+    include_once 'includes/funciones/bd_conexion.php';
     include_once 'includes/funciones/funciones.php';
 
     $objeto = new Conexion();
@@ -40,7 +40,7 @@
     $id = $conexion->lastInsertId();
 
     // cerramos la conexion
-        $conexion = null;
+    $conexion = null;
         
     // si llegó hasta acá, es porque funciunó todo bien!!! retornamos el exito!
 		return responseJSON(array('success' => true, 'msg' => 'Suscripción realizada exitosamente!'));

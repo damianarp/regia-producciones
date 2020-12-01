@@ -192,7 +192,6 @@
                     <div id="error_5"></div>
                     <input id="suscribir" class="transparente" type="button" value="Enviar">
                 </form>
-                <?php include_once 'registrar.php'; ?>
             </div>
         </div>
     </main>
