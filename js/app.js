@@ -180,28 +180,32 @@
         }
 
         function validarNombre() {
-            if (this.value == '') {
+            if (nombre.value == '') {
                 errorDivNom.style.display = 'block';
                 errorDivNom.innerHTML = "este campo es obligatorio";
-                this.style.border = '2px solid red';
+                nombre.style.border = '2px solid red';
                 errorDivNom.style.color = 'red';
-                errorDivNom.style.paddingTop = '10px';
+								errorDivNom.style.paddingTop = '10px';
+								return false;
             } else {
                 errorDivNom.style.display = 'none';
-                this.style.border = '2px solid #eeae00';
+								nombre.style.border = '2px solid #eeae00';
+								return true;
             }
         }
 
         function validarApellido() {
-            if (this.value == '') {
+            if (apellido.value == '') {
                 errorDivApe.style.display = 'block';
                 errorDivApe.innerHTML = "este campo es obligatorio";
-                this.style.border = '2px solid red';
+                apellido.style.border = '2px solid red';
                 errorDivApe.style.color = 'red';
-                errorDivApe.style.paddingTop = '10px';
+								errorDivApe.style.paddingTop = '10px';
+								return false;
             } else {
                 errorDivApe.style.display = 'none';
-                this.style.border = '2px solid #eeae00';
+								apellido.style.border = '2px solid #eeae00';
+								return true;
             }
         }
 
@@ -211,15 +215,17 @@
         }
 
         function validarExpresion() {
-            if (expresion.test(this.value) == true) {
+            if (expresion.test(correo.value) == true) {
                 errorDivCor.style.display = 'none';
-                this.style.border = '2px solid #eeae00';
+								correo.style.border = '2px solid #eeae00';
+								return true;
             } else {
                 errorDivCor.style.display = 'block';
                 errorDivCor.innerHTML = "Escribe un correo válido";
-                this.style.border = '2px solid red';
+                correo.style.border = '2px solid red';
                 errorDivCor.style.color = 'red';
-                errorDivCor.style.paddingTop = '10px';
+								errorDivCor.style.paddingTop = '10px';
+								return false;
             }
         }
 
@@ -235,48 +241,82 @@
         //             showConffirmButton: true
         //         });
                 
-        //     })
-        
+				//     })
+				
+        function limpiarCamposContacto() {
+						const nombre = document.querySelector('#nombre');
+						const apellido = document.querySelector('#apellido');
+						const correo = document.querySelector('#correo');
+						const mensaje = document.querySelector('#mensaje');
+						const errorDivNom = document.querySelector('#error_1');
+						const errorDivApe = document.querySelector('#error_2');
+						const errorDivCor = document.querySelector('#error_3');
+
+						nombre.value = '';
+						apellido.value = '';
+						correo.value = '';
+						mensaje.value = '';
+
+						errorDivNom.style.display = 'none';
+						nombre.style.border = '2px solid #eeae00';
+						errorDivApe.style.display = 'none';
+						apellido.style.border = '2px solid #eeae00';
+						errorDivCor.style.display = 'none';
+						correo.style.border = '2px solid #eeae00';
+						
+				}
         
         ////// AJAX contacto////////
-        $(function() {
-            $('enviado').click(function() { //Si pongo el # del id no inserta en la BBDD
-                let destino = "contactar.php";
-                $.ajax({
-                    type: 'POST',
-                    url: destino,
-                    data: $('#formulario').serialize(),
-                    dataType: 'json',
-                }).done(function(data) {
-                    var resultado = data;
-                    if(resultado.respuesta === 'exito'){
-                        Swal.fire({
-                            title: "Correcto",
-                            text: "El mensaje se envió correctamente",
-                            icon: "success",
-                            closeOnClickOutside: false
-                        });
-                    }else{
-                        Swal.fire({
-                            title: "Error",
-                            text: "Hubo un error, no pudo enviar el mensaje!",
-                            icon: "error",
-                            closeOnClickOutside: false
-                        });
-                    }   
-                        
-                    }).fail( function(data){
-                        Swal.fire({
-                            title: "Error",
-                            text: "Hubo un error!",
-                            icon: "error",
-                            closeOnClickOutside: false
-                        });
-                    });
-                
-                return false;
-            });
-        });
+				$('#enviado').click(function() { //Si pongo el # del id no inserta en la BBDD
+						// aca debemos validar antes de enviar y marcarle al usuario los errores o campos obligatorios
+						if (!validarNombre()) {
+								nombre.focus();
+								return;
+						}
+						if (!validarApellido()) {
+								apellido.focus();
+								return;
+						}
+						if (!validarExpresion()) {
+								correo.focus();
+								return;
+						}
+						$.ajax({
+								type: 'POST',
+								url: 'contactar.php',
+								data: $('#formulario').serialize(),
+								dataType: 'json',
+						}).done(function(data) {
+								// var resultado = data; // no hace falta por ahora
+								if(data.success){
+										Swal.fire({
+												title: 'Correcto',
+												text: data.msg, //'El mensaje se envió correctamente', // o podemos poner el mensaje que viene de la respuesta
+												icon: 'success',
+												closeOnClickOutside: false
+										});
+
+										// limpiamos los campos!!!
+										limpiarCamposContacto();
+								}else{
+										Swal.fire({
+												title: 'Upss',
+												text: data.msg ? data.msg : 'Hubo un error, no pudo enviar el mensaje!', // esto es un IF corto!!!! el signo de pregunta denotaria el SI, y los dos punto el SINO
+												icon: 'error',
+												closeOnClickOutside: false
+										});
+								}
+						}).fail(function(data){
+								Swal.fire({
+										title: 'Upss',
+										text: 'Hubo un error!',
+										icon: 'error',
+										closeOnClickOutside: false
+								});
+						});
+						
+						return false;
+				});
 
         ////// AJAX suscripción////////
         $('#suscripcion').submit(function(e) {
