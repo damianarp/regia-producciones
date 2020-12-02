@@ -29,19 +29,34 @@
     $correo = trim($_POST['mail']);
     $fecha = date('y-m-d H:i:s');
 
+    // validamos que el correo no se encuentre ya en la base de datos
+    $resultado = $conexion->prepare("SELECT email FROM suscriptores WHERE email like :email");
+    $parametros = array('email' => $correo);
+    $resultado->execute($parametros);
+    $user = $resultado->fetch();
+
+    if ($user && $user['email']) {
+        return responseJSON(array('success' => false, 'msg' => 'Este mail ya se encuentra registrado! Intenta con otro!'));
+    }
+
+
     // guardamos en base de datos
     $consulta = "INSERT INTO suscriptores (nombre, email, fecha_reg) VALUES (:nombre, :email, :fechareg)";
     $resultado = $conexion->prepare($consulta);
     $resultado->bindParam(':nombre', $nombre, PDO::PARAM_STR, 25);
-    $resultado->bindParam(':email', $email, PDO::PARAM_STR, 25);
-    $resultado->bindParam(':fechareg', $fechareg, PDO::PARAM_STR, 25);
+    $resultado->bindParam(':email', $correo, PDO::PARAM_STR, 25);
+    $resultado->bindParam(':fechareg', $fecha, PDO::PARAM_STR, 25);
     $resultado->execute();
 
     $id = $conexion->lastInsertId();
 
     // cerramos la conexion
     $conexion = null;
-        
+     
+    if ($id <= 0) {
+        // retornamos error, no se pudo guardar en base de datos
+        return responseJSON(array('success' => false, 'msg' => 'Lo sentimos, algo falló al intentar realizar la suscripción!'));
+    }
     // si llegó hasta acá, es porque funciunó todo bien!!! retornamos el exito!
 		return responseJSON(array('success' => true, 'msg' => 'Suscripción realizada exitosamente!'));
 

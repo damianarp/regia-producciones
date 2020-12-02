@@ -1151,19 +1151,19 @@ p {
     padding-bottom: 20px;
 }
 
-.donacion {
-    padding-bottom: 10px;
-}
+
 
 .contenedor .info-container .contenedor-img p.donacion {
     text-align: center;
     font-size: 15px;
     width: 60%;
     margin: auto;
+    padding: 5px 0 40px 0;
+    line-height: normal;
 }
 
 .contenedor .info-container .contenedor-img .donacion input {
-    margin: 30px 0;
+    margin: 0 0;
 }
 
 
@@ -1565,6 +1565,10 @@ p {
         text-align: left;
         width: 80%;
     }
+    /************ Newsletter ***********/
+    .newsletter .contenido form input {
+        width: 70%;
+    }
 }
 
 /**************************************  Media Query 1070  ****************************************/
@@ -1673,6 +1677,8 @@ p {
     .contenedor .info-container .gallery img {
         width: calc(40% - 10px);
     }
+
+    
 
 
 
@@ -2025,9 +2031,7 @@ p {
 
     }
 
-    .newsletter .contenido form input {
-        width: 50%;
-    }
+    
 
     /*************** Página Nosotros **************/
     .acerca-de {

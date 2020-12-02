@@ -223,7 +223,7 @@
 								return true;
             } else {
                 errorDivCor.style.display = 'block';
-                errorDivCor.innerHTML = "Escribe un correo válido";
+                errorDivCor.innerHTML = "escribe un correo válido";
                 correoCon.style.border = '2px solid red';
                 errorDivCor.style.color = 'red';
 								errorDivCor.style.paddingTop = '10px';
@@ -257,7 +257,7 @@
 				}
         
         ////// AJAX contacto////////
-        $('#enviado').click(function() { //Si pongo el # del id no inserta en la BBDD
+        $('#enviado').click(function() { 
             // aca debemos validar antes de enviar y marcarle al usuario los errores o campos obligatorios
             if (!validarNombre()) {
                     nombreCon.focus();
@@ -282,8 +282,9 @@
                             Swal.fire({
                                     title: 'Correcto',
                                     text: data.msg, //'El mensaje se envió correctamente', // o podemos poner el mensaje que viene de la respuesta
-                                    icon: 'success',
-                                    closeOnClickOutside: false
+                                    type: 'success',
+                                    confirmButtonColor: '#eeae00',
+                                    allowOutsideClick: false
                             });
 
                             // limpiamos los campos!!!
@@ -292,16 +293,18 @@
                             Swal.fire({
                                     title: 'Upss',
                                     text: data.msg ? data.msg : 'Hubo un error, no pudo enviar el mensaje!', // esto es un IF corto!!!! el signo de pregunta denotaria el SI, y los dos punto el SINO
-                                    icon: 'error',
-                                    closeOnClickOutside: false
+                                    type: 'error',
+                                    confirmButtonColor: '#eeae00',
+                                    allowOutsideClick: false
                             });
                     }
             }).fail(function(data){
                     Swal.fire({
                             title: 'Upss',
                             text: 'Hubo un error!',
-                            icon: 'error',
-                            closeOnClickOutside: false
+                            type: 'error',
+                            confirmButtonColor: '#eeae00',
+                            allowOutsideClick: false
                     });
             });
             
@@ -333,13 +336,13 @@
             if (nombreSusc.value == '') {
                 errorDivNomSusc.style.display = 'block';
                 errorDivNomSusc.innerHTML = "este campo es obligatorio";
-                nombreSusc.style.border = '2px solid #eeae00';
+                nombreSusc.style.border = '3px solid #eeae00';
                 errorDivNomSusc.style.color = '#eeae00';
                 errorDivNomSusc.style.paddingTop = '5px';
                 return false;
             } else {
                 errorDivNomSusc.style.display = 'none';
-                nombreSusc.style.border = '2px solid #eeae00';
+                nombreSusc.style.border = 'none';
                 return true;
             }
         }
@@ -352,12 +355,12 @@
         function validarExpresionSusc() {
             if (expresion.test(correoSusc.value) == true) {
                 errorDivCorSusc.style.display = 'none';
-                correoSusc.style.border = '2px solid #eeae00';
+                correoSusc.style.border = 'none';
                 return true;
             } else {
                 errorDivCorSusc.style.display = 'block';
-                errorDivCorSusc.innerHTML = "Escribe un correo válido";
-                correoSusc.style.border = '2px solid #eeae00';
+                errorDivCorSusc.innerHTML = "escribe un correo válido";
+                correoSusc.style.border = '3px solid #eeae00';
                 errorDivCorSusc.style.color = '#eeae00';
                 errorDivCorSusc.style.paddingTop = '5px';
                 return false;
@@ -375,15 +378,15 @@
             correoSusc.value = '';
 
             errorDivNomSusc.style.display = 'none';
-            nombreSusc.style.border = '2px solid #eeae00';
+            nombreSusc.style.border = 'none';
             errorDivCorSusc.style.display = 'none';
-            correoSusc.style.border = '2px solid #eeae00';
+            correoSusc.style.border = 'none';
             
     }
 
 
         ////// AJAX suscripción////////
-        $('#suscribir').click(function() { //Si pongo el # del id no inserta en la BBDD
+        $('#suscribir').click(function() { 
             // aca debemos validar antes de enviar y marcarle al usuario los errores o campos obligatorios
             if (!validarNombreSusc()) {
                     nombreSusc.focus();
@@ -404,26 +407,30 @@
                             Swal.fire({
                                     title: 'Correcto',
                                     text: data.msg, //'Te has suscripto correctamente', // o podemos poner el mensaje que viene de la respuesta
-                                    icon: 'success',
-                                    closeOnClickOutside: false
+                                    type: 'success',
+                                    confirmButtonColor: '#eeae00',
+                                    allowOutsideClick: false
                             });
 
                             // limpiamos los campos!!!
                             limpiarCamposContactoSusc();
                     }else{
                             Swal.fire({
-                                    title: 'Upss',
+                                    title: 'Ups',
                                     text: data.msg ? data.msg : 'Hubo un error, no pudo suscribirse!', // esto es un IF corto!!!! el signo de pregunta denotaria el SI, y los dos punto el SINO
-                                    icon: 'error',
-                                    closeOnClickOutside: false
+                                    type: 'warning',
+                                    confirmButtonColor: '#eeae00',
+                                    allowOutsideClick: false
+                                    
                             });
                     }
             }).fail(function(data){
                     Swal.fire({
                             title: 'Upss',
                             text: 'Hubo un error!',
-                            icon: 'error',
-                            closeOnClickOutside: false
+                            type: 'error',
+                            confirmButtonColor: '#eeae00',
+                            allowOutsideClick: false
                     });
             });
             
