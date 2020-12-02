@@ -1,3 +1,4 @@
+
 (function () {
 
     "use strict";
@@ -58,6 +59,9 @@
                 event.target.classList.add('activo');
             });
         });
+
+        ///////////////// AOS Instance /////////////////////
+        AOS.init();
 
         ///////////////////// Efectos Scroll ////////////////////
         let ubicacionPrincipal = window.pageYOffset;

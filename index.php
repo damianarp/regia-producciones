@@ -20,7 +20,7 @@
 
         </div>
 
-    <!-- Acerca de Nosotros -->
+    <!-- Novedades -->
 
     <main id="main">
         <section class="contenedor">

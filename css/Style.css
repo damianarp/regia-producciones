@@ -285,7 +285,6 @@ main .site-content .post-content > .post-image .post-info{
     padding: 1rem;
     position: absolute;
     bottom: 0%;
-    left: 20vw;
     border-radius: 3rem;
 }
 
@@ -309,6 +308,7 @@ main .site-content .post-content > .post-image .post-info span{
 main .post-content .post-title a{
     font-family: 'Raleway', sans-serif;
     font-size: 1.5rem;
+    font-weight: 800;
 }
 
 .site-content .post-content .post-title .post-btn{
@@ -369,7 +369,6 @@ main .post-content .post-title a{
 .site-content .sidebar .popular-post .post-info{
     padding: .4rem .1rem !important;
     bottom: 0rem !important;
-    left: 1.5rem !important;
     border-radius: 0rem !important;
     background: white !important;
 }
@@ -504,9 +503,8 @@ footer.footer .move-up span:hover{
 
 @media only screen and (max-width: 1130px){
     .site-content .post-content > .post-image .post-info{
-        left: 2rem !important;
         bottom: 1.2rem !important;
-        border-radius: 0% !important;
+        border-radius: 24px!important;
     }
 
     .site-content .sidebar .popular-post .post-info{
@@ -519,8 +517,13 @@ footer.footer .move-up span:hover{
 
 }
 
-/*      x       Viewport less then or equal to 1130px    x     */
-
+/*      x       Viewport less then or equal to 798px    x     */
+@media only screen and (max-width: 798px){
+    .site-content .sidebar .popular-post .post-info{
+        display: block!important;
+        
+    }
+}
 
 /*              Viewport less then or equal to 750px            */
 

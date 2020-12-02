@@ -42,7 +42,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/normalize_reset.css">
     <link rel="stylesheet" href="css/sweetalert2.min.css">
-    <!-- <link rel="stylesheet" href="css/aos.css"> -->
+    <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/style.css">

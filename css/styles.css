@@ -1180,7 +1180,7 @@ p {
     display: flex;
     left: 0;
     margin: 0px;
-    position: fixed;
+    position: static;
     z-index: 99999;
 
 }
@@ -1415,7 +1415,7 @@ p {
 /* ---------------- Site Content ----------------*/
 
 main #blog{
-    width: 80%;
+    width: 70%;
     margin: auto;
     padding-top: 100px;
     margin-top: 50px;
@@ -1429,11 +1429,15 @@ main .site-content{
 
 main .post-content{
     width: 100%;
+    margin-bottom: 30px;
 }
 
 main .contenedor .site-content .posts hr {
     width: 92.5%;
     margin: auto;
+}
+main .post-content .post-title p {
+text-align: left;
 }
 
 main .post-content .post-title .btn {
@@ -1450,9 +1454,9 @@ main .site-content .post-content > .post-image .post-info{
     background: var(--blue);
     padding: 1rem;
     position: absolute;
-    bottom: 0%;
-    left: 20vw;
-    border-radius: 3rem;
+    bottom: 0%!important;
+    right: 5%;
+    border-radius: 24px;
 }
 
 main .site-content .post-content > .post-image > div{
@@ -1465,7 +1469,7 @@ main .site-content .post-content > .post-image .img{
 }
 
 main .site-content .post-content > .post-image .img:hover{
-    transform: scale(1.3);
+    transform: scale(1.05);
 }
 
 main .site-content .post-content > .post-image .post-info span{
@@ -1535,9 +1539,9 @@ main .post-content .post-title a{
 .site-content .sidebar .popular-post .post-info{
     padding: .4rem .1rem !important;
     bottom: 0rem !important;
-    left: 1.5rem !important;
     border-radius: 0rem !important;
     background: white !important;
+    box-shadow: 1px 3px 5px lightgrey;
 }
 
 .site-content .sidebar .popular-post .post-title a{
@@ -1794,16 +1798,21 @@ text-shadow: 1px 1px 2px black;
     .newsletter .contenido form input {
         width: 70%;
     }
-}
-/**************************************  Media Query 1310  ****************************************/
-
-@media only screen and (max-width:1310px) {
-    main .site-content .post-content > .post-image .post-info{
-        border-radius: 24px!important;
-        left: 10vh!important;
+    /************ Blog ***********/
+    main #blog{
+        width: 90%;
     }
+    main .site-content .post-content > .post-image .post-info span {
+        font-size: 13px;
+    }
+}
+
+/**************************************  Media Query 1322  ****************************************/
+
+@media only screen and (max-width:1322px) {
     .site-content > .sidebar .category-list {
-        width: 100%;
+        width: 90%;
+        margin: auto;
     }
     .site-content > .sidebar .category-list .list-items {
         width: 100%;
@@ -1838,6 +1847,7 @@ text-shadow: 1px 1px 2px black;
         height: 35px;
         padding: 0;
     }
+    
 
 }
 
@@ -1969,7 +1979,6 @@ text-shadow: 1px 1px 2px black;
 
     /************ Blog **********/
     main .site-content .post-content > .post-image .post-info {
-        left: 7vh!important;
         padding: .5rem;
     }
 
@@ -1978,15 +1987,8 @@ text-shadow: 1px 1px 2px black;
 /**************************************  Media Query 1000  ****************************************/
 
 @media only screen and (max-width: 1000px) {
-    main #blog{
-        width: 90%;
-        margin: auto;
-    }
     main .site-content .post-content > .post-image .post-info span {
         font-size: 13px;
-    }
-    main .site-content .post-content > .post-image .post-info {
-        left: 10vh!important;
     }
     .site-content .sidebar .popular-post h2 {
         font-size: 20px;
@@ -1996,6 +1998,8 @@ text-shadow: 1px 1px 2px black;
     }
     .site-content .sidebar .popular-tags h2 {
         font-size: 20px!important;
+        width: 90%;
+        margin: auto;
     }
 
 }
@@ -2575,9 +2579,7 @@ text-shadow: 1px 1px 2px black;
         display: grid;
         grid-template-columns: 100%;
     }
-    main .site-content .post-content > .post-image .post-info{
-        border-radius: 24px!important;
-    }
+   
     .site-content .sidebar .newsletter{
         width: 90%;
         margin: auto;
