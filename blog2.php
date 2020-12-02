@@ -1,6 +1,6 @@
 <?php $page ='blog'; include_once 'includes/templates/header.php'; ?>
 
-<main id="pagina1">
+<main id="pagina2">
     <!-- ---------------------- Site Content -------------------------->
 
     <section class="contenedor" id="blog">
@@ -88,8 +88,9 @@
                         </div>
                     </article>
                     <div class="pagination flex-row">
-                        <a href="blog.php" class="pages pagina-activa">1</a>
-                        <a href="blog2.php" class="pages">2</a>
+                        <a href="blog.php"><i class="fas fa-chevron-left"></i></a>
+                        <a href="blog.php" class="pages">1</a>
+                        <a href="blog2.php" class="pages pagina-activa">2</a>
                         <a href="#" class="pages">3</a>
                         <a href="#"><i class="fas fa-chevron-right"></i></a>
                     </div>

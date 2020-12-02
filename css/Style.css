@@ -353,9 +353,16 @@ main .post-content .post-title a{
     display: flex;
     justify-content: space-between;
 }
+.site-content > .sidebar .category-list .list-items:hover {
+    color: var(--blue);
+    background: var(--black);
+}
 
 .site-content > .sidebar .category-list .list-items a{
     color:  black;
+}
+.site-content > .sidebar .category-list .list-items:hover a {
+    color: var(--blue);
 }
 
 .site-content .sidebar .popular-post .post-content{

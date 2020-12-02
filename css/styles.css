@@ -1444,6 +1444,10 @@ main .post-content .post-title .btn {
     color: var(--black)!important;
     font-weight: 500!important;
 }
+main .post-content .post-title .btn:hover{
+    color: var(--blue)!important;
+    background: var(--black)!important;
+}
 
 main .site-content .post-content > .post-image, .post-title{
     padding: 1rem 2rem;
@@ -1485,6 +1489,10 @@ main .post-content .post-title a{
     padding: .7rem 1.5rem;
     background: var(--blue);
 }
+.site-content .post-content .post-title .post-btn:hover {
+    color: var(--blue);
+    background: var(--black);
+}
 
 .site-content .pagination{
     justify-content: center;
@@ -1498,10 +1506,22 @@ main .post-content .post-title a{
     margin: 0 .3rem;
     font-family: 'Raleway', sans-serif;
 }
+.site-content .pagination a.pagina-activa {
+    background: var(--blue);
+    color: var(--black);
+}
+
+.site-content .pagination a:hover {
+    transform: scale(1.3);
+}
+
 
 .site-content .pagination .pages{
     background: var(--text-gray);
     color: var(--white);
+}
+.site-content .pagination .pages:hover{
+    transform: scale(1.1);
 }
 
 /* -------x-------- Site Content --------x-------*/
@@ -1514,7 +1534,8 @@ main .post-content .post-title a{
 }
 
 .site-content > .sidebar .category-list .list-items{
-    background: var(--blue);
+    background: var(--black);
+    cursor: pointer;
     padding: .4rem 1rem;
     margin: .8rem 0;
     border-radius: 3rem;
@@ -1522,10 +1543,16 @@ main .post-content .post-title a{
     display: flex;
     justify-content: space-between;
 }
+.site-content > .sidebar .category-list .list-items:hover{
+    background: var(--blue);
+}
 
 .site-content > .sidebar .category-list .list-items a{
-    color:  black;
+    color:  var(--blue);
     font-weight: 600;
+}
+.site-content > .sidebar .category-list .list-items:hover a{
+    color:  var(--black);
 }
 
 .site-content .sidebar .popular-post .post-content{
@@ -1553,6 +1580,17 @@ main .post-content .post-title a{
     background-image: url(../img/img-10.jpg);
     background-attachment: scroll;
 }
+/* .site-content .sidebar .login{
+    padding: 20px;
+    margin-top: 16px;
+    margin-bottom: 100px;
+    background-image: url(../img/img-11.jpg)!important;
+    background-attachment: scroll;
+}
+.site-content .sidebar .login .form-element input {
+    width: 90%;
+    margin: auto;
+} */
 
 .site-content .sidebar .newsletter h2 {
 padding-left: 30px;
@@ -1565,9 +1603,10 @@ text-shadow: 1px 1px 2px black;
 }
 
 .site-content .sidebar .newsletter .form-element input {
+    
     height: 50px;
     border-radius: 24px;
-    border: 2px solid #ffffff;
+    border: none;
     outline: none;
     font-size: 18px;
     color: var(--black);
@@ -1578,22 +1617,48 @@ text-shadow: 1px 1px 2px black;
     padding-left: 30px;
     transition: all 0.5s ease;
 }
-
 .site-content .sidebar .newsletter .form-element .transparente {
-    background-color: transparent;
-    color: #fff;
+    color: var(--black);
     width: 170px;
     cursor: pointer; 
     padding: 10px;
     padding-left: 0;
+    border-radius: 24px;
+    background: var(--blue);
 }
-
-
-
 .site-content .sidebar .newsletter .form-element .transparente:hover {
+    width: 170px;
+    cursor: pointer; 
+    padding: 10px;
+    padding-left: 0;
     color: var(--blue);
-    border: 2px solid var(--blue);
+    background: var(--black);
 }
+
+/* .site-content .sidebar .login .form-element .post-btn {
+    color: var(--black);
+    width: 170px;
+    cursor: pointer; 
+    padding: 10px;
+    padding-left: 0;
+    border-radius: 24px;
+    background: var(--blue);
+}
+
+.site-content .sidebar .login .form-element .post-btn:hover {
+    width: 170px;
+    cursor: pointer; 
+    padding: 10px;
+    padding-left: 0;
+    color: var(--blue);
+    background: var(--black);
+} */
+
+
+
+
+
+
 
 .site-content .sidebar .newsletter .input-element{
     height: 50px;
@@ -1627,10 +1692,15 @@ text-shadow: 1px 1px 2px black;
 }
 
 .site-content .sidebar .popular-tags .tags .tag{
-    background: var(--blue);
+    background: var(--black);
+    color: var(--blue);
     padding: .4rem 1rem;
     border-radius: 3rem;
     margin: .4rem .6rem;
+}
+.site-content .sidebar .popular-tags .tags .tag:hover {
+    color: var(--black);
+    background: var(--blue);
 }
 
 
