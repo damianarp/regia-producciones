@@ -190,7 +190,7 @@
                     <div id="error_4"></div>
                     <input type="email" name="mail" id="mail" placeholder="Correo electrónico">
                     <div id="error_5"></div>
-                    <input id="suscribir" class="transparente" type="button" value="Enviar">
+                    <input id="suscribir" class="transparente" type="button" value="Suscribite!">
                 </form>
             </div>
         </div>
