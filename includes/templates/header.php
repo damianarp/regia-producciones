@@ -3,16 +3,26 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Regia Producciones</title>
     <meta name="description"
-        content="Creamos contenidos audiovisuales, tanto en fotografía como en video y brindamos servicios digitales como creación de páginas webs. Somos comunicadores audiovisuales">
+        content="Creamos contenidos audiovisuales, tanto en fotografía como en video y brindamos servicios digitales como creación de páginas webs. Somos comunicadores audiovisuales!">
     <meta name="keywords"
         content="comunicacion digital, comunicación audiovisual, cine, creacion de contenido, desarrollo web, creacion de sitios web, agencia audiovisual, gestion de redes sociales, peliculas, videoclips, fotografía de producto">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="http://www.regiaproducciones.com/" />
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Regia Producciones</title>
+
+    <meta name="robots" content="index,follow" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    
 
     <link rel="manifest" href="site.webmanifest">
     <link rel="apple-touch-icon" href="icon.png">
+
+
     <!-- Place favicon.ico in the root directory -->
     <!-- Favicon 32x32-->
     <link rel="icon" type="image/png" href="img/logo-r-negro32.png">
@@ -23,9 +33,14 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="logo-r-negro114.png">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="logo-r-negro144.png">
 
+    <!-- Multi-language support -->
+    <link rel="alternate" href="https://regiaproducciones.com" hreflang="es" />
+    <link rel="alternate" href="https://regiaproducciones.com/en/" hreflang="en" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!-- Estilos -->
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/normalize_reset.css">
-    <!-- Estilos -->
     <link rel="stylesheet" href="css/sweetalert2.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/lightbox.css">

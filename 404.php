@@ -9,13 +9,13 @@
       </div>
       <div id="buscador">
         <ul id="box-search">
-          <li><a href="proyectos.html"><i class="fas fa-search"></i>Videos</a></li>
-          <li><a href="servicios.html"><i class="fas fa-search"></i>Producción Audiovisual</a></li>
-          <li><a href="servicios.html"><i class="fas fa-search"></i>Fotografía</a></li>
-          <li><a href="servicios.html"><i class="fas fa-search"></i>Diseño</a></li>
-          <li><a href="servicios.html"><i class="fas fa-search"></i>Desarrollo Web</a></li>
-          <li><a href="nosotros.html"><i class="fas fa-search"></i>Nosotros</a></li>
-          <li><a href="contacto.html"><i class="fas fa-search"></i>Contacto</a></li>
+          <li><a href="proyectos.php"><i class="fas fa-search"></i>Videos</a></li>
+          <li><a href="servicios.php"><i class="fas fa-search"></i>Producción Audiovisual</a></li>
+          <li><a href="servicios.php"><i class="fas fa-search"></i>Fotografía</a></li>
+          <li><a href="servicios.php"><i class="fas fa-search"></i>Diseño</a></li>
+          <li><a href="servicios.php"><i class="fas fa-search"></i>Desarrollo Web</a></li>
+          <li><a href="nosotros.php"><i class="fas fa-search"></i>Nosotros</a></li>
+          <li><a href="contacto.php"><i class="fas fa-search"></i>Contacto</a></li>
         </ul>
       </div>
     </div>
