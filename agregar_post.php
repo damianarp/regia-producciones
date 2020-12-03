@@ -33,27 +33,32 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/normalize_reset.css">
     <link rel="stylesheet" href="css/sweetalert2.min.css">
+    <link rel="stylesheet" href="css/dropzone.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/styles-agregar-post.css">
-
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script>tinymce.init({selector: "#contenido",height: 500,width: "100%",statusbar: false,menubar: false, language : "es",plugins: ["advlist autolink autosave link image lists charmap preview hr anchor spellchecker","searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking","table contextmenu directionality emoticons template textcolor paste textcolor colorpicker textpattern"],toolbar1: "newdocument | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | cut copy paste | bullist numlist | outdent indent | undo redo | link unlink image media | preview | forecolor backcolor | formatselect",toolbar3: "subscript superscript | emoticons",toolbar_items_size: 'small',content_css: ['//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css','//www.tinymce.com/css/codepen.min.css']});</script>
-
 
     <meta name="theme-color" content="#fafafa">
 </head>
 
 <body>
     <div id="caja">
-        <img src="img/logo-regia-negro.png" alt="">
+        <h1 class="logo-box">
+            <a href="index.php" target=”_blank” title="Regia Producciones"><img src="img/logo-regia-negro.png"
+                    alt="Logo de Regia Producciones"></a>
+            <span class="btn-menu"><i class="fas fa-bars"></i></span>
+        </h1>
         <form id="postear" name="postear" enctype="multipart/form-data">
             <input type="hidden" name="submit" value="1">
             <input type="text" name="titulo" id="titulo" placeholder="Título del post">
             <textarea name="descripcion" id="descripcion" placeholder="Descripción del post"></textarea>
-            <label for="imagen">Subir imagen</label>
-            <input type="file" name="imagen" id="imagen">
+            <span class="imagen">
+                <input type="file" name="imagen" id="imagen">
+            </span>
+            <label for="imagen">
+                <span>Subir imagen</span>
+            </label>
             <br>
             <label for="categorias">Categorías</label>
             <select name="categoria" id="">
@@ -72,6 +77,7 @@
             <input id="agregar_post" type="button" value="Agregar post">
         </form>
     </div>
+    
 
 
 
@@ -89,7 +95,20 @@
     </script>
     <script src="https://kit.fontawesome.com/83447e3cc1.js" crossorigin="anonymous"></script>
     <script src="js/sweetalert2.all.min.js"></script>
+    <script src="js/dropzone.min.js"></script>
     <script src="js/main.js"></script>
+
+    <!-- Muestra el nombre del archivo cargado -->
+    <script type="application/javascript">
+        jQuery('input[type=file]').change(function(){
+        var filename = jQuery(this).val().split('\\').pop();
+        var idname = jQuery(this).attr('id');
+        console.log(jQuery(this));
+        console.log(filename);
+        console.log(idname);
+        jQuery('span.'+idname).next().find('span').html(filename);
+        });
+    </script>
     
 </body>
 </html>

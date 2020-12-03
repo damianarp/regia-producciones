@@ -15,33 +15,34 @@
         $nombre_imagen = $_FILES["imagen"]["name"];
         $nombre_temporal = $_FILES["imagen"]["tmp_name"];
         $tipo_archivo = $_FILES["imagen"]["type"];
+        $tamano_imagen = $_FILES["imagen"]["size"];
+        $fecha = date('y-m-d H:i:s');
 
-        $destino = "assets/Blog-post" . $nombre_imagen;
+        $permitidos = array("image/jpeg", "image/jpg", "image/png", "image/gif", "image/tiff", "image/svg+xml", "video/avi", "video/mpeg", "video/mp4", "video/ogg", "video/quicktime", "video/webm");
+        $limite_mb = 500000;
 
-        // // Valida si la imagen tiene formato
-        // if ($tipo_archivo == "image/jpeg" || $tipo_archivo == "image/jpg" || $tipo_archivo == "image/png" || $tipo_archivo == "image/gif") {
-        //     move_uploaded_file($nombre_temporal, $destino);
-        //     return responseJSON(array('success' => true, 'msg' => 'La imagen se ha subido con exito!'));
-        // } else {
-        //     return responseJSON(array('success' => false, 'msg' => 'El archivo subido no es una imagen!'));
-        // }
+        if(in_array($tipo_archivo, $permitidos) && $tamano_imagen <= $limite_mb * 1024) {
+            $ruta = "assets/Blog-post" . $nombre_imagen;
+            move_uploaded_file($nombre_temporal, $ruta);
+        }
+
 
         // guardamos en base de datos
-        $consulta = "INSERT INTO post (autor_post, categoria_post, titulo_post, imagen_post, descripcion_post, contenido_completo_post) VALUES ('Regia Producciones', :categoria_post, :titulo_post, :imagen_post, :descripcion_post, :contenido_completo_post)";
+        $consulta = "INSERT INTO post (autor_post, fecha_post, categoria_post, titulo_post, imagen_post, descripcion_post, contenido_completo_post, ruta_imagen) VALUES ('Regia Producciones', :fecha_post, :categoria_post, :titulo_post, :imagen_post, :descripcion_post, :contenido_completo_post, :ruta_imagen)";
         $resultado = $conexion->prepare($consulta);
+        $resultado->bindParam(':fecha_post', $fecha, PDO::PARAM_STR, 25);
         $resultado->bindParam(':categoria_post', $categoria, PDO::PARAM_STR, 25);
         $resultado->bindParam(':titulo_post', $titulo, PDO::PARAM_STR, 25);
         $resultado->bindParam(':imagen_post', $nombre_imagen, PDO::PARAM_STR, 25);
         $resultado->bindParam(':descripcion_post', $descripcion, PDO::PARAM_STR, 25);
         $resultado->bindParam(':contenido_completo_post', $contenido, PDO::PARAM_STR, 25);
+        $resultado->bindParam(':ruta_imagen', $ruta, PDO::PARAM_STR, 25);
         $resultado->execute();
-
-        $id = $conexion->lastInsertId();
 
         // cerramos la conexion
         $conexion = null;
         
-        if ($id <= 0) {
+        if ($resultado->execute()) {
             // retornamos error, no se pudo guardar en base de datos
             return responseJSON(array('success' => false, 'msg' => 'Lo sentimos, algo falló al intentar agregar el post!'));
         }

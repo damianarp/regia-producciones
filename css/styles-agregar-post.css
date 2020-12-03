@@ -39,6 +39,7 @@ input[type="text"] {
     width: 100%;
     padding: 5px 10px;
     border: 2px solid var(--blue);
+    outline: none;
 }
 #descripcion {
     width: 100%;
@@ -46,6 +47,7 @@ input[type="text"] {
     padding: 5px 10px;
     border: 2px solid var(--blue);
     margin-top: 5px;
+    outline: none;
 }
 input[type="file"] {
     display: none;
@@ -59,6 +61,9 @@ label {
     color: var(--black);
     padding: 5px 10px;
     cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
 }
 label:hover {
     border: 2px solid var(--black);
@@ -84,6 +89,9 @@ label[for="contenido"] {
     display: block;
     justify-content: center;
     text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
     
 }
 label[for="contenido"]:hover {
@@ -92,18 +100,63 @@ label[for="contenido"]:hover {
     color: var(--black);
     cursor: default;
 }
-#agregar_post {
-    padding: 10px 10px;
+#contenido {
+    width: 100%;
+    height: 500px;
+    padding: 5px 10px;
     border: 2px solid var(--blue);
-    background: var(--blue);
+    margin-top: 5px;
+    outline: none;
+}
+#agregar_post {
+    font-size: 14px;
+    font-weight: 600;
     color: var(--black);
-    margin-top: 10px;
+    border: 2px solid var(--blue);
+    background-color: var(--blue);
+    display: inline-block;
+    transition: all .5s;
     cursor: pointer;
+    padding: 15px 40px !important;
+    text-transform: uppercase;
+    width: fit-content;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
 }
 #agregar_post:hover {
     border: 2px solid var(--black);
-    background: var(--black);
+    background-color: var(--black);
     color: var(--blue);
-    margin-top: 10px;
     transition: all 0.3s ease-in-out;
 }
+input[type=”file”]#imagen {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+label[for="imagen"] {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--black);
+    border: 2px solid var(--blue);
+    background-color: var(--blue);
+    display: inline-block;
+    transition: all .5s;
+    cursor: pointer;
+    padding: 15px 40px !important;
+    text-transform: uppercase;
+    width: fit-content;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    }
+label[for="imagen"]:hover {
+    border: 2px solid var(--black);
+    background-color: var(--black);
+    color: var(--blue);
+    transition: all 0.3s ease-in-out;
+}    
