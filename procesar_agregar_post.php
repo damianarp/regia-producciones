@@ -6,10 +6,35 @@
     $objeto = new Conexion();
     $conexion = $objeto->Conectar();
 
+        // validamos un poco, pero lo hacemos por el negado
+		if (!isset($_POST['submit']) || !$_POST['submit']) {
+            // error, no es por submit?
+            return responseJSON(array('success' => false, 'msg' => 'Datos inválidos!'));
+        }
+
+        // si pasa el control de arriba, seguimos por este
+		if (!isset($_POST['titulo']) || !$_POST['titulo'] || strlen(trim($_POST['titulo'])) <= 0) {
+			// error, no hay titulo
+			return responseJSON(array('success' => false, 'msg' => 'Por favor, completa el titulo!'));
+        }
+
+        // si pasa el control de arriba, seguimos por este
+		if (!isset($_POST['descripcion']) || !$_POST['descripcion'] || strlen(trim($_POST['descripcion'])) <= 0) {
+			// error, no hay descripcion
+			return responseJSON(array('success' => false, 'msg' => 'Por favor, completa la descripcion!'));
+        }
+
+        // si pasa el control de arriba, seguimos por este
+		if (!isset($_POST['contenido']) || !$_POST['contenido'] || strlen(trim($_POST['contenido'])) <= 0) {
+			// error, no hay contenido
+			return responseJSON(array('success' => false, 'msg' => 'Por favor, completa el contenido!'));
+        }
+
+
         // si paso todos los controles
 		$titulo = trim($_POST['titulo']);         // trim elimina los espacios vacios al inicio y al final de lo que se escribe en el input
 		$descripcion = trim($_POST['descripcion']);
-		$categoria = trim($_POST['categoria']);
+		$categoria = $_POST['categoria'];
         $contenido = trim($_POST['contenido']);
         
         $nombre_imagen = $_FILES["imagen"]["name"];
@@ -25,7 +50,6 @@
             $ruta = "assets/Blog-post" . $nombre_imagen;
             move_uploaded_file($nombre_temporal, $ruta);
         }
-
 
         // guardamos en base de datos
         $consulta = "INSERT INTO post (autor_post, fecha_post, categoria_post, titulo_post, imagen_post, descripcion_post, contenido_completo_post, ruta_imagen) VALUES ('Regia Producciones', :fecha_post, :categoria_post, :titulo_post, :imagen_post, :descripcion_post, :contenido_completo_post, :ruta_imagen)";

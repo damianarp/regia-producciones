@@ -23,7 +23,6 @@
         let btnMenu = document.querySelector('.btn-menu');
         let menu = document.querySelector('.list-container');
         let containerMenu = document.getElementById('menu');
-        let footer = document.querySelector('footer');
         let activador = true;
 
         btnMenu.addEventListener('click', () => {
@@ -64,15 +63,11 @@
         AOS.init();
 
         ///////////////////// Efectos Scroll ////////////////////
-        let ubicacionPrincipal = window.pageYOffset;
+        
         let goTop = document.querySelector('.ir-arriba');
-        let ubicacionFooter = window.pageYOffset;
+        
 
         window.onscroll = function () {
-
-            ///////////// Desplazamiento footer Mobile ////////
-            let desplazamientoFooter = window.pageYOffset;
-
 
             ////////////// Mostrar y ocultar Scroll Estilos ///////////
             let arriba = window.pageYOffset;
@@ -238,14 +233,7 @@
         
 		// Limpiar formulario		
         function limpiarCamposContactoCon() {
-            const nombreCon = document.querySelector('#nombre');
-            const apellidoCon = document.querySelector('#apellido');
-            const correoCon = document.querySelector('#correo');
-            const mensaje = document.querySelector('#mensaje');
-            const errorDivNom = document.querySelector('#error_1');
-            const errorDivApe = document.querySelector('#error_2');
-            const errorDivCor = document.querySelector('#error_3');
-
+            
             nombreCon.value = '';
             apellidoCon.value = '';
             correoCon.value = '';
@@ -373,10 +361,6 @@
 
         //Limpiar formulario
         function limpiarCamposContactoSusc() {
-            const nombreSusc = document.querySelector('#name');
-            const correoSusc = document.querySelector('#mail');
-            const errorDivNomSusc = document.querySelector('#error_4');
-            const errorDivCorSusc = document.querySelector('#error_5');
 
             nombreSusc.value = '';
             correoSusc.value = '';

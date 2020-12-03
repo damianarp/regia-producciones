@@ -16,7 +16,7 @@
 		if (!isset($_POST['name']) || !$_POST['name'] || strlen(trim($_POST['name'])) <= 0) {
 			// error, no hay nombre
 			return responseJSON(array('success' => false, 'msg' => 'Por favor, complete el nombre!'));
-        }
+    }
     
     // si pasa el control de arriba, seguimos por este
 		if (!isset($_POST['mail']) || !$_POST['mail'] || strlen(trim($_POST['mail'])) <= 0) { // falta validacion de correo
