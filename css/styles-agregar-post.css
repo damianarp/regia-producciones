@@ -92,7 +92,7 @@ label[for="contenido"]:hover {
     color: var(--black);
     cursor: default;
 }
-input[type="submit"] {
+#agregar_post {
     padding: 10px 10px;
     border: 2px solid var(--blue);
     background: var(--blue);
@@ -100,7 +100,7 @@ input[type="submit"] {
     margin-top: 10px;
     cursor: pointer;
 }
-input[type="submit"]:hover {
+#agregar_post:hover {
     border: 2px solid var(--black);
     background: var(--black);
     color: var(--blue);

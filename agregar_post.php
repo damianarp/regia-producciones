@@ -48,8 +48,9 @@
 <body>
     <div id="caja">
         <img src="img/logo-regia-negro.png" alt="">
-        <form action="procesa_agregar_post" method="POST" enctype="multipart/form-data">
-            <input type="text" name="titulo" id="" placeholder="Título del post">
+        <form id="postear" name="postear" enctype="multipart/form-data">
+            <input type="hidden" name="submit" value="1">
+            <input type="text" name="titulo" id="titulo" placeholder="Título del post">
             <textarea name="descripcion" id="descripcion" placeholder="Descripción del post"></textarea>
             <label for="imagen">Subir imagen</label>
             <input type="file" name="imagen" id="imagen">
@@ -68,7 +69,7 @@
             </select><br>
             <label for="contenido">Contenido completo del post</label>
             <textarea name="contenido" id="contenido"></textarea>
-            <input type="submit" value="Agregar post">
+            <input id="agregar_post" type="button" value="Agregar post">
         </form>
     </div>
 

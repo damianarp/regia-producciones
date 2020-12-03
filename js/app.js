@@ -386,7 +386,7 @@
             errorDivCorSusc.style.display = 'none';
             correoSusc.style.border = 'none';
             
-    }
+        }
 
 
         ////// AJAX suscripción////////
