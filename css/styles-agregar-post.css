@@ -2,6 +2,7 @@
     --red: #000000;
     --black: #252a34;
     --blue: #eeae00;
+    --dorado: #d18e10;
     --white: #eaeaea;
 }
 body {
@@ -46,7 +47,7 @@ label{
         width: 90%;
     }
 }
-#caja img{
+.caja img{
     display: block;
     width: 20%;
     margin: auto;

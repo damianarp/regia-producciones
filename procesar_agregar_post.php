@@ -1,7 +1,7 @@
 <?php
 
-    include_once 'includes/funciones/bd_conexion.php';
-    include_once 'includes/funciones/funciones.php';
+    include_once 'admin/funciones/bd_conexion.php';
+    include_once 'admin/funciones/funciones.php';
 
     $objeto = new Conexion();
     $conexion = $objeto->Conectar();

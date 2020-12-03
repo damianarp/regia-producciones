@@ -1,0 +1,16 @@
+.user-panel {
+    height: 60px;
+}
+.user-panel>.info {
+    position: relative;
+    left: auto;
+}
+.skin-blue .sidebar-menu>li.header {
+    color: white;
+}
+.swal2-popup {
+    font-size: 1.6rem !important;
+}
+.login-page .main-footer {
+    display: none;
+}

@@ -84,6 +84,28 @@ fieldset {
 textarea {
     resize: vertical;
 }
+form#postear span {
+    font-weight: 800;
+}
+label[for="categorias"] {
+    font-weight: 800;
+}
+label[for="contenido"] {
+    font-weight: 800!important;
+}
+input[id="agregar_post"]{
+    font-weight: 800!important;
+}
+input[id="titulo"]{
+    font-weight: 600;
+}
+textarea[id="descripcion"]{
+    font-weight: 600;
+}
+select[id="categoria"] {
+    font-weight: 600;
+}
+
 
 
 /* ==========================================================================
