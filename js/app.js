@@ -238,27 +238,27 @@
         
 		// Limpiar formulario		
         function limpiarCamposContactoCon() {
-						const nombreCon = document.querySelector('#nombre');
-						const apellidoCon = document.querySelector('#apellido');
-						const correoCon = document.querySelector('#correo');
-						const mensaje = document.querySelector('#mensaje');
-						const errorDivNom = document.querySelector('#error_1');
-						const errorDivApe = document.querySelector('#error_2');
-						const errorDivCor = document.querySelector('#error_3');
+            const nombreCon = document.querySelector('#nombre');
+            const apellidoCon = document.querySelector('#apellido');
+            const correoCon = document.querySelector('#correo');
+            const mensaje = document.querySelector('#mensaje');
+            const errorDivNom = document.querySelector('#error_1');
+            const errorDivApe = document.querySelector('#error_2');
+            const errorDivCor = document.querySelector('#error_3');
 
-						nombreCon.value = '';
-						apellidoCon.value = '';
-						correoCon.value = '';
-						mensaje.value = '';
+            nombreCon.value = '';
+            apellidoCon.value = '';
+            correoCon.value = '';
+            mensaje.value = '';
 
-						errorDivNom.style.display = 'none';
-						nombreCon.style.border = '2px solid #eeae00';
-						errorDivApe.style.display = 'none';
-						apellidoCon.style.border = '2px solid #eeae00';
-						errorDivCor.style.display = 'none';
-						correoCon.style.border = '2px solid #eeae00';
-						
-				}
+            errorDivNom.style.display = 'none';
+            nombreCon.style.border = '2px solid #eeae00';
+            errorDivApe.style.display = 'none';
+            apellidoCon.style.border = '2px solid #eeae00';
+            errorDivCor.style.display = 'none';
+            correoCon.style.border = '2px solid #eeae00';
+            
+        }
         
         ////// AJAX contacto////////
         $('#enviado').click(function() { 

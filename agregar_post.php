@@ -33,7 +33,6 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/normalize_reset.css">
     <link rel="stylesheet" href="css/sweetalert2.min.css">
-    <link rel="stylesheet" href="css/dropzone.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="css/styles.css">
@@ -44,17 +43,21 @@
 
 <body>
     <div id="caja">
-        <h1 class="logo-box">
-            <a href="index.php" target=”_blank” title="Regia Producciones"><img src="img/logo-regia-negro.png"
-                    alt="Logo de Regia Producciones"></a>
+        <h1>
+            <a href="index.php" target=”_blank” title="Regia Producciones"><img src="img/logo-regia-negro.png" alt="Logo de Regia Producciones"></a>
             <span class="btn-menu"><i class="fas fa-bars"></i></span>
         </h1>
+
         <form id="postear" name="postear" enctype="multipart/form-data">
             <input type="hidden" name="submit" value="1">
             <input type="text" name="titulo" id="titulo" placeholder="Título del post">
+            <div id="error_6"></div>
+
             <textarea name="descripcion" id="descripcion" placeholder="Descripción del post"></textarea>
+            <div id="error_7"></div>
+
             <span class="imagen">
-                <input type="file" name="imagen" id="imagen">
+                <input type="file" name="imagen" id="imagen" required>
             </span>
             <label for="imagen">
                 <span>Subir imagen</span>
@@ -71,9 +74,12 @@
                     <option value="Video">Video</option>
                     <option value="Marketing Digital">Marketing Digital</option>
                 </optgroup>
-            </select><br>
+            </select>
+            <br>
             <label for="contenido">Contenido completo del post</label>
             <textarea name="contenido" id="contenido"></textarea>
+            <div id="error_8"></div>
+
             <input id="agregar_post" type="button" value="Agregar post">
         </form>
     </div>
