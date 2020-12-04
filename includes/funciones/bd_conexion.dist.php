@@ -25,8 +25,8 @@
 
 
 
-    // ANTIGUA CONEXION CON MYSQLI
-    // $conn = mysqli_connect('localhost', 'root', 'root', 'bd_regia');
+    // CONEXION CON MYSQLI para el Area Administrativa
+    // $conn = mysqli_connect('localhost', 'root', 'root', 'nombre_bd');
     // mysqli_set_charset($conn, "utf8");
 
     // if($conn->connect_error) {

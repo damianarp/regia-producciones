@@ -33,7 +33,7 @@
                         </div>
                         <div class="box-body">
                           <!-- form start -->
-                            <form role="form" name="guardar-registro" id="guardar-registro" method="post" action="modelo-admin.php">
+                            <form role="form" name="crear-admin" id="crear-admin" method="post" action="insertar-admin.php">
                                 <div class="box-body">
                                     <div class="form-group">
                                         <label for="usuario">Usuario:</label>
@@ -60,8 +60,8 @@
                                 <!-- /.box-body -->
 
                                 <div class="box-footer">
-                                    <input type="hidden" name="registro" value="nuevo">
-                                    <button type="submit" class="btn btn-primary" id="crear_registro">Añadir</button>
+                                    <input type="hidden" name="agregar-admin" value="1">
+                                    <button type="submit" class="btn btn-primary">Añadir</button>
                                 </div>
                             </form>
                         </div>

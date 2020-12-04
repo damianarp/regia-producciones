@@ -137,6 +137,11 @@ select[id="categoria"] {
     box-sizing: border-box;
 
 }
+.swal-wide{ 
+ 
+    transform: scale(.5);
+ 
+}
 
 body {
     background: #fff;
