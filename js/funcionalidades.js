@@ -63,12 +63,9 @@
         AOS.init();
 
         ///////////////////// Efectos Scroll ////////////////////
-        
         let goTop = document.querySelector('.ir-arriba');
         
-
         window.onscroll = function () {
-
             ////////////// Mostrar y ocultar Scroll Estilos ///////////
             let arriba = window.pageYOffset;
 
@@ -122,12 +119,13 @@
             });
 
 
-        /////////////////////// Filtrado de búsqueda /////////////////////
+        /////////////////////// Filtrado en el buscador de la página 404 /////////////////////
 
-        //Variables
+        // Variables
         var inputSearch = document.querySelector('#inputSearch');
         var box_search = document.querySelector('#box-search');
-
+        
+        // Valida si alguien escribe
         if (inputSearch) {
             inputSearch.addEventListener("keyup", buscador_interno);
         }
@@ -158,7 +156,6 @@
         };
 
         ////////////////// Validar formulario de contacto (Campos obligatorios) //////////////
-
         var nombreCon, apellidoCon, correoCon, mensaje, errorDivNom, errorDivApe, errorDivCor, expresion;
 
         nombreCon = document.querySelector('#nombre');
@@ -170,7 +167,6 @@
         errorDivCor = document.querySelector('#error_3');
         expresion = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
 
-
         if (nombreCon) {
             nombreCon.addEventListener('blur', validarNombre);
         }
@@ -178,35 +174,35 @@
             apellidoCon.addEventListener('blur', validarApellido);
         }
 
-        // Validar Nombre
+        // Validar Nombre (estilos)
         function validarNombre() {
             if (nombreCon.value == '') {
                 errorDivNom.style.display = 'block';
                 errorDivNom.innerHTML = "este campo es obligatorio";
                 nombreCon.style.border = '2px solid red';
                 errorDivNom.style.color = 'red';
-								errorDivNom.style.paddingTop = '10px';
-								return false;
+                errorDivNom.style.paddingTop = '10px';
+                return false;
             } else {
                 errorDivNom.style.display = 'none';
-								nombreCon.style.border = '2px solid #eeae00';
-								return true;
+                nombreCon.style.border = '2px solid #eeae00';
+                return true;
             }
         }
 
-        // Validar Apellido
+        // Validar Apellido (estilos)
         function validarApellido() {
             if (apellidoCon.value == '') {
                 errorDivApe.style.display = 'block';
                 errorDivApe.innerHTML = "este campo es obligatorio";
                 apellidoCon.style.border = '2px solid red';
                 errorDivApe.style.color = 'red';
-								errorDivApe.style.paddingTop = '10px';
-								return false;
+                errorDivApe.style.paddingTop = '10px';
+                return false;
             } else {
                 errorDivApe.style.display = 'none';
-								apellidoCon.style.border = '2px solid #eeae00';
-								return true;
+                apellidoCon.style.border = '2px solid #eeae00';
+                return true;
             }
         }
 
@@ -215,23 +211,24 @@
             correoCon.addEventListener('keyup', validarExpresionCon);
         }
 
+        // Validar Correo (estilos)
         function validarExpresionCon() {
             if (expresion.test(correoCon.value) == true) {
                 errorDivCor.style.display = 'none';
-								correoCon.style.border = '2px solid #eeae00';
-								return true;
+                correoCon.style.border = '2px solid #eeae00';
+                return true;
             } else {
                 errorDivCor.style.display = 'block';
                 errorDivCor.innerHTML = "escribe un correo válido";
                 correoCon.style.border = '2px solid red';
                 errorDivCor.style.color = 'red';
-								errorDivCor.style.paddingTop = '10px';
-								return false;
+                errorDivCor.style.paddingTop = '10px';
+                return false;
             }
         }
 
         
-		// Limpiar formulario		
+		// Limpiar formulario de Contacto
         function limpiarCamposContactoCon() {
             
             nombreCon.value = '';
@@ -252,64 +249,58 @@
         $('#enviado').click(function() { 
             // aca debemos validar antes de enviar y marcarle al usuario los errores o campos obligatorios
             if (!validarNombre()) {
-                    nombreCon.focus();
-                    return;
+                nombreCon.focus();
+                return;
             }
             if (!validarApellido()) {
-                    apellidoCon.focus();
-                    return;
+                apellidoCon.focus();
+                return;
             }
             if (!validarExpresionCon()) {
-                    correoCon.focus();
-                    return;
+                correoCon.focus();
+                return;
             }
             $.ajax({
-                    type: 'POST',
-                    url: 'contactar.php',
-                    data: $('#formulario').serialize(),
-                    dataType: 'json',
+                type: 'POST',
+                url: 'contactar.php',
+                data: $('#formulario').serialize(),
+                dataType: 'json',
             }).done(function(data) {
-                    // var resultado = data; // no hace falta por ahora
-                    if(data.success){
-                            Swal.fire({
-                                    title: 'Correcto',
-                                    text: data.msg, //'El mensaje se envió correctamente', // o podemos poner el mensaje que viene de la respuesta
-                                    type: 'success',
-                                    confirmButtonColor: '#eeae00',
-                                    allowOutsideClick: false
-                            });
-
-                            // limpiamos los campos!!!
-                            limpiarCamposContactoCon();
-                    }else{
-                            Swal.fire({
-                                    title: 'Upss',
-                                    text: data.msg ? data.msg : 'Hubo un error, no pudo enviar el mensaje!', // esto es un IF corto!!!! el signo de pregunta denotaria el SI, y los dos punto el SINO
-                                    type: 'error',
-                                    confirmButtonColor: '#eeae00',
-                                    allowOutsideClick: false
-                            });
-                            // limpiamos los campos!!!
-                            limpiarCamposContactoCon();
-                    }
-            }).fail(function(data){
+                // var resultado = data; // no hace falta por ahora
+                if(data.success){
                     Swal.fire({
-                            title: 'Upss',
-                            text: 'Hubo un error!',
-                            type: 'error',
-                            confirmButtonColor: '#eeae00',
-                            allowOutsideClick: false
+                        title: 'Correcto',
+                        text: data.msg, //'El mensaje se envió correctamente', // o podemos poner el mensaje que viene de la respuesta
+                        type: 'success',
+                        confirmButtonColor: '#eeae00',
+                        allowOutsideClick: false
                     });
+
+                    // limpiamos los campos!!!
+                    limpiarCamposContactoCon();
+                }else{
+                    Swal.fire({
+                        title: 'Upss',
+                        text: data.msg ? data.msg : 'Hubo un error, no pudo enviar el mensaje!', // esto es un IF corto!!!! el signo de pregunta denotaria el SI, y los dos punto el SINO
+                        type: 'error',
+                        confirmButtonColor: '#eeae00',
+                        allowOutsideClick: false
+                    });
+                    // limpiamos los campos!!!
+                    limpiarCamposContactoCon();
+                }
+            }).fail(function(data){
+                Swal.fire({
+                    title: 'Upss',
+                    text: 'Hubo un error!',
+                    type: 'error',
+                    confirmButtonColor: '#eeae00',
+                    allowOutsideClick: false
+                });
             });
             
             return false;
         });
-
-
-
-
-
-
 
         ////////////////// Validar formulario de Suscripción (Campos obligatorios) //////////////
         var nombreSusc, correoSusc, errorDivNomSusc, errorDivCorSusc;
@@ -325,7 +316,7 @@
             nombreSusc.addEventListener('blur', validarNombreSusc);
         }
 
-        // Validar Nombre
+        // Validar Nombre (estilos)
         function validarNombreSusc() {
             if (nombreSusc.value == '') {
                 errorDivNomSusc.style.display = 'block';
@@ -346,6 +337,7 @@
             correoSusc.addEventListener('keyup', validarExpresionSusc);
         }
 
+        // Validar Correo (estilos)
         function validarExpresionSusc() {
             if (expresion.test(correoSusc.value) == true) {
                 errorDivCorSusc.style.display = 'none';
@@ -361,7 +353,7 @@
             }
         }
 
-        //Limpiar formulario
+        //Limpiar formulario de suscripción
         function limpiarCamposContactoSusc() {
 
             nombreSusc.value = '';
@@ -374,58 +366,55 @@
             
         }
 
-
         ////// AJAX suscripción////////
         $('#suscribir').click(function() { 
             // aca debemos validar antes de enviar y marcarle al usuario los errores o campos obligatorios
             if (!validarNombreSusc()) {
-                    nombreSusc.focus();
-                    return;
+                nombreSusc.focus();
+                return;
             }
             if (!validarExpresionSusc()) {
-                    correoSusc.focus();
-                    return;
+                correoSusc.focus();
+                return;
             }
             $.ajax({
-                    type: 'POST',
-                    url: 'registrar.php',
-                    data: $('#suscripcion').serialize(),
-                    dataType: 'json',
+                type: 'POST',
+                url: 'registrar.php',
+                data: $('#suscripcion').serialize(),
+                dataType: 'json',
             }).done(function(data) {
-                    // var resultado = data; // no hace falta por ahora
-                    if(data.success){
-                            Swal.fire({
-                                    title: 'Correcto',
-                                    text: data.msg, //'Te has suscripto correctamente', // o podemos poner el mensaje que viene de la respuesta
-                                    type: 'success',
-                                    confirmButtonColor: '#eeae00',
-                                    allowOutsideClick: false
-                            });
-
-                            // limpiamos los campos!!!
-                            limpiarCamposContactoSusc();
-                    }else{
-                            Swal.fire({
-                                    title: 'Ups',
-                                    text: data.msg ? data.msg : 'Hubo un error, no pudo suscribirse!', // esto es un IF corto!!!! el signo de pregunta denotaria el SI, y los dos punto el SINO
-                                    type: 'warning',
-                                    confirmButtonColor: '#eeae00',
-                                    allowOutsideClick: false
-                                    
-                            });
-                    }
-            }).fail(function(data){
+                // var resultado = data; // no hace falta por ahora
+                if(data.success){
                     Swal.fire({
-                            title: 'Upss',
-                            text: 'Hubo un error!',
-                            type: 'error',
-                            confirmButtonColor: '#eeae00',
-                            allowOutsideClick: false
+                        title: 'Correcto',
+                        text: data.msg, //'Te has suscripto correctamente', // o podemos poner el mensaje que viene de la respuesta
+                        type: 'success',
+                        confirmButtonColor: '#eeae00',
+                        allowOutsideClick: false
                     });
+
+                    // limpiamos los campos!!!
+                    limpiarCamposContactoSusc();
+                }else{
+                    Swal.fire({
+                        title: 'Ups',
+                        text: data.msg ? data.msg : 'Hubo un error, no pudo suscribirse!', // esto es un IF corto!!!! el signo de pregunta denotaria el SI, y los dos punto el SINO
+                        type: 'warning',
+                        confirmButtonColor: '#eeae00',
+                        allowOutsideClick: false    
+                    });
+                }
+            }).fail(function(data){
+                Swal.fire({
+                    title: 'Upss',
+                    text: 'Hubo un error!',
+                    type: 'error',
+                    confirmButtonColor: '#eeae00',
+                    allowOutsideClick: false
+                });
             });
             
             return false;
         });
-
-    }); // DOM CONTENT LOADED
+    }); //-----> DOM CONTENT LOADED
 }());

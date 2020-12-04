@@ -135,6 +135,7 @@ select[id="categoria"] {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline: none!important;
 
 }
 .swal-wide{ 
@@ -1476,13 +1477,20 @@ main .post-content .post-title .btn:hover{
     background: var(--black)!important;
 }
 
+main .site-content .posts .post-content .post-title button.post-btn {
+    background: var(--blue);
+}
+
 main .site-content .post-content > .post-image, .post-title{
     padding: 1rem 2rem;
     position: relative;
 }
 
-main .site-content .post-content > .post-image .post-info{
+main .site-content .posts .post-content .post-image .post-info {
     background: var(--blue);
+} 
+
+main .site-content .post-content > .post-image .post-info{
     padding: 1rem;
     position: absolute;
     bottom: 0%!important;

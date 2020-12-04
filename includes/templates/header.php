@@ -14,6 +14,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!-- Robots -->
     <meta name="robots" content="index,follow" />
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -39,23 +40,36 @@
     <meta property="og:locale:alternate" content="en_US" />
 
     <!-- Estilos -->
+    <!-- Normalize -->
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/normalize_reset.css">
+
+    <!-- Sweet Alert 2 -->
     <link rel="stylesheet" href="css/sweetalert2.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/all.css">
-    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Lightbox -->
     <link rel="stylesheet" href="css/lightbox.css">
 
-    <meta name="theme-color" content="#fafafa">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+    <!-- Mapa Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Estilos Personales -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Estilos Blog -->
+    <link rel="stylesheet" href="css/style.css">
+    
+
+    <meta name="theme-color" content="#fafafa">
 </head>
 
 <body>
@@ -67,15 +81,21 @@
     <div class="ir-arriba">
         <a href="#header"><span><i class="fas fa-angle-up"></i></span></a>
     </div>
+    <!-- /Ir arriba -->
 
-    <!-- Menú de Navegación -->
+    <!-- Barra de Navegación -->
     <header id="header">
         <nav class="menu" id="menu">
+
+            <!-- Logo -->
             <h1 class="logo-box">
                 <a href="index.php" title="Regia Producciones"><img src="img/logo-regia-negro.png"
                         alt="Logo de Regia Producciones"></a>
                 <span class="btn-menu"><i class="fas fa-bars"></i></span>
             </h1>
+            <!-- /Logo -->
+
+            <!-- Menú de Navegación -->
             <div class="list-container">
                 <ul class="lists">
                     <li><a href="index.php" class="<?php if($page=='inicio'){echo 'activo';} ?>">Inicio</a></li>
@@ -87,7 +107,8 @@
                     <li><a href="admin/admin-area.php">Administración</a></li>
                 </ul>
             </div>
-
+            <!-- /Menú de Navegación -->
         </nav>
-    </header>    
+    </header>
+    <!-- /Barra de Navegación -->   
    

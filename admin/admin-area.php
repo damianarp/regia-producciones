@@ -6,10 +6,6 @@
     include_once 'templates/navegacion.php';
 ?>
 
-
-
-
-
 <!-- Content Wrapper. Contenido de la página -->
 <div class="content-wrapper">
     <div id="caja">
@@ -20,6 +16,7 @@
             </h1>
         </div>
 
+        <!-- Formulario de Posteo de articulos -->
         <form id="postear" name="postear" enctype="multipart/form-data">
             <input type="hidden" name="submit" value="1">
             <input type="text" name="titulo" id="titulo" placeholder="Título del post">
@@ -53,11 +50,10 @@
             <div id="error_8"></div>
 
             <input id="agregar_post" type="button" value="Agregar post">
-        </form>
+        </form> 
+        <!-- /Formulario de Posteo de articulos -->
     </div>
 </div>
 <!-- /.content-wrapper -->
 
-<?php
-      include_once 'templates/footer.php';
-  ?>
+<?php include_once 'templates/footer.php';?>

@@ -1,8 +1,6 @@
 <?php include_once 'includes/templates/header.php'; ?>
     
-
     <!-- Política de Cookies -->
-
     <main>
         <section class="contenedor-legales" id="cookies">
             <div class="info-container box-nosotros">
@@ -74,6 +72,6 @@
             </div>
         </section>
     </main>
-
+    <!-- /Política de Cookies -->
 
 <?php include_once 'includes/templates/footer.php'; ?>

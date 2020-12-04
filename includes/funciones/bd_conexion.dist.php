@@ -1,6 +1,6 @@
 <?php
 
-    // CONEXION CON PDO (es la que se usa actualmente)
+    // CONEXION CON METODO PDO para la Web
     class Conexion {
         public static function Conectar() {
             define('servidor','localhost');
@@ -19,17 +19,11 @@
         }
     }
 
+    // CONEXION CON METODO MYSQLI para el Area Administrativa
+    $conn = mysqli_connect('localhost', 'root', 'root', 'nombre_bd');
+    mysqli_set_charset($conn, "utf8");
 
-
-
-
-
-
-    // CONEXION CON MYSQLI para el Area Administrativa
-    // $conn = mysqli_connect('localhost', 'root', 'root', 'nombre_bd');
-    // mysqli_set_charset($conn, "utf8");
-
-    // if($conn->connect_error) {
-    //     echo $error -> $conn->connect_error;
-    // }
+    if($conn->connect_error) {
+        echo $error -> $conn->connect_error;
+    }
 ?>

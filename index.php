@@ -1,53 +1,59 @@
 
 <?php $page ='inicio'; include_once 'includes/templates/header.php'; ?> 
 
-        <!-- Header -->
-        <div class="img-header" id="img-header">
-            <div class="video-container">
-                <video id="video" autoplay loop muted playsinline poster="">
-                    <source src="video/header-2.mp4" type="video/mp4">
-                    <source src="video/header-2.webm" type="video/webm">
-                    <source src="video/header-2.ogv" type="video/ogv">
-                </video>
-            </div>
-            <div class="welcome">
-                <img src="img/Logo-Regia-blanco.png" alt="">
-                <hr>
-                <h2>Agencia de Contenidos Audiovisuales y Servicios Digitales</h2>
-                <a href="#main" id="abajo">Ver abajo</a>
+    <!-- Header -->
+    <div class="img-header" id="img-header">
 
-            </div>
-
+        <!-- Video del Header -->
+        <div class="video-container">
+            <video id="video" autoplay loop muted playsinline poster="">
+                <source src="video/header-2.mp4" type="video/mp4">
+                <source src="video/header-2.webm" type="video/webm">
+                <source src="video/header-2.ogv" type="video/ogv">
+            </video>
         </div>
+        <!-- /Video del Header -->
 
-    <!-- Novedades -->
+        <!-- Bienvenida -->
+        <div class="welcome">
+            <img src="img/Logo-Regia-blanco.png" alt="">
+            <hr>
+            <h2>Agencia de Contenidos Audiovisuales y Servicios Digitales</h2>
+            <a href="#novedades" id="abajo">Ver abajo</a>
+        </div>
+        <!-- /Bienvenida -->
+    </div>
+    <!-- Header -->
 
+    <!-- Contenido Principal -->
     <main id="main">
+
+        <!-- Últimas Novedades -->
         <section class="contenedor">
             <div class="info-container">
-                <h2>Últimas Novedades</h2>
+                <h2 id="novedades">Últimas Novedades</h2>
                 <div class="novedades">
-                    <img src="img/fesaalp.jpg" alt="">
+                    <img src="assets/Blog-post/blog1.jpg" alt='Imagen del jurado del Fesaalp competencia "Aullidos"'>
                     <h3>Arranca el 15º Festival de Cine Latinoamericano de La Plata!</h3>
                     <p>Un nuevo FESAALP abre sus puertas, esta vez virtuales, cuidando y cuidándonos, pero con la misma esencia y compromiso por un cine que permita sentir los sonidos, las imágenes y las texturas de América Latina.</p>
                     <br>
                     <p>Contará con la participación como jurado de <span>Aretha Resenido</span> de <span>Regia Producciones</span>, en la competencia "Aullidos", junto a Gustavo Valdivia (Chile) y Valentina Lellín (Argentina).</p>
                     <br>
                     <p>En esta ocasión, el festival se desarrollará virtualmente y apuesta a la integralidad de un cine que llegue a les espectadores, que se encuentre en los hogares con las miradas que permitan reflexionar sobre todo aquello de lo que somos parte, como también gozar de la cultura como un derecho de todes.</p>
-
                 </div>
-
-               
             </div>
-            
-
         </section>
+        <!-- /Últimas Novedades -->
 
-        <!-- Nuestros Proyectos -->
-
+        <!-- Sección de Proyectos -->
         <section class="our-projects">
+
+            <!-- Skew -->
             <div class="skew-arriba gradiente"></div>
             <div class="deg-background"></div>
+            <!-- /Skew -->
+
+            <!-- Nuestros Proyectos -->
             <div class="ejeZproject">
                 <div class="container-project">
                     <div class="project-title">
@@ -117,27 +123,30 @@
                     </div>
                 </div>
             </div>
+            <!-- /Nuestros Proyectos -->
             <div class="skew-abajo"></div>
         </section>
+        <!-- /Sección de Proyectos -->
 
-        <!-- Mapa -->
+        <!-- Mapa Leaftlet-->
         <section class="ubicacion">
             <h2>Ubicación</h2>
             <div id="mapa" class="mapa"></div>
         </section>
+        <!-- /Mapa Leaftlet-->
 
-
-        <!-- Testimonios -->
+        <!-- Sección Testimonios -->
         <section class="testimonios">
             <div class="testimonios-title">
                 <h2>Testimonios</h2>
             </div>
 
+            <!-- Contenedor de Testimonios -->
             <div class="box-testimonios">
-                <!-- Cambiar imagenes y textos por reales -->
                 <div class="card-testimonio">
-                    <div class="card-img"><img src="img/valeria-aquino.jpg"
-                            alt="Foto de la influencer Valeria Aquino, la ex novia de El Polaco"></div>
+                    <div class="card-img">
+                        <img src="img/valeria-aquino.jpg" alt="Foto de la influencer Valeria Aquino, la ex novia de El Polaco">
+                    </div>
                     <div class="testimonio-text">
                         <h3>Valeria Aquino - Influencer</h3>
                         <p>Mauris dignissim purus risus, in malesuada metus egestas quis. Sed scelerisque malesuada
@@ -146,7 +155,9 @@
                     </div>
                 </div>
                 <div class="card-testimonio">
-                    <div class="card-img"><img src="img/karen-medina.jpg" alt="imagen de la actriz Karen Medina"></div>
+                    <div class="card-img">
+                        <img src="img/karen-medina.jpg" alt="imagen de la actriz Karen Medina">
+                    </div>
                     <div class="testimonio-text">
                         <h3>Karen Medina - Actriz</h3>
                         <p>Mauris dignissim purus risus, in malesuada metus egestas quis. Sed scelerisque malesuada
@@ -155,7 +166,9 @@
                     </div>
                 </div>
                 <div class="card-testimonio">
-                    <div class="card-img"><img src="img/peaple-3.jpg" alt=""></div>
+                    <div class="card-img">
+                        <img src="img/peaple-3.jpg" alt="">
+                    </div>
                     <div class="testimonio-text">
                         <h3>Franco Palazzo - Director de Fotografía</h3>
                         <p>Mauris dignissim purus risus, in malesuada metus egestas quis. Sed scelerisque malesuada
@@ -164,8 +177,9 @@
                     </div>
                 </div>
                 <div class="card-testimonio">
-                    <div class="card-img"><img src="img/diego-flores.jpg"
-                            alt="Foto del Director de Cine Diego Flores dando una charla"></div>
+                    <div class="card-img">
+                        <img src="img/diego-flores.jpg" alt="Foto del Director de Cine Diego Flores dando una charla">
+                    </div>
                     <div class="testimonio-text">
                         <h3>Diego Flores - Director de Cine</h3>
                         <p>Mauris dignissim purus risus, in malesuada metus egestas quis. Sed scelerisque malesuada
@@ -174,9 +188,9 @@
                     </div>
                 </div>
             </div>
-
+            <!-- /Contenedor de Testimonios -->
         </section>
-
+        <!-- /Sección Testimonios -->
 
         <!-- Newsletter -->
         <div class="newsletter">
@@ -194,7 +208,9 @@
                 </form>
             </div>
         </div>
+        <!-- /Newsletter -->
     </main>
+    <!-- /Contenido Principal -->
 
     <?php include_once 'includes/templates/footer.php'; ?>
     

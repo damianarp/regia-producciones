@@ -4,7 +4,7 @@
 
     document.addEventListener('DOMContentLoaded', function () {
 
-        //Validar campos
+        //Validar campos del formulario de Posteo de Articulos
         var titulo, descripcion, contenido, errorDivTit, errorDivDesc, errorDivCont;
 
         titulo = document.querySelector('#titulo');
@@ -24,7 +24,7 @@
             contenido.addEventListener('blur', validarContenido);
         }
 
-        // Validar Titulo
+        // Validar Titulo (estilos)
         function validarTitulo() {
             if (titulo.value == '') {
                 errorDivTit.style.display = 'block';

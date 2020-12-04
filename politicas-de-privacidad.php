@@ -1,9 +1,6 @@
 <?php include_once 'includes/templates/header.php'; ?>
    
-
-
     <!-- Políticas de Provacidad -->
-
     <main>
         <section class="contenedor-legales" id="privacidad">
             <div class="info-container box-nosotros">
@@ -78,6 +75,6 @@
             </div>
         </section>
     </main>
-
+    <!-- /Políticas de Provacidad -->
 
 <?php include_once 'includes/templates/footer.php'; ?>

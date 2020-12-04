@@ -17,9 +17,7 @@ html, body{
     --black: #252a34;
     --blue: #eeae00;
     --white: #eaeaea;
-
-    /* gradient color   */
-    --sky: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    --sky: #252a34;
 }
 
 
@@ -298,7 +296,7 @@ main .site-content .post-content > .post-image .img{
 }
 
 main .site-content .post-content > .post-image .img:hover{
-    transform: scale(1.3);
+    transform: scale(1.05);
 }
 
 main .site-content .post-content > .post-image .post-info span{

@@ -7,6 +7,8 @@
       <div id="ctn-bars-search">
         <input type="text" id="inputSearch" placeholder="¿Qué estás buscando?">
       </div>
+
+      <!-- Buscador -->
       <div id="buscador">
         <ul id="box-search">
           <li><a href="proyectos.php"><i class="fas fa-search"></i>Videos</a></li>
@@ -18,6 +20,7 @@
           <li><a href="contacto.php"><i class="fas fa-search"></i>Contacto</a></li>
         </ul>
       </div>
+      <!-- /Buscador -->
     </div>
   </main>
 

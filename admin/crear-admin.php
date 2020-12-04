@@ -6,12 +6,9 @@
     include_once 'templates/navegacion.php';
 ?>
 
-
-
-
-
   <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
+
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
@@ -22,7 +19,6 @@
         <div class="row">
             <div class="col-md-8">
 
-            
                 <!-- Main content -->
                 <section class="content">
 
@@ -32,8 +28,9 @@
                             <h3 class="box-title">Crear Administrador</h3>
                         </div>
                         <div class="box-body">
-                          <!-- form start -->
-                            <form role="form" name="crear-admin" id="crear-admin" method="post" action="insertar-admin.php">
+
+                            <!-- Formulario Guardar Admin -->
+                            <form role="form" name="guardar-registro" id="guardar-registro" method="post" action="modelo-admin.php">
                                 <div class="box-body">
                                     <div class="form-group">
                                         <label for="usuario">Usuario:</label>
@@ -58,12 +55,12 @@
                                 
                                 </div>
                                 <!-- /.box-body -->
-
                                 <div class="box-footer">
-                                    <input type="hidden" name="agregar-admin" value="1">
-                                    <button type="submit" class="btn btn-primary">Añadir</button>
+                                    <input type="hidden" name="registro" value="nuevo">
+                                    <button type="submit" class="btn btn-primary" id="crear-registro">Añadir</button>
                                 </div>
-                            </form>
+                            </form> 
+                            <!-- /Formulario Guardar Admin -->
                         </div>
                         <!-- /.box-body -->
                     </div>
@@ -76,6 +73,4 @@
   </div>
   <!-- /.content-wrapper -->
 
-  <?php
-      include_once 'templates/footer.php';
-  ?>
+<?php include_once 'templates/footer.php';?>

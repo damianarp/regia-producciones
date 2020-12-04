@@ -1,9 +1,9 @@
 <?php include_once 'includes/templates/header.php'; ?>
 
-
     <!-- Página Legales -->
-
     <main>
+
+        <!-- Contenedor Legales -->
         <section class="contenedor-legales" id="legales">
             <div class="info-container box-nosotros">
                <h4>Términos y condiciones de uso</h4> 
@@ -71,7 +71,8 @@
                <p>La relación existente entre el Creador y los usuarios se basa en los principios de buena fe y cordialidad en atención a los fines perseguidos. En caso de surgir controversias en relación a la interpretación o implementación de las presentes condiciones de uso, acuerdan solucionarlas de común acuerdo. De persistir las mismas, se someterán a la competencia de los Tribunales Nacionales, renunciando expresamente a cualquier otro fuero o jurisdicción que pudiera corresponder.</p>
             </div>
         </section>
+        <!-- /Contenedor Legales -->
     </main>
-
+    <!-- /Página Legales -->
 
 <?php include_once 'includes/templates/footer.php'; ?>

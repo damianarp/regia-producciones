@@ -4,7 +4,7 @@
 
     document.addEventListener('DOMContentLoaded', function () {
 
-        //Validar campos
+        //Validar campos en Formulario de Posteo de Artículos para el Blog
         var titulo, descripcion, contenido, errorDivTit, errorDivDesc, errorDivCont;
 
         titulo = document.querySelector('#titulo');
@@ -24,7 +24,7 @@
             contenido.addEventListener('blur', validarContenido);
         }
 
-        // Validar Titulo
+        // Validar Titulo del Articulo
         function validarTitulo() {
             if (titulo.value == '') {
                 errorDivTit.style.display = 'block';
@@ -40,7 +40,7 @@
             }
         }
 
-        // Validar Descripcion
+        // Validar Descripcion del Articulo
         function validarDescripcion() {
             if (descripcion.value == '') {
                 errorDivDesc.style.display = 'block';
@@ -56,7 +56,7 @@
             }
         }
 
-        // Validar Contenido
+        // Validar Contenido del Articulo
         function validarContenido() {
             if (contenido.value == '') {
                 errorDivCont.style.display = 'block';
@@ -72,11 +72,7 @@
             }
         }
 
-
-
-
-
-        //Limpiar formulario de Post
+        //Limpiar formulario de Posteo de Articulo del Blog
         function limpiarCamposPosteo() {
 
             titulo.value = '';
