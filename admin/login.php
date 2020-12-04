@@ -1,9 +1,9 @@
 <?php
-    // session_start();
-    // $cerrar_sesion = $_GET['cerrar_sesion'];
-    // if($cerrar_sesion) {
-    //     session_destroy();
-    // }
+    session_start();
+    $cerrar_sesion = $_GET['cerrar_sesion'];
+    if($cerrar_sesion) {
+        session_destroy();
+    }
     include_once 'funciones/funciones.php';
     include_once 'templates/header.php';
 ?>
@@ -17,7 +17,7 @@
     <div class="login-box-body">
         <p class="login-box-msg">Inicia sesión aquí</p>
 
-        <form name="login-admin-form" id="login-admin" method="post" action="crear-admin.php">
+        <form name="login-admin-form" id="login-admin" method="post" action="insertar-admin.php">
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" name="usuario" placeholder="Usuario">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>

@@ -289,6 +289,8 @@
                                     confirmButtonColor: '#eeae00',
                                     allowOutsideClick: false
                             });
+                            // limpiamos los campos!!!
+                            limpiarCamposContactoCon();
                     }
             }).fail(function(data){
                     Swal.fire({

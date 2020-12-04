@@ -1,4 +1,24 @@
 $(document).ready(function() {
+
+    //Limpiar formulario
+    function limpiarCampos() {
+      let usuario = document.querySelector('#exampleInputEmail1');
+      let nombre = document.querySelector('#exampleInputName1');
+      let password = document.querySelector('#password');
+      let repetirPassword = document.querySelector('#repetir_password');
+      let correcto = document.querySelector('#resultado_password');
+
+
+
+      usuario.value = '';
+      nombre.value = '';
+      password.value = '';
+      repetirPassword = '';
+      correcto.style.display = 'none';
+    }
+
+
+    // Crear admin
     $('#crear-admin').on('submit', function(e) {
             e.preventDefault();
             
@@ -19,6 +39,10 @@ $(document).ready(function() {
                         confirmButtonColor: '#eeae00',
                         allowOutsideClick: false,
                       });
+
+                      // limpiamos los campos!!!
+                      limpiarCampos();
+
                     } else {
                       Swal.fire({
                         title: 'Ups',
@@ -27,13 +51,50 @@ $(document).ready(function() {
                         confirmButtonColor: '#eeae00',
                         allowOutsideClick: false,
                       });
+                      // limpiamos los campos!!!
+                      limpiarCampos();
                     }
                 }
             })
     });
+
+    $('#login-admin').on('submit', function(e) {
+          e.preventDefault();
+          
+          var datos = $(this).serializeArray();
+          
+          $.ajax({
+              type: $(this).attr('method'),
+              data: datos,
+              url: $(this).attr('action'),
+              dataType: 'json',
+              success: function(data) {
+                console.log(data);
+                var resultado = data;
+                if(resultado.respuesta == 'exitoso') {
+                  Swal.fire({
+                    title: 'Login Correcto',
+                    text: 'Bienvenid@ '+resultado.usuario+'!!', // o podemos poner el mensaje que viene de la respuesta
+                    type: 'success',
+                    confirmButtonColor: '#eeae00',
+                    allowOutsideClick: false,
+                  });
+                } else {
+                  Swal.fire({
+                    title: 'Ups',
+                    text: 'Usuario y/o contraseña incorrectos!', // esto es un IF corto!!!! el signo de pregunta denotaria el SI, y los dos punto el SINO
+                    type: 'error',
+                    confirmButtonColor: '#eeae00',
+                    allowOutsideClick: false,
+                  });
+                }
+              }
+          })
+    });
+
+
     // Se ejecuta cuando hay un archivo
-    
-    
+
     // $('#guardar-registro-archivo').on('submit', function(e) {
     //         e.preventDefault();
             

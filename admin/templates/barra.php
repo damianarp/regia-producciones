@@ -27,18 +27,15 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <span class="hidden-xs">Hola: Admin</span>
             </a>
-            <ul class="dropdown-menu">
-              
+          </li> 
               <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-success btn-flat">Ajustes</a>
-                </div>
-                <div class="pull-right">
-                  <a href="login.php?cerrar_sesion=true" class="btn btn-success btn-flat">Cerrar Sesión</a>
-                </div>
-              </li>
-            </ul>
+          <li class="user-footer">
+            <div class="pull-left">
+              <a href="#" class="btn btn-success btn-flat">Ajustes</a>
+            </div>
+            <div class="pull-right">
+              <a href="login.php?cerrar_sesion=true" class="btn btn-success btn-flat">Cerrar Sesión</a>
+            </div>
           </li>
         </ul>
       </div>
