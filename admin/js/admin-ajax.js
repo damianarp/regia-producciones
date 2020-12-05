@@ -69,7 +69,7 @@ $(document).ready(function() {
         Swal.fire({
             title: 'Estás segur@ de eliminarlo?',
             text: "Esta acción no se puede revertir!",
-            icon: 'warning',
+            type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#eeae00',
             cancelButtonColor: '#d33',
@@ -88,11 +88,11 @@ $(document).ready(function() {
                         var resultado = JSON.parse(data);
                         if (resultado.respuesta == 'exito') {
     
-                                Swal.fire(
-                                  'Borrado!',
-                                  'El administrador ha sido eliminado',
-                                  'success'
-                                )
+                                Swal.fire({
+                                  title: 'Borrado!',
+                                  text: 'El administrador ha sido eliminado',
+                                  type: 'success'
+                                });
                                 jQuery('[data-id="' + resultado.id_eliminado + '"]').parents('tr').remove();
                         
                         } else if (result.dismiss === 'cancel') {
