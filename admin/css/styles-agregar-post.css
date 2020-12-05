@@ -54,6 +54,16 @@ label{
     justify-content: center;
     margin-bottom: 30px;
 }
+@media only screen and (max-width:800px) {
+    .caja img{
+        width: 30%;
+    }
+}
+@media only screen and (max-width:500px) {
+    .caja img{
+        width: 50%;
+    }
+}
 input[type="text"] {
     width: 100%;
     padding: 5px 10px;

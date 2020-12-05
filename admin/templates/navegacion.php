@@ -6,8 +6,7 @@
       <div class="user-panel">
         
         <div class="info">
-          <p>Damián Arp</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <p>Administrador: <?php echo ucwords($_SESSION['nombre']); ?></p>
         </div>
       </div>
       <!-- search form -->

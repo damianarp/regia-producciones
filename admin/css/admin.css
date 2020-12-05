@@ -11,6 +11,11 @@
 .swal2-popup {
     font-size: 1rem !important;
 }
+@media only screen and (max-width: 900px){
+    .swal2-popup {
+        font-size: .7rem !important;
+    }
+}
 .login-page .main-footer {
     display: none;
 }

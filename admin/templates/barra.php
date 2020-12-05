@@ -25,18 +25,7 @@
             <ul class="nav navbar-nav">
                 <li class="dropdown user user-menu">
                 <a href="#" data-toggle="dropdown">
-                    <?php
-                    try {
-                        $sql = "SELECT nombre FROM admins";
-                        $resultado = $conn->query($sql);
-                    } catch (Exception $e) {
-                        $error = $e->getMessage();
-                        echo $error;
-                    }
-                    if($admin = $resultado->fetch_assoc()) { ?>
-                        <span class="hidden-xs">Hola: <?php echo $admin['nombre']; ?></span>
-                        <?php 
-                    } ?>
+                    <span class="hidden-xs">Hola: <?php echo ucwords($_SESSION['nombre']); ?>!</span>
                 </a>
                 </li>
                 <!-- Menu Footer-->

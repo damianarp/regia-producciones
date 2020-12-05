@@ -413,6 +413,7 @@ p {
     position: relative;
     width: 100%;
     height: 100vh;
+    margin-bottom: 250px;
 }
 
 .img-header .video-container {
@@ -517,7 +518,6 @@ p {
     width: 100%;
     padding-top: 100px;
     margin-top: 50px;
-    padding-bottom: 300px;
 }
 
 .contenedor .info-container {
@@ -1817,8 +1817,11 @@ text-shadow: 1px 1px 2px black;
     } */
 
     /*********** Header *************/
-    .video-container #video {
+    /* .video-container #video {
         width: 100%;
+    } */
+    .img-header {
+        margin-bottom: 400px;
     }
 
     .img-header .welcome h2 {
@@ -2039,6 +2042,7 @@ text-shadow: 1px 1px 2px black;
     }
 
     /********* Header *********/
+    
     .img-header .welcome img {
         width: 30%;
     }
@@ -2109,21 +2113,10 @@ text-shadow: 1px 1px 2px black;
 
 }
 
-/**************************************  Media Query 825  ****************************************/
 
-@media only screen and (max-width: 825px) {
-    main .site-content .post-content > .post-image .post-info span {
-        font-size: 11px;
-    }
+/**************************************  Media Query 870  ****************************************/
 
-}
-
-
-
-
-/**************************************  Media Query 768  ****************************************/
-
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 870px) {
     /************** 404 ***************/
     .not-found {
         background: url(../img/404a.jpg);
@@ -2142,6 +2135,14 @@ text-shadow: 1px 1px 2px black;
     #buscador {
         width: 74%;
     }
+    .img-header {
+        margin-bottom: 0px;
+    }
+
+    main .site-content .post-content > .post-image .post-info span {
+        font-size: 11px;
+    }
+    
 
     /************** Navegación ***************/
     .menu {
@@ -2191,13 +2192,12 @@ text-shadow: 1px 1px 2px black;
         top: 70px;
         left: -100%;
         width: 100%;
-        height: calc(60vh - 100px);
         background: #fff;
     }
 
     .menu .list-container .lists {
         width: 100%;
-        height: 100%;
+        height: auto;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -2220,6 +2220,7 @@ text-shadow: 1px 1px 2px black;
     .menu .list-container .lists li a.activo {
         background: none;
         color: var(--red);
+        font-size: 20px;
     }
 
     .menu .list-container .lists li a:hover {
@@ -2239,15 +2240,13 @@ text-shadow: 1px 1px 2px black;
 
     .img-header .video-container video {
         object-fit: cover;
-        width: 35vw;
         height: 100vh;
     }
 
 
     .img-header .welcome {
         width: 100%;
-        top: 120px;
-        height: 100vw;
+        top: 30px;
         display: flex;
         flex-direction: column;
         margin: auto;
@@ -2256,18 +2255,18 @@ text-shadow: 1px 1px 2px black;
     }
 
     .img-header .welcome img {
-        width: 50%;
+        width: 25%;
 
     }
 
     .img-header .welcome h2 {
-        font-size: 20px;
-        margin-bottom: 35px;
-        width: 30%;
+        font-size: 15px;
+        margin-bottom: 15px;
+        width: 90%;
     }
 
     .img-header .welcome hr {
-        width: 30%;
+        width: 25%;
         height: 1px;
         background: #fff;
         border: none;
@@ -2282,15 +2281,11 @@ text-shadow: 1px 1px 2px black;
 
     }
 
-    .img-header .welcome>a {
-        font-size: 17px;
-        width: 28%;
-    }
-
     .img-header .welcome a {
+        font-size: 15px;
+        width: 100px;
         margin-top: 0px;
         padding-top: 8px;
-
     }
 
     /************* Novedades **************/
@@ -2355,6 +2350,9 @@ text-shadow: 1px 1px 2px black;
         font-size: 17px;
         color: var(--black);
         line-height: 25px;
+    }
+    .contenedor {
+        width: 100%;
     }
 
 
@@ -2546,7 +2544,6 @@ text-shadow: 1px 1px 2px black;
         bottom: 0;
         left: 0;
         margin: 0px;
-        position: fixed;
         z-index: 99999;
     }
 
@@ -2750,21 +2747,32 @@ text-shadow: 1px 1px 2px black;
     .menu .logo-box img {
         width: 15%;
     }
-
+    .img-header .welcome {
+        top: 120px;
+        height: 100vw;
+    }
     .img-header .welcome img {
         width: 50%;
-    }
 
+    }
     .img-header .welcome h2 {
         font-size: 15px;
         margin-bottom: 35px;
         width: 60%;
     }
-
-    .img-header .welcome>a {
-        font-size: 15px;
-        padding-top: 10px
+    .img-header .welcome hr {
+        width: 50%;
+        height: 1px;
+        background: #fff;
+        border: none;
+        margin-top: 10px;
     }
+    .img-header .welcome a {
+        font-size: 15px;
+        width: 28%;
+        margin-top: 0px;
+    }
+    
     .newsletter .contenido form input {
         width: 100%;
     }
@@ -2785,7 +2793,6 @@ text-shadow: 1px 1px 2px black;
     main #blog{
         width: 100%;
     }
-    
 
 }
 
@@ -3001,6 +3008,60 @@ text-shadow: 1px 1px 2px black;
     }
 
 
+}
+
+/*************************** Max Height ****************************/
+
+
+/*************************** Max Height 414 ****************************/
+@media only screen and (max-height: 414px) {
+    
+    .menu .list-container .lists li {
+        margin: 5px 0;
+    }
+}
+
+/*************************** Max Height 320 ****************************/
+@media only screen and (max-height: 320px) {
+    
+    .menu .list-container .lists li {
+        margin: 5px 0;
+    }
+    .menu .list-container .lists li a {
+        font-size: 17px;
+    }
+    .menu .list-container .lists li a.activo {
+        font-size: 17px;
+    }
+    .img-header .welcome {
+        top: 120px;
+        height: auto;
+    }
+    .img-header .welcome img {
+        width: 25%;
+    }
+    .img-header .welcome h2 {
+        font-size: 15px;
+        margin-bottom: 0px;
+        width: 60%;
+    }
+    .img-header .welcome a {
+        font-size: 15px;
+        width: 100px;
+        height: 30px;
+        margin-top: 0px;
+    }
+    .img-header .welcome a {
+        padding-top: 5px;
+    }
+}
+
+/*************************** iPad ****************************/
+@media only screen and (width: 768px) and (height: 1024) {
+    .img-header .welcome {
+        height: 100vw;
+    }
+    
 }
 
 
