@@ -54,7 +54,7 @@
                               <a href="editar-suscriptor.php?id=<?php echo $susc['id'] ?>" class="btn bg-orange btn-flat margin">
                                   <i class="fa fa-pencil"></i>
                               </a>
-                              <a href="#" data-id="<?php echo $susc['id']; ?>" data-tipo="admin" class="btn bg-maroon btn-flat margin borrar_registro">
+                              <a href="#" data-id="<?php echo $susc['id']; ?>" data-tipo="admin" class="btn bg-maroon btn-flat margin borrar_suscriptor">
                                   <i class="fa fa-trash"></i>
                               </a>
                             </td>

@@ -167,14 +167,11 @@
         errorDivCor = document.querySelector('#error_3');
         expresion = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
 
+        // Validar Nombre (estilos)
         if (nombreCon) {
             nombreCon.addEventListener('blur', validarNombre);
         }
-        if (apellidoCon) {
-            apellidoCon.addEventListener('blur', validarApellido);
-        }
 
-        // Validar Nombre (estilos)
         function validarNombre() {
             if (nombreCon.value == '') {
                 errorDivNom.style.display = 'block';
@@ -191,6 +188,10 @@
         }
 
         // Validar Apellido (estilos)
+        if (apellidoCon) {
+            apellidoCon.addEventListener('blur', validarApellido);
+        }
+
         function validarApellido() {
             if (apellidoCon.value == '') {
                 errorDivApe.style.display = 'block';

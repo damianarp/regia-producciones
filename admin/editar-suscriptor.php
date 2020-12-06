@@ -45,18 +45,20 @@
                                     <div class="form-group">
                                         <label for="nombre">Nombre:</label>
                                         <input type="text" class="form-control" id="exampleInputName2" name="nombre" placeholder="Ingresa el nombre completo del suscriptor" value="<?php echo $admin['nombre']; ?>">
+                                        <div id="error_11"></div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="email">Usuario:</label>
                                         <input type="email" class="form-control" id="exampleInputEmail2" name="email" placeholder="Ingresa el correo del suscriptor" value="<?php echo $admin['email']; ?>">
+                                        <div id="error_12"></div>
                                     </div>
                                 
                                 </div>
                                 <!-- /.box-body -->
                                 <div class="box-footer">
                                     <input type="hidden" name="suscripcion" value="actualizar">
-                                    <input type="hidden" name="id_registro" value="<?php echo $id; ?>">
+                                    <input type="hidden" name="id_susc" value="<?php echo $id; ?>">
                                     <button type="submit" class="btn btn-primary" id="modificar_suscripcion">Guardar</button>
                                 </div>
                             </form>

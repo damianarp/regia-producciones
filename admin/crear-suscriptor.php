@@ -36,11 +36,13 @@
                                     <div class="form-group">
                                         <label for="nombre">Nombre Completo:</label>
                                         <input type="text" class="form-control" id="exampleInputName2" name="nombre" placeholder="Ingresa el nombre completo del suscriptor">
+                                        <div id="error_9"></div>
                                     </div>
                                     
                                     <div class="form-group">
                                         <label for="email">Correo Electrónico:</label>
                                         <input type="email" class="form-control" id="exampleInputEmail2" name="email" placeholder="Ingresa el correo electrónico del suscriptor">
+                                        <div id="error_10"></div>
                                     </div>
                                 
                                 </div>
