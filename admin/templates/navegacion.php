@@ -46,7 +46,7 @@
             <li><a href="crear-suscriptor.php"><i class="fa fa-plus-circle"></i> Agregar</a></li>
           </ul>
         </li>
-
+        <?php if($_SESSION['nivel'] == 1) : ?>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-user"></i>
@@ -57,7 +57,7 @@
             <li><a href="crear-admin.php"><i class="fa fa-plus-circle"></i> Agregar</a></li>
           </ul>
         </li>
-
+        <?php endif; ?>  
       </ul>
     </section>
     <!-- /.sidebar -->
