@@ -179,7 +179,7 @@ if ($_POST['suscripcion'] == 'actualizar') {
     die(json_encode($respuesta));
 }
 
-// Eliminar Admin de la BD
+// Eliminar Suscriptor de la BD
 if($_POST['suscripcion'] == 'eliminar'){
     $id_borrar = $_POST['id'];
 
