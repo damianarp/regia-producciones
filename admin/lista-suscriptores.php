@@ -39,7 +39,7 @@
                 <tbody>
                     <?php
                         try {
-                          $sql = "SELECT nombre, email, fecha_reg FROM suscriptores";
+                          $sql = "SELECT id, nombre, email, fecha_reg FROM suscriptores";
                           $resultado = $conn->query($sql);
                         } catch (Exception $e) {
                           $error = $e->getMessage();
@@ -51,10 +51,10 @@
                             <td><?php echo $susc['email']; ?></td>
                             <td><?php echo $susc['fecha_reg']; ?></td>
                             <td>
-                              <a href="editar-suscriptores.php?id=<?php echo $susc['id_susc'] ?>" class="btn bg-orange btn-flat margin">
+                              <a href="editar-suscriptor.php?id=<?php echo $susc['id'] ?>" class="btn bg-orange btn-flat margin">
                                   <i class="fa fa-pencil"></i>
                               </a>
-                              <a href="#" data-id="<?php echo $susc['id_susc']; ?>" data-tipo="admin" class="btn bg-maroon btn-flat margin borrar_registro">
+                              <a href="#" data-id="<?php echo $susc['id']; ?>" data-tipo="admin" class="btn bg-maroon btn-flat margin borrar_registro">
                                   <i class="fa fa-trash"></i>
                               </a>
                             </td>
