@@ -30,15 +30,18 @@
               <table id="registros" class="table table-bordered table-striped">
                 <thead>
                 <tr>
+                  <th>Foto</th>
                   <th>Usuario</th>
                   <th>Nombre</th>
+                  <th>Nivel</th>
+                  <th>Fecha de modificación</th>
                   <th>Acciones</th>
                 </tr>
                 </thead>
                 <tbody>
                     <?php
                         try {
-                          $sql = "SELECT id_admin, usuario, nombre FROM admins";
+                          $sql = "SELECT id_admin, foto_admin, usuario, nombre, nombre_nivel, editado FROM admins, nivel WHERE admins.nivel_id = nivel.id_nivel";
                           $resultado = $conn->query($sql);
                         } catch (Exception $e) {
                           $error = $e->getMessage();
@@ -46,8 +49,11 @@
                         }
                         while($admin = $resultado->fetch_assoc()) { ?>
                           <tr>
+                            <td><?php echo $admin['foto_admin']; ?></td>
                             <td><?php echo $admin['usuario']; ?></td>
                             <td><?php echo $admin['nombre']; ?></td>
+                            <td><?php echo $admin['nombre_nivel']; ?></td>
+                            <td><?php echo $admin['editado']; ?></td>
                             <td>
                               <a href="editar-admin.php?id=<?php echo $admin['id_admin'] ?>" class="btn bg-orange btn-flat margin">
                                   <i class="fa fa-pencil"></i>
@@ -61,8 +67,11 @@
                 </tbody>
                 <tfoot>
                 <tr>
+                  <th>Foto</th>
                   <th>Usuario</th>
                   <th>Nombre</th>
+                  <th>Nivel</th>
+                  <th>Fecha de modificación</th>
                   <th>Acciones</th>
                 </tr>
                 </tfoot>

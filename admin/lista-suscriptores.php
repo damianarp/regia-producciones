@@ -32,14 +32,15 @@
                 <tr>
                   <th>Nombre Completo</th>
                   <th>Correo Electrónico</th>
-                  <th>Fecha de Registro</th>
+                  <th>Fecha de Suscripción</th>
+                  <th>Fecha de Modificación</th>
                   <th>Acciones</th>
                 </tr>
                 </thead>
                 <tbody>
                     <?php
                         try {
-                          $sql = "SELECT id, nombre, email, fecha_reg FROM suscriptores";
+                          $sql = "SELECT id_susc, nombre_susc, email_susc, fecha_susc, editado_susc FROM suscriptores";
                           $resultado = $conn->query($sql);
                         } catch (Exception $e) {
                           $error = $e->getMessage();
@@ -47,14 +48,15 @@
                         }
                         while($susc = $resultado->fetch_assoc()) { ?>
                           <tr>
-                            <td><?php echo $susc['nombre']; ?></td>
-                            <td><?php echo $susc['email']; ?></td>
-                            <td><?php echo $susc['fecha_reg']; ?></td>
+                            <td><?php echo $susc['nombre_susc']; ?></td>
+                            <td><?php echo $susc['email_susc']; ?></td>
+                            <td><?php echo $susc['fecha_susc']; ?></td>
+                            <td><?php echo $susc['editado_susc']; ?></td>
                             <td>
-                              <a href="editar-suscriptor.php?id=<?php echo $susc['id'] ?>" class="btn bg-orange btn-flat margin">
+                              <a href="editar-suscriptor.php?id=<?php echo $susc['id_susc'] ?>" class="btn bg-orange btn-flat margin">
                                   <i class="fa fa-pencil"></i>
                               </a>
-                              <a href="#" data-id="<?php echo $susc['id']; ?>" data-tipo="admin" class="btn bg-maroon btn-flat margin borrar_suscriptor">
+                              <a href="#" data-id="<?php echo $susc['id_susc']; ?>" data-tipo="admin" class="btn bg-maroon btn-flat margin borrar_suscriptor">
                                   <i class="fa fa-trash"></i>
                               </a>
                             </td>
@@ -65,7 +67,8 @@
                 <tr>
                   <th>Nombre Completo</th>
                   <th>Correo Electrónico</th>
-                  <th>Fecha de Registro</th>
+                  <th>Fecha de Suscripción</th>
+                  <th>Fecha de Modificación</th>
                   <th>Acciones</th>
                 </tr>
                 </tfoot>

@@ -11,7 +11,7 @@
             $stmt = $conn->prepare("SELECT * FROM admins WHERE usuario = ?;");
             $stmt->bind_param("s", $usuario);
             $stmt->execute();
-            $stmt->bind_result($id_admin, $usuario_admin, $nombre_admin, $password_admin, $editado, $nivel);
+            $stmt->bind_result($id_admin, $usuario_admin, $nombre_admin, $password_admin, $editado, $foto_admin, $nivel);
 
             if($stmt->affected_rows) {
                 $existe = $stmt->fetch();

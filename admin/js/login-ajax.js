@@ -23,7 +23,7 @@ $(document).ready(function () {
                         allowOutsideClick: false,
                     });
                     setTimeout(function () {
-                        window.location.href = 'admin-area.php';
+                        window.location.href = 'crear-articulo.php';
                     }, 2000);
                 } else {
                     Swal.fire({

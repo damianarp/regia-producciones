@@ -30,7 +30,7 @@
     $fecha = date('y-m-d H:i:s');
 
     // validamos que el correo no se encuentre ya en la base de datos
-    $resultado = $conexion->prepare("SELECT email FROM suscriptores WHERE email like :email");
+    $resultado = $conexion->prepare("SELECT email_susc FROM suscriptores WHERE email_susc like :email");
     $parametros = array('email' => $correo);
     $resultado->execute($parametros);
     $user = $resultado->fetch();
@@ -40,7 +40,7 @@
     }
 
     // guardamos en base de datos
-    $consulta = "INSERT INTO suscriptores (nombre, email, fecha_reg) VALUES (:nombre, :email, :fechareg)";
+    $consulta = "INSERT INTO suscriptores (nombre_susc, email_susc, fecha_susc) VALUES (:nombre, :email, :fechareg)";
     $resultado = $conexion->prepare($consulta);
     $resultado->bindParam(':nombre', $nombre, PDO::PARAM_STR, 25);
     $resultado->bindParam(':email', $correo, PDO::PARAM_STR, 25);

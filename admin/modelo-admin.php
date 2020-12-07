@@ -7,6 +7,7 @@ include_once 'funciones/funciones.php';
 $usuario = $_POST['usuario'];
 $nombre  = $_POST['nombre'];
 $password = $_POST['password'];
+$nivel = $_POST['nivel'];
 $id_registro = $_POST['id_registro'];
 
 // Agregar Admin a la BB
@@ -18,8 +19,8 @@ if ($_POST['registro'] == 'nuevo') {
         $password_hashed = password_hash($password, PASSWORD_BCRYPT, $opciones);
     
         try {
-            $stmt = $conn->prepare("INSERT INTO admins (usuario, nombre, password) VALUES (?, ?, ?)");
-            $stmt->bind_param("sss", $usuario, $nombre, $password_hashed);
+            $stmt = $conn->prepare("INSERT INTO admins (usuario, nombre, password, nivel_id) VALUES (?, ?, ?, ?)");
+            $stmt->bind_param("sssi", $usuario, $nombre, $password_hashed, $nivel);
             $stmt->execute();
             $id_registro = $stmt->insert_id;
             
@@ -49,16 +50,16 @@ if ($_POST['registro'] == 'actualizar') {
 
     try {
         if(empty($_POST['password']) ) {
-            $stmt = $conn->prepare("UPDATE admins SET usuario = ?, nombre = ?, editado = NOW() WHERE id_admin = ? ");
-            $stmt->bind_param("ssi", $usuario, $nombre, $id_registro);
+            $stmt = $conn->prepare("UPDATE admins SET usuario = ?, nombre = ?, nivel_id = ?, editado = NOW() WHERE id_admin = ? ");
+            $stmt->bind_param("ssii", $usuario, $nombre, $nivel, $id_registro);
         } else {
             $opciones = array(
                 'cost' => 12
             );
     
             $hash_password = password_hash($password, PASSWORD_BCRYPT, $opciones);
-            $stmt = $conn->prepare('UPDATE admins SET usuario = ?, nombre = ?, password = ?, editado = NOW() WHERE id_admin = ? ');
-            $stmt->bind_param("sssi", $usuario, $nombre, $hash_password, $id_registro);
+            $stmt = $conn->prepare('UPDATE admins SET usuario = ?, nombre = ?, password = ?, nivel_id = ?, editado = NOW() WHERE id_admin = ? ');
+            $stmt->bind_param("sssii", $usuario, $nombre, $hash_password, $nivel, $id_registro);
         }
         
         $stmt->execute();
@@ -113,7 +114,7 @@ if($_POST['registro'] == 'eliminar'){
 //Variables usadas para los SUSCRIPTORES
 $nombre  = $_POST['nombre'];
 $correo = $_POST['email'];
-$fecha = $_POST['fecha_reg'];
+$fecha = $_POST['fecha_susc'];
 $id_registro = $_POST['id_susc'];
 
 // Agregar Suscriptor a la BB
@@ -125,7 +126,7 @@ if ($_POST['suscripcion'] == 'nuevo') {
         $password_hashed = password_hash($password, PASSWORD_BCRYPT, $opciones);
     
         try {
-            $stmt = $conn->prepare("INSERT INTO suscriptores (nombre, email, fecha_reg) VALUES (?, ?, ?)");
+            $stmt = $conn->prepare("INSERT INTO suscriptores (nombre_susc, email_susc, fecha_susc) VALUES (?, ?, ?)");
             $stmt->bind_param("sss", $nombre, $correo, $fecha);
             $stmt->execute();
             $id_registro = $stmt->insert_id;
@@ -155,7 +156,7 @@ if ($_POST['suscripcion'] == 'nuevo') {
 if ($_POST['suscripcion'] == 'actualizar') {
 
     try {
-        $stmt = $conn->prepare('UPDATE suscriptores SET nombre = ?, email = ?, susc_editado = NOW() WHERE id = ? ');
+        $stmt = $conn->prepare('UPDATE suscriptores SET nombre_susc = ?, email_susc = ?, editado_susc = NOW() WHERE id_susc = ? ');
         $stmt->bind_param("ssi", $nombre, $correo, $id_registro);
         $stmt->execute();
 
@@ -184,7 +185,7 @@ if($_POST['suscripcion'] == 'eliminar'){
     $id_borrar = $_POST['id'];
 
     try {
-        $stmt = $conn->prepare('DELETE FROM suscriptores WHERE id = ? ');
+        $stmt = $conn->prepare('DELETE FROM suscriptores WHERE id_susc = ? ');
         $stmt->bind_param('i', $id_borrar);
         $stmt->execute();
         if($stmt->affected_rows) {

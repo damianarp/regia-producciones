@@ -46,5 +46,6 @@
         <link rel="stylesheet" href="css/admin.css">
         <link rel="stylesheet" href="../css/styles.css">
         <link rel="stylesheet" href="css/styles-agregar-post.css">
+        <link rel="stylesheet" href="css/styles-nav-admin.css">
 
     </head>

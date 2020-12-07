@@ -156,20 +156,23 @@
         };
 
         ////////////////// Validar formulario de contacto (Campos obligatorios) //////////////
-        var nombreCon, apellidoCon, correoCon, mensaje, errorDivNom, errorDivApe, errorDivCor, expresion;
+        var nombreCon, apellidoCon, correoCon, asunto, mensaje, errorDivNom, errorDivApe, errorDivCor, errorAsunto, expresion;
 
         nombreCon = document.querySelector('#nombre');
         apellidoCon = document.querySelector('#apellido');
         correoCon = document.querySelector('#correo');
         mensaje = document.querySelector('#mensaje');
+        asunto = document.querySelector('#asunto');
         errorDivNom = document.querySelector('#error_1');
         errorDivApe = document.querySelector('#error_2');
+        errorAsunto = document.querySelector('#error_13');
         errorDivCor = document.querySelector('#error_3');
         expresion = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
 
         // Validar Nombre (estilos)
         if (nombreCon) {
             nombreCon.addEventListener('blur', validarNombre);
+            nombreCon.addEventListener('keyup', validarNombre);
         }
 
         function validarNombre() {
@@ -190,6 +193,7 @@
         // Validar Apellido (estilos)
         if (apellidoCon) {
             apellidoCon.addEventListener('blur', validarApellido);
+            apellidoCon.addEventListener('keyup', validarApellido);
         }
 
         function validarApellido() {
@@ -206,9 +210,30 @@
                 return true;
             }
         }
+        // Validar Asunto (estilos)
+        if (asunto) {
+            asunto.addEventListener('blur', validarAsunto);
+            asunto.addEventListener('keyup', validarAsunto);
+        }
+
+        function validarAsunto() {
+            if (asunto.value == '') {
+                errorAsunto.style.display = 'block';
+                errorAsunto.innerHTML = "este campo es obligatorio";
+                asunto.style.border = '2px solid red';
+                errorAsunto.style.color = 'red';
+                errorAsunto.style.paddingTop = '10px';
+                return false;
+            } else {
+                errorAsunto.style.display = 'none';
+                asunto.style.border = '2px solid #eeae00';
+                return true;
+            }
+        }
 
         ////////// Validar Expresion del correo ///////////
         if (correoCon) {
+            correoCon.addEventListener('blur', validarExpresionCon);
             correoCon.addEventListener('keyup', validarExpresionCon);
         }
 
@@ -235,12 +260,15 @@
             nombreCon.value = '';
             apellidoCon.value = '';
             correoCon.value = '';
+            asunto.value = '';
             mensaje.value = '';
 
             errorDivNom.style.display = 'none';
             nombreCon.style.border = '2px solid #eeae00';
             errorDivApe.style.display = 'none';
             apellidoCon.style.border = '2px solid #eeae00';
+            errorAsunto.style.display = 'none';
+            asunto.style.border = '2px solid #eeae00';
             errorDivCor.style.display = 'none';
             correoCon.style.border = '2px solid #eeae00';
             
@@ -255,6 +283,10 @@
             }
             if (!validarApellido()) {
                 apellidoCon.focus();
+                return;
+            }
+            if (!validarAsunto()) {
+                asunto.focus();
                 return;
             }
             if (!validarExpresionCon()) {
@@ -315,6 +347,7 @@
 
         if (nombreSusc) {
             nombreSusc.addEventListener('blur', validarNombreSusc);
+            nombreSusc.addEventListener('keyup', validarNombreSusc);
         }
 
         // Validar Nombre (estilos)
@@ -335,6 +368,7 @@
 
         ////////// Validar Expresion del correo ///////////
         if (correoSusc) {
+            correoSusc.addEventListener('blur', validarExpresionSusc);
             correoSusc.addEventListener('keyup', validarExpresionSusc);
         }
 

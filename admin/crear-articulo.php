@@ -17,7 +17,7 @@
         </div>
 
         <!-- Formulario de Posteo de articulos -->
-        <form id="postear" name="postear" enctype="multipart/form-data">
+        <form role="form" id="crear_articulo" name="crear_articulo" method="post" action="modelo-articulo.php" enctype="multipart/form-data">
             <input type="hidden" name="submit" value="1">
             <input type="text" name="titulo" id="titulo" placeholder="Título del post">
             <div id="error_6"></div>
@@ -48,12 +48,36 @@
             <label for="contenido">Contenido completo del post</label>
             <textarea name="contenido" id="contenido"></textarea>
             <div id="error_8"></div>
-
-            <input id="agregar_post" type="button" value="Agregar post">
+            <div class="botones">
+                
+                <div class="boton">
+                    <input type="hidden" name="registro" value="nuevo">
+                    <a href="editar-articulo.php?id=<?php echo $admin['id_post'] ?>" class="btn bg-purple btn-flat margin">
+                        <i class="fa fa-save"></i>
+                    </a>
+                </div>
+                <div class="boton">
+                    <input type="hidden" name="registro" value="nuevo">
+                    <a href="editar-articulo.php?id=<?php echo $admin['id_post'] ?>" class="btn bg-orange btn-flat margin">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                </div>
+                <div class="boton">
+                    <input type="hidden" name="registro" value="nuevo">
+                    <a href="#" data-id="<?php echo $admin['id_post']; ?>" data-tipo="admin" class="btn bg-maroon btn-flat margin borrar_registro">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </div>
+                
+            </div>
+            <div class="boton">
+                <input type="hidden" name="registro" value="nuevo">
+                <button type="submit" class="btn bg-black" id="crear-articulo">Publicar</button>
+            </div>
+            
         </form> 
         <!-- /Formulario de Posteo de articulos -->
     </div>
 </div>
-<!-- /.content-wrapper -->
 
 <?php include_once 'templates/footer.php';?>

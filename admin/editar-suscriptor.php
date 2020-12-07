@@ -35,7 +35,7 @@
                         </div>
                         <div class="box-body">
                             <?php
-                                $sql = "SELECT * FROM `suscriptores` WHERE `id` = $id ";
+                                $sql = "SELECT * FROM `suscriptores` WHERE `id_susc` = $id ";
                                 $resultado = $conn->query($sql);
                                 $admin = $resultado->fetch_assoc();
                             ?>
@@ -44,13 +44,13 @@
                                 <div class="box-body">
                                     <div class="form-group">
                                         <label for="nombre">Nombre:</label>
-                                        <input type="text" class="form-control" id="exampleInputName2" name="nombre" placeholder="Ingresa el nombre completo del suscriptor" value="<?php echo $admin['nombre']; ?>">
+                                        <input type="text" class="form-control" id="exampleInputName2" name="nombre" placeholder="Ingresa el nombre completo del suscriptor" value="<?php echo $admin['nombre_susc']; ?>">
                                         <div id="error_11"></div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="email">Usuario:</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail2" name="email" placeholder="Ingresa el correo del suscriptor" value="<?php echo $admin['email']; ?>">
+                                        <input type="email" class="form-control" id="exampleInputEmail2" name="email" placeholder="Ingresa el correo del suscriptor" value="<?php echo $admin['email_susc']; ?>">
                                         <div id="error_12"></div>
                                     </div>
                                 

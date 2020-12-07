@@ -37,6 +37,12 @@
 	}
 
 	// si pasa el control de arriba, seguimos por este
+	if (!isset($_POST['asunto']) || !$_POST['asunto'] || strlen(trim($_POST['asunto'])) <= 0) {
+		// error, no hay asunto
+		return responseJSON(array('success' => false, 'msg' => 'Por favor, complete el asunto!'));
+	}
+
+	// si pasa el control de arriba, seguimos por este
 	if (!isset($_POST['mensaje']) || !$_POST['mensaje'] || strlen(trim($_POST['mensaje'])) <= 0) {
 		// error, no hay mensaje
 		return responseJSON(array('success' => false, 'msg' => 'Por favor, ingrese un mensaje!'));
@@ -46,17 +52,19 @@
 	$nombre = trim($_POST['nombre']);         // trim elimina los espacios vacios al inicio y al final de lo que se escribe en el input
 	$apellido = trim($_POST['apellido']);
 	$correo = trim($_POST['correo']);
+	$asunto = trim($_POST['asunto']);
 	$mensaje = trim($_POST['mensaje']);
 	$mensajeCompleto = $mensaje . "\nAtentamente: " . $nombre;
-	$asunto = 'Contacto de ' . $nombre . ' ' . $apellido;
+	$remitente = 'Contacto de ' . $nombre . ' ' . $apellido;
 	$fecha = date('y-m-d H:i:s');
 
 	// guardamos en base de datos
-	$consulta = "INSERT INTO usuario (nombre, apellido, correo, mensaje, fecha_mensaje) VALUES (:nombre, :apellido, :correo, :mensaje, :fecha)";
+	$consulta = "INSERT INTO contacto (nombre_contacto, apellido_contacto, correo_contacto, asunto_contacto, mensaje_contacto, fecha_mensaje) VALUES (:nombre, :apellido, :correo, :asunto, :mensaje, :fecha)";
 	$resultado = $conexion->prepare($consulta);
 	$resultado->bindParam(':nombre', $nombre, PDO::PARAM_STR, 25);
 	$resultado->bindParam(':apellido', $apellido, PDO::PARAM_STR, 25);
 	$resultado->bindParam(':correo', $correo, PDO::PARAM_STR, 25);
+	$resultado->bindParam(':asunto', $correo, PDO::PARAM_STR, 25);
 	$resultado->bindParam(':mensaje', $mensaje, PDO::PARAM_STR, 25);
 	$resultado->bindParam(':fecha', $fecha, PDO::PARAM_STR, 25);
 	$resultado->execute();
@@ -70,7 +78,7 @@
 	// es por eso que no nos importa si falló la guardada en base de datos para mandarnos el email
 
 	// por ahi deberiamos usar la libreria PHPMailer, pero por ahora esto alcanza
-	$mail = mail($destinatario, $asunto, $mensajeCompleto);
+	$mail = mail($destinatario, $remitente, $asunto, $mensajeCompleto);
 
 	if (!$mail && $id <= 0) {
 		// error, no se pudo ni enviar correo ni guardar en base de datos

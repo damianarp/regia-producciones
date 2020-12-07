@@ -62,6 +62,16 @@
                                         <input type="password" class="form-control" id="repetir_password" name="repetir_password" placeholder="Ingresa tu password">
                                         <span id="resultado_password" class="help-block"></span>
                                     </div>
+                                    <label for="nivel">Nivel</label>
+                                    <select name="nivel" id="nivel">
+                                        <optgroup label="Niveles">
+                                            <option name="super_admin" value="1">1 - Super Administrador</option>
+                                            <option name="admin" value="2">2 - Administrador</option>
+                                            <option name="editor" value="3">3 - Editor</option>
+                                            <option name="lector" value="4">4 - Lector</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
                                 
                                 </div>
                                 <!-- /.box-body -->

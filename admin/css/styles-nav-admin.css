@@ -1,0 +1,13 @@
+aside.main-sidebar section.sidebar .image {
+    position: absolute;
+    margin-left: 30px;
+    justify-content: space-between;
+}
+aside.main-sidebar section.sidebar .image img {
+    
+}
+aside.main-sidebar section.sidebar .info {
+    position: relative;
+    left: 70px;
+    width: 50%;
+}

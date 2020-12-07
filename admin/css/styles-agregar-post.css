@@ -97,6 +97,20 @@ select[name="categoria"]{
     -o-appearance: none;
     -ms-appearance: none;
 }
+label[for="nivel"]:hover {
+    border: 2px solid var(--blue);
+    background: var(--blue);
+    color: var(--black);
+    cursor: default;
+}
+select[name="nivel"]{
+    outline: none;
+    padding: 5px 10px;
+    border: 2px solid var(--blue);
+    -moz-appearance: none;
+    -o-appearance: none;
+    -ms-appearance: none;
+}
 label[for="contenido"] {
     display: block;
     justify-content: center;
@@ -119,30 +133,9 @@ label[for="contenido"]:hover {
     border: 2px solid var(--blue);
     margin-top: 5px;
     outline: none;
+    margin-bottom: 10px;
 }
-#agregar_post {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--black);
-    border: 2px solid var(--blue);
-    background-color: var(--blue);
-    display: inline-block;
-    transition: all .5s;
-    cursor: pointer;
-    padding: 15px 40px !important;
-    text-transform: uppercase;
-    width: fit-content;
-    text-align: center;
-    margin-bottom: 20px;
-    margin-top: 10px;
-    outline: none;
-}
-#agregar_post:hover {
-    border: 2px solid var(--black);
-    background-color: var(--black);
-    color: var(--blue);
-    transition: all 0.3s ease-in-out;
-}
+
 input[type=”file”]#imagen {
     width: 0.1px;
     height: 0.1px;
@@ -172,4 +165,21 @@ label[for="imagen"]:hover {
     background-color: var(--black);
     color: var(--blue);
     transition: all 0.3s ease-in-out;
-}    
+}   
+.botones {
+    display: flex;
+    margin-bottom: 20px;
+}
+.botones .boton {
+    width: auto;
+    margin: auto;
+}
+button#crear-articulo {
+    display: block;
+    margin: auto;
+    height: 50px;
+    width: 150px;
+    text-transform: uppercase;
+    font-weight: 600;
+} 
+

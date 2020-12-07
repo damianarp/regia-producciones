@@ -3,12 +3,21 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar user panel -->
-      <div class="user-panel">
+      <!-- Sidebar user (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="../img/damian-foto.png" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <p><?php echo ucwords($_SESSION['nombre']); ?></p>
+        </div>
+      </div>
+      <!-- <div class="user-panel">
         
         <div class="info">
           <p>Administrador: <?php echo ucwords($_SESSION['nombre']); ?></p>
         </div>
-      </div>
+      </div> -->
       <!-- search form -->
       <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
@@ -26,13 +35,14 @@
         
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+            <i class="fa fa-file-text"></i> <span>Artículos</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Dashboard</a></li>
+            <li><a href="#"><i class="fa fa-list-ul"></i> Ver Todos</a></li>
+            <li><a href="crear-articulo.php"><i class="fa fa-plus-circle"></i> Crear Articulo</a></li>
           </ul>
         </li>
 

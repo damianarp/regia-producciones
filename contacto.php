@@ -25,6 +25,10 @@
                             <input type="email" id="correo" name="correo" placeholder="Ingresá tu correo electrónico">
                             <div id="error_3"></div>
 
+                            <label for="asunto">Asunto: </label>
+                            <input type="text" id="asunto" name="asunto" placeholder="Ingresá el asunto de tu mensaje">
+                            <div id="error_13"></div>
+
                             <label for="mensaje">Escribí tu mensaje: </label>
                             <textarea name="mensaje" id="mensaje"></textarea>
                             <input class="send" type="button" id="enviado" value="Enviar">

@@ -217,4 +217,53 @@ $(document).ready(function() {
       });
   });
   
+    
+    /////////////////////// ARTICULOS //////////////////////
+    // Crear articulo
+    $('#crear-articulo').on('submit', function(e) {
+      e.preventDefault();
+      
+      var datos = new FormData(this);
+      
+      $.ajax({
+          type: $(this).attr('method'),
+          data: datos,
+          url: $(this).attr('action'),
+          dataType: 'json',
+          contentType: false,
+          processData: false,
+          async: true,
+          cache: false,
+          success: function(data) {
+              console.log(data);
+              var resultado = data;
+              if(resultado.respuesta == 'exito') {
+                Swal.fire({
+                  title: 'Correcto',
+                  text: 'El usuario se ha guardado correctamente', // o podemos poner el mensaje que viene de la respuesta
+                  type: 'success',
+                  confirmButtonColor: '#eeae00',
+                  allowOutsideClick: false,
+                });
+
+                // limpiamos los campos!!!
+                limpiarCampos();
+
+              } else {
+                Swal.fire({
+                  title: 'Ups',
+                  text: 'El nombre de usuario ya está registrado, intenta con otro!', // esto es un IF corto!!!! el signo de pregunta denotaria el SI, y los dos punto el SINO
+                  type: 'warning',
+                  confirmButtonColor: '#eeae00',
+                  allowOutsideClick: false,
+                });
+                // limpiamos los campos!!!
+                limpiarCampos();
+              }
+          }
+      })
+    });
+
+
+
 });
