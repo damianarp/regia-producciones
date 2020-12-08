@@ -2,6 +2,8 @@
 <?php
 
 include_once 'funciones/funciones.php';
+include_once 'funciones/sesiones.php';
+
 /////////////////////// ARTICULOS //////////////////////
 //Variables usadas para los ARTICULOS
 $titulo = $_POST['titulo'];
@@ -36,9 +38,6 @@ if ($_POST['estado'] == '3') {
         }
 
         try {
-            // $sql = "SELECT id_admin, admin_id FROM admins, articulos WHERE admins.id_admin = articulos.admin_id";
-            // $resultado = $conn->query($sql);
-            // $admin_id = $resultado->fetch_assoc();
             $stmt = $conn->prepare("INSERT INTO articulos (titulo_art, descripcion_art, contenido_art, img_art, categoria_id, admin_id, fecha_creacion, estado_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             $stmt->bind_param("ssssiisi", $titulo, $descripcion, $contenido, $imagen_url, $categoria, $admin_id, $fecha, $estado);
             $stmt->execute();
