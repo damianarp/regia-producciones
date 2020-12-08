@@ -1,109 +1,67 @@
 
-<?php include_once 'funciones/funciones.php';
+<?php
 
+include_once 'funciones/funciones.php';
 /////////////////////// ARTICULOS //////////////////////
 //Variables usadas para los ARTICULOS
-// $autor = $_POST['autor_post'];
-// $nombre  = $_POST['nombre'];
-// $password = $_POST['password'];
-// $id_registro = $_POST['id_registro'];
+$titulo = $_POST['titulo'];
+$descripcion  = $_POST['descripcion'];
+$categoria = $_POST['categoria'];
+$contenido = $_POST['contenido'];
+$estado = $_POST['estado'];
+$admin_id = $_SESSION['id_admin'];
+$id_registro = $_POST['id_registro'];
+$fecha = date('y-m-d');
+// Agregar Aarticulo a la BB
+if ($_POST['estado'] == '3') {
 
-// Agregar Admin a la BB
-// if ($_POST['registro'] == 'nuevo') {
+        // $respuesta = array (
+        //     'post' => $_POST,
+        //     'file' => $_FILES
+        // );
+        // die(json_encode($respuesta));
+        
+        $directorio = "../img/admins/";
+        if(!is_dir($directorio)) {
+            mkdir($directorio, 0755, true);
+        }
 
-//         $opciones = array(
-//             'cost' => 12
-//         );
-//         $password_hashed = password_hash($password, PASSWORD_BCRYPT, $opciones);
-    
-//         try {
-//             $stmt = $conn->prepare("INSERT INTO admins (usuario, nombre, password) VALUES (?, ?, ?)");
-//             $stmt->bind_param("sss", $usuario, $nombre, $password_hashed);
-//             $stmt->execute();
-//             $id_registro = $stmt->insert_id;
+        if(move_uploaded_file($_FILES['imagen']['tmp_name'], $directorio . $_FILES['imagen']['name'])) {
+            $imagen_url = $_FILES['imagen']['name'];
+            $imagen_resultado = "Se subió correctamente";
+        } else {
+            $respues = array (
+                'respuesta' => error_get_last()
+            );
+        }
+
+        try {
+            // $sql = "SELECT id_admin, admin_id FROM admins, articulos WHERE admins.id_admin = articulos.admin_id";
+            // $resultado = $conn->query($sql);
+            // $admin_id = $resultado->fetch_assoc();
+            $stmt = $conn->prepare("INSERT INTO articulos (titulo_art, descripcion_art, contenido_art, img_art, categoria_id, admin_id, fecha_creacion, estado_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("ssssiisi", $titulo, $descripcion, $contenido, $imagen_url, $categoria, $admin_id, $fecha, $estado);
+            $stmt->execute();
+            $id_registro = $stmt->insert_id;
             
-//             if($id_registro > 0) {
-//                 $respuesta = array(
-//                     'respuesta' => 'exito',
-//                     'id_admin' => $id_registro
-//                 );
+            if($id_registro > 0) {
+                $respuesta = array(
+                    'respuesta' => 'exito',
+                    'id_admin' => $id_registro,
+                    'resultado_imagen' => $imagen_resultado
+                );
                 
-//             } else {
-//                     $respuesta = array(
-//                         'respuesta' => 'error'
-//                     );
-//             }
+            } else {
+                    $respuesta = array(
+                        'respuesta' => 'error'
+                    );
+            }
            
-//             $stmt->close();
-//             $conn->close();
-//         } catch (Exception $e) {
-//             echo "Error: " . $e->getMessage();
-//         }
+            $stmt->close();
+            $conn->close();
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+        }
         
-//         die(json_encode($respuesta));
-// }
-
-// Actualizar Admin en la BD
-// if ($_POST['registro'] == 'actualizar') {
-
-//     try {
-//         if(empty($_POST['password']) ) {
-//             $stmt = $conn->prepare("UPDATE admins SET usuario = ?, nombre = ?, editado = NOW() WHERE id_admin = ? ");
-//             $stmt->bind_param("ssi", $usuario, $nombre, $id_registro);
-//         } else {
-//             $opciones = array(
-//                 'cost' => 12
-//             );
-    
-//             $hash_password = password_hash($password, PASSWORD_BCRYPT, $opciones);
-//             $stmt = $conn->prepare('UPDATE admins SET usuario = ?, nombre = ?, password = ?, editado = NOW() WHERE id_admin = ? ');
-//             $stmt->bind_param("sssi", $usuario, $nombre, $hash_password, $id_registro);
-//         }
-        
-//         $stmt->execute();
-
-//         if ($stmt->affected_rows) {
-//             $respuesta = array(
-//                 'respuesta' => 'exito',
-//                 'id_actualizado' => $stmt->insert_id
-//             );
-//         } else {
-//             $respuesta = array(
-//                 'respuesta' => 'error'
-//             );
-//         }
-//         $stmt->close();
-//         $conn->close();  
-//     } catch (Exception $e){
-//         $respuesta = array(
-//             'respuesta' => $e->getMessage()
-//         );
-//     }
-//     die(json_encode($respuesta));
-// }
-
-// Eliminar Admin de la BD
-// if($_POST['registro'] == 'eliminar'){
-//     $id_borrar = $_POST['id'];
-
-//     try {
-//         $stmt = $conn->prepare('DELETE FROM admins WHERE id_admin = ? ');
-//         $stmt->bind_param('i', $id_borrar);
-//         $stmt->execute();
-//         if($stmt->affected_rows) {
-//             $respuesta = array(
-//                 'respuesta' => 'exito',
-//                 'id_eliminado' => $id_borrar
-//             );
-//         } else {
-//             $respuesta = array(
-//                 'respuesta' => 'error'
-//             );
-//         }
-//     } catch (Exception $e) {
-//         $respuesta = array(
-//             'respuesta' => $e->getMessage()
-//         );
-//     }
-//     die(json_encode($respuesta)); 
-// }
+        die(json_encode($respuesta));
+}

@@ -220,7 +220,7 @@ $(document).ready(function() {
     
     /////////////////////// ARTICULOS //////////////////////
     // Crear articulo
-    $('#crear-articulo').on('submit', function(e) {
+    $('#articulo').on('submit', function(e) {
       e.preventDefault();
       
       var datos = new FormData(this);
@@ -245,10 +245,6 @@ $(document).ready(function() {
                   confirmButtonColor: '#eeae00',
                   allowOutsideClick: false,
                 });
-
-                // limpiamos los campos!!!
-                limpiarCampos();
-
               } else {
                 Swal.fire({
                   title: 'Ups',
@@ -257,8 +253,6 @@ $(document).ready(function() {
                   confirmButtonColor: '#eeae00',
                   allowOutsideClick: false,
                 });
-                // limpiamos los campos!!!
-                limpiarCampos();
               }
           }
       })

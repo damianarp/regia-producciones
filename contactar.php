@@ -56,7 +56,7 @@
 	$mensaje = trim($_POST['mensaje']);
 	$mensajeCompleto = $mensaje . "\nAtentamente: " . $nombre;
 	$remitente = 'Contacto de ' . $nombre . ' ' . $apellido;
-	$fecha = date('y-m-d H:i:s');
+	$fecha = date('y-m-d');
 
 	// guardamos en base de datos
 	$consulta = "INSERT INTO contacto (nombre_contacto, apellido_contacto, correo_contacto, asunto_contacto, mensaje_contacto, fecha_mensaje) VALUES (:nombre, :apellido, :correo, :asunto, :mensaje, :fecha)";
