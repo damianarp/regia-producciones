@@ -31,8 +31,6 @@
                 <thead>
                 <tr>
                   <th>Título</th>
-                  <th>Descripción</th>
-                  <th>Contenido</th>
                   <th>Imagen</th>
                   <th>Categoría</th>
                   <th>Autor</th>
@@ -55,8 +53,6 @@
                         while($art = $resultado->fetch_assoc()) { ?>
                           <tr>
                             <td><?php echo $art['titulo_art']; ?></td>
-                            <td><?php echo $art['descripcion_art']; ?></td>
-                            <td ><?php echo $art['contenido_art']; ?></td>
                             <td><img src="admin/img/articulos/<?php echo $art['img_art']; ?>" width="200px"></td>
                             <td><?php echo $art['nombre_cat']; ?></td>
                             <td><?php echo $art['nombre']; ?></td>
@@ -78,8 +74,6 @@
                 <tfoot>
                 <tr>
                   <th>Título</th>
-                  <th>Descripción</th>
-                  <th>Contenido</th>
                   <th>Imagen</th>
                   <th>Categoría</th>
                   <th>Autor</th>

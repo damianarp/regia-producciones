@@ -10,6 +10,7 @@
     if(!filter_var($id, FILTER_VALIDATE_INT)) {
         die("Error!!");
     }
+
 ?>
 
   <!-- Content Wrapper. Contains page content -->

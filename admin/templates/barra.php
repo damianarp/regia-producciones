@@ -31,7 +31,7 @@
                 <!-- Menu Footer-->
                 <li class="user-footer">
                 <div class="pull-left">
-                    <a href="#" class="btn btn-success btn-flat">Ajustes</a>
+                    <a href="editar-admin.php" class="btn btn-success btn-flat">Ajustes</a>
                 </div>
                 <div class="pull-right">
                     <a href="login.php?cerrar_sesion=true" class="btn btn-success btn-flat">Cerrar Sesión</a>
