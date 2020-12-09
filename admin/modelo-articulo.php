@@ -23,7 +23,7 @@ if ($_POST['estado'] == '3') {
         // );
         // die(json_encode($respuesta));
         
-        $directorio = "../img/admins/";
+        $directorio = "admin/img/articulos/";
         if(!is_dir($directorio)) {
             mkdir($directorio, 0755, true);
         }

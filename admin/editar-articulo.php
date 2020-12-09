@@ -4,6 +4,12 @@
     include_once 'templates/header.php';
     include_once 'templates/barra.php';
     include_once 'templates/navegacion.php';
+
+    $id = $_GET['id'];
+    
+    if(!filter_var($id, FILTER_VALIDATE_INT)) {
+        die("Error!!");
+    }
 ?>
 
 
@@ -16,25 +22,29 @@
                     alt="Logo de Regia Producciones"></a>
             </h1>
         </div>
+        <?php
+            $sql = "SELECT * FROM `articulos` WHERE `id_art` = $id ";
+            $resultado = $conn->query($sql);
+            $art = $resultado->fetch_assoc();
+        ?>
 
         <!-- Formulario de Posteo de articulos -->
         <form role="form" id="articulo" name="articulo" method="post" action="modelo-articulo.php" enctype="multipart/form-data">
-            <input type="hidden" name="submit" value="1">
-            <input type="text" name="titulo" id="titulo" placeholder="Título del post">
+            <input type="text" name="titulo" id="titulo" placeholder="Título del post" value="<?php echo $art['titulo']; ?>">
             <div id="error_6"></div>
 
-            <textarea name="descripcion" id="descripcion" placeholder="Descripción del post"></textarea>
+            <textarea name="descripcion" id="descripcion" placeholder="Descripción del post" value="<?php echo $art['descripcion']; ?>"></textarea>
             <div id="error_7"></div>
 
             <span class="imagen">
-                <input type="file" name="imagen" id="imagen" required>
+                <input type="file" name="imagen" id="imagen" required  value="">
             </span>
             <label for="imagen">
                 <span>Subir imagen</span>
             </label>
             <br>
             <label for="categorias">Categorías</label>
-            <select name="categoria" id="categoria">
+            <select name="categoria" id="categoria" value="<?php echo $art['categoria']; ?>">
                 <optgroup label="Categorias">
                     <option name="cine" value="1">Cine</option>
                     <option name="peliculas_y_series" value="2">Películas y Series</option>
@@ -47,20 +57,19 @@
             </select>
             <br>
             <label for="contenido">Contenido completo del post</label>
-            <textarea name="contenido" id="contenido"></textarea>
+            <textarea name="contenido" id="contenido" value="<?php echo $art['contenido']; ?>"></textarea>
             <div id="error_8"></div>
             <div class="botones">
                 
                 <!-- <div class="boton">
                     <input type="hidden" name="articulo" value="nuevo">
-                    <a href="crear-articulo.php?id=" class="btn bg-purple btn-flat margin">
+                    <a href="editar-articulo.php?id=" class="btn bg-purple btn-flat margin">
                         <i class="fa fa-save"></i>
                     </a>
                 </div>
                 <div class="boton">
                     <input type="hidden" name="articulo" value="nuevo">
-                    
-                    <a href="crear-articulo.php?id=" class="btn bg-orange btn-flat margin">
+                    <a href="editar-articulo.php?id=" class="btn bg-orange btn-flat margin">
                         <i class="fa fa-pencil"></i>
                     </a>
                 </div>
@@ -73,8 +82,9 @@
                   
             </div>
             <div class="boton">
-                <input type="hidden" name="estado" value="3">
-                <button type="submit" class="btn bg-black" id="crear-articulo">Publicar</button>
+                <input type="hidden" name="estado" value="2">
+                <input type="hidden" name="id_articulo" value="<?php echo $id; ?>">
+                <button type="submit" class="btn bg-black" id="modificar-articulo">Publicar</button>
             </div>
             
         </form> 

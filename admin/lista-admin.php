@@ -41,7 +41,7 @@
                 <tbody>
                     <?php
                         try {
-                          $sql = "SELECT id_admin, foto_admin, usuario, nombre, nombre_nivel, editado FROM admins, nivel WHERE admins.nivel_id = nivel.id_nivel";
+                          $sql = "SELECT * FROM admins, nivel WHERE admins.nivel_id = nivel.id_nivel";
                           $resultado = $conn->query($sql);
                         } catch (Exception $e) {
                           $error = $e->getMessage();
@@ -55,7 +55,7 @@
                             <td><?php echo $admin['nombre_nivel']; ?></td>
                             <td><?php echo $admin['editado']; ?></td>
                             <td>
-                              <a href="editar-admin.php?id=<?php echo $admin['id_admin'] ?>" class="btn bg-orange btn-flat margin">
+                              <a href="editar-admin.php?id=<?php echo $admin['id_admin']; ?>" class="btn bg-orange btn-flat margin">
                                   <i class="fa fa-pencil"></i>
                               </a>
                               <a href="#" data-id="<?php echo $admin['id_admin']; ?>" data-tipo="admin" class="btn bg-maroon btn-flat margin borrar_registro">
