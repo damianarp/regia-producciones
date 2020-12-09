@@ -37,11 +37,18 @@
             <div id="error_7"></div>
 
             <span class="imagen">
-                <input type="file" name="imagen" id="imagen" required  value="<?php echo $art['img_art']; ?>">
+                <input type="file" name="imagen" id="imagen" required>
             </span>
             <label for="imagen">
                 <span>Subir imagen</span>
             </label>
+            <div class="form-group">
+                <label for="imagen_actual">Imagen Actual</label>
+                <br>
+                <div id="preview">
+                    <img src="admin/img/articulos/<?php echo $art['img_art']; ?>" width="500px">
+                </div>
+            </div>
             <br>
             <label for="categorias">Categorías</label>
             <select name="categoria" id="categoria">
@@ -61,7 +68,7 @@
             <div id="error_8"></div>
             <div class="botones">
                 
-                <!-- <div class="boton">
+                <div class="boton">
                     <input type="hidden" name="articulo" value="nuevo">
                     <a href="editar-articulo.php?id=" class="btn bg-purple btn-flat margin">
                         <i class="fa fa-save"></i>
@@ -69,17 +76,10 @@
                 </div>
                 <div class="boton">
                     <input type="hidden" name="articulo" value="nuevo">
-                    <a href="editar-articulo.php?id=" class="btn bg-orange btn-flat margin">
-                        <i class="fa fa-pencil"></i>
-                    </a>
-                </div>
-                <div class="boton">
-                    <input type="hidden" name="articulo" value="nuevo">
                     <a href="#" data-id="" data-tipo="admin" class="btn bg-maroon btn-flat margin borrar_registro">
                         <i class="fa fa-trash"></i>
                     </a>
-                </div> -->
-                  
+                </div>
             </div>
             <div class="boton">
                 <input type="hidden" name="estado" value="2">

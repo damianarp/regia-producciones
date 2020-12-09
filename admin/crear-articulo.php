@@ -32,9 +32,10 @@
             <label for="imagen">
                 <span>Subir imagen</span>
             </label>
+            <div id="preview"></div>
             <br>
             <label for="categorias">Categorías</label>
-            <select name="categoria[]" id="categoria">
+            <select name="categoria" id="categoria">
                 <optgroup label="Categorias">
                     <option name="cine" value="1">Cine</option>
                     <option name="peliculas_y_series" value="2">Películas y Series</option>
@@ -59,8 +60,7 @@
                 </div>
                 <div class="boton">
                     <input type="hidden" name="articulo" value="nuevo">
-                    
-                    <a href="crear-articulo.php?id=" class="btn bg-orange btn-flat margin">
+                    <a href="editar-articulo.php" class="btn bg-orange btn-flat margin">
                         <i class="fa fa-pencil"></i>
                     </a>
                 </div>
