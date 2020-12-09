@@ -46,7 +46,7 @@
                 <tbody>
                     <?php
                         try {
-                          $sql = "SELECT articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion, admins.usuario  FROM articulos, categorias, admins, estado WHERE articulos.admin_id=admins.id_admin AND articulos.categoria_id = categorias.id_categoria AND articulos.estado_id=estado.id_estado";
+                          $sql = "SELECT id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion, admins.usuario  FROM articulos, categorias, admins, estado WHERE articulos.admin_id=admins.id_admin AND articulos.categoria_id = categorias.id_categoria AND articulos.estado_id=estado.id_estado";
                           $resultado = $conn->query($sql);
                         } catch (Exception $e) {
                           $error = $e->getMessage();
@@ -65,10 +65,10 @@
                             <td><?php echo $art['fecha_edicion']; ?></td>
                             <td><?php echo $art['usuario']; ?></td>
                             <td>
-                              <a href="editar_articulo.php?id=<?php echo $art['id_art']; ?>" class="btn bg-orange btn-flat margin">
+                              <a href="editar-articulo.php?id=<?php echo $art['id_art']; ?>" class="btn bg-orange btn-flat margin">
                                   <i class="fa fa-pencil"></i>
                               </a>
-                              <a href="#" data-id="<?php echo $art['id_art']; ?>" data-tipo="admin" class="btn bg-maroon btn-flat margin borrar_suscriptor">
+                              <a href="#" data-id="<?php echo $art['id_art']; ?>" data-tipo="admin" class="btn bg-maroon btn-flat margin borrar_articulo">
                                   <i class="fa fa-trash"></i>
                               </a>
                             </td>

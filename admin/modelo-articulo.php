@@ -12,7 +12,7 @@ $categoria = $_POST['categoria'];
 $contenido = $_POST['contenido'];
 $estado = $_POST['estado'];
 $admin_id = $_SESSION['id_admin'];
-$id_registro = $_POST['id_registro'];
+$id_registro = $_POST['id_articulo'];
 $fecha = date('y-m-d');
 // Agregar Aarticulo a la BB
 if ($_POST['estado'] == '3') {

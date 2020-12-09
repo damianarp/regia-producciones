@@ -34,7 +34,7 @@
             </label>
             <br>
             <label for="categorias">Categorías</label>
-            <select name="categoria" id="categoria">
+            <select name="categoria[]" id="categoria">
                 <optgroup label="Categorias">
                     <option name="cine" value="1">Cine</option>
                     <option name="peliculas_y_series" value="2">Películas y Series</option>

@@ -30,21 +30,21 @@
 
         <!-- Formulario de Posteo de articulos -->
         <form role="form" id="articulo" name="articulo" method="post" action="modelo-articulo.php" enctype="multipart/form-data">
-            <input type="text" name="titulo" id="titulo" placeholder="Título del post" value="<?php echo $art['titulo']; ?>">
+            <input type="text" name="titulo" id="titulo" placeholder="Título del post" value="<?php echo $art['titulo_art']; ?>">
             <div id="error_6"></div>
 
-            <textarea name="descripcion" id="descripcion" placeholder="Descripción del post" value="<?php echo $art['descripcion']; ?>"></textarea>
+            <textarea name="descripcion" id="descripcion" placeholder="Descripción del post"><?php echo $art['descripcion_art']; ?></textarea>
             <div id="error_7"></div>
 
             <span class="imagen">
-                <input type="file" name="imagen" id="imagen" required  value="">
+                <input type="file" name="imagen" id="imagen" required  value="<?php echo $art['img_art']; ?>">
             </span>
             <label for="imagen">
                 <span>Subir imagen</span>
             </label>
             <br>
             <label for="categorias">Categorías</label>
-            <select name="categoria" id="categoria" value="<?php echo $art['categoria']; ?>">
+            <select name="categoria" id="categoria">
                 <optgroup label="Categorias">
                     <option name="cine" value="1">Cine</option>
                     <option name="peliculas_y_series" value="2">Películas y Series</option>
@@ -57,7 +57,7 @@
             </select>
             <br>
             <label for="contenido">Contenido completo del post</label>
-            <textarea name="contenido" id="contenido" value="<?php echo $art['contenido']; ?>"></textarea>
+            <textarea name="contenido" id="contenido" value=""><?php echo $art['contenido_art']; ?></textarea>
             <div id="error_8"></div>
             <div class="botones">
                 
