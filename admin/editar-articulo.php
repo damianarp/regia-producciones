@@ -84,7 +84,7 @@
             <div class="boton">
                 <input type="hidden" name="estado" value="2">
                 <input type="hidden" name="id_articulo" value="<?php echo $id; ?>">
-                <button type="submit" class="btn bg-black" id="modificar-articulo">Publicar</button>
+                <button type="submit" class="btn bg-black" id="modificar_articulo">Publicar</button>
             </div>
             
         </form> 

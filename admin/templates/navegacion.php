@@ -15,7 +15,7 @@
       <!-- <div class="user-panel">
         
         <div class="info">
-          <p>Administrador: <?php echo ucwords($_SESSION['nombre']); ?></p>
+          <p><?php echo ucwords($_SESSION['nombre']); ?></p>
         </div>
       </div> -->
       <!-- search form -->
@@ -35,7 +35,7 @@
         
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-file-text"></i> 
+            <i class="fa fa-book"></i> 
             <span>Artículos</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -46,7 +46,16 @@
             <li><a href="crear-articulo.php"><i class="fa fa-plus-circle"></i> Crear Articulo</a></li>
           </ul>
         </li>
-
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-list-alt"></i>
+            <span>Categorías</span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="lista-categoria.php"><i class="fa fa-list-ul"></i> Ver Todas</a></li>
+            <li><a href="crear-categoria.php"><i class="fa fa-plus-circle"></i> Agregar</a></li>
+          </ul>
+        </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-address-card"></i>

@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     // Funciones de los formularios de creación y edición de ADMINISTRADORES
     $('#crear-registro').attr('disabled', true);
-    $('#modificar_registro').attr('disabled', true);
+    $('#modificar_admin').attr('disabled', true);
 
     $('#repetir_password').on('input', function() {
         var password_nuevo = $('#password').val();
@@ -12,7 +12,7 @@ $(document).ready(function () {
             $('#resultado_password').parents('.form-group').addClass('has-success').removeClass('has-error');
             $('input#password').parents('.form-group').addClass('has-success').removeClass('has-error');
             $('#crear-registro').attr('disabled', false);
-            $('#modificar_registro').attr('disabled', false);
+            $('#modificar_admin').attr('disabled', false);
         } else {
             $('#resultado_password').text('No son iguales');
             $('#resultado_password').parents('.form-group').addClass('has-error').removeClass('has-success');
@@ -31,6 +31,10 @@ $(document).ready(function () {
     expresion = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
 
     // Creacion de Suscriptores
+    // Funciones de los formularios de creación y edición de SUSCRIPTORES
+    $('#crear-suscripcion').attr('disabled', true);
+    $('#modificar_suscripcion').attr('disabled', true);
+
     // Validar Nombre (estilos)
     if (nomSusc) {
         nomSusc.addEventListener('blur', validarNombreSusc);
@@ -72,22 +76,6 @@ $(document).ready(function () {
             return false;
         }
     }
-
-    ///// -----> FALTA VALIDAR BOTON (DESACTIVAR/ACTIVAR) -----> NO FUNCIONA
-    // var boton = $('#crear-suscripcion');
-    // if (boton) {
-    //     boton.addEventListener('click', validarBoton);
-    // }
-    // boton.disabled = true;
-    // $(boton).attr.disabled = true;
-    // function validarBoton() {
-    //     if (correoSusc.value) {
-    //         boton.disabled = true;
-    //     } else {
-    //         boton.disabled = false;
-    //         return false;
-    //     }
-    // }
 
 
     /////////////////////////////////////////
@@ -133,6 +121,35 @@ $(document).ready(function () {
             return false;
         }
     }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Funciones de los formularios de creación y edición de SUSCRIPTORES
+    var nomCat, errorCat;
+
+    nomCat = document.querySelector('#nombre_categoria');
+    errorCat = document.querySelector('#error_14');
+
+    // Creacion de Categoria
+    // Validar Categoria (estilos)
+    if (nomCat) {
+        nomCat.addEventListener('blur', validarNombreCat);
+        nomCat.addEventListener('keyup', validarNombreCat);
+    }
+    function validarNombreCat() {
+        if (nomCat.value == '') {
+            errorCat.style.display = 'block';
+            errorCat.innerHTML = "este campo es obligatorio";
+            nomCat.style.border = '2px solid red';
+            errorCat.style.color = 'red';
+            errorCat.style.paddingTop = '10px';
+            return false;
+        } else {
+            errorCat.style.display = 'none';
+            nomCat.style.border = '2px solid #eeae00';
+            return true;
+        }
+    }
+
 
     // Paginación de AdminLTE --> Marca error en consola y no funciona
     $('.sidebar-menu').tree();

@@ -78,7 +78,7 @@
                                 <div class="box-footer">
                                     <input type="hidden" name="registro" value="actualizar">
                                     <input type="hidden" name="id_registro" value="<?php echo $id; ?>">
-                                    <button type="submit" class="btn btn-primary" id="modificar_suscriptor">Guardar</button>
+                                    <button type="submit" class="btn btn-primary" id="modificar_admin">Guardar</button>
                                 </div>
                             </form>
                             <!-- /Formulario Editar Admin -->
