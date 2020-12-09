@@ -56,8 +56,8 @@
                           <tr>
                             <td><?php echo $art['titulo_art']; ?></td>
                             <td><?php echo $art['descripcion_art']; ?></td>
-                            <td><?php echo $art['contenido_art']; ?></td>
-                            <td><?php echo $art['img_art']; ?></td>
+                            <td ><?php echo $art['contenido_art']; ?></td>
+                            <td><img src="admin/img/articulos/<?php echo $art['img_art']; ?>" width="200px"></td>
                             <td><?php echo $art['nombre_cat']; ?></td>
                             <td><?php echo $art['nombre']; ?></td>
                             <td><?php echo $art['fecha_creacion']; ?></td>
