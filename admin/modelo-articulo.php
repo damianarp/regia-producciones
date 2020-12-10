@@ -15,6 +15,7 @@ if (isset($_POST['articulos']) && $_POST['articulos']) {
     $admin_id = $_SESSION['id_admin'];
     $id_registro = $_POST['id_articulo'];
     $fecha = date('y-m-d');
+
     // Agregar Aarticulo a la BB
     if ($_POST['articulos'] == 'nuevo') {
 
@@ -43,6 +44,90 @@ if (isset($_POST['articulos']) && $_POST['articulos']) {
             $stmt->bind_param("ssssiisi", $titulo, $descripcion, $contenido, $imagen_url, $categoria, $admin_id, $fecha, $estado);
             $stmt->execute();
             $id_registro = $stmt->insert_id;
+            
+            if($id_registro > 0) {
+                $respuesta = array(
+                    'respuesta' => 'exito',
+                    'id_admin' => $id_registro,
+                    'resultado_imagen' => $imagen_resultado
+                );
+                
+            } else {
+                $respuesta = array(
+                    'respuesta' => 'error'
+                );
+            }
+           
+            $stmt->close();
+            $conn->close();
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+        }
+        
+        die(json_encode($respuesta));
+    }
+
+    // Agregar Aarticulo a la BB
+    if ($_POST['articulos'] == 'actualizar') {
+
+        // $respuesta = array (
+        //     'post' => $_POST,
+        //     'file' => $_FILES
+        // );
+        // die(json_encode($respuesta));
+        
+        // si hay imagen en base de datos y existe el archivo en el disco y viene vacio el $_FILES, no hago nada con la imagen
+
+        // sino, si viene una imagen, la reemplazo y hago lo que esta abajo
+
+        $directorio = "admin/img/articulos/";
+        if(!is_dir($directorio)) {
+            mkdir($directorio, 0755, true);
+        }
+
+        if(move_uploaded_file($_FILES['imagen']['tmp_name'], $directorio . $_FILES['imagen']['name'])) {
+            $imagen_url = $_FILES['imagen']['name'];
+            $imagen_resultado = "Se subió correctamente";
+        } else {
+            $respues = array (
+                'respuesta' => error_get_last()
+            );
+        }
+
+        try {
+            $stmt = $conn->prepare("UPDATE articulos SET titulo_art = ?, descripcion_art = ?, contenido_art = ?, img_art = ?, categoria_id = ?, estado_id = ? , fecha_edicion = ?, edicion_admin_id = ? WHERE id_art = ?");
+            $stmt->bind_param("ssssiisii", $titulo, $descripcion, $contenido, $imagen_url, $categoria, $estado, $fecha, $admin_id, $id_registro);
+            $stmt->execute();
+            
+            if($id_registro > 0) {
+                $respuesta = array(
+                    'respuesta' => 'exito',
+                    'id_admin' => $id_registro,
+                    'resultado_imagen' => $imagen_resultado
+                );
+                
+            } else {
+                $respuesta = array(
+                    'respuesta' => 'error'
+                );
+            }
+           
+            $stmt->close();
+            $conn->close();
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+        }
+        
+        die(json_encode($respuesta));
+    }
+
+    // Agregar Aarticulo a la BB
+    if ($_POST['articulos'] == 'eliminar') {
+
+        try {
+            $stmt = $conn->prepare("UPDATE articulos SET estado_id = ?, fecha_edicion = ?, edicion_admin_id = ? WHERE id_art = ?");
+            $stmt->bind_param("isii", $estado, $fecha, $admin_id, $id_registro);
+            $stmt->execute();
             
             if($id_registro > 0) {
                 $respuesta = array(

@@ -74,11 +74,15 @@
             </div> -->
             <div class="boton">
                 <input type="hidden" name="articulos" value="nuevo">
-                <button type="submit" class="btn bg-black" id="crear-articulo">Guardar</button>
                 
-                <input type="checkbox" id="estado" name="estado" value="1">
-                <label for="estado">Publicado</label>
-
+                <select name="estado" id="estado">
+                    <optgroup label="Estado">
+                        <option name="" value="1">Borrador</option>
+                        <option name="" value="2">Publicado</option>
+                        <option name="" value="3">Eliminado</option>
+                    </optgroup>
+                </select>
+                <button type="submit" class="btn bg-black" id="crear-articulo">Guardar</button>
             </div>
             
         </form> 

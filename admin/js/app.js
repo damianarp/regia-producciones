@@ -173,7 +173,7 @@ $(document).ready(function () {
         'pageLength'  : 10,
         'lengthChange': false,
         'searching'   : true,
-        'ordering'    : true,
+        'ordering'    : false,
         'info'        : true,
         'autoWidth'   : false,
         'language'        : {

@@ -387,6 +387,10 @@ $(document).ready(function() {
         preview.innerHTML = '';
         preview.append(image);
         image.style.width = "300px";
+        const formGroup = document.getElementsByClassName('form-group');
+        if (formGroup && formGroup.length > 0) {
+          formGroup[0].style.display = 'block';
+        }
       };
     } 
     

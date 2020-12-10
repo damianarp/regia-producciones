@@ -7,7 +7,7 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-              <img src="admin/img/admins/<?php echo $_SESSION['foto_admin']; ?>" class="img-circle elevation-2" alt="User Image">
+            <img src="admin/img/admins/<?php echo ($_SESSION['foto_admin'] ? $_SESSION['foto_admin'] : 'user-icon-jpg-12.jpg'); ?>" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <p><?php echo ucwords($_SESSION['nombre']); ?></p>

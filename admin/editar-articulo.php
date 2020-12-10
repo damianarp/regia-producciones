@@ -37,12 +37,12 @@
             <div id="error_7"></div>
 
             <span class="imagen">
-                <input type="file" name="imagen" id="imagen" required>
+                <input type="file" name="imagen" id="imagen" <?php echo $art['img_art'] ? '' : 'required'; ?>>
             </span>
             <label for="imagen">
                 <span>Subir imagen</span>
             </label>
-            <div class="form-group">
+            <div class="form-group" <?php echo $art['img_art'] == NULL ? 'style="display: none;"' : '' ?>>
                 <label for="imagen_actual">Imagen Actual</label>
                 <br>
                 <div id="preview">
@@ -66,7 +66,7 @@
             <label for="contenido">Contenido completo del post</label>
             <textarea name="contenido" id="contenido" value=""><?php echo $art['contenido_art']; ?></textarea>
             <div id="error_8"></div>
-            <div class="botones">
+            <!-- <div class="botones">
                 
                 <div class="boton">
                     <input type="hidden" name="articulo" value="nuevo">
@@ -80,11 +80,19 @@
                         <i class="fa fa-trash"></i>
                     </a>
                 </div>
-            </div>
+            </div> -->
             <div class="boton">
-                <input type="hidden" name="estado" value="2">
                 <input type="hidden" name="id_articulo" value="<?php echo $id; ?>">
-                <button type="submit" class="btn bg-black" id="modificar_articulo">Publicar</button>
+                <input type="hidden" name="articulos" value="actualizar">
+                
+                <select name="estado" id="estado">
+                    <optgroup label="Estado">
+                        <option <?php echo $art['estado_id'] == "1" ? 'selected' : ''; ?> value="1">Borrador</option>
+                        <option <?php echo $art['estado_id'] == "2" ? 'selected' : ''; ?> value="2">Publicado</option>
+                        <option <?php echo $art['estado_id'] == "3" ? 'selected' : ''; ?> value="3">Eliminado</option>
+                    </optgroup>
+                </select>
+                <button type="submit" class="btn bg-black" id="crear-articulo">Guardar</button>
             </div>
             
         </form> 
