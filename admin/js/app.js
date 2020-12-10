@@ -19,6 +19,7 @@ $(document).ready(function () {
             $('input#password').parents('.form-group').addClass('has-error').removeClass('has-success');
         }
     });
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////
     // Funciones de los formularios de creación y edición de SUSCRIPTORES
     var nomSusc, correoSusc, errorNomSuscNuevo, errorCorreoSuscNuevo, errorNomSuscEditado, errorCorreoSuscEditado, expresion;
@@ -77,65 +78,62 @@ $(document).ready(function () {
         }
     }
 
-    if(!nomSusc.value == '' || !correoSusc.value == '') {
-        $('#crear-suscripcion').attr('disabled', false);
-    }
+    $('#exampleInputName2, #exampleInputEmail2').on('input', function() {
+        var nombreSuscriptor = $('#exampleInputName2').val();
+        var correoSuscriptor = $('#exampleInputEmail2').val();
+        const correoValido = validarExpresionCor();
 
-    // $('#crear-suscripcion').on('input', function() {
-    //     var nombreSuscriptor = $('#exampleInputName2').val();
-    //     var correoSuscriptor = $('#exampleInputEmail2').val();
-
-    //     if(nombreSuscriptor == '' || correoSuscriptor == '') {
-    //         $('#crear-suscripcion').attr('disabled', false);
-    //     } else {
-    //         $('#crear-suscripcion').attr('disabled', true);
-    //     }
-    // });
+        if(nombreSuscriptor == '' || correoSuscriptor == '' || !correoValido) {
+            $('#guardar-suscripcion').attr('disabled', true);
+        } else {
+            $('#guardar-suscripcion').attr('disabled', false);
+        }
+    });
 
 
     /////////////////////////////////////////
     // Edicion de Suscriptores
     // Validar Nombre (estilos)
-    if (nomSusc) {
-        nomSusc.addEventListener('blur', validarNombreSuscEditado);
-        nomSusc.addEventListener('keyup', validarNombreSuscEditado);
-    }
-    function validarNombreSuscEditado() {
-        if (nomSusc.value == '') {
-            errorNomSuscEditado.style.display = 'block';
-            errorNomSuscEditado.innerHTML = "este campo es obligatorio";
-            nomSusc.style.border = '2px solid red';
-            errorNomSuscEditado.style.color = 'red';
-            errorNomSuscEditado.style.paddingTop = '10px';
-            return false;
-        } else {
-            errorNomSuscEditado.style.display = 'none';
-            nomSusc.style.border = '2px solid #eeae00';
-            return true;
-        }
-    }
+    // if (nomSusc) {
+    //     nomSusc.addEventListener('blur', validarNombreSuscEditado);
+    //     nomSusc.addEventListener('keyup', validarNombreSuscEditado);
+    // }
+    // function validarNombreSuscEditado() {
+    //     if (nomSusc.value == '') {
+    //         errorNomSuscEditado.style.display = 'block';
+    //         errorNomSuscEditado.innerHTML = "este campo es obligatorio";
+    //         nomSusc.style.border = '2px solid red';
+    //         errorNomSuscEditado.style.color = 'red';
+    //         errorNomSuscEditado.style.paddingTop = '10px';
+    //         return false;
+    //     } else {
+    //         errorNomSuscEditado.style.display = 'none';
+    //         nomSusc.style.border = '2px solid #eeae00';
+    //         return true;
+    //     }
+    // }
 
-    // Validar Expresion del correo ///////////
-    if (correoSusc) {
-        correoSusc.addEventListener('blur', validarExpresionCorEditado);
-        correoSusc.addEventListener('keyup', validarExpresionCorEditado);
-    }
+    // // Validar Expresion del correo ///////////
+    // if (correoSusc) {
+    //     correoSusc.addEventListener('blur', validarExpresionCorEditado);
+    //     correoSusc.addEventListener('keyup', validarExpresionCorEditado);
+    // }
 
-    // Validar Correo (estilos)
-    function validarExpresionCorEditado() {
-        if (expresion.test(correoSusc.value) == true) {
-            errorCorreoSuscEditado.style.display = 'none';
-            correoSusc.style.border = '2px solid #eeae00';
-            return true;
-        } else {
-            errorCorreoSuscEditado.style.display = 'block';
-            errorCorreoSuscEditado.innerHTML = "escribe un correo válido";
-            correoSusc.style.border = '2px solid red';
-            errorCorreoSuscEditado.style.color = 'red';
-            errorCorreoSuscEditado.style.paddingTop = '10px';
-            return false;
-        }
-    }
+    // // Validar Correo (estilos)
+    // function validarExpresionCorEditado() {
+    //     if (expresion.test(correoSusc.value) == true) {
+    //         errorCorreoSuscEditado.style.display = 'none';
+    //         correoSusc.style.border = '2px solid #eeae00';
+    //         return true;
+    //     } else {
+    //         errorCorreoSuscEditado.style.display = 'block';
+    //         errorCorreoSuscEditado.innerHTML = "escribe un correo válido";
+    //         correoSusc.style.border = '2px solid red';
+    //         errorCorreoSuscEditado.style.color = 'red';
+    //         errorCorreoSuscEditado.style.paddingTop = '10px';
+    //         return false;
+    //     }
+    // }
 
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////

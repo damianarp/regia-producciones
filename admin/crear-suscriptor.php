@@ -49,7 +49,7 @@
                                 <!-- /.box-body -->
                                 <div class="box-footer">
                                     <input type="hidden" name="suscripcion" value="nuevo">
-                                    <button type="submit" class="btn btn-primary" id="crear-suscripcion">Añadir</button>
+                                    <button type="submit" class="btn btn-primary" id="guardar-suscripcion">Añadir</button>
                                 </div>
                             </form> 
                             <!-- /Formulario Guardar Admin -->
