@@ -166,7 +166,7 @@ $(document).ready(function () {
 
 
     // Paginación de AdminLTE --> Marca error en consola y no funciona
-    $('.sidebar-menu').tree();
+    // $('.sidebar-menu').tree();
 
     $('#registros').DataTable({
         'paging'      : true,

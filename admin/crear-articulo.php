@@ -50,9 +50,9 @@
             <label for="contenido">Contenido completo del post</label>
             <textarea name="contenido" id="contenido"></textarea>
             <div id="error_8"></div>
-            <div class="botones">
+            <!-- <div class="botones">
                 
-                <!-- <div class="boton">
+                <div class="boton">
                     <input type="hidden" name="articulo" value="nuevo">
                     <a href="crear-articulo.php?id=" class="btn bg-purple btn-flat margin">
                         <i class="fa fa-save"></i>
@@ -69,12 +69,16 @@
                     <a href="#" data-id="" data-tipo="admin" class="btn bg-maroon btn-flat margin borrar_registro">
                         <i class="fa fa-trash"></i>
                     </a>
-                </div> -->
+                </div>
                   
-            </div>
+            </div> -->
             <div class="boton">
-                <input type="hidden" name="estado" value="3">
-                <button type="submit" class="btn bg-black" id="crear-articulo">Publicar</button>
+                <input type="hidden" name="articulos" value="nuevo">
+                <button type="submit" class="btn bg-black" id="crear-articulo">Guardar</button>
+                
+                <input type="checkbox" id="estado" name="estado" value="1">
+                <label for="estado">Publicado</label>
+
             </div>
             
         </form> 

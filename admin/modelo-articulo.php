@@ -6,16 +6,17 @@ include_once 'funciones/sesiones.php';
 
 /////////////////////// ARTICULOS //////////////////////
 //Variables usadas para los ARTICULOS
-$titulo = $_POST['titulo'];
-$descripcion  = $_POST['descripcion'];
-$categoria = $_POST['categoria'];
-$contenido = $_POST['contenido'];
-$estado = $_POST['estado'];
-$admin_id = $_SESSION['id_admin'];
-$id_registro = $_POST['id_articulo'];
-$fecha = date('y-m-d');
-// Agregar Aarticulo a la BB
-if ($_POST['estado'] == '3') {
+if (isset($_POST['articulos']) && $_POST['articulos']) {
+    $titulo = $_POST['titulo'];
+    $descripcion  = $_POST['descripcion'];
+    $categoria = $_POST['categoria'];
+    $contenido = $_POST['contenido'];
+    $estado = $_POST['estado'];
+    $admin_id = $_SESSION['id_admin'];
+    $id_registro = $_POST['id_articulo'];
+    $fecha = date('y-m-d');
+    // Agregar Aarticulo a la BB
+    if ($_POST['articulos'] == 'nuevo') {
 
         // $respuesta = array (
         //     'post' => $_POST,
@@ -51,6 +52,43 @@ if ($_POST['estado'] == '3') {
                 );
                 
             } else {
+                $respuesta = array(
+                    'respuesta' => 'error'
+                );
+            }
+           
+            $stmt->close();
+            $conn->close();
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+        }
+        
+        die(json_encode($respuesta));
+    }
+}
+
+/////////////////////// CATEGORIAS //////////////////////
+//Variables usadas para las CATEGORIAS
+if (isset($_POST['categorias']) && $_POST['categorias']) {
+    $nombre_categoria = $_POST['nombre_categoria'];
+    $id_registro = $_POST['id_categoria'];
+    
+    // Agregar Categoría a la BD
+    if ($_POST['categorias'] == 'nuevo') {
+    
+        try {
+            $stmt = $conn->prepare("INSERT INTO categorias (nombre_cat) VALUES (?)");
+            $stmt->bind_param("s", $nombre_categoria);
+            $stmt->execute();
+            $id_registro = $stmt->insert_id;
+            
+            if($id_registro > 0) {
+                $respuesta = array(
+                    'respuesta' => 'exito',
+                    'id_admin' => $id_registro
+                );
+                
+            } else {
                     $respuesta = array(
                         'respuesta' => 'error'
                     );
@@ -63,107 +101,60 @@ if ($_POST['estado'] == '3') {
         }
         
         die(json_encode($respuesta));
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-/////////////////////// CATEGORIAS //////////////////////
-//Variables usadas para las CATEGORIAS
-$nombre_categoria = $_POST['nombre_categoria'];
-$id_registro = $_POST['id_categoria'];
-
-// Agregar Categoría a la BD
-if ($_POST['categorias'] == 'nuevo') {
-
-    try {
-        $stmt = $conn->prepare("INSERT INTO categorias (nombre_cat) VALUES (?)");
-        $stmt->bind_param("s", $nombre_categoria);
-        $stmt->execute();
-        $id_registro = $stmt->insert_id;
-        
-        if($id_registro > 0) {
-            $respuesta = array(
-                'respuesta' => 'exito',
-                'id_admin' => $id_registro
-            );
-            
-        } else {
+    }
+    
+    // Actualizar Categoria en la BD
+    if ($_POST['categorias'] == 'actualizar') {
+    
+        try {
+             
+            $stmt = $conn->prepare('UPDATE categorias SET nombre_cat = ?, estado_cat = NOW() WHERE id_categoria = ? ');
+            $stmt->bind_param("si", $nombre_categoria, $id_registro);
+            $stmt->execute();
+    
+            if ($stmt->affected_rows) {
+                $respuesta = array(
+                    'respuesta' => 'exito',
+                    'id_actualizado' => $stmt->insert_id
+                );
+            } else {
                 $respuesta = array(
                     'respuesta' => 'error'
                 );
+            }
+            $stmt->close();
+            $conn->close();  
+        } catch (Exception $e){
+            $respuesta = array(
+                'respuesta' => $e->getMessage()
+            );
         }
-       
-        $stmt->close();
-        $conn->close();
-    } catch (Exception $e) {
-        echo "Error: " . $e->getMessage();
+        die(json_encode($respuesta));
     }
     
-    die(json_encode($respuesta));
-}
-
-// Actualizar Categoria en la BD
-if ($_POST['categorias'] == 'actualizar') {
-
-    try {
-         
-        $stmt = $conn->prepare('UPDATE categorias SET nombre_cat = ?, estado_cat = NOW() WHERE id_categoria = ? ');
-        $stmt->bind_param("si", $nombre_categoria, $id_registro);
-        $stmt->execute();
-
-        if ($stmt->affected_rows) {
+    // Eliminar Categoria de la BD
+    if($_POST['categorias'] == 'eliminar'){
+        $id_borrar = $_POST['id'];
+    
+        try {
+            $stmt = $conn->prepare('DELETE FROM categorias WHERE id_categoria = ? ');
+            $stmt->bind_param('i', $id_borrar);
+            $stmt->execute();
+            if($stmt->affected_rows) {
+                $respuesta = array(
+                    'respuesta' => 'exito',
+                    'id_eliminado' => $id_borrar
+                );
+            } else {
+                $respuesta = array(
+                    'respuesta' => 'error'
+                );
+            }
+        } catch (Exception $e) {
             $respuesta = array(
-                'respuesta' => 'exito',
-                'id_actualizado' => $stmt->insert_id
-            );
-        } else {
-            $respuesta = array(
-                'respuesta' => 'error'
-            );
-        }
-        $stmt->close();
-        $conn->close();  
-    } catch (Exception $e){
-        $respuesta = array(
-            'respuesta' => $e->getMessage()
-        );
-    }
-    die(json_encode($respuesta));
-}
-
-
-// Eliminar Categoria de la BD
-if($_POST['categorias'] == 'eliminar'){
-    $id_borrar = $_POST['id'];
-
-    try {
-        $stmt = $conn->prepare('DELETE FROM categorias WHERE id_categoria = ? ');
-        $stmt->bind_param('i', $id_borrar);
-        $stmt->execute();
-        if($stmt->affected_rows) {
-            $respuesta = array(
-                'respuesta' => 'exito',
-                'id_eliminado' => $id_borrar
-            );
-        } else {
-            $respuesta = array(
-                'respuesta' => 'error'
+                'respuesta' => $e->getMessage()
             );
         }
-    } catch (Exception $e) {
-        $respuesta = array(
-            'respuesta' => $e->getMessage()
-        );
+        die(json_encode($respuesta)); 
     }
-    die(json_encode($respuesta)); 
 }

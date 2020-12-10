@@ -44,7 +44,13 @@
                 <tbody>
                     <?php
                         try {
-                          $sql = "SELECT id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion, admins.usuario  FROM articulos, categorias, admins, estado WHERE articulos.admin_id=admins.id_admin AND articulos.categoria_id = categorias.id_categoria AND articulos.estado_id=estado.id_estado";
+                          $sql = "SELECT articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion, admins2.nombre  
+                          FROM articulos
+                          INNER JOIN categorias ON categorias.id_categoria = articulos.categoria_id
+                          INNER JOIN admins ON admins.id_admin = articulos.admin_id
+                          INNER JOIN estado ON estado.id_estado = articulos.estado_id
+                          LEFT JOIN admins as admins2 ON admins2.id_admin = articulos.edicion_admin_id
+                          GROUP BY articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion, admins2.nombre";
                           $resultado = $conn->query($sql);
                         } catch (Exception $e) {
                           $error = $e->getMessage();
