@@ -17,17 +17,32 @@ if ($_POST['registro'] == 'nuevo') {
             'cost' => 12
         );
         $password_hashed = password_hash($password, PASSWORD_BCRYPT, $opciones);
+
+        $ruta = "admin/img/admins/";
+        if(!is_dir($ruta)) {
+            mkdir($ruta, 0755, true);
+        }
+
+        if(move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta . $_FILES['imagen']['name'])) {
+            $imagen_url = $_FILES['imagen']['name'];
+            $imagen_resultado = "Se subió correctamente";
+        } else {
+            $respues = array (
+                'respuesta' => error_get_last()
+            );
+        }
     
         try {
-            $stmt = $conn->prepare("INSERT INTO admins (usuario, nombre, password, nivel_id) VALUES (?, ?, ?, ?)");
-            $stmt->bind_param("sssi", $usuario, $nombre, $password_hashed, $nivel);
+            $stmt = $conn->prepare("INSERT INTO admins (foto_admin, usuario, nombre, password, nivel_id) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param("ssssi", $imagen_url, $usuario, $nombre, $password_hashed, $nivel);
             $stmt->execute();
             $id_registro = $stmt->insert_id;
             
             if($id_registro > 0) {
                 $respuesta = array(
                     'respuesta' => 'exito',
-                    'id_admin' => $id_registro
+                    'id_admin' => $id_registro,
+                    'resultado_imagen' => $imagen_resultado
                 );
                 
             } else {
@@ -47,19 +62,34 @@ if ($_POST['registro'] == 'nuevo') {
 
 // Actualizar Admin en la BD
 if ($_POST['registro'] == 'actualizar') {
+        
 
     try {
         if(empty($_POST['password']) ) {
-            $stmt = $conn->prepare("UPDATE admins SET usuario = ?, nombre = ?, nivel_id = ?, editado = NOW() WHERE id_admin = ? ");
-            $stmt->bind_param("ssii", $usuario, $nombre, $nivel, $id_registro);
+            $stmt = $conn->prepare("UPDATE admins SET foto_admin = ?, usuario = ?, nombre = ?, nivel_id = ?, editado = NOW() WHERE id_admin = ? ");
+            $stmt->bind_param("sssii", $imagen_url, $usuario, $nombre, $nivel, $id_registro);
         } else {
+            $ruta = "admin/img/admins/";
+            if(!is_dir($ruta)) {
+                mkdir($ruta, 0755, true);
+            }
+
+            if(move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta . $_FILES['imagen']['name'])) {
+                $imagen_url = $_FILES['imagen']['name'];
+                $imagen_resultado = "Se subió correctamente";
+            } else {
+                $respues = array (
+                    'respuesta' => error_get_last()
+                );
+            }
+
             $opciones = array(
                 'cost' => 12
             );
     
             $hash_password = password_hash($password, PASSWORD_BCRYPT, $opciones);
-            $stmt = $conn->prepare('UPDATE admins SET usuario = ?, nombre = ?, password = ?, nivel_id = ?, editado = NOW() WHERE id_admin = ? ');
-            $stmt->bind_param("sssii", $usuario, $nombre, $hash_password, $nivel, $id_registro);
+            $stmt = $conn->prepare('UPDATE admins SET foto_admin = ?, usuario = ?, nombre = ?, password = ?, nivel_id = ?, editado = NOW() WHERE id_admin = ? ');
+            $stmt->bind_param("ssssii", $imagen_url, $usuario, $nombre, $hash_password, $nivel, $id_registro);
         }
         
         $stmt->execute();
@@ -67,7 +97,8 @@ if ($_POST['registro'] == 'actualizar') {
         if ($stmt->affected_rows) {
             $respuesta = array(
                 'respuesta' => 'exito',
-                'id_actualizado' => $stmt->insert_id
+                'id_actualizado' => $stmt->insert_id,
+                'resultado_imagen' => $imagen_resultado
             );
         } else {
             $respuesta = array(

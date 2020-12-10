@@ -49,7 +49,7 @@
                         }
                         while($admin = $resultado->fetch_assoc()) { ?>
                           <tr>
-                            <td><?php echo $admin['foto_admin']; ?></td>
+                            <td><img src="admin/img/admins/<?php echo $admin['foto_admin']; ?>" width="100px"></td>
                             <td><?php echo $admin['usuario']; ?></td>
                             <td><?php echo $admin['nombre']; ?></td>
                             <td><?php echo $admin['nombre_nivel']; ?></td>

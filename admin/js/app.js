@@ -77,6 +77,21 @@ $(document).ready(function () {
         }
     }
 
+    if(!nomSusc.value == '' || !correoSusc.value == '') {
+        $('#crear-suscripcion').attr('disabled', false);
+    }
+
+    // $('#crear-suscripcion').on('input', function() {
+    //     var nombreSuscriptor = $('#exampleInputName2').val();
+    //     var correoSuscriptor = $('#exampleInputEmail2').val();
+
+    //     if(nombreSuscriptor == '' || correoSuscriptor == '') {
+    //         $('#crear-suscripcion').attr('disabled', false);
+    //     } else {
+    //         $('#crear-suscripcion').attr('disabled', true);
+    //     }
+    // });
+
 
     /////////////////////////////////////////
     // Edicion de Suscriptores
@@ -121,6 +136,7 @@ $(document).ready(function () {
             return false;
         }
     }
+
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////
     // Funciones de los formularios de creación y edición de SUSCRIPTORES

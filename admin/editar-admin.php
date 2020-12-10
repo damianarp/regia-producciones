@@ -72,6 +72,17 @@
                                             <option name="lector" value="4">4 - Lector</option>
                                         </optgroup>
                                     </select>
+                                    <br>
+                                    <span class="imagen">
+                                        <input type="file" name="imagen" id="imagen" required>
+                                    </span>
+                                    <label for="imagen">
+                                        <span>Subir imagen</span>
+                                    </label>
+                                    <div id="preview">
+                                        <img src="admin/img/admins/<?php echo $admin['foto_admin']; ?>" width="200px">
+                                    </div>
+                                    <br>
                                 </div>
                                 
                                 </div>

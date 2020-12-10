@@ -60,6 +60,15 @@
                                             <option name="lector" value="4">4 - Lector</option>
                                         </optgroup>
                                     </select>
+                                    <br>
+                                    <span class="imagen">
+                                        <input type="file" name="imagen" id="imagen" required>
+                                    </span>
+                                    <label for="imagen">
+                                        <span>Subir imagen</span>
+                                    </label>
+                                    <div id="preview" width="300px"></div>
+                                    <br>
                                 </div>
                                 <!-- /.box-body -->
                                 <div class="box-footer">

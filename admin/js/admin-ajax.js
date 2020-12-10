@@ -22,13 +22,17 @@ $(document).ready(function() {
     $('#guardar-registro').on('submit', function(e) {
             e.preventDefault();
             
-            var datos = $(this).serializeArray();
+            var datos = new FormData(this);
             
             $.ajax({
                 type: $(this).attr('method'),
                 data: datos,
                 url: $(this).attr('action'),
                 dataType: 'json',
+                contentType: false,
+                processData: false,
+                async: true,
+                cache: false,
                 success: function(data) {
                     console.log(data);
                     var resultado = data;
@@ -382,7 +386,7 @@ $(document).ready(function() {
         
         preview.innerHTML = '';
         preview.append(image);
-        image.style.width = "500px";
+        image.style.width = "300px";
       };
     } 
     
