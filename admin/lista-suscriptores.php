@@ -32,8 +32,8 @@
                 <tr>
                   <th>Nombre Completo</th>
                   <th>Correo Electrónico</th>
-                  <th>Fecha de Suscripción</th>
-                  <th>Fecha de Modificación</th>
+                  <th class="mobile">Fecha de Suscripción</th>
+                  <th class="mobile">Fecha de Modificación</th>
                   <th>Acciones</th>
                 </tr>
                 </thead>
@@ -50,8 +50,8 @@
                           <tr>
                             <td><?php echo $susc['nombre_susc']; ?></td>
                             <td><?php echo $susc['email_susc']; ?></td>
-                            <td><?php echo $susc['fecha_susc']; ?></td>
-                            <td><?php echo $susc['editado_susc']; ?></td>
+                            <td class="mobile"><?php echo $susc['fecha_susc']; ?></td>
+                            <td class="mobile"><?php echo $susc['editado_susc']; ?></td>
                             <td>
                               <a href="editar-suscriptor.php?id=<?php echo $susc['id_susc'] ?>" class="btn bg-orange btn-flat margin">
                                   <i class="fa fa-pencil"></i>
@@ -67,8 +67,8 @@
                 <tr>
                   <th>Nombre Completo</th>
                   <th>Correo Electrónico</th>
-                  <th>Fecha de Suscripción</th>
-                  <th>Fecha de Modificación</th>
+                  <th class="mobile">Fecha de Suscripción</th>
+                  <th class="mobile">Fecha de Modificación</th>
                   <th>Acciones</th>
                 </tr>
                 </tfoot>

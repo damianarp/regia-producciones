@@ -32,9 +32,9 @@
                 <tr>
                   <th>Foto</th>
                   <th>Usuario</th>
-                  <th>Nombre</th>
+                  <th class="mobile">Nombre</th>
                   <th>Nivel</th>
-                  <th>Fecha de modificación</th>
+                  <th class="mobile">Fecha de modificación</th>
                   <th>Acciones</th>
                 </tr>
                 </thead>
@@ -51,9 +51,9 @@
                           <tr>
                             <td><img src="admin/img/admins/<?php echo $admin['foto_admin']; ?>" width="100px"></td>
                             <td><?php echo $admin['usuario']; ?></td>
-                            <td><?php echo $admin['nombre']; ?></td>
+                            <td class="mobile"><?php echo $admin['nombre']; ?></td>
                             <td><?php echo $admin['nombre_nivel']; ?></td>
-                            <td><?php echo $admin['editado']; ?></td>
+                            <td class="mobile"><?php echo $admin['editado']; ?></td>
                             <td>
                               <a href="editar-admin.php?id=<?php echo $admin['id_admin']; ?>" class="btn bg-orange btn-flat margin">
                                   <i class="fa fa-pencil"></i>
@@ -69,9 +69,9 @@
                 <tr>
                   <th>Foto</th>
                   <th>Usuario</th>
-                  <th>Nombre</th>
+                  <th class="mobile">Nombre</th>
                   <th>Nivel</th>
-                  <th>Fecha de modificación</th>
+                  <th class="mobile">Fecha de modificación</th>
                   <th>Acciones</th>
                 </tr>
                 </tfoot>

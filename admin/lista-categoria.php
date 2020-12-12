@@ -31,7 +31,7 @@
                 <thead>
                 <tr>
                   <th>Nombre de la Categoría</th>
-                  <th>Fecha de Modificación</th>
+                  <th class="mobile">Fecha de Modificación</th>
                   <th>Acciones</th>
                 </tr>
                 </thead>
@@ -47,7 +47,7 @@
                         while($categoria = $resultado->fetch_assoc()) { ?>
                           <tr>
                             <td><?php echo $categoria['nombre_cat']; ?></td>
-                            <td><?php echo $categoria['estado_cat']; ?></td>
+                            <td class="mobile"><?php echo $categoria['estado_cat']; ?></td>
                             <td>
                               <a href="editar-categoria.php?id=<?php echo $categoria['id_categoria']; ?>" class="btn bg-orange btn-flat margin">
                                   <i class="fa fa-pencil"></i>
@@ -62,7 +62,7 @@
                 <tfoot>
                 <tr>
                   <th>Nombre de la Categoría</th>
-                  <th>Fecha de Modificación</th>
+                  <th class="mobile">Fecha de Modificación</th>
                   <th>Acciones</th>
                 </tr>
                 </tfoot>

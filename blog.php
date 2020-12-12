@@ -119,14 +119,6 @@
 
             <!-- Aside -->
             <aside class="sidebar">
-
-            <!-- Buscador -->
-            <form class="d-flex">
-                
-                <button class="btn"><input class="form-control" type="search" placeholder="Search" aria-label="Search"></button>
-            </form>
-            <!-- Buscador -->
-
                 <?php
                     $sql_categorias = "SELECT * FROM categorias";
 

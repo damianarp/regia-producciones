@@ -1757,12 +1757,6 @@ text-shadow: 1px 1px 2px black;
     background: var(--black);
 } */
 
-
-
-
-
-
-
 .site-content .sidebar .newsletter .input-element{
     height: 50px;
     border-radius: 24px;
@@ -2025,6 +2019,17 @@ text-shadow: 1px 1px 2px black;
         width: 130px;
         height: 35px;
         padding: 0;
+    }
+
+    /********* Listados responsive para movil ********/
+    #registros tr th.mobile {
+        display: none!important;
+    }
+    #registros tbody tr td.mobile {
+        display: none!important;
+    }
+    #registros tbody tr td img {
+        width: 80px;
     }
     
 
@@ -2807,9 +2812,7 @@ text-shadow: 1px 1px 2px black;
     .contenedor-legales {
         width: 90%;
     }
-
-
-
+    
 }
 
 /**************************************  Media Query 630  ****************************************/

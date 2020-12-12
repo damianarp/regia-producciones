@@ -80,7 +80,7 @@ if (isset($_POST['articulos']) && $_POST['articulos']) {
 
         // sino, si viene una imagen, la reemplazo y hago lo que esta abajo
 
-        $directorio = "admin/img/articulos/";
+        $directorio = "../img/articulos/";
         if(!is_dir($directorio)) {
             mkdir($directorio, 0755, true);
         }

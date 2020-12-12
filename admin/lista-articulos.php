@@ -30,14 +30,14 @@
               <table id="registros" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Título</th>
+                <th>Título</th>
                   <th>Imagen</th>
-                  <th>Categoría</th>
-                  <th>Autor</th>
-                  <th>Fecha de Creación</th>
-                  <th>Estado</th>
-                  <th>Fecha de Edición</th>
-                  <th>Editado por:</th>
+                  <th class="mobile">Categoría</th>
+                  <th class="mobile">Autor</th>
+                  <th class="mobile">Fecha de Creación</th>
+                <th class="mobile">Estado</th>
+                  <th class="mobile">Fecha de Edición</th>
+                  <th class="mobile">Editado por:</th>
                   <th>Acciones</th>
                 </tr>
                 </thead>
@@ -65,12 +65,12 @@
                                 <img src="../img/articulos/<?php echo $art['img_art']; ?>" width="200px">
                               <?php } ?>
                             </td>
-                            <td><?php echo $art['nombre_cat']; ?></td>
-                            <td><?php echo $art['nombre']; ?></td>
-                            <td><?php echo $art['fecha_creacion']; ?></td>
-                            <td><?php echo $art['nombre_estado']; ?></td>
-                            <td><?php echo $art['fecha_edicion']; ?></td>
-                            <td><?php echo $art['usuario']; ?></td>
+                            <td class="mobile"><?php echo $art['nombre_cat']; ?></td>
+                            <td class="mobile"><?php echo $art['nombre']; ?></td>
+                            <td class="mobile"><?php echo $art['fecha_creacion']; ?></td>
+                            <td class="mobile"><?php echo $art['nombre_estado']; ?></td>
+                            <td class="mobile"><?php echo $art['fecha_edicion']; ?></td>
+                            <td class="mobile"><?php echo $art['usuario']; ?></td>
                             <td>
                               <a href="editar-articulo.php?id=<?php echo $art['id_art']; ?>" class="btn bg-orange btn-flat margin">
                                   <i class="fa fa-pencil"></i>
@@ -86,12 +86,12 @@
                 <tr>
                   <th>Título</th>
                   <th>Imagen</th>
-                  <th>Categoría</th>
-                  <th>Autor</th>
-                  <th>Fecha de Creación</th>
-                  <th>Estado</th>
-                  <th>Fecha de Edición</th>
-                  <th>Editado por:</th>
+                  <th class="mobile">Categoría</th>
+                  <th class="mobile">Autor</th>
+                  <th class="mobile">Fecha de Creación</th>
+                  <th class="mobile">Estado</th>
+                  <th class="mobile">Fecha de Edición</th>
+                  <th class="mobile">Editado por:</th>
                   <th>Acciones</th>
                 </tr>
                 </tfoot>
