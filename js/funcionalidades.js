@@ -457,5 +457,6 @@
             return false;
         });
 
+    
     }); //-----> DOM CONTENT LOADED
 }());

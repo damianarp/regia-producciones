@@ -25,7 +25,7 @@ if (isset($_POST['articulos']) && $_POST['articulos']) {
         // );
         // die(json_encode($respuesta));
         
-        $directorio = "admin/img/articulos/";
+        $directorio = "../img/articulos/";
         if(!is_dir($directorio)) {
             mkdir($directorio, 0755, true);
         }

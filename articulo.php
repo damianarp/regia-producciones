@@ -16,117 +16,56 @@
     <!-- ---------------------- Site Content -------------------------->
     <section class="contenedor" id="blog">
         <div class="site-content">
-            <!-- Paginación -->
-            <div class="my-5">
-                <!-- Sección articulos del blog -->
-                <div class="posts">
+            <!-- Sección articulos del blog -->
+            <div class="posts">
 
-                <?php 
-                    // Llamar a todos los articulos 
-                    $sql = "SELECT articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion  
-                    FROM articulos
-                    INNER JOIN categorias ON categorias.id_categoria = articulos.categoria_id
-                    INNER JOIN admins ON admins.id_admin = articulos.admin_id
-                    INNER JOIN estado ON estado.id_estado = articulos.estado_id
-                    LEFT JOIN admins as admins2 ON admins2.id_admin = articulos.edicion_admin_id
-                    GROUP BY articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion
-                    ORDER BY articulos.id_art DESC";
-                    $sentencia = $conexion->prepare($sql);
-                    $sentencia->execute();
-                    $resultado = $sentencia->fetchAll();
-                    
-                    // Paginación
-                    $articulos_x_pagina = 3;
-                    $total_articulos_db = $sentencia->rowCount(); // Contar articulos de la BD
-                    $paginas = $total_articulos_db / $articulos_x_pagina;
-                    $paginas = ceil($paginas); //Redondea para arriba 
-                    // echo $paginas;
-                    ?>
 
-                    <?php
-                    $iniciar = ($_GET['pagina']-1)*$articulos_x_pagina;
-                    // echo $iniciar;
+                <?php
+                $sql_articulos = "SELECT articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion  
+                FROM articulos
+                INNER JOIN categorias ON categorias.id_categoria = articulos.categoria_id
+                INNER JOIN admins ON admins.id_admin = articulos.admin_id
+                INNER JOIN estado ON estado.id_estado = articulos.estado_id
+                LEFT JOIN admins as admins2 ON admins2.id_admin = articulos.edicion_admin_id
+                GROUP BY articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion
+                ORDER BY articulos.id_art";
 
-                    $sql_articulos = "SELECT articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion  
-                    FROM articulos
-                    INNER JOIN categorias ON categorias.id_categoria = articulos.categoria_id
-                    INNER JOIN admins ON admins.id_admin = articulos.admin_id
-                    INNER JOIN estado ON estado.id_estado = articulos.estado_id
-                    LEFT JOIN admins as admins2 ON admins2.id_admin = articulos.edicion_admin_id
-                    GROUP BY articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion
-                    ORDER BY articulos.id_art DESC  
-                    LIMIT :iniciar,:n_articulos";
+                $sentencia_articulos = $conexion->prepare($sql_articulos);
+                $sentencia_articulos->execute();
+                $resultado_articulos = $sentencia_articulos->fetch();
 
-                    $sentencia_articulos = $conexion->prepare($sql_articulos);
-                    $sentencia_articulos->bindParam(':iniciar', $iniciar, PDO::PARAM_INT);
-                    $sentencia_articulos->bindParam(':n_articulos', $articulos_x_pagina, PDO::PARAM_INT);
-                    $sentencia_articulos->execute();
-                    $resultado_articulos = $sentencia_articulos->fetchAll();
+                $articulo = $resultado_articulos;
 
-                    ?>
+                ?>
 
-                   <?php foreach($resultado_articulos as $art): ?>
+                <?php if($articulo) : ?>
                         <!-- Articulo 1 -->
                         <article class="post-content" data-aos="zoom-in" data-aos-delay="200">
                             <div class="post-image">
                                 <div>
                                     
-                                <img src="img/articulos/<?php echo $art['img_art']; ?>" width="100%">
-                              
+                                <img src="img/articulos/<?php echo $articulo['img_art']; ?>" width="100%">
+                            
                                 </div>
                                 <div class="post-info flex-row">
-                                    <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;<?php echo $art['nombre']; ?></span>
-                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;<?php echo $art['fecha_creacion']; ?></span>
+                                    <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;<?php echo $articulo['nombre']; ?></span>
+                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;<?php echo $articulo['fecha_creacion']; ?></span>
                                 </div>
                             </div>
                             <div class="post-title">
-                                <a href="#"><?php echo $art['titulo_art']; ?></a>
-                                <p><?php echo $art['descripcion_art']; ?></p>
-                                <a href=""><button class="btn post-btn">Leer más &nbsp; <i class="fas fa-arrow-right"></i></button><a>
+                                <a href="#"><?php echo $articulo['titulo_art']; ?></a>
+                                <p><?php echo $articulo['contenido_art']; ?></p>
+                                <a href="blog.php?pagina=1"><button class="btn post-btn"><i class="fas fa-arrow-left"></i>&nbsp; Volver</button></a>
                             </div>
                         </article>
                         <!-- /Articulo 1 -->
                         <hr>
-                   <?php endforeach; ?>
-                </div>
-                <!-- /Sección articulos del blog --> 
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item <?php echo $_GET['pagina'] <= 1 ? 'disabled' : '' ?>">
-                            <a class="page-link" href="blog.php?pagina=<?php echo $_GET['pagina']-1 ?>">
-                                Anterior
-                            </a>
-                        </li>
-
-                        <?php for($i = 0; $i < $paginas; $i++): ?>
-                            <li class="page-item <?php echo $_GET['pagina']==$i+1 ? 'active' : '' ?>">
-                                <a class="page-link" href="blog.php?pagina=<?php echo $i+1; ?>">
-                                    <?php echo $i+1; ?>
-                                </a>
-                            </li>
-                        <?php endfor; ?>
-
-                        <li class="page-item <?php echo $_GET['pagina'] >= $paginas ? 'disabled' : '' ?>">
-                            <a class="page-link" href="blog.php?pagina=<?php echo $_GET['pagina']+1 ?>">
-                                Siguiente
-                            </a>
-                        </li>
-                    </ul>
-                </nav>    
+                <?php endif; ?>
             </div>
-            <!-- /Paginación -->
+            <!-- /Sección articulos del blog --> 
             
-
             <!-- Aside -->
             <aside class="sidebar">
-
-            <!-- Buscador -->
-            <form class="d-flex">
-                
-                <button class="btn"><input class="form-control" type="search" placeholder="Search" aria-label="Search"></button>
-            </form>
-            <!-- Buscador -->
-
                 <?php
                     $sql_categorias = "SELECT * FROM categorias";
 

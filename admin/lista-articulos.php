@@ -62,7 +62,7 @@
                             <td><?php echo $art['titulo_art']; ?></td>
                             <td>
                               <?php if ($art['img_art']) { ?>
-                                <img src="admin/img/articulos/<?php echo $art['img_art']; ?>" width="200px">
+                                <img src="../img/articulos/<?php echo $art['img_art']; ?>" width="200px">
                               <?php } ?>
                             </td>
                             <td><?php echo $art['nombre_cat']; ?></td>
