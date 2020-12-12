@@ -1,15 +1,20 @@
 <?php
+		$page = 'blog';
     include_once 'includes/funciones/bd_conexion.php'; 
     include_once 'includes/funciones/funciones.php'; 
     include_once 'includes/templates/header.php'; 
-    
-    if(!$_GET) {
-        header('Location:blog.php?pagina=1');
-    }
-    if($_GET['pagina'] > $paginas || $_GET['pagina'] <= 0) {
-        header('Location:blog.php?pagina=1');
-    }
-    
+
+    // if(!$_GET) {
+    //     header('Location:blog.php?pagina=1');
+    // }
+    // if($_GET['pagina'] > $paginas || $_GET['pagina'] <= 0) {
+    //     header('Location:blog.php?pagina=1');
+		// }
+
+		// a mi me faltaba esto
+		$objeto = new Conexion();
+		$conexion = $objeto->Conectar();
+
 ?>
 
 <main>
@@ -22,7 +27,13 @@
                 <div class="posts">
 
                 <?php 
-                    // Llamar a todos los articulos 
+										// Llamar a todos los articulos 
+										
+										////////////////////////////////////////////////////////////////////////
+										// OJO!!!! Son todos los articulos con estado publicado!!!!!
+										////////////////////////////////////////////////////////////////////////
+
+
                     $sql = "SELECT articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion  
                     FROM articulos
                     INNER JOIN categorias ON categorias.id_categoria = articulos.categoria_id
@@ -40,11 +51,25 @@
                     $total_articulos_db = $sentencia->rowCount(); // Contar articulos de la BD
                     $paginas = $total_articulos_db / $articulos_x_pagina;
                     $paginas = ceil($paginas); //Redondea para arriba 
-                    // echo $paginas;
+										// echo $paginas;
+										
+										// aca planchamos el nro de pagina si se sale del rango
+										$pagina_actual = 1;
+										if(isset($_GET['pagina'])) {
+												$pagina_actual = $_GET['pagina'] * 1; // forzamos a que sea un entero
+												if($pagina_actual <= 0) { // si la pagina que ingresa el usuario en menor igual a cero, mostramos la primera pagina
+														$pagina_actual = 1;
+												}
+												if($pagina_actual > $paginas) { // si la pagina que ingresa el usuario en mayor a cero, mostramos la ultima pagina
+														$pagina_actual = $paginas;
+												}
+										}
+
                     ?>
 
                     <?php
-                    $iniciar = ($_GET['pagina']-1)*$articulos_x_pagina;
+                    // $iniciar = ($_GET['pagina']-1)*$articulos_x_pagina;
+                    $iniciar = ($pagina_actual - 1)*$articulos_x_pagina;
                     // echo $iniciar;
 
                     $sql_articulos = "SELECT articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion  
@@ -92,22 +117,22 @@
                 <!-- /Sección articulos del blog --> 
                 <nav aria-label="Page navigation example">
                     <ul class="pagination">
-                        <li class="page-item <?php echo $_GET['pagina'] <= 1 ? 'disabled' : '' ?>">
-                            <a class="page-link" href="blog.php?pagina=<?php echo $_GET['pagina']-1 ?>">
+                        <li class="page-item <?php echo $pagina_actual <= 1 ? 'disabled' : '' ?>">
+                            <a class="page-link" href="blog.php?pagina=<?php echo $pagina_actual-1 ?>">
                                 Anterior
                             </a>
                         </li>
 
                         <?php for($i = 0; $i < $paginas; $i++): ?>
-                            <li class="page-item <?php echo $_GET['pagina']==$i+1 ? 'active' : '' ?>">
+                            <li class="page-item <?php echo $pagina_actual==$i+1 ? 'active' : '' ?>">
                                 <a class="page-link" href="blog.php?pagina=<?php echo $i+1; ?>">
                                     <?php echo $i+1; ?>
                                 </a>
                             </li>
                         <?php endfor; ?>
 
-                        <li class="page-item <?php echo $_GET['pagina'] >= $paginas ? 'disabled' : '' ?>">
-                            <a class="page-link" href="blog.php?pagina=<?php echo $_GET['pagina']+1 ?>">
+                        <li class="page-item <?php echo $pagina_actual >= $paginas ? 'disabled' : '' ?>">
+                            <a class="page-link" href="blog.php?pagina=<?php echo $pagina_actual+1 ?>">
                                 Siguiente
                             </a>
                         </li>
@@ -119,6 +144,14 @@
 
             <!-- Aside -->
             <aside class="sidebar">
+
+            <!-- Buscador -->
+            <!-- <form class="d-flex">
+                
+                <button class="btn"><input class="form-control" type="search" placeholder="Search" aria-label="Search"></button>
+            </form> -->
+            <!-- Buscador -->
+
                 <?php
                     $sql_categorias = "SELECT * FROM categorias";
 
