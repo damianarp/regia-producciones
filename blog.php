@@ -1,119 +1,124 @@
-<?php $page ='blog'; include_once 'includes/templates/header.php'; ?>
+<?php
+    include_once 'includes/funciones/bd_conexion.php'; 
+    include_once 'includes/funciones/funciones.php'; 
+    include_once 'includes/templates/header.php'; 
+    
+    if(!$_GET) {
+        header('Location:blog.php?pagina=1');
+    }
+    if($_GET['pagina'] > $paginas || $_GET['pagina'] <= 0) {
+        header('Location:blog.php?pagina=1');
+    }
+    
+?>
 
-<main id="pagina1">
+<main>
     <!-- ---------------------- Site Content -------------------------->
     <section class="contenedor" id="blog">
         <div class="site-content">
+            <!-- Paginación -->
+            <div class="my-5">
+                <!-- Sección articulos del blog -->
+                <div class="posts">
 
-            <!-- Sección articulos del blog -->
-            <div class="posts">
+                <?php 
+                    // Llamar a todos los articulos 
+                    $sql = "SELECT articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion  
+                    FROM articulos
+                    INNER JOIN categorias ON categorias.id_categoria = articulos.categoria_id
+                    INNER JOIN admins ON admins.id_admin = articulos.admin_id
+                    INNER JOIN estado ON estado.id_estado = articulos.estado_id
+                    LEFT JOIN admins as admins2 ON admins2.id_admin = articulos.edicion_admin_id
+                    GROUP BY articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion
+                    ORDER BY articulos.id_art DESC";
+                    $sentencia = $conexion->prepare($sql);
+                    $sentencia->execute();
+                    $resultado = $sentencia->fetchAll();
+                    
+                    // Paginación
+                    $articulos_x_pagina = 3;
+                    $total_articulos_db = $sentencia->rowCount(); // Contar articulos de la BD
+                    $paginas = $total_articulos_db / $articulos_x_pagina;
+                    $paginas = ceil($paginas); //Redondea para arriba 
+                    // echo $paginas;
+                    ?>
 
-                <!-- Articulo 1 -->
-                <article class="post-content" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="post-image">
-                        <div>
-                            <img src="assets/Blog-post/blog1.jpg" class="img" alt="blog1">
-                        </div>
-                        <div class="post-info flex-row">
-                            <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;Regia Producciones</span>
-                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;25 de Noviembre de 2020</span>
-                        </div>
-                    </div>
-                    <div class="post-title">
-                        <a href="#">Arranca el 15º Festival de Cine Latinoamericano de La Plata!</a>
-                        <p>Un nuevo FESAALP abre sus puertas, esta vez virtuales, cuidando y cuidándonos, pero con la misma esencia y compromiso por un cine que permita sentir los sonidos, las imágenes y las texturas de América Latina.</p>
-                        <p>Contará con la participación como jurado de <span>Aretha Resenido</span> de <span>Regia Producciones</span>, en la competencia "Aullidos", junto a Gustavo Valdivia (Chile) y Valentina Lellín (Argentina).</p>
-                        <p>En esta ocasión, el festival se desarrollará virtualmente y apuesta a la integralidad de un cine que llegue a les espectadores, que se encuentre en los hogares con las miradas que permitan reflexionar sobre todo aquello de lo que somos parte, como también gozar de la cultura como un derecho de todes.</p>
-                        <button class="btn post-btn">Leer más &nbsp; <i class="fas fa-arrow-right"></i></button>
-                    </div>
-                </article>
-                <!-- /Articulo 1 -->
+                    <?php
+                    $iniciar = ($_GET['pagina']-1)*$articulos_x_pagina;
+                    // echo $iniciar;
 
-                <hr>
+                    $sql_articulos = "SELECT articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion  
+                    FROM articulos
+                    INNER JOIN categorias ON categorias.id_categoria = articulos.categoria_id
+                    INNER JOIN admins ON admins.id_admin = articulos.admin_id
+                    INNER JOIN estado ON estado.id_estado = articulos.estado_id
+                    LEFT JOIN admins as admins2 ON admins2.id_admin = articulos.edicion_admin_id
+                    GROUP BY articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion
+                    ORDER BY articulos.id_art DESC  
+                    LIMIT :iniciar,:n_articulos";
 
-                <!-- Articulo 2 -->
-                <article class="post-content" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="post-image">
-                        <div>
-                            <img src="./assets/Blog-post/blog2.jpg" class="img" alt="blog1">
-                        </div>
-                        <div class="post-info flex-row">
-                            <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;Regia Producciones</span>
-                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;23 de Noviembre de 2020</span>
-                        </div>
-                    </div>
-                    <div class="post-title">
-                        <a href="#">Trucos para sacar las mejores fotos con tu Iphone</a>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque voluptas deserunt beatae
-                            adipisci iusto totam placeat corrupti ipsum, tempora magnam incidunt aperiam tenetur a
-                            nobis, voluptate, numquam architecto fugit. Eligendi quidem ipsam ducimus minus magni
-                            illum similique veniam tempore unde?
-                        </p>
-                        <button class="btn post-btn">Leer más &nbsp; <i class="fas fa-arrow-right"></i></button>
-                    </div>
-                </article>
-                <!-- /Articulo 2 -->
+                    $sentencia_articulos = $conexion->prepare($sql_articulos);
+                    $sentencia_articulos->bindParam(':iniciar', $iniciar, PDO::PARAM_INT);
+                    $sentencia_articulos->bindParam(':n_articulos', $articulos_x_pagina, PDO::PARAM_INT);
+                    $sentencia_articulos->execute();
+                    $resultado_articulos = $sentencia_articulos->fetchAll();
 
-                <hr>
+                    ?>
 
-                <!-- Articulo 3 -->
-                <article class="post-content" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="post-image">
-                        <div>
-                            <img src="./assets/Blog-post/blog3.jpg" class="img" alt="blog1">
-                        </div>
-                        <div class="post-info flex-row">
-                            <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;Regia Producciones</span>
-                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;22 de Noviembre de 2020</span>
-                        </div>
-                    </div>
-                    <div class="post-title">
-                        <a href="#">Los ganadores de la 35ta. edición del Festival Internacional de Cine de Mar del Plata</a>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque voluptas deserunt beatae
-                            adipisci iusto totam placeat corrupti ipsum, tempora magnam incidunt aperiam tenetur a
-                            nobis, voluptate, numquam architecto fugit. Eligendi quidem ipsam ducimus minus magni
-                            illum similique veniam tempore unde?
-                        </p>
-                        <button class="btn post-btn">Leer más &nbsp; <i class="fas fa-arrow-right"></i></button>
-                    </div>
-                </article>
-                <!-- /Articulo 3 -->
 
-                <hr>
 
-                <!-- Articulo 4 -->
-                <article class="post-content" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="post-image">
-                        <div>
-                            <img src="./assets/Blog-post/blog4.jpg" class="img" alt="blog1">
-                        </div>
-                        <div class="post-info flex-row">
-                            <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;Regia Producciones</span>
-                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;15 de Noviembre de 2020</span>
-                        </div>
-                    </div>
-                    <div class="post-title">
-                        <a href="#">Como conseguir un ingreso extra desde casa</a>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque voluptas deserunt beatae
-                            adipisci iusto totam placeat corrupti ipsum, tempora magnam incidunt aperiam tenetur a
-                            nobis, voluptate, numquam architecto fugit. Eligendi quidem ipsam ducimus minus magni
-                            illum similique veniam tempore unde?
-                        </p>
-                        <button class="btn post-btn">Leer más &nbsp; <i class="fas fa-arrow-right"></i></button>
-                    </div>
-                </article>
-                <!-- /Articulo 4 -->
-
-                <!-- Paginación -->
-                <div class="pagination flex-row">
-                    <a href="blog.php" class="pages pagina-activa">1</a>
-                    <a href="blog2.php" class="pages">2</a>
-                    <a href="#" class="pages">3</a>
-                    <a href="#"><i class="fas fa-chevron-right"></i></a>
+                   
+                   <?php foreach($resultado_articulos as $art): ?>
+                        <!-- Articulo 1 -->
+                        <article class="post-content" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="post-image">
+                                <div>
+                                    
+                                <img src="admin/admin/img/articulos/<?php echo $art['img_art1']; ?>" width="100%">
+                              
+                                </div>
+                                <div class="post-info flex-row">
+                                    <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;<?php echo $art['nombre']; ?></span>
+                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;<?php echo $art['fecha_creacion']; ?></span>
+                                </div>
+                            </div>
+                            <div class="post-title">
+                                <a href="#"><?php echo $art['titulo_art']; ?></a>
+                                <p><?php echo $art['descripcion_art']; ?></p>
+                                <button class="btn post-btn">Leer más &nbsp; <i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </article>
+                        <!-- /Articulo 1 -->
+                        <hr>
+                   <?php endforeach; ?>
                 </div>
-                <!-- /Paginación -->
+                <!-- /Sección articulos del blog --> 
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item <?php echo $_GET['pagina'] <= 1 ? 'disabled' : '' ?>">
+                            <a class="page-link" href="blog.php?pagina=<?php echo $_GET['pagina']-1 ?>">
+                                Anterior
+                            </a>
+                        </li>
+
+                        <?php for($i = 0; $i < $paginas; $i++): ?>
+                            <li class="page-item <?php echo $_GET['pagina']==$i+1 ? 'active' : '' ?>">
+                                <a class="page-link" href="blog.php?pagina=<?php echo $i+1; ?>">
+                                    <?php echo $i+1; ?>
+                                </a>
+                            </li>
+                        <?php endfor; ?>
+
+                        <li class="page-item <?php echo $_GET['pagina'] >= $paginas ? 'disabled' : '' ?>">
+                            <a class="page-link" href="blog.php?pagina=<?php echo $_GET['pagina']+1 ?>">
+                                Siguiente
+                            </a>
+                        </li>
+                    </ul>
+                </nav>    
             </div>
-            <!-- /Sección articulos del blog -->
+            <!-- /Paginación -->
+            
 
             <!-- Aside -->
             <aside class="sidebar">

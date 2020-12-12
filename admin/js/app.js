@@ -33,7 +33,7 @@ $(document).ready(function () {
 
     // Creacion de Suscriptores
     // Funciones de los formularios de creación y edición de SUSCRIPTORES
-    $('#crear-suscripcion').attr('disabled', true);
+    $('#guardar-suscripcion').attr('disabled', true);
     $('#modificar_suscripcion').attr('disabled', true);
 
     // Validar Nombre (estilos)

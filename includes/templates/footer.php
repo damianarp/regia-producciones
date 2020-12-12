@@ -44,6 +44,10 @@
         <script src="js/Jquery3.4.1.min.js"></script>
         <script src="js/plugins.js"></script>
 
+        <!-- Bootstrap 4 -->
+        <script src="admin/js/popper.min.js"></script>
+        <script src="admin/js/bootstrap.min.js"></script>
+
         <!-- Font Awesome -->
         <script src="https://kit.fontawesome.com/83447e3cc1.js" crossorigin="anonymous"></script>
 

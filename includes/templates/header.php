@@ -44,6 +44,8 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/normalize_reset.css">
 
+    <link rel="stylesheet" href="admin/css/bootstrap.min.css">
+
     <!-- Sweet Alert 2 -->
     <link rel="stylesheet" href="css/sweetalert2.min.css">
 
@@ -102,7 +104,7 @@
                     <li><a href="nosotros.php" class="<?php if($page=='nosotros'){echo 'activo';} ?>">Nosotros</a></li>
                     <li><a href="proyectos.php" class="<?php if($page=='proyectos'){echo 'activo';} ?>">Proyectos</a></li>
                     <li><a href="servicios.php" class="<?php if($page=='servicios'){echo 'activo';} ?>">Servicios</a></li>
-                    <li><a href="blog.php" class="<?php if($page=='blog'){echo 'activo';} ?>">Blog</a></li>
+                    <li><a href="blog.php?pagina=1" class="<?php if($page=='blog'){echo 'activo';} ?>">Blog</a></li>
                     <li><a href="contacto.php" class="<?php if($page=='contacto'){echo 'activo';} ?>">Contacto</a></li>
                     <li><a href="admin/crear-articulo.php">Administración</a></li>
                 </ul>

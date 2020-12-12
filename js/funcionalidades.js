@@ -451,5 +451,11 @@
             
             return false;
         });
+
+        // Deshabilitar botones de la paginacion del blog
+        $('.disabled a').click(function(){
+            return false;
+        });
+
     }); //-----> DOM CONTENT LOADED
 }());
