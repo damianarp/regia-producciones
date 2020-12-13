@@ -112,7 +112,7 @@
                                     <div class="post-title">
                                         <a href="#"><?php echo $art['titulo_art']; ?></a>
                                         <p><?php echo $art['descripcion_art']; ?></p>
-                                        <button class="btn post-btn">Leer más &nbsp; <i class="fas fa-arrow-right"></i></button>
+                                        <a href="articulo.php"><button class="btn post-btn">Leer más &nbsp; <i class="fas fa-arrow-right"></i></button></a>
                                     </div>
                                 </article>
                                 <!-- /Articulo 1 -->
