@@ -26,67 +26,65 @@
                 <!-- Sección articulos del blog -->
                 <div class="posts">
 
-                <?php 
-										// Llamar a todos los articulos 
-										
-										////////////////////////////////////////////////////////////////////////
-										// OJO!!!! Son todos los articulos con estado publicado!!!!!
-										////////////////////////////////////////////////////////////////////////
+                    <?php 
+                        // Llamar a todos los articulos 
+                        
+                        ////////////////////////////////////////////////////////////////////////
+                        // OJO!!!! Son todos los articulos con estado publicado!!!!!
+                        ////////////////////////////////////////////////////////////////////////
 
-
-                    $sql = "SELECT articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion  
-                    FROM articulos
-                    INNER JOIN categorias ON categorias.id_categoria = articulos.categoria_id
-                    INNER JOIN admins ON admins.id_admin = articulos.admin_id
-                    INNER JOIN estado ON estado.id_estado = articulos.estado_id
-                    LEFT JOIN admins as admins2 ON admins2.id_admin = articulos.edicion_admin_id
-                    GROUP BY articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion
-                    ORDER BY articulos.id_art DESC";
-                    $sentencia = $conexion->prepare($sql);
-                    $sentencia->execute();
-                    $resultado = $sentencia->fetchAll();
-                    
-                    // Paginación
-                    $articulos_x_pagina = 3;
-                    $total_articulos_db = $sentencia->rowCount(); // Contar articulos de la BD
-                    $paginas = $total_articulos_db / $articulos_x_pagina;
-                    $paginas = ceil($paginas); //Redondea para arriba 
-										// echo $paginas;
-										
-										// aca planchamos el nro de pagina si se sale del rango
-										$pagina_actual = 1;
-										if(isset($_GET['pagina'])) {
-												$pagina_actual = $_GET['pagina'] * 1; // forzamos a que sea un entero
-												if($pagina_actual <= 0) { // si la pagina que ingresa el usuario en menor igual a cero, mostramos la primera pagina
-														$pagina_actual = 1;
-												}
-												if($pagina_actual > $paginas) { // si la pagina que ingresa el usuario en mayor a cero, mostramos la ultima pagina
-														$pagina_actual = $paginas;
-												}
-										}
-
+                        $sql = "SELECT articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion  
+                        FROM articulos
+                        INNER JOIN categorias ON categorias.id_categoria = articulos.categoria_id
+                        INNER JOIN admins ON admins.id_admin = articulos.admin_id
+                        INNER JOIN estado ON estado.id_estado = articulos.estado_id
+                        LEFT JOIN admins as admins2 ON admins2.id_admin = articulos.edicion_admin_id
+                        GROUP BY articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion
+                        ORDER BY articulos.id_art DESC";
+                        $sentencia = $conexion->prepare($sql);
+                        $sentencia->execute();
+                        $resultado = $sentencia->fetchAll();
+                        
+                        // Paginación
+                        $articulos_x_pagina = 3;
+                        $total_articulos_db = $sentencia->rowCount(); // Contar articulos de la BD
+                        $paginas = $total_articulos_db / $articulos_x_pagina;
+                        $paginas = ceil($paginas); //Redondea para arriba 
+                        // echo $paginas;
+                        
+                        // aca planchamos el nro de pagina si se sale del rango
+                        $pagina_actual = 1;
+                        if(isset($_GET['pagina'])) {
+                            $pagina_actual = $_GET['pagina'] * 1; // forzamos a que sea un entero
+                            if($pagina_actual <= 0) { // si la pagina que ingresa el usuario en menor igual a cero, mostramos la primera pagina
+                                $pagina_actual = 1;
+                            }
+                            if($pagina_actual > $paginas) { // si la pagina que ingresa el usuario en mayor a cero, mostramos la ultima pagina
+                                $pagina_actual = $paginas;
+                            }
+                        }
                     ?>
 
                     <?php
-                    // $iniciar = ($_GET['pagina']-1)*$articulos_x_pagina;
-                    $iniciar = ($pagina_actual - 1)*$articulos_x_pagina;
-                    // echo $iniciar;
+                        // $iniciar = ($_GET['pagina']-1)*$articulos_x_pagina;
+                        $iniciar = ($pagina_actual - 1)*$articulos_x_pagina;
+                        // echo $iniciar;
 
-                    $sql_articulos = "SELECT articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion  
-                    FROM articulos
-                    INNER JOIN categorias ON categorias.id_categoria = articulos.categoria_id
-                    INNER JOIN admins ON admins.id_admin = articulos.admin_id
-                    INNER JOIN estado ON estado.id_estado = articulos.estado_id
-                    LEFT JOIN admins as admins2 ON admins2.id_admin = articulos.edicion_admin_id
-                    GROUP BY articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion
-                    ORDER BY articulos.id_art DESC  
-                    LIMIT :iniciar,:n_articulos";
+                        $sql_articulos = "SELECT articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion  
+                        FROM articulos
+                        INNER JOIN categorias ON categorias.id_categoria = articulos.categoria_id
+                        INNER JOIN admins ON admins.id_admin = articulos.admin_id
+                        INNER JOIN estado ON estado.id_estado = articulos.estado_id
+                        LEFT JOIN admins as admins2 ON admins2.id_admin = articulos.edicion_admin_id
+                        GROUP BY articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion
+                        ORDER BY articulos.id_art DESC  
+                        LIMIT :iniciar,:n_articulos";
 
-                    $sentencia_articulos = $conexion->prepare($sql_articulos);
-                    $sentencia_articulos->bindParam(':iniciar', $iniciar, PDO::PARAM_INT);
-                    $sentencia_articulos->bindParam(':n_articulos', $articulos_x_pagina, PDO::PARAM_INT);
-                    $sentencia_articulos->execute();
-                    $resultado_articulos = $sentencia_articulos->fetchAll();
+                        $sentencia_articulos = $conexion->prepare($sql_articulos);
+                        $sentencia_articulos->bindParam(':iniciar', $iniciar, PDO::PARAM_INT);
+                        $sentencia_articulos->bindParam(':n_articulos', $articulos_x_pagina, PDO::PARAM_INT);
+                        $sentencia_articulos->execute();
+                        $resultado_articulos = $sentencia_articulos->fetchAll();
 
                     ?>
 
@@ -112,7 +110,7 @@
                                     <div class="post-title">
                                         <a href="#"><?php echo $art['titulo_art']; ?></a>
                                         <p><?php echo $art['descripcion_art']; ?></p>
-                                        <a href="articulo.php"><button class="btn post-btn">Leer más &nbsp; <i class="fas fa-arrow-right"></i></button></a>
+                                        <a href="articulo.php?id=<?php echo $art['id_art'] ?>"><button class="btn post-btn">Leer más &nbsp; <i class="fas fa-arrow-right"></i></button></a>
                                     </div>
                                 </article>
                                 <!-- /Articulo 1 -->

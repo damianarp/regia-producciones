@@ -4,6 +4,11 @@
     include_once 'includes/funciones/funciones.php'; 
     include_once 'includes/templates/header.php'; 
 
+    $id = $_GET['id'];
+    
+    if(!filter_var($id, FILTER_VALIDATE_INT)) {
+        die("Error!!");
+    }
     
 
 		// a mi me faltaba esto
@@ -22,53 +27,35 @@
                 <div class="posts">
 
                 <?php 
-										// Llamar a todos los articulos 
-										
-										////////////////////////////////////////////////////////////////////////
-										// OJO!!!! Son todos los articulos con estado publicado!!!!!
-										////////////////////////////////////////////////////////////////////////
-
-
-                    $sql = "SELECT articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion  
-                    FROM articulos
-                    INNER JOIN categorias ON categorias.id_categoria = articulos.categoria_id
-                    INNER JOIN admins ON admins.id_admin = articulos.admin_id
-                    INNER JOIN estado ON estado.id_estado = articulos.estado_id
-                    LEFT JOIN admins as admins2 ON admins2.id_admin = articulos.edicion_admin_id
-                    GROUP BY articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion
+                    $sql = "SELECT * FROM articulos, admins, categorias
+                    WHERE id_art = $id AND articulos.admin_id = admins.id_admin
                     LIMIT 1";
-                    $sentencia = $conexion->prepare($sql);
-                    $sentencia->execute();
-                    $resultado = $sentencia->fetchAll();
-                    
-                    ?>
-
-                   
-                   <?php 
-                   
-                        foreach($resultado as $art): ?>
-                                <!-- Articulo 1 -->
-                                <article class="post-content" data-aos="zoom-in" data-aos-delay="200">
-                                    <div class="post-image">
-                                        <div>
-                                            
-                                        <img src="img/articulos/<?php echo $art['img_art']; ?>" width="100%">
-                                    
-                                        </div>
-                                        <div class="post-info flex-row">
-                                            <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;<?php echo $art['nombre']; ?></span>
-                                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;<?php echo $art['fecha_creacion']; ?></span>
-                                        </div>
-                                    </div>
-                                    <div class="post-title">
-                                        <a href="#"><?php echo $art['titulo_art']; ?></a>
-                                        <p><?php echo $art['descripcion_art']; ?></p>
-                                        <a href="blog.php"><button class="btn post-btn"><i class="fas fa-arrow-left"> &nbsp; Volver</i></button></a>
-                                    </div>
-                                </article>
-                                <!-- /Articulo 1 -->
-                                <hr>
-                        <?php endforeach;?>
+                    $resultado = $conn->query($sql);
+                ?>
+   
+                    <!-- Articulo 1 -->
+                    <?php foreach($resultado as $art):?>
+                    <article class="post-content" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="post-image">
+                            <div>
+                                
+                            <img src="img/articulos/<?php echo $art['img_art']; ?>" width="100%">
+                        
+                            </div>
+                            <div class="post-info flex-row">
+                                <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;<?php echo $art['nombre']; ?></span>
+                                <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;<?php echo $art['fecha_creacion']; ?></span>
+                            </div>
+                        </div>
+                        <div class="post-title">
+                            <a href="#"><?php echo $art['titulo_art']; ?></a>
+                            <p><?php echo $art['descripcion_art']; ?></p>
+                            <a href="blog.php?id=<?php echo $art['id_art'] ?>"><button class="btn post-btn"><i class="fas fa-arrow-left"> &nbsp; Volver</i></button></a>
+                        </div>
+                    </article>
+                    <!-- /Articulo 1 -->
+                    <hr>
+                    <?php endforeach;?>      
                 </div>
                 <!-- /Sección articulos del blog --> 
                 
