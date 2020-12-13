@@ -32,7 +32,9 @@
                 <tr>
                   <th>Nombre de la Categoría</th>
                   <th class="mobile">Fecha de Modificación</th>
+                  <?php if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 2) : ?>
                   <th>Acciones</th>
+                  <?php endif; ?>
                 </tr>
                 </thead>
                 <tbody>
@@ -48,6 +50,7 @@
                           <tr>
                             <td><?php echo $categoria['nombre_cat']; ?></td>
                             <td class="mobile"><?php echo $categoria['estado_cat']; ?></td>
+                            <?php if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 2) : ?>
                             <td>
                               <a href="editar-categoria.php?id=<?php echo $categoria['id_categoria']; ?>" class="btn bg-orange btn-flat margin">
                                   <i class="fa fa-pencil"></i>
@@ -56,6 +59,7 @@
                                   <i class="fa fa-trash"></i>
                               </a>
                             </td>
+                            <?php endif; ?>
                           </tr>
                         <?php } ?>
                 </tbody>
@@ -63,7 +67,9 @@
                 <tr>
                   <th>Nombre de la Categoría</th>
                   <th class="mobile">Fecha de Modificación</th>
+                  <?php if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 2) : ?>
                   <th>Acciones</th>
+                  <?php endif; ?>
                 </tr>
                 </tfoot>
               </table>

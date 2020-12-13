@@ -11,7 +11,7 @@
         die("Error!!");
     }
 ?>
-
+<?php if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 2) : ?>
   <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
 
@@ -68,5 +68,5 @@
         </div>
   </div>
   <!-- /.content-wrapper -->
-
+<?php endif; ?>
 <?php include_once 'templates/footer.php';?>

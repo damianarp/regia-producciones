@@ -5,7 +5,7 @@
     include_once 'templates/barra.php';
     include_once 'templates/navegacion.php';
 ?>
-
+<?php if($_SESSION['nivel'] == 1) : ?>
   <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
 
@@ -88,5 +88,5 @@
         </div>
   </div>
   <!-- /.content-wrapper -->
-
+<?php endif; ?>
 <?php include_once 'templates/footer.php';?>

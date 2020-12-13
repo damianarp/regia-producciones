@@ -38,7 +38,9 @@
                   <th class="mobile">Estado</th>
                   <th class="mobile">Fecha de Edición</th>
                   <th class="mobile">Editado por:</th>
+                  <?php if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 2 || $_SESSION['nivel'] == 3) : ?>
                   <th>Acciones</th>
+                  <?php endif; ?>
                 </tr>
                 </thead>
                 <tbody>
@@ -71,6 +73,7 @@
                             <td class="mobile"><?php echo $art['nombre_estado']; ?></td>
                             <td class="mobile"><?php echo $art['fecha_edicion']; ?></td>
                             <td class="mobile"><?php echo $art['usuario']; ?></td>
+                            <?php if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 2 || $_SESSION['nivel'] == 3) : ?>
                             <td>
                               <a href="editar-articulo.php?id=<?php echo $art['id_art']; ?>" class="btn bg-orange btn-flat margin">
                                   <i class="fa fa-pencil"></i>
@@ -79,6 +82,7 @@
                                   <i class="fa fa-trash"></i>
                               </a>
                             </td>
+                            <?php endif; ?>
                           </tr>
                         <?php } ?>
                 </tbody>
@@ -92,7 +96,9 @@
                   <th class="mobile">Estado</th>
                   <th class="mobile">Fecha de Edición</th>
                   <th class="mobile">Editado por:</th>
+                  <?php if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 2 || $_SESSION['nivel'] == 3) : ?>
                   <th>Acciones</th>
+                  <?php endif; ?>
                 </tr>
                 </tfoot>
               </table>

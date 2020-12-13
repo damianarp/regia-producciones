@@ -39,14 +39,17 @@
             <i class="fa fa-book"></i> 
             <span>Artículos</span>
             <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
+              <i class="fa pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
             <li><a href="lista-articulos.php"><i class="fa fa-list-ul"></i> Ver Todos</a></li>
+            <?php if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 2 || $_SESSION['nivel'] == 3) : ?>
             <li><a href="crear-articulo.php"><i class="fa fa-plus-circle"></i> Crear Articulo</a></li>
+            <?php endif; ?>
           </ul>
         </li>
+        
         <li class="treeview">
           <a href="#">
             <i class="fa fa-list-alt"></i>
@@ -54,9 +57,13 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="lista-categoria.php"><i class="fa fa-list-ul"></i> Ver Todas</a></li>
+            <?php if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 2) : ?>
             <li><a href="crear-categoria.php"><i class="fa fa-plus-circle"></i> Agregar</a></li>
+            <?php endif; ?>
           </ul>
         </li>
+        
+        
         <li class="treeview">
           <a href="#">
             <i class="fa fa-address-card"></i>
@@ -64,10 +71,13 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="lista-suscriptores.php"><i class="fa fa-list-ul"></i> Ver Todos</a></li>
+            <?php if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 2) : ?>
             <li><a href="crear-suscriptor.php"><i class="fa fa-plus-circle"></i> Agregar</a></li>
+            <?php endif; ?>
           </ul>
         </li>
-        <?php if($_SESSION['nivel'] == 1) : ?>
+        
+        
         <li class="treeview">
           <a href="#">
             <i class="fa fa-user"></i>
@@ -75,10 +85,12 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="lista-admin.php"><i class="fa fa-list-ul"></i> Ver Todos</a></li>
+            <?php if($_SESSION['nivel'] == 1) : ?>
             <li><a href="crear-admin.php"><i class="fa fa-plus-circle"></i> Agregar</a></li>
+            <?php endif; ?>
           </ul>
         </li>
-        <?php endif; ?>  
+          
       </ul>
     </section>
     <!-- /.sidebar -->

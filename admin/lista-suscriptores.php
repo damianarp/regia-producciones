@@ -34,7 +34,9 @@
                   <th>Correo Electrónico</th>
                   <th class="mobile">Fecha de Suscripción</th>
                   <th class="mobile">Fecha de Modificación</th>
+                  <?php if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 2) : ?>
                   <th>Acciones</th>
+                  <?php endif; ?>
                 </tr>
                 </thead>
                 <tbody>
@@ -52,6 +54,7 @@
                             <td><?php echo $susc['email_susc']; ?></td>
                             <td class="mobile"><?php echo $susc['fecha_susc']; ?></td>
                             <td class="mobile"><?php echo $susc['editado_susc']; ?></td>
+                            <?php if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 2) : ?>
                             <td>
                               <a href="editar-suscriptor.php?id=<?php echo $susc['id_susc'] ?>" class="btn bg-orange btn-flat margin">
                                   <i class="fa fa-pencil"></i>
@@ -60,6 +63,7 @@
                                   <i class="fa fa-trash"></i>
                               </a>
                             </td>
+                            <?php endif; ?>
                           </tr>
                         <?php } ?>
                 </tbody>
@@ -69,7 +73,9 @@
                   <th>Correo Electrónico</th>
                   <th class="mobile">Fecha de Suscripción</th>
                   <th class="mobile">Fecha de Modificación</th>
+                  <?php if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 2) : ?>
                   <th>Acciones</th>
+                  <?php endif; ?>
                 </tr>
                 </tfoot>
               </table>

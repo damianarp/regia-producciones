@@ -12,7 +12,7 @@
     }
 ?>
 
-
+<?php if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 2 || $_SESSION['nivel'] == 3) : ?>
 <!-- Content Wrapper. Contenido de la página -->
 <div class="content-wrapper">
     <div id="caja">
@@ -102,5 +102,5 @@
         <!-- /Formulario de Posteo de articulos -->
     </div>
 </div>
-
+<?php endif; ?>
 <?php include_once 'templates/footer.php';?>

@@ -35,7 +35,9 @@
                   <th class="mobile">Nombre</th>
                   <th>Nivel</th>
                   <th class="mobile">Fecha de modificación</th>
+                  <?php if($_SESSION['nivel'] == 1) : ?>
                   <th>Acciones</th>
+                  <?php endif; ?>
                 </tr>
                 </thead>
                 <tbody>
@@ -54,6 +56,7 @@
                             <td class="mobile"><?php echo $admin['nombre']; ?></td>
                             <td><?php echo $admin['nombre_nivel']; ?></td>
                             <td class="mobile"><?php echo $admin['editado']; ?></td>
+                            <?php if($_SESSION['nivel'] == 1) : ?>
                             <td>
                               <a href="editar-admin.php?id=<?php echo $admin['id_admin']; ?>" class="btn bg-orange btn-flat margin">
                                   <i class="fa fa-pencil"></i>
@@ -62,6 +65,7 @@
                                   <i class="fa fa-trash"></i>
                               </a>
                             </td>
+                            <?php endif; ?>
                           </tr>
                         <?php } ?>
                 </tbody>
@@ -72,7 +76,9 @@
                   <th class="mobile">Nombre</th>
                   <th>Nivel</th>
                   <th class="mobile">Fecha de modificación</th>
+                  <?php if($_SESSION['nivel'] == 1) : ?>
                   <th>Acciones</th>
+                  <?php endif; ?>
                 </tr>
                 </tfoot>
               </table>

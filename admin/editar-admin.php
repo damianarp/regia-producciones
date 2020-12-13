@@ -12,7 +12,7 @@
     }
 
 ?>
-
+<?php if($_SESSION['nivel'] == 1) : ?>
   <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -105,5 +105,5 @@
         </div>
   </div>
   <!-- /.content-wrapper -->
-
+<?php endif; ?>
 <?php include_once 'templates/footer.php';?>
