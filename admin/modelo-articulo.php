@@ -70,16 +70,6 @@ if (isset($_POST['articulos']) && $_POST['articulos']) {
     // Modificar Articulo a la BD
     if ($_POST['articulos'] == 'actualizar') {
 
-        // $respuesta = array (
-        //     'post' => $_POST,
-        //     'file' => $_FILES
-        // );
-        // die(json_encode($respuesta));
-        
-        // si hay imagen en base de datos y existe el archivo en el disco y viene vacio el $_FILES, no hago nada con la imagen
-
-        // sino, si viene una imagen, la reemplazo y hago lo que esta abajo
-
         $directorio = "../img/articulos/";
         if(!is_dir($directorio)) {
             mkdir($directorio, 0755, true);
@@ -95,7 +85,9 @@ if (isset($_POST['articulos']) && $_POST['articulos']) {
         }
 
         try {
-            $stmt = $conn->prepare("UPDATE articulos SET titulo_art = ?, descripcion_art = ?, contenido_art = ?, img_art = ?, categoria_id = ?, estado_id = ? , fecha_edicion = ?, edicion_admin_id = ? WHERE id_art = ?");
+            $stmt = $conn->prepare("UPDATE articulos 
+                                    SET titulo_art = ?, descripcion_art = ?, contenido_art = ?, img_art = ?, categoria_id = ?, estado_id = ? , fecha_edicion = ?, edicion_admin_id = ? 
+                                    WHERE id_art = ?");
             $stmt->bind_param("ssssiisii", $titulo, $descripcion, $contenido, $imagen_url, $categoria, $estado, $fecha, $admin_id, $id_registro);
             $stmt->execute();
             
@@ -125,7 +117,9 @@ if (isset($_POST['articulos']) && $_POST['articulos']) {
     if ($_POST['articulos'] == 'eliminar') {
 
         try {
-            $stmt = $conn->prepare("UPDATE articulos SET estado_id = 4, fecha_edicion = NOW(), edicion_admin_id = ? WHERE id_art = ?");
+            $stmt = $conn->prepare("UPDATE articulos 
+                                    SET estado_id = 4, fecha_edicion = NOW(), edicion_admin_id = ? 
+                                    WHERE id_art = ?");
             $stmt->bind_param("ii", $admin_id, $id_registro);
             $stmt->execute();
             

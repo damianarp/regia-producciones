@@ -39,6 +39,7 @@
                         INNER JOIN admins ON admins.id_admin = articulos.admin_id
                         INNER JOIN estado ON estado.id_estado = articulos.estado_id
                         LEFT JOIN admins as admins2 ON admins2.id_admin = articulos.edicion_admin_id
+                        WHERE id_estado = 2
                         GROUP BY articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion
                         ORDER BY articulos.id_art DESC";
                         $sentencia = $conexion->prepare($sql);
@@ -76,6 +77,7 @@
                         INNER JOIN admins ON admins.id_admin = articulos.admin_id
                         INNER JOIN estado ON estado.id_estado = articulos.estado_id
                         LEFT JOIN admins as admins2 ON admins2.id_admin = articulos.edicion_admin_id
+                        WHERE id_estado = 2
                         GROUP BY articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion
                         ORDER BY articulos.id_art DESC  
                         LIMIT :iniciar,:n_articulos";
@@ -88,11 +90,7 @@
 
                     ?>
 
-
-
-                   
                    <?php 
-                   if( $art['estado_id'] != '4') :
                         foreach($resultado_articulos as $art): ?>
                                 <!-- Articulo 1 -->
                                 <article class="post-content" data-aos="zoom-in" data-aos-delay="200">
@@ -115,8 +113,7 @@
                                 </article>
                                 <!-- /Articulo 1 -->
                                 <hr>
-                        <?php endforeach; 
-                    endif;?>
+                        <?php endforeach;?>
                 </div>
                 <!-- /Sección articulos del blog --> 
                 <nav aria-label="Page navigation example">
