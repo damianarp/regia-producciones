@@ -411,6 +411,7 @@ p {
 
 .menu .logo-box {
     letter-spacing: -9999px;
+    padding-bottom: 10px;
 }
 
 .menu .logo-box img {
@@ -427,6 +428,7 @@ p {
 
 .menu .list-container .lists {
     display: flex;
+    margin-bottom: 0px;
 }
 
 .menu .list-container .lists li {
@@ -634,7 +636,6 @@ p {
     position: relative;
     display: inline-block;
     text-align: center;
-    cursor: pointer;
     flex-wrap: wrap;
     margin: 50px 0 0 0;
 }
@@ -645,7 +646,6 @@ p {
     object-fit: cover;
     margin: 10px 10px;
     border-radius: 10px;
-    cursor: pointer;
 }
 
 /* Página Nosotros */
@@ -685,7 +685,6 @@ p {
     height: 250px;
     border-radius: 50%;
     object-fit: cover;
-    cursor: pointer;
     margin-bottom: 30px;
     transition: 200ms;
 }
@@ -701,7 +700,6 @@ p {
     border: 2px solid var(--blue);
     padding: 20px;
     border-radius: 20px;
-    cursor: pointer;
     transition: 200ms;
 }
 
