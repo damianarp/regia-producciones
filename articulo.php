@@ -1,5 +1,5 @@
 <?php
-		
+		$page = 'articulo';
     include_once 'includes/funciones/bd_conexion.php'; 
     include_once 'includes/funciones/funciones.php'; 
     include_once 'includes/templates/header.php'; 
@@ -14,9 +14,9 @@
 
 <main>
     <!-- ---------------------- Site Content -------------------------->
-    <section class="contenedor" id="blog">
+    <section class="contenedor" id="articulo">
         <div class="site-content">
-            
+            <!-- Paginación -->
             <div class="my-5">
                 <!-- Sección articulos del blog -->
                 <div class="posts">
@@ -36,43 +36,44 @@
                     INNER JOIN estado ON estado.id_estado = articulos.estado_id
                     LEFT JOIN admins as admins2 ON admins2.id_admin = articulos.edicion_admin_id
                     GROUP BY articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion
-                    ";
+                    LIMIT 1";
                     $sentencia = $conexion->prepare($sql);
                     $sentencia->execute();
                     $resultado = $sentencia->fetchAll();
                     
                     ?>
 
+                   
                    <?php 
                    
-                        if($resultado): ?>
+                        foreach($resultado as $art): ?>
                                 <!-- Articulo 1 -->
                                 <article class="post-content" data-aos="zoom-in" data-aos-delay="200">
                                     <div class="post-image">
                                         <div>
                                             
-                                        <img src="img/articulos/<?php echo $resultado['img_art']; ?>" width="100%">
+                                        <img src="img/articulos/<?php echo $art['img_art']; ?>" width="100%">
                                     
                                         </div>
                                         <div class="post-info flex-row">
-                                            <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;<?php echo $resultado['nombre']; ?></span>
-                                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;<?php echo $resultado['fecha_creacion']; ?></span>
+                                            <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;<?php echo $art['nombre']; ?></span>
+                                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;<?php echo $art['fecha_creacion']; ?></span>
                                         </div>
                                     </div>
                                     <div class="post-title">
-                                        <a href="#"><?php echo $resultado['titulo_art']; ?></a>
-                                        <p><?php echo $resultado['contenido_art']; ?></p>
+                                        <a href="#"><?php echo $art['titulo_art']; ?></a>
+                                        <p><?php echo $art['descripcion_art']; ?></p>
                                         <button class="btn post-btn">Leer más &nbsp; <i class="fas fa-arrow-right"></i></button>
                                     </div>
                                 </article>
                                 <!-- /Articulo 1 -->
                                 <hr>
-                        <?php endif; ?>
+                        <?php endforeach;?>
                 </div>
                 <!-- /Sección articulos del blog --> 
                 
             </div>
-            
+            <!-- /Paginación -->
             
 
             <!-- Aside -->
