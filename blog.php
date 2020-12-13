@@ -12,8 +12,8 @@
 		// }
 
 		// a mi me faltaba esto
-		$objeto = new Conexion();
-		$conexion = $objeto->Conectar();
+		// $objeto = new Conexion();
+		// $conexion = $objeto->Conectar();
 
 ?>
 
@@ -148,24 +148,6 @@
             <!-- Aside -->
             <aside class="sidebar">
 
-<<<<<<< HEAD
-            <!-- Buscador -->
-            <!-- <form class="d-flex">
-                
-                <button class="btn"><input class="form-control" type="search" placeholder="Search" aria-label="Search"></button>
-            </form> -->
-            <!-- Buscador -->
-
-                <?php
-                    $sql_categorias = "SELECT * FROM categorias";
-
-                    $sentencia_categorias = $conexion->prepare($sql_categorias);
-                    $sentencia_categorias->execute();
-                    $resultado_categorias = $sentencia_categorias->fetchAll();
-
-                ?>
-=======
->>>>>>> parent of 4f07773... ajustes en el blog
                 <!-- Categorias -->
                 <div class="category">
                     <h2>Categorías</h2>
