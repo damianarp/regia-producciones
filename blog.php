@@ -148,29 +148,23 @@
 
             <!-- Aside -->
             <aside class="sidebar">
+            <?php
+                    $sql_categorias = "SELECT * FROM categorias";
 
+                    $sentencia_categorias = $conexion->prepare($sql_categorias);
+                    $sentencia_categorias->execute();
+                    $resultado_categorias = $sentencia_categorias->fetchAll();
+
+                ?>
                 <!-- Categorias -->
                 <div class="category">
                     <h2>Categorías</h2>
                     <ul class="category-list">
+                    <?php foreach($resultado_categorias as $categorias): ?>
                         <li class="list-items" data-aos="fade-left" data-aos-delay="100">
-                            <a href="#">Películas y series</a>
+                            <a href="#"><?php echo $categorias['nombre_cat']; ?></a>
                         </li>
-                        <li class="list-items" data-aos="fade-left" data-aos-delay="200">
-                            <a href="#">Cine</a>
-                        </li>
-                        <li class="list-items" data-aos="fade-left" data-aos-delay="300">
-                            <a href="#">Fotografía</a>
-                        </li>
-                        <li class="list-items" data-aos="fade-left" data-aos-delay="400">
-                            <a href="#">Diseño</a>
-                        </li>
-                        <li class="list-items" data-aos="fade-left" data-aos-delay="500">
-                            <a href="#">Desarrollo Web</a>
-                        </li>
-                        <li class="list-items" data-aos="fade-left" data-aos-delay="600">
-                            <a href="#">Tecnologías</a>
-                        </li>
+                    <?php endforeach; ?>
                     </ul>
                 </div>
                 <!-- /Categorias -->
