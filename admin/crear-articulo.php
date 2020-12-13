@@ -76,7 +76,7 @@
                 <input type="hidden" name="articulos" value="nuevo">
                 
                 <select name="estado" id="estado">
-                    <optgroup label="Estado">
+                    <optgroup class="estado" label="Estado">
                         <option <?php echo $art['estado_id'] == "1" ? 'selected' : ''; ?> value="1">Borrador</option>
                         <option <?php echo $art['estado_id'] == "2" ? 'selected' : ''; ?> value="2">Publicado</option>
                         <option <?php echo $art['estado_id'] == "3" ? 'selected' : ''; ?> value="3">Editado</option>

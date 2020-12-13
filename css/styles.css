@@ -246,8 +246,19 @@ p {
     font-style: italic;
     display: none;
 }
-
-
+/* ==========================================================================
+     BLOG
+     ========================================================================== */
+.content-wrapper #caja #articulo .boton #estado {
+    padding: 10px;
+    border: 2px solid var(--blue);
+    display: inline;
+    margin: auto;
+    margin-bottom: 20px;
+}
+.content-wrapper #caja #articulo .boton .estado {
+    font-weight: 600;
+}
 
 /* Ir arriba */
 

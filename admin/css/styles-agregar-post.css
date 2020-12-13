@@ -175,11 +175,12 @@ label[for="imagen"]:hover {
     margin: auto;
 }
 button#crear-articulo {
-    display: block;
+    display: inline;
     margin: auto;
     height: 50px;
     width: 150px;
     text-transform: uppercase;
     font-weight: 600;
+    margin-left: 100px;
 } 
 
