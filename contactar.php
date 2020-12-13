@@ -3,8 +3,8 @@
     include_once 'includes/funciones/bd_conexion.php';
     include_once 'includes/funciones/funciones.php';
 
-    $objeto = new Conexion();
-    $conexion = $objeto->Conectar();
+    // $objeto = new Conexion();
+    // $conexion = $objeto->Conectar();
     
 	// error_log('entro al contactar.php con' . json_encode($_POST));
 

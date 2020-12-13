@@ -3,8 +3,8 @@
     include_once 'includes/funciones/bd_conexion.php';
     include_once 'includes/funciones/funciones.php';
 
-    $objeto = new Conexion();
-    $conexion = $objeto->Conectar();
+    // $objeto = new Conexion();
+    // $conexion = $objeto->Conectar();
 
     // validamos un poco, pero lo hacemos por el negado
     if (!isset($_POST['submit']) || !$_POST['submit']) {
