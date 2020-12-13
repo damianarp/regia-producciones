@@ -77,9 +77,10 @@
                 
                 <select name="estado" id="estado">
                     <optgroup label="Estado">
-                        <option name="" value="1">Borrador</option>
-                        <option name="" value="2">Publicado</option>
-                        <option name="" value="3">Eliminado</option>
+                        <option <?php echo $art['estado_id'] == "1" ? 'selected' : ''; ?> value="1">Borrador</option>
+                        <option <?php echo $art['estado_id'] == "2" ? 'selected' : ''; ?> value="2">Publicado</option>
+                        <option <?php echo $art['estado_id'] == "3" ? 'selected' : ''; ?> value="3">Editado</option>
+                        <option <?php echo $art['estado_id'] == "4" ? 'selected' : ''; ?> value="4">Eliminado</option>
                     </optgroup>
                 </select>
                 <button type="submit" class="btn bg-black" id="crear-articulo">Guardar</button>

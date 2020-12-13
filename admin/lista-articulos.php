@@ -44,13 +44,13 @@
                 <tbody>
                     <?php
                         try {
-                          $sql = "SELECT articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion, admins2.nombre  
+                          $sql = "SELECT articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion  
                           FROM articulos
                           INNER JOIN categorias ON categorias.id_categoria = articulos.categoria_id
                           INNER JOIN admins ON admins.id_admin = articulos.admin_id
                           INNER JOIN estado ON estado.id_estado = articulos.estado_id
                           LEFT JOIN admins as admins2 ON admins2.id_admin = articulos.edicion_admin_id
-                          GROUP BY articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion, admins2.nombre
+                          GROUP BY articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion
                           ORDER BY articulos.id_art DESC";
                           $resultado = $conn->query($sql);
                         } catch (Exception $e) {
@@ -62,7 +62,7 @@
                             <td><?php echo $art['titulo_art']; ?></td>
                             <td>
                               <?php if ($art['img_art']) { ?>
-                                <img src="admin/img/articulos/<?php echo $art['img_art']; ?>" width="200px">
+                                <img src="../img/articulos/<?php echo $art['img_art']; ?>" width="200px">
                               <?php } ?>
                             </td>
                             <td class="mobile"><?php echo $art['nombre_cat']; ?></td>
@@ -75,7 +75,7 @@
                               <a href="editar-articulo.php?id=<?php echo $art['id_art']; ?>" class="btn bg-orange btn-flat margin">
                                   <i class="fa fa-pencil"></i>
                               </a>
-                              <a href="#" data-id="<?php echo $art['id_art']; ?>" data-tipo="admin" class="btn bg-maroon btn-flat margin borrar_articulo">
+                              <a href="#" data-id="<?php echo $art['id_art']; ?>" data-tipo="articulo" class="btn bg-maroon btn-flat margin borrar_articulo">
                                   <i class="fa fa-trash"></i>
                               </a>
                             </td>

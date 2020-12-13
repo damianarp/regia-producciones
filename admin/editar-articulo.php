@@ -46,7 +46,7 @@
                 <label for="imagen_actual">Imagen Actual</label>
                 <br>
                 <div id="preview">
-                    <img src="admin/img/articulos/<?php echo $art['img_art']; ?>" width="500px">
+                    <img src="../img/articulos/<?php echo $art['img_art']; ?>" width="500px">
                 </div>
             </div>
             <br>
@@ -84,12 +84,14 @@
             <div class="boton">
                 <input type="hidden" name="id_articulo" value="<?php echo $id; ?>">
                 <input type="hidden" name="articulos" value="actualizar">
+                <input type="hidden" name="articulos" value="eliminar">
                 
                 <select name="estado" id="estado">
                     <optgroup label="Estado">
                         <option <?php echo $art['estado_id'] == "1" ? 'selected' : ''; ?> value="1">Borrador</option>
                         <option <?php echo $art['estado_id'] == "2" ? 'selected' : ''; ?> value="2">Publicado</option>
-                        <option <?php echo $art['estado_id'] == "3" ? 'selected' : ''; ?> value="3">Eliminado</option>
+                        <option <?php echo $art['estado_id'] == "3" ? 'selected' : ''; ?> value="3">Editado</option>
+                        <option <?php echo $art['estado_id'] == "4" ? 'selected' : ''; ?> value="4">Eliminado</option>
                     </optgroup>
                 </select>
                 <button type="submit" class="btn bg-black" id="crear-articulo">Guardar</button>

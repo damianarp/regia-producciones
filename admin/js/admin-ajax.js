@@ -245,7 +245,7 @@ $(document).ready(function() {
               if(resultado.respuesta == 'exito') {
                 Swal.fire({
                   title: 'Correcto',
-                  text: 'El usuario se ha guardado correctamente', // o podemos poner el mensaje que viene de la respuesta
+                  text: 'El articulo se ha creado correctamente', // o podemos poner el mensaje que viene de la respuesta
                   type: 'success',
                   confirmButtonColor: '#eeae00',
                   allowOutsideClick: false,
@@ -253,7 +253,7 @@ $(document).ready(function() {
               } else {
                 Swal.fire({
                   title: 'Ups',
-                  text: 'El nombre de usuario ya está registrado, intenta con otro!', // esto es un IF corto!!!! el signo de pregunta denotaria el SI, y los dos punto el SINO
+                  text: 'El articulo no pudo crearse!', // esto es un IF corto!!!! el signo de pregunta denotaria el SI, y los dos punto el SINO
                   type: 'warning',
                   confirmButtonColor: '#eeae00',
                   allowOutsideClick: false,
@@ -262,6 +262,58 @@ $(document).ready(function() {
           }
       })
     });
+
+    // Eliminar articulo
+    $('.borrar_articulo').on('click', function (e) {
+      e.preventDefault();
+
+      var id = $(this).attr('data-id');
+      var tipo = $(this).attr('data-tipo');
+
+      Swal.fire({
+          title: 'Estás segur@ de borrarlo?',
+          text: "Esta acción no se puede revertir!",
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#eeae00',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Si, borralo!',
+          cancelButtonText: 'Cancelar'
+      }).then((result) => {
+          if(result.value) {
+              $.ajax({
+                  type: 'post',
+                  data: {
+                      'id': id,
+                      'articulos': 'eliminar'
+                  },
+                  url: 'modelo-' + tipo + '.php',
+                  success: function (data) {
+                      var resultado = JSON.parse(data);
+                      if (resultado.respuesta == 'exito') {
+  
+                              Swal.fire({
+                                title: 'Borrado!',
+                                text: 'El artículo ha sido eliminado',
+                                type: 'success'
+                              });
+                              jQuery('[data-id="' + resultado.id_eliminado + '"]').parents('tr').remove();
+                      
+                      } else if (result.dismiss === 'cancel') {
+                          Swal.fire({
+                              title: 'Ups',
+                              text: 'El artículo no pudo eliminarse', // esto es un IF corto!!!! el signo de pregunta denotaria el SI, y los dos punto el SINO
+                              type: 'error',
+                              confirmButtonColor: '#eeae00',
+                              allowOutsideClick: false,
+                            });
+                      }
+                      
+                  }
+              })
+          }
+      });
+  });
 
     /////////////////////// CATEGORIAS //////////////////////
     // Creación de variables para CATEGORIAS

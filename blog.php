@@ -4,12 +4,12 @@
     include_once 'includes/funciones/funciones.php'; 
     include_once 'includes/templates/header.php'; 
 
-    // if(!$_GET) {
-    //     header('Location:blog.php?pagina=1');
-    // }
-    // if($_GET['pagina'] > $paginas || $_GET['pagina'] <= 0) {
-    //     header('Location:blog.php?pagina=1');
-		// }
+    if(!$_GET) {
+        header('Location:blog.php?pagina=1');
+    }
+    if($_GET['pagina'] > $paginas || $_GET['pagina'] <= 0) {
+        header('Location:blog.php?pagina=1');
+		}
 
 		// a mi me faltaba esto
 		// $objeto = new Conexion();
@@ -93,29 +93,32 @@
 
 
                    
-                   <?php foreach($resultado_articulos as $art): ?>
-                        <!-- Articulo 1 -->
-                        <article class="post-content" data-aos="zoom-in" data-aos-delay="200">
-                            <div class="post-image">
-                                <div>
+                   <?php 
+                   if( $art['estado_id'] != '4') :
+                        foreach($resultado_articulos as $art): ?>
+                                <!-- Articulo 1 -->
+                                <article class="post-content" data-aos="zoom-in" data-aos-delay="200">
+                                    <div class="post-image">
+                                        <div>
+                                            
+                                        <img src="img/articulos/<?php echo $art['img_art']; ?>" width="100%">
                                     
-                                <img src="admin/admin/img/articulos/<?php echo $art['img_art1']; ?>" width="100%">
-                              
-                                </div>
-                                <div class="post-info flex-row">
-                                    <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;<?php echo $art['nombre']; ?></span>
-                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;<?php echo $art['fecha_creacion']; ?></span>
-                                </div>
-                            </div>
-                            <div class="post-title">
-                                <a href="#"><?php echo $art['titulo_art']; ?></a>
-                                <p><?php echo $art['descripcion_art']; ?></p>
-                                <button class="btn post-btn">Leer más &nbsp; <i class="fas fa-arrow-right"></i></button>
-                            </div>
-                        </article>
-                        <!-- /Articulo 1 -->
-                        <hr>
-                   <?php endforeach; ?>
+                                        </div>
+                                        <div class="post-info flex-row">
+                                            <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;<?php echo $art['nombre']; ?></span>
+                                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;<?php echo $art['fecha_creacion']; ?></span>
+                                        </div>
+                                    </div>
+                                    <div class="post-title">
+                                        <a href="#"><?php echo $art['titulo_art']; ?></a>
+                                        <p><?php echo $art['descripcion_art']; ?></p>
+                                        <button class="btn post-btn">Leer más &nbsp; <i class="fas fa-arrow-right"></i></button>
+                                    </div>
+                                </article>
+                                <!-- /Articulo 1 -->
+                                <hr>
+                        <?php endforeach; 
+                    endif;?>
                 </div>
                 <!-- /Sección articulos del blog --> 
                 <nav aria-label="Page navigation example">

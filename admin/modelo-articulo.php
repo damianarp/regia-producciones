@@ -16,7 +16,7 @@ if (isset($_POST['articulos']) && $_POST['articulos']) {
     $id_registro = $_POST['id_articulo'];
     $fecha = date('y-m-d');
 
-    // Agregar Aarticulo a la BB
+    // Agregar Articulo a la BB
     if ($_POST['articulos'] == 'nuevo') {
 
         // $respuesta = array (
@@ -25,7 +25,7 @@ if (isset($_POST['articulos']) && $_POST['articulos']) {
         // );
         // die(json_encode($respuesta));
         
-        $directorio = "admin/img/articulos/";
+        $directorio = "../img/articulos/";
         if(!is_dir($directorio)) {
             mkdir($directorio, 0755, true);
         }
@@ -67,7 +67,7 @@ if (isset($_POST['articulos']) && $_POST['articulos']) {
         die(json_encode($respuesta));
     }
 
-    // Agregar Aarticulo a la BB
+    // Modificar Articulo a la BD
     if ($_POST['articulos'] == 'actualizar') {
 
         // $respuesta = array (
@@ -121,12 +121,12 @@ if (isset($_POST['articulos']) && $_POST['articulos']) {
         die(json_encode($respuesta));
     }
 
-    // Agregar Aarticulo a la BB
+    // Eliminar Articulo a la BD
     if ($_POST['articulos'] == 'eliminar') {
 
         try {
-            $stmt = $conn->prepare("UPDATE articulos SET estado_id = ?, fecha_edicion = ?, edicion_admin_id = ? WHERE id_art = ?");
-            $stmt->bind_param("isii", $estado, $fecha, $admin_id, $id_registro);
+            $stmt = $conn->prepare("UPDATE articulos SET estado_id = 4, fecha_edicion = NOW(), edicion_admin_id = ? WHERE id_art = ?");
+            $stmt->bind_param("ii", $admin_id, $id_registro);
             $stmt->execute();
             
             if($id_registro > 0) {
