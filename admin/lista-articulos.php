@@ -35,7 +35,7 @@
                   <th class="mobile">Categoría</th>
                   <th class="mobile">Autor</th>
                   <th class="mobile">Fecha de Creación</th>
-                <th class="mobile">Estado</th>
+                  <th class="mobile">Estado</th>
                   <th class="mobile">Fecha de Edición</th>
                   <th class="mobile">Editado por:</th>
                   <th>Acciones</th>
