@@ -7,7 +7,7 @@
 
                 <!-- Acerca de Nosotros -->
                 <div>
-                    <h2>Acerca de Nosotros</h2>
+                    <h2 class="nosotros">Acerca de Nosotros</h2>
                     <p><span>Regia Producciones</span> nació en un ámbito universitario donde un grupo de estudiantes
                         comenzaron a plasmar su forma de ver al mundo con ojos cinéfilos y a valoralizarlo desde un punto de vista estético con el cuál empezaron a sentirse identificados.</p>
                     <p>Fue así que fueron surgiendo distintas producciones audiovisuales a lo largo del tiempo, en donde se
@@ -43,7 +43,7 @@
                 <!-- Fotos de Staff -->
                 <div class="box-nosotros">
                     <div class="about-us">
-                        <div class="nosotros-img"><img src="img/aretha-foto.png" alt="">
+                        <div class="nosotros-img"><img src="img/aretha-cv.png" alt="">
                         </div>
                         <div class="nosotros-text">
                             <h3>Aretha Resenido</h3>
@@ -51,7 +51,7 @@
                         </div>
                     </div>
                     <div class="about-us">
-                        <div class="nosotros-img"><img src="img/damian-foto.png" alt="">
+                        <div class="nosotros-img"><img src="img/damian-cv.png" alt="">
                         </div>
                         <div class="nosotros-text">
                             <h3>Damián Arp</h3>

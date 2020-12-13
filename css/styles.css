@@ -534,7 +534,6 @@ p {
 
 .img-header .welcome>a:hover {
     background: var(--blue);
-    border: 2px solid var(--blue);
     color: var(--black);
 }
 /* Ultimas novedades */
@@ -556,6 +555,7 @@ p {
     text-align: center;
     margin-bottom: 30px;
     margin-top: 30px;
+    font-weight: 800;
 }
 .contenedor .info-container .novedades p {
     text-align: center;
@@ -610,8 +610,8 @@ p {
     color: var(--black);
 }
 
-.contenedor .info-container h2 {
-    font-size: 30px !important;
+.contenedor .info-container h2#novedades {
+    font-size: 50px;
     color: var(--black);
     text-align: center;
     margin-bottom: 30px;
@@ -751,10 +751,9 @@ p {
 .our-projects {
     position: relative;
     height: auto;
-    background: url(../img/img-2.jpg);
+    background: rgb(200,136,21);
+    background: linear-gradient(148deg, rgba(200,136,21,1) 0%, rgba(238,174,0,1) 35%, rgba(238,174,0,0.4332107843137255) 100%);
     background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     background-attachment: fixed;
     margin-top: 100px;
 }
@@ -836,16 +835,25 @@ p {
 }
 
 .our-projects .container-project .project-title {
-    border: 2px solid #fff;
+    border: 0px solid #fff;
     padding: 10px;
     text-align: center;
     width: 50%;
     margin: auto;
 }
-
+.our-projects .container-project .project-title h2 hr {
+    display: inline-block;
+    width: 20%;
+    border: 1px solid var(--black);
+    height: 2px;
+    background: var(--black);
+    margin: 1em 0;
+    padding: 0;
+    vertical-align: middle;
+}
 .our-projects .container-project .project-title h2 {
-    font-size: 40px;
-    color: #fff;
+    font-size: 50px;
+    color: var(--black);
 }
 
 .our-projects .container-project .project-img {
@@ -891,7 +899,7 @@ p {
 
 /* Testimonios */
 
-.testimonios {
+/* .testimonios {
     width: 100%;
     margin-top: 120px;
 }
@@ -935,9 +943,9 @@ p {
     align-items: center;
 }
 
-.testimonios .box-testimonios .card-testimonio .card-img img {
+.testimonios .box-testimonios .card-testimonio .card-img img { */
     /* Tamaño de imagenes y borde redondeado */
-    width: 150px;
+    /* width: 150px;
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
@@ -945,9 +953,9 @@ p {
     margin-bottom: 30px;
     transition: 200ms;
 
-}
+} */
 
-.testimonios .box-testimonios .card-testimonio .card-img img:hover {
+/* .testimonios .box-testimonios .card-testimonio .card-img img:hover {
     width: 170px;
     height: 170px;
     margin-bottom: 10px;
@@ -985,7 +993,7 @@ p {
 
 .testimonios .box-testimonios .card-testimonio .testimonio-text:hover h3 {
     color: var(--blue);
-}
+} */
 
 /* Newsletter */
 .newsletter {
@@ -1071,6 +1079,10 @@ p {
 .contenedor .service-container p span {
     font-weight: 700;
 }
+.contenedor .service-container .servicio {
+    width: 80%;
+    margin: auto;
+}
 
 .contenedor .service-container h2 {
     font-size: 50px;
@@ -1135,7 +1147,7 @@ p {
 }
 
 .contenedor-img .formulario-title {
-    width: 70%;
+    width: 60%;
     margin: auto;
     border: 2px solid #fff;
     align-content: center;
@@ -1165,6 +1177,7 @@ p {
 
 .contenedor .info-container .contenedor-img .formulario-content #formulario label {
     text-align: center;
+    font-weight: 500!important;
     color: var(--black);
     font-size: 22px;
     margin: 30px 0px 10px 0px;
@@ -1227,6 +1240,7 @@ p {
 .contenedor .info-container .contenedor-img .formulario-content #formulario input.send:hover {
     background: var(--blue);
     border: 2px solid var(--blue);
+    color: var(--black);
 }
 
 .contenedor .info-container .contenedor-img .formulario-content #formulario .mensaje-form {
@@ -1372,7 +1386,7 @@ p {
 .galeria-proyectos .galeria-item>a {
 
     overflow: hidden;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+    
 }
 
 .galeria-proyectos .galeria-item a:hover img {
@@ -2365,8 +2379,9 @@ text-shadow: 1px 1px 2px black;
         padding-bottom: 50px;
     }
 
-    .contenedor .info-container h2 {
+    .contenedor .info-container h2.nosotros {
         font-size: 25px !important;
+        padding: 30px;
     }
 
     .contenedor .info-container .gallery {
@@ -2374,6 +2389,7 @@ text-shadow: 1px 1px 2px black;
         align-items: center;
         width: 90%;
         margin: auto;
+        padding-top: 20px;
     }
 
     .box-nosotros .about-us {
@@ -2449,7 +2465,7 @@ text-shadow: 1px 1px 2px black;
     }
 
     /************ Testimonios ***********/
-    .testimonios {
+    /* .testimonios {
         margin-top: 80px;
     }
 
@@ -2480,7 +2496,7 @@ text-shadow: 1px 1px 2px black;
         line-height: 20px;
         transition: 200ms;
         font-style: italic;
-    }
+    } */
 
     /*************** Newsletter **************/
     .newsletter {
@@ -2542,6 +2558,10 @@ text-shadow: 1px 1px 2px black;
         padding-bottom: 130px;
         padding-top: 30px;
     }
+    .contenedor .service-container .servicio {
+        width: 100%;
+        
+    }
 
     .contenedor .service-container h2 {
         font-size: 25px !important;
@@ -2576,7 +2596,7 @@ text-shadow: 1px 1px 2px black;
     }
 
     .contenedor-img .formulario-title h2 {
-        font-size: 35px;
+        font-size: 25px;
     }
 
     .contenedor .info-container .contenedor-img {
@@ -2836,6 +2856,14 @@ text-shadow: 1px 1px 2px black;
     .site-footer .footer-container .redes-sociales {
         width: 100%;
         padding: 0px 50px;
+    }
+    .our-projects .ejeZproject .container-project .project-title h2 {
+        width: 100%;
+    }
+    .our-projects .ejeZproject .container-project .project-title h2 hr {
+        width: 5%;
+        border: 1px solid var(--black);
+        height: 1px;
     }
 }
 

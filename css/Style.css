@@ -279,11 +279,15 @@ main .site-content .post-content > .post-image, .post-title{
 }
 
 main .site-content .post-content > .post-image .post-info{
-    background: var(--sky);
     padding: 1rem;
     position: absolute;
     bottom: 0%;
     border-radius: 3rem;
+}
+@media only screen and (max-width:800px) {
+    main .site-content .post-content > .post-image .post-info { 
+        padding: 5px;
+    }
 }
 
 main .site-content .post-content > .post-image > div{
