@@ -76,6 +76,16 @@
             <?php endif; ?>
           </ul>
         </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-envelope"></i>
+            <span>Mensajes</span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="lista-mensajes.php"><i class="fa fa-list-ul"></i> Ver Todos</a></li>
+          </ul>
+        </li>
         
         
         <li class="treeview">

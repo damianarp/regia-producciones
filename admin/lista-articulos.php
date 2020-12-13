@@ -46,13 +46,13 @@
                 <tbody>
                     <?php
                         try {
-                          $sql = "SELECT articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion, admins2.nombre  
+                          $sql = "SELECT articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion, admins2.usuario  
                           FROM articulos
                           INNER JOIN categorias ON categorias.id_categoria = articulos.categoria_id
                           INNER JOIN admins ON admins.id_admin = articulos.admin_id
                           INNER JOIN estado ON estado.id_estado = articulos.estado_id
                           LEFT JOIN admins as admins2 ON admins2.id_admin = articulos.edicion_admin_id
-                          GROUP BY articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion, admins2.nombre
+                          GROUP BY articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion, admins2.usuario
                           ORDER BY articulos.id_art DESC";
                           $resultado = $conn->query($sql);
                         } catch (Exception $e) {
@@ -72,7 +72,7 @@
                             <td class="mobile"><?php echo $art['fecha_creacion']; ?></td>
                             <td class="mobile"><?php echo $art['nombre_estado']; ?></td>
                             <td class="mobile"><?php echo $art['fecha_edicion']; ?></td>
-                            <td class="mobile"><?php echo $art['nombre']; ?></td>
+                            <td class="mobile"><?php echo $art['usuario']; ?></td>
                             <?php if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 2 || $_SESSION['nivel'] == 3) : ?>
                             <td>
                               <a href="editar-articulo.php?id=<?php echo $art['id_art']; ?>" class="btn bg-orange btn-flat margin">

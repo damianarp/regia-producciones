@@ -33,7 +33,7 @@
                         // OJO!!!! Son todos los articulos con estado publicado!!!!!
                         ////////////////////////////////////////////////////////////////////////
 
-                        $sql = "SELECT articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion  
+                        $sql = "SELECT articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion, admins2.usuario  
                         FROM articulos
                         INNER JOIN categorias ON categorias.id_categoria = articulos.categoria_id
                         INNER JOIN admins ON admins.id_admin = articulos.admin_id
@@ -71,7 +71,7 @@
                         $iniciar = ($pagina_actual - 1)*$articulos_x_pagina;
                         // echo $iniciar;
 
-                        $sql_articulos = "SELECT articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion  
+                        $sql_articulos = "SELECT articulos.id_art, articulos.titulo_art, articulos.descripcion_art, articulos.contenido_art, articulos.img_art, categorias.nombre_cat, admins.nombre, articulos.fecha_creacion, estado.nombre_estado, articulos.fecha_edicion, admins2.usuario  
                         FROM articulos
                         INNER JOIN categorias ON categorias.id_categoria = articulos.categoria_id
                         INNER JOIN admins ON admins.id_admin = articulos.admin_id

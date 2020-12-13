@@ -19,7 +19,7 @@
 
 <main>
     <!-- ---------------------- Site Content -------------------------->
-    <section class="contenedor" id="articulo">
+    <section class="contenedor" id="blog">
         <div class="site-content">
             <!-- Paginación -->
             <div class="my-5">
