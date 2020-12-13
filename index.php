@@ -24,7 +24,7 @@
                 <img src="img/Logo-Regia-blanco.png" alt="">
                 <hr>
                 <h2>Agencia de Contenidos Audiovisuales y Servicios Digitales</h2>
-                <a href="#novedades" id="abajo">Ver abajo</a>
+                <a id="abajo">Ver abajo</a>
             </div>
             <!-- /Bienvenida -->
         </div>

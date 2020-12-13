@@ -84,7 +84,6 @@
             <div class="boton">
                 <input type="hidden" name="id_articulo" value="<?php echo $id; ?>">
                 <input type="hidden" name="articulos" value="actualizar">
-                <input type="hidden" name="articulos" value="eliminar">
                 
                 <select name="estado" id="estado">
                     <optgroup label="Estado">

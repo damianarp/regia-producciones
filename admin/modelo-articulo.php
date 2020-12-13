@@ -69,7 +69,9 @@ if (isset($_POST['articulos']) && $_POST['articulos']) {
 
     // Modificar Articulo a la BD
     if ($_POST['articulos'] == 'actualizar') {
-
+        // die(json_encode("UPDATE articulos 
+        // SET titulo_art = '".$titulo."', descripcion_art = '".$descripcion."', contenido_art = '".$contenido."', img_art = '".$imagen_url."', categoria_id = '".$categoria."', estado_id = '".$estado."' , fecha_edicion = '".$fecha."', edicion_admin_id = '".$admin_id."' 
+        // WHERE id_art = '".$id_registro."'"));
         $directorio = "../img/articulos/";
         if(!is_dir($directorio)) {
             mkdir($directorio, 0755, true);
@@ -114,6 +116,7 @@ if (isset($_POST['articulos']) && $_POST['articulos']) {
     }
 
     // Eliminar Articulo a la BD
+    
     if ($_POST['articulos'] == 'eliminar') {
 
         try {

@@ -59,13 +59,7 @@
             });
         });
 
-        /////////////////// Ir Abajo ///////////////////////
         
-            // $('a[href^="#novedades"]').click(function() {
-            //   var destino = $(this.hash); //this.hash lee el atributo href de este
-            //   $('html, body').animate({ scrollTop: destino.offset().top }, 200); //Llega a su destino con el tiempo deseado
-            //   return false;
-            // });
          
 
         ///////////////// AOS Instance /////////////////////
@@ -89,6 +83,17 @@
                 goTop.style.right = "0px";
             }
         };
+
+        goTop.addEventListener('click', () => {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        });
+        
+        let verAbajo = document.querySelector('#abajo');
+        verAbajo.addEventListener('click', () => {
+            document.body.scrollTop = 1200;
+            document.documentElement.scrollTop = 1200;
+        });
 
 
         //////////////// Scroll Para iOS /////////////

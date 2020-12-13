@@ -81,7 +81,7 @@
 
     <!-- Ir arriba -->
     <div class="ir-arriba">
-        <a href="#header"><span><i class="fas fa-angle-up"></i></span></a>
+        <span><i class="fas fa-angle-up"></i></span>
     </div>
     <!-- /Ir arriba -->
 

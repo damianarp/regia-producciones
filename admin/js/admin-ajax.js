@@ -284,7 +284,7 @@ $(document).ready(function() {
               $.ajax({
                   type: 'post',
                   data: {
-                      'id': id,
+                      'id_articulo': id,
                       'articulos': 'eliminar'
                   },
                   url: 'modelo-' + tipo + '.php',
@@ -297,7 +297,9 @@ $(document).ready(function() {
                                 text: 'El artículo ha sido eliminado',
                                 type: 'success'
                               });
-                              jQuery('[data-id="' + resultado.id_eliminado + '"]').parents('tr').remove();
+                        setTimeout(() => {
+                          window.location.reload();
+                        }, 300);
                       
                       } else if (result.dismiss === 'cancel') {
                           Swal.fire({
