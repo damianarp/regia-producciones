@@ -59,7 +59,7 @@
                                 <div class="box-footer">
                                     <input type="hidden" name="suscripcion" value="actualizar">
                                     <input type="hidden" name="id_susc" value="<?php echo $id; ?>">
-                                    <button type="submit" class="btn btn-primary" id="guardar-suscripcion">Guardar</button>
+                                    <button type="submit" class="btn btn-primary" id="modificar-suscripcion">Guardar</button>
                                 </div>
                             </form>
                             <!-- /Formulario Editar Admin -->

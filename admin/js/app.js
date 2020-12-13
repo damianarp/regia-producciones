@@ -88,6 +88,19 @@ $(document).ready(function () {
         } else {
             $('#guardar-suscripcion').attr('disabled', false);
         }
+        
+    });
+    $('#exampleInputName2, #exampleInputEmail2').on('input', function() {
+        var nombreSuscriptor = $('#exampleInputName2').val();
+        var correoSuscriptor = $('#exampleInputEmail2').val();
+        const correoValido = validarExpresionCor();
+
+        if(nombreSuscriptor == '' || correoSuscriptor == '' || !correoValido) {
+            $('#modificar-suscripcion').attr('disabled', true);
+        } else {
+            $('#modificar-suscripcion').attr('disabled', false);
+        }
+        
     });
 
 
